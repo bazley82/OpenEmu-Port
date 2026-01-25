@@ -453,39 +453,27 @@ class AppDelegate: NSObject {
     }
     
     fileprivate func showInputMonitoringPermissionsAlert() {
-        let suppressionKey = "InputMonitoringSuppressed"
-        if UserDefaults.standard.bool(forKey: suppressionKey) {
-            return
-        }
-
         #if DEBUG
         if UserDefaults.standard.bool(forKey: "pleaseDoNotAnnoyMeWithThePermissionsAlertEveryTimeIRunThisAppFromXcode") {
             return
         }
         #endif
-
         let alert = OEAlert()
-        alert.messageText = NSLocalizedString("ALERT_INPUT_MONITORING_HEADLINE", value: "OpenEmu requires additional permissions", comment:"Headline for Input Monitoring permissions")
-
-        let part1 = NSLocalizedString("ALERT_INPUT_MONITORING_PART1", value: "OpenEmu requires the Input Monitoring permission to reliably detect input from your game controllers and keyboard, even when the application is in the background.", comment:"Message for Input Monitoring permissions")
-        let part2: String
+        alert.messageText = NSLocalizedString("ALERT_INPUT_MONITORING_HEADLINE", comment:"Headline for Input Monitoring permissions")
+        var informativeText = NSLocalizedString("ALERT_INPUT_MONITORING_PART1", comment:"Message for Input Monitoring permissions")
+        informativeText += "\n\n"
         if #available(macOS 12.0, *) {
-            part2 = NSLocalizedString("ALERT_INPUT_MONITORING_PART2_MONTEREY", value: "To grant this permission, open System Settings, go to Privacy & Security > Input Monitoring, and ensure OpenEmu is enabled in the list.", comment:"Message for Input Monitoring permissions")
+            informativeText += NSLocalizedString("ALERT_INPUT_MONITORING_PART2_MONTEREY", comment:"Message for Input Monitoring permissions")
         } else {
-            part2 = NSLocalizedString("ALERT_INPUT_MONITORING_PART2", value: "To grant this permission, open System Preferences, go to Security & Privacy > Privacy > Input Monitoring, and ensure OpenEmu is enabled in the list.", comment:"Message for Input Monitoring permissions")
+            informativeText += NSLocalizedString("ALERT_INPUT_MONITORING_PART2", comment:"Message for Input Monitoring permissions")
         }
-
-        alert.informativeText = "\(part1)\n\n\(part2)"
-        alert.defaultButtonTitle = NSLocalizedString("Open System Settings", value: "Open System Settings", comment:"")
-        alert.alternateButtonTitle = NSLocalizedString("Ignore", value: "Ignore", comment: "")
-
-        alert.showSuppressionButton(forUDKey: suppressionKey)
-        alert.suppressOnDefaultReturnOnly = false
+        alert.informativeText = informativeText
+        alert.defaultButtonTitle = NSLocalizedString("Open System Preferences", comment:"")
+        alert.alternateButtonTitle = NSLocalizedString("Ignore", comment: "")
 
         let res = alert.runModal()
         if res == .alertFirstButtonReturn {
-            let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ListenEvent")!
-            NSWorkspace.shared.open(url)
+            NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ListenEvent")!)
         }
     }
     
