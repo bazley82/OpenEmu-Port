@@ -1,0 +1,882 @@
+# documented: https://github.com/apple/llvm-project/blob/apple/master/clang/lib/APINotes/APINotesYAMLCompiler.cpp
+
+---
+Name: CSPIRVCross
+SwiftInferImportAsMember: true
+Availability: available
+
+Typedefs:
+
+  - Name: spvc_context
+    SwiftName: __SPVContext
+    SwiftWrapper: struct
+    SwiftPrivate: true
+  - Name: spvc_parsed_ir
+    SwiftName: SPVParsedIR
+    SwiftWrapper: struct
+  - Name: spvc_compiler
+    SwiftName: SPVCompiler
+    SwiftWrapper: struct
+  - Name: spvc_compiler_options
+    SwiftName: SPVCompilerOptions
+    SwiftWrapper: struct
+  - Name: spvc_resources
+    SwiftName: SPVResources
+    SwiftWrapper: struct
+
+  - Name: spvc_type
+    SwiftName: __SPVType
+    SwiftWrapper: struct
+
+  - Name: spvc_type_id
+    SwiftName: SPVTypeID
+  - Name: spvc_variable_id
+    SwiftName: SPVVariableID
+  - Name: spvc_constant_id
+    SwiftName: SPVConstantID
+
+  - Name: spvc_bool
+    SwiftPrivate: true
+
+
+Functions:
+
+  #
+  # global
+  #
+  - Name: spvc_get_version
+    SwiftPrivate: true
+
+  #
+  # spvc_context
+  #
+  - Name: spvc_context_create
+    SwiftPrivate: true
+  - Name: spvc_context_destroy
+    SwiftName: __SPVContext.destroy(self:)
+  - Name: spvc_context_get_last_error_string
+    SwiftName: getter:__SPVContext.lastError(self:)
+    NullabilityOfRet: N
+  - Name: spvc_context_parse_spirv
+    SwiftName: __SPVContext.parse(self:data:)
+  - Name: spvc_context_create_compiler
+    SwiftName: __SPVContext.create_compiler(self:backend:ir:captureMode:compiler:)
+
+
+  #
+  # spvc_compiler
+  #
+  - Name: spvc_compiler_get_current_id_bound
+    SwiftName: getter:SPVCompiler.currentIdBound(self:)
+  - Name: spvc_compiler_create_compiler_options
+    SwiftName: SPVCompiler.create_compiler_options(self:_:)
+  - Name: spvc_compiler_create_shader_resources
+    SwiftName: SPVCompiler.create_shader_resources(self:_:)
+  - Name: spvc_compiler_install_compiler_options
+    SwiftName: SPVCompiler.install_compiler_options(self:options:)
+  - Name: spvc_compiler_compile
+    SwiftName: SPVCompiler.compile(self:_:)
+  - Name: spvc_compiler_get_type_handle
+    SwiftName: SPVCompiler.get_type_handle(self:)
+    NullabilityOfRet: O
+
+  # Buffer layout query.
+  - Name: spvc_compiler_get_declared_struct_size
+    SwiftName: SPVCompiler.get_declared_struct_size(self:type:size:)
+  - Name: spvc_compiler_get_declared_struct_member_size
+    SwiftName: SPVCompiler.get_declared_struct_member_size(self:type:index:size:)
+  - Name: spvc_compiler_type_struct_member_offset
+    SwiftName: SPVCompiler.type_struct_member_offset(self:type:index:offset:)
+  - Name: spvc_compiler_type_struct_member_array_stride
+    SwiftName: SPVCompiler.type_struct_member_array_stride(self:type:index:stride:)
+  - Name: spvc_compiler_type_struct_member_matrix_stride
+    SwiftName: SPVCompiler.type_struct_member_matrix_stride(self:type:index:stride:)
+
+  # Buffer Ranges
+  - Name: spvc_compiler_get_active_buffer_ranges
+    SwiftName: SPVCompiler.get_active_buffer_ranges(self:id:list:size:)
+
+  # Decorations
+  - Name: spvc_compiler_has_decoration
+    SwiftName: SPVCompiler.has_decoration(self:id:decoration:)
+    ResultType: _Bool
+  - Name: spvc_compiler_get_decoration
+    SwiftName: SPVCompiler.get_decoration(self:id:decoration:)
+  - Name: spvc_compiler_get_decoration_string
+    SwiftName: SPVCompiler.get_decoration_string(self:id:decoration:)
+  - Name: spvc_compiler_set_decoration_string
+    SwiftName: SPVCompiler.set_decoration_string(self:id:decoration:value:)
+  - Name: spvc_compiler_set_decoration
+    SwiftName: SPVCompiler.set_decoration(self:id:decoration:value:)
+  - Name: spvc_compiler_unset_decoration
+    SwiftName: SPVCompiler.unset_decoration(self:id:decoration:)
+  - Name: spvc_compiler_get_name
+    SwiftName: SPVCompiler.get_name(self:id:)
+    NullabilityOfRet: N
+
+  # Entry points
+  - Name: spvc_compiler_get_entry_points
+    SwiftName: SPVCompiler.get_entry_points(self:list:size:)
+  - Name: spvc_compiler_get_execution_model
+    SwiftName: SPVCompiler.get_execution_mode(self:)
+
+  # Member APIs
+  - Name: spvc_compiler_has_member_decoration
+    SwiftName: SPVCompiler.has_member_decoration(self:id:index:decoration:)
+    ResultType: _Bool
+  - Name: spvc_compiler_get_member_decoration
+    SwiftName: SPVCompiler.get_member_decoration(self:id:index:decoration:)
+  - Name: spvc_compiler_get_member_decoration_string
+    SwiftName: SPVCompiler.get_member_decoration_string(self:id:index:decoration:)
+  - Name: spvc_compiler_set_member_decoration_string
+    SwiftName: SPVCompiler.set_member_decoration_string(self:id:index:decoration:value:)
+  - Name: spvc_compiler_set_member_decoration
+    SwiftName: SPVCompiler.set_member_decoration(self:id:index:decoration:value:)
+  - Name: spvc_compiler_unset_member_decoration
+    SwiftName: SPVCompiler.unset_member_decoration(self:id:index:decoration:)
+  - Name: spvc_compiler_get_member_name
+    SwiftName: SPVCompiler.get_member_name(self:id:index:)
+    NullabilityOfRet: N
+
+  # Metal Shader Language
+  - Name: spvc_compiler_msl_is_rasterization_disabled
+    SwiftName: getter:SPVCompiler.isMslRasterizationDisabled(self:)
+    ResultType: _Bool
+  - Name: spvc_compiler_msl_needs_swizzle_buffer
+    SwiftName: getter:SPVCompiler.mslNeedsSwizzleBuffer(self:)
+    ResultType: _Bool
+  - Name: spvc_compiler_msl_needs_buffer_size_buffer
+    SwiftName: getter:SPVCompiler.mslNeedsBufferSizeBuffer(self:)
+    ResultType: _Bool
+  - Name: spvc_compiler_msl_needs_output_buffer
+    SwiftName: getter:SPVCompiler.mslNeedsOutputBuffer(self:)
+    ResultType: _Bool
+  - Name: spvc_compiler_msl_needs_patch_output_buffer
+    SwiftName: getter:SPVCompiler.mslNeedsPatchOutputBuffer(self:)
+    ResultType: _Bool
+  - Name: spvc_compiler_msl_needs_input_threadgroup_mem
+    SwiftName: getter:SPVCompiler.mslNeedsInputThreadgroupMem(self:)
+    ResultType: _Bool
+  - Name: spvc_compiler_msl_add_vertex_attribute
+    SwiftName: SPVCompiler.mslAddVertexAttribute(self:_:)
+  - Name: spvc_compiler_msl_add_resource_binding
+    SwiftName: SPVCompiler.mslAddResourceBinding(self:_:)
+  - Name: spvc_compiler_msl_get_automatic_resource_binding
+    SwiftName: SPVCompiler.mslGetAutomaticResourceBinding(self:_:)
+  - Name: spvc_compiler_msl_get_automatic_resource_binding_secondary
+    SwiftName: SPVCompiler.mslGetSecondaryAutomaticResourceBinding(self:_:)
+
+  #
+  # spvc_compiler_options
+  #
+
+  - Name: spvc_compiler_options_set_bool
+    SwiftName: SPVCompilerOptions.set_bool(self:option:with:)
+  - Name: spvc_compiler_options_set_uint
+    SwiftName: SPVCompilerOptions.set_uint(self:option:with:)
+
+  #
+  # spvc_resources
+  #
+  - Name: spvc_resources_get_resource_list_for_type
+    SwiftName: SPVResources.get_resource_list_for_type(self:type:list:size:)
+
+  # region spvc_type
+  #
+  - Name: spvc_type_get_base_type_id
+    SwiftName: getter:__SPVType.base_type_id(self:)
+    NullabilityOfRet: N
+  - Name: spvc_type_get_basetype
+    SwiftName: getter:__SPVType.basetype(self:)
+  - Name: spvc_type_get_bit_width
+    SwiftName: getter:__SPVType.bit_width(self:)
+  - Name: spvc_type_get_vector_size
+    SwiftName: getter:__SPVType.vector_size(self:)
+  - Name: spvc_type_get_columns
+    SwiftName: getter:__SPVType.columns(self:)
+  - Name: spvc_type_get_num_array_dimensions
+    SwiftName: getter:__SPVType.num_array_dimensions(self:)
+  - Name: spvc_type_array_dimension_is_literal
+    SwiftName: __SPVType.array_dimension_is_literal(self:dimension:)
+    ResultType: _Bool
+  - Name: spvc_type_get_array_dimension
+    SwiftName: __SPVType.get_array_dimension(self:dimension:)
+  - Name: spvc_type_get_num_member_types
+    SwiftName: getter:__SPVType.num_member_types(self:)
+  - Name: spvc_type_get_member_type
+    SwiftName: __SPVType.get_member_type(self:index:)
+  - Name: spvc_type_get_storage_class
+    SwiftName: getter:__SPVType.storage_class(self:)
+
+  # Image query
+  - Name: spvc_type_get_image_sampled_type
+    SwiftName: getter:__SPVType.image_sampled_type(self:)
+  - Name: spvc_type_get_image_dimension
+    SwiftName: getter:__SPVType.image_dimension(self:)
+  - Name: spvc_type_get_image_is_depth
+    SwiftName: getter:__SPVType.image_is_depth(self:)
+    ResultType: _Bool
+  - Name: spvc_type_get_image_arrayed
+    SwiftName: getter:__SPVType.image_arrayed(self:)
+    ResultType: _Bool
+  - Name: spvc_type_get_image_multisampled
+    SwiftName: getter:__SPVType.image_multisampled(self:)
+    ResultType: _Bool
+  - Name: spvc_type_get_image_is_storage
+    SwiftName: getter:__SPVType.image_is_storage(self:)
+    ResultType: _Bool
+  - Name: spvc_type_get_image_storage_format
+    SwiftName: getter:__SPVType.image_storage_format(self:)
+  - Name: spvc_type_get_image_access_qualifier
+    SwiftName: getter:__SPVType.image_access_qualifier(self:)
+
+  # endregion
+
+
+Tags:
+  - Name: spvc_capture_mode
+    SwiftName: SPVCaptureMode
+    EnumKind: CFClosedEnum
+  - Name: spvc_result
+    SwiftName: SPVResult
+    EnumKind: CFClosedEnum
+  - Name: spvc_backend
+    SwiftName: SPVBackend
+    EnumKind: NSClosedEnum
+  - Name: spvc_resource_type
+    SwiftName: SPVResourceType
+    EnumKind: CFClosedEnum
+    SwiftPrivate: true
+  - Name: spvc_reflected_resource
+    SwiftPrivate: true
+  - Name: SpvDecoration_
+    SwiftName: SPVDecoration
+    EnumKind: CFClosedEnum
+  - Name: spvc_basetype
+    SwiftName: SPVBaseType
+    EnumKind: CFClosedEnum
+  - Name: SpvStorageClass_
+    SwiftName: SPVStorageClass
+    EnumKind: CFClosedEnum
+  - Name: SpvExecutionModel_
+    SwiftName: SPVExecutionModel
+    EnumKind: CFClosedEnum
+  - Name: spvc_entry_point
+    SwiftPrivate: true
+  - Name: SpvDim_
+    SwiftName: SPVDim
+    EnumKind: CFClosedEnum
+  - Name: SpvImageFormat_
+    SwiftName: SPVImageFormat
+    EnumKind: CFClosedEnum
+  - Name: SpvAccessQualifier_
+    SwiftName: SPVAccessQualifier
+    EnumKind: CFClosedEnum
+
+Enumerators:
+
+  # region spvc_capture_mode
+  #
+  - Name: SPVC_CAPTURE_MODE_COPY
+    SwiftName: copy
+  - Name: SPVC_CAPTURE_MODE_TAKE_OWNERSHIP
+    SwiftName: takeOwnership
+  - Name: SPVC_CAPTURE_MODE_INT_MAX
+    Availability: nonswift
+
+  # endregion spvc_capture_mode
+
+  # region spvc_result
+  #
+  - Name: SPVC_SUCCESS
+    SwiftName: success
+  - Name: SPVC_ERROR_INVALID_SPIRV
+    SwiftName: invalidSpirv
+  - Name: SPVC_ERROR_UNSUPPORTED_SPIRV
+    SwiftName: unsupportedSpirv
+  - Name: SPVC_ERROR_OUT_OF_MEMORY
+    SwiftName: outOfMemory
+  - Name: SPVC_ERROR_INVALID_ARGUMENT
+    SwiftName: invalidArgument
+  - Name: SPVC_ERROR_INT_MAX
+    Availability: nonswift
+
+  # endregion
+
+  # region spvc_backend
+  #
+  - Name: SPVC_BACKEND_NONE
+    SwiftName: none
+  - Name: SPVC_BACKEND_GLSL
+    SwiftName: glsl
+  - Name: SPVC_BACKEND_HLSL
+    SwiftName: hlsl
+  - Name: SPVC_BACKEND_MSL
+    SwiftName: msl
+  - Name: SPVC_BACKEND_CPP
+    SwiftName: cpp
+  - Name: SPVC_BACKEND_JSON
+    SwiftName: json
+  - Name: SPVC_BACKEND_INT_MAX
+    Availability: nonswift
+
+  # endregion
+
+  # region spvc_resource_type
+  #
+  - Name: SPVC_RESOURCE_TYPE_UNKNOWN
+    SwiftName: unknown
+  - Name: SPVC_RESOURCE_TYPE_UNIFORM_BUFFER
+    SwiftName: uniformBuffer
+  - Name: SPVC_RESOURCE_TYPE_STORAGE_BUFFER
+    SwiftName: storageBuffer
+  - Name: SPVC_RESOURCE_TYPE_STAGE_INPUT
+    SwiftName: stageInput
+  - Name: SPVC_RESOURCE_TYPE_STAGE_OUTPUT
+    SwiftName: stageOutput
+  - Name: SPVC_RESOURCE_TYPE_SUBPASS_INPUT
+    SwiftName: subpassInput
+  - Name: SPVC_RESOURCE_TYPE_STORAGE_IMAGE
+    SwiftName: storageImage
+  - Name: SPVC_RESOURCE_TYPE_SAMPLED_IMAGE
+    SwiftName: sampledImage
+  - Name: SPVC_RESOURCE_TYPE_ATOMIC_COUNTER
+    SwiftName: atomicCounter
+  - Name: SPVC_RESOURCE_TYPE_PUSH_CONSTANT
+    SwiftName: pushConstant
+  - Name: SPVC_RESOURCE_TYPE_SEPARATE_IMAGE
+    SwiftName: separateImage
+  - Name: SPVC_RESOURCE_TYPE_SEPARATE_SAMPLERS
+    SwiftName: separateSamplers
+  - Name: SPVC_RESOURCE_TYPE_ACCELERATION_STRUCTURE
+    SwiftName: accelerationStructure
+  - Name: SPVC_RESOURCE_TYPE_RAY_QUERY
+    SwiftName: rayQuery
+  - Name: SPVC_RESOURCE_TYPE_SHADER_RECORD_BUFFER
+    SwiftName: shaderRecordBuffer
+  - Name: SPVC_RESOURCE_TYPE_INT_MAX
+    Availability: nonswift
+
+  # endregion
+
+  # region SpvDecoration_
+  #
+  - Name: SpvDecorationRelaxedPrecision
+    SwiftName: relaxedPrecision
+  - Name: SpvDecorationSpecId
+    SwiftName: specId
+  - Name: SpvDecorationBlock
+    SwiftName: block
+  - Name: SpvDecorationBufferBlock
+    SwiftName: bufferBlock
+  - Name: SpvDecorationRowMajor
+    SwiftName: rowMajor
+  - Name: SpvDecorationColMajor
+    SwiftName: colMajor
+  - Name: SpvDecorationArrayStride
+    SwiftName: arrayStride
+  - Name: SpvDecorationMatrixStride
+    SwiftName: matrixStride
+  - Name: SpvDecorationGLSLShared
+    SwiftName: glslShared
+  - Name: SpvDecorationGLSLPacked
+    SwiftName: glslPacked
+  - Name: SpvDecorationCPacked
+    SwiftName: cPacked
+  - Name: SpvDecorationBuiltIn
+    SwiftName: builtIn
+  - Name: SpvDecorationNoPerspective
+    SwiftName: noPerspective
+  - Name: SpvDecorationFlat
+    SwiftName: flat
+  - Name: SpvDecorationPatch
+    SwiftName: patch
+  - Name: SpvDecorationCentroid
+    SwiftName: centroid
+  - Name: SpvDecorationSample
+    SwiftName: sample
+  - Name: SpvDecorationInvariant
+    SwiftName: invariant
+  - Name: SpvDecorationRestrict
+    SwiftName: restrict
+  - Name: SpvDecorationAliased
+    SwiftName: aliased
+  - Name: SpvDecorationVolatile
+    SwiftName: volatile
+  - Name: SpvDecorationConstant
+    SwiftName: constant
+  - Name: SpvDecorationCoherent
+    SwiftName: coherent
+  - Name: SpvDecorationNonWritable
+    SwiftName: nonWritable
+  - Name: SpvDecorationNonReadable
+    SwiftName: nonReadable
+  - Name: SpvDecorationUniform
+    SwiftName: uniform
+  - Name: SpvDecorationUniformId
+    SwiftName: uniformId
+  - Name: SpvDecorationSaturatedConversion
+    SwiftName: saturatedConversion
+  - Name: SpvDecorationStream
+    SwiftName: stream
+  - Name: SpvDecorationLocation
+    SwiftName: location
+  - Name: SpvDecorationComponent
+    SwiftName: component
+  - Name: SpvDecorationIndex
+    SwiftName: index
+  - Name: SpvDecorationBinding
+    SwiftName: binding
+  - Name: SpvDecorationDescriptorSet
+    SwiftName: descriptorSet
+  - Name: SpvDecorationOffset
+    SwiftName: offset
+  - Name: SpvDecorationXfbBuffer
+    SwiftName: xfbBuffer
+  - Name: SpvDecorationXfbStride
+    SwiftName: xfbStride
+  - Name: SpvDecorationFuncParamAttr
+    SwiftName: funcParamAttr
+  - Name: SpvDecorationFPRoundingMode
+    SwiftName: floatingPointRoundingMode
+  - Name: SpvDecorationFPFastMathMode
+    SwiftName: floatingPointFastMathMode
+  - Name: SpvDecorationLinkageAttributes
+    SwiftName: linkageAttributes
+  - Name: SpvDecorationNoContraction
+    SwiftName: noContraction
+  - Name: SpvDecorationInputAttachmentIndex
+    SwiftName: inputAttachmentIndex
+  - Name: SpvDecorationAlignment
+    SwiftName: alignment
+  - Name: SpvDecorationMaxByteOffset
+    SwiftName: maxByteOffset
+  - Name: SpvDecorationAlignmentId
+    SwiftName: alignmentId
+  - Name: SpvDecorationMaxByteOffsetId
+    SwiftName: maxByteOffsetId
+  - Name: SpvDecorationNoSignedWrap
+    SwiftName: noSignedWrap
+  - Name: SpvDecorationNoUnsignedWrap
+    SwiftName: noUnsignedWrap
+  - Name: SpvDecorationExplicitInterpAMD
+    SwiftName: explicitInterpAMD
+  - Name: SpvDecorationOverrideCoverageNV
+    SwiftName: overrideCoverageNV
+  - Name: SpvDecorationPassthroughNV
+    SwiftName: passthroughNV
+  - Name: SpvDecorationViewportRelativeNV
+    SwiftName: viewportRelativeNV
+  - Name: SpvDecorationSecondaryViewportRelativeNV
+    SwiftName: secondaryViewportRelativeNV
+  - Name: SpvDecorationPerPrimitiveEXT
+    SwiftName: perPrimitiveEXT
+  - Name: SpvDecorationPerPrimitiveNV
+    SwiftName: perPrimitiveNV
+  - Name: SpvDecorationPerViewNV
+    SwiftName: perViewNV
+  - Name: SpvDecorationPerTaskNV
+    SwiftName: perTaskNV
+  - Name: SpvDecorationPerVertexKHR
+    SwiftName: perVertexKHR
+  - Name: SpvDecorationPerVertexNV
+    SwiftName: perVertexNV
+  - Name: SpvDecorationNonUniform
+    SwiftName: nonUniform
+  - Name: SpvDecorationNonUniformEXT
+    SwiftName: nonUniformEXT
+  - Name: SpvDecorationRestrictPointer
+    SwiftName: restrictPointer
+  - Name: SpvDecorationRestrictPointerEXT
+    SwiftName: restrictPointerEXT
+  - Name: SpvDecorationAliasedPointer
+    SwiftName: aliasedPointer
+  - Name: SpvDecorationAliasedPointerEXT
+    SwiftName: aliasedPointerEXT
+  - Name: SpvDecorationBindlessSamplerNV
+    SwiftName: bindlessSamplerNV
+  - Name: SpvDecorationBindlessImageNV
+    SwiftName: bindlessImageNV
+  - Name: SpvDecorationBoundSamplerNV
+    SwiftName: boundSamplerNV
+  - Name: SpvDecorationBoundImageNV
+    SwiftName: boundImageNV
+  - Name: SpvDecorationSIMTCallINTEL
+    SwiftName: sIMTCallINTEL
+  - Name: SpvDecorationReferencedIndirectlyINTEL
+    SwiftName: referencedIndirectlyINTEL
+  - Name: SpvDecorationClobberINTEL
+    SwiftName: clobberINTEL
+  - Name: SpvDecorationSideEffectsINTEL
+    SwiftName: sideEffectsINTEL
+  - Name: SpvDecorationVectorComputeVariableINTEL
+    SwiftName: vectorComputeVariableINTEL
+  - Name: SpvDecorationFuncParamIOKindINTEL
+    SwiftName: funcParamIOKindINTEL
+  - Name: SpvDecorationVectorComputeFunctionINTEL
+    SwiftName: vectorComputeFunctionINTEL
+  - Name: SpvDecorationStackCallINTEL
+    SwiftName: stackCallINTEL
+  - Name: SpvDecorationGlobalVariableOffsetINTEL
+    SwiftName: globalVariableOffsetINTEL
+  - Name: SpvDecorationCounterBuffer
+    SwiftName: counterBuffer
+  - Name: SpvDecorationHlslCounterBufferGOOGLE
+    SwiftName: hlslCounterBufferGOOGLE
+  - Name: SpvDecorationHlslSemanticGOOGLE
+    SwiftName: hlslSemanticGOOGLE
+  - Name: SpvDecorationUserSemantic
+    SwiftName: userSemantic
+  - Name: SpvDecorationUserTypeGOOGLE
+    SwiftName: userTypeGOOGLE
+  - Name: SpvDecorationFunctionRoundingModeINTEL
+    SwiftName: functionRoundingModeINTEL
+  - Name: SpvDecorationFunctionDenormModeINTEL
+    SwiftName: functionDenormModeINTEL
+  - Name: SpvDecorationRegisterINTEL
+    SwiftName: registerINTEL
+  - Name: SpvDecorationMemoryINTEL
+    SwiftName: memoryINTEL
+  - Name: SpvDecorationNumbanksINTEL
+    SwiftName: numbanksINTEL
+  - Name: SpvDecorationBankwidthINTEL
+    SwiftName: bankwidthINTEL
+  - Name: SpvDecorationMaxPrivateCopiesINTEL
+    SwiftName: maxPrivateCopiesINTEL
+  - Name: SpvDecorationSinglepumpINTEL
+    SwiftName: singlepumpINTEL
+  - Name: SpvDecorationDoublepumpINTEL
+    SwiftName: doublepumpINTEL
+  - Name: SpvDecorationMaxReplicatesINTEL
+    SwiftName: maxReplicatesINTEL
+  - Name: SpvDecorationSimpleDualPortINTEL
+    SwiftName: simpleDualPortINTEL
+  - Name: SpvDecorationMergeINTEL
+    SwiftName: mergeINTEL
+  - Name: SpvDecorationBankBitsINTEL
+    SwiftName: bankBitsINTEL
+  - Name: SpvDecorationForcePow2DepthINTEL
+    SwiftName: forcePow2DepthINTEL
+  - Name: SpvDecorationBurstCoalesceINTEL
+    SwiftName: burstCoalesceINTEL
+  - Name: SpvDecorationCacheSizeINTEL
+    SwiftName: cacheSizeINTEL
+  - Name: SpvDecorationDontStaticallyCoalesceINTEL
+    SwiftName: dontStaticallyCoalesceINTEL
+  - Name: SpvDecorationPrefetchINTEL
+    SwiftName: prefetchINTEL
+  - Name: SpvDecorationStallEnableINTEL
+    SwiftName: stallEnableINTEL
+  - Name: SpvDecorationFuseLoopsInFunctionINTEL
+    SwiftName: fuseLoopsInFunctionINTEL
+  - Name: SpvDecorationAliasScopeINTEL
+    SwiftName: aliasScopeINTEL
+  - Name: SpvDecorationNoAliasINTEL
+    SwiftName: noAliasINTEL
+  - Name: SpvDecorationBufferLocationINTEL
+    SwiftName: bufferLocationINTEL
+  - Name: SpvDecorationIOPipeStorageINTEL
+    SwiftName: iOPipeStorageINTEL
+  - Name: SpvDecorationFunctionFloatingPointModeINTEL
+    SwiftName: functionFloatingPointModeINTEL
+  - Name: SpvDecorationSingleElementVectorINTEL
+    SwiftName: singleElementVectorINTEL
+  - Name: SpvDecorationVectorComputeCallableFunctionINTEL
+    SwiftName: vectorComputeCallableFunctionINTEL
+  - Name: SpvDecorationMediaBlockIOINTEL
+    SwiftName: mediaBlockIOINTEL
+  - Name: SpvDecorationMax
+    Availability: nonswift
+
+  # endregion
+
+  # region spvc_base_type
+  #
+  - Name: SPVC_BASETYPE_UNKNOWN
+    SwiftName: unknown
+  - Name: SPVC_BASETYPE_VOID
+    SwiftName: void
+  - Name: SPVC_BASETYPE_BOOLEAN
+    SwiftName: boolean
+  - Name: SPVC_BASETYPE_INT8
+    SwiftName: int8
+  - Name: SPVC_BASETYPE_UINT8
+    SwiftName: uint8
+  - Name: SPVC_BASETYPE_INT16
+    SwiftName: int16
+  - Name: SPVC_BASETYPE_UINT16
+    SwiftName: uint16
+  - Name: SPVC_BASETYPE_INT32
+    SwiftName: int32
+  - Name: SPVC_BASETYPE_UINT32
+    SwiftName: uint32
+  - Name: SPVC_BASETYPE_INT64
+    SwiftName: int64
+  - Name: SPVC_BASETYPE_UINT64
+    SwiftName: uint64
+  - Name: SPVC_BASETYPE_ATOMIC_COUNTER
+    SwiftName: atomicCounter
+  - Name: SPVC_BASETYPE_FP16
+    SwiftName: fp16
+  - Name: SPVC_BASETYPE_FP32
+    SwiftName: fp32
+  - Name: SPVC_BASETYPE_FP64
+    SwiftName: fp64
+  - Name: SPVC_BASETYPE_STRUCT
+    SwiftName: struct
+  - Name: SPVC_BASETYPE_IMAGE
+    SwiftName: image
+  - Name: SPVC_BASETYPE_SAMPLED_IMAGE
+    SwiftName: sampledImage
+  - Name: SPVC_BASETYPE_SAMPLER
+    SwiftName: sampler
+  - Name: SPVC_BASETYPE_ACCELERATION_STRUCTURE
+    SwiftName: accelerationStructure
+  - Name: SPVC_BASETYPE_INT_MAX
+    Availability: nonswift
+
+  # endregion
+
+  # region SpvStorageClass_
+  #
+  - Name: SpvStorageClassUniformConstant
+    SwiftName: uniformConstant
+  - Name: SpvStorageClassInput
+    SwiftName: input
+  - Name: SpvStorageClassUniform
+    SwiftName: uniform
+  - Name: SpvStorageClassOutput
+    SwiftName: output
+  - Name: SpvStorageClassWorkgroup
+    SwiftName: workgroup
+  - Name: SpvStorageClassCrossWorkgroup
+    SwiftName: crossWorkgroup
+  - Name: SpvStorageClassPrivate
+    SwiftName: private
+  - Name: SpvStorageClassFunction
+    SwiftName: function
+  - Name: SpvStorageClassGeneric
+    SwiftName: generic
+  - Name: SpvStorageClassPushConstant
+    SwiftName: pushConstant
+  - Name: SpvStorageClassAtomicCounter
+    SwiftName: atomicCounter
+  - Name: SpvStorageClassImage
+    SwiftName: image
+  - Name: SpvStorageClassStorageBuffer
+    SwiftName: storageBuffer
+  - Name: SpvStorageClassCallableDataKHR
+    SwiftName: callableDataKHR
+  - Name: SpvStorageClassCallableDataNV
+    SwiftName: callableDataNV
+  - Name: SpvStorageClassIncomingCallableDataKHR
+    SwiftName: incomingCallableDataKHR
+  - Name: SpvStorageClassIncomingCallableDataNV
+    SwiftName: incomingCallableDataNV
+  - Name: SpvStorageClassRayPayloadKHR
+    SwiftName: rayPayloadKHR
+  - Name: SpvStorageClassRayPayloadNV
+    SwiftName: rayPayloadNV
+  - Name: SpvStorageClassHitAttributeKHR
+    SwiftName: hitAttributeKHR
+  - Name: SpvStorageClassHitAttributeNV
+    SwiftName: hitAttributeNV
+  - Name: SpvStorageClassIncomingRayPayloadKHR
+    SwiftName: incomingRayPayloadKHR
+  - Name: SpvStorageClassIncomingRayPayloadNV
+    SwiftName: incomingRayPayloadNV
+  - Name: SpvStorageClassShaderRecordBufferKHR
+    SwiftName: shaderRecordBufferKHR
+  - Name: SpvStorageClassShaderRecordBufferNV
+    SwiftName: shaderRecordBufferNV
+  - Name: SpvStorageClassPhysicalStorageBuffer
+    SwiftName: physicalStorageBuffer
+  - Name: SpvStorageClassPhysicalStorageBufferEXT
+    SwiftName: physicalStorageBufferEXT
+  - Name: SpvStorageClassTaskPayloadWorkgroupEXT
+    SwiftName: taskPayloadWorkgroupEXT
+  - Name: SpvStorageClassCodeSectionINTEL
+    SwiftName: codeSectionINTEL
+  - Name: SpvStorageClassDeviceOnlyINTEL
+    SwiftName: deviceOnlyINTEL
+  - Name: SpvStorageClassHostOnlyINTEL
+    SwiftName: hostOnlyINTEL
+  - Name: SpvStorageClassMax
+    Availability: nonswift
+
+  # endregion
+
+  # region SPVExecutionModel_
+  #
+  - Name: SpvExecutionModelVertex
+    SwiftName: vertex
+  - Name: SpvExecutionModelTessellationControl
+    SwiftName: tessellationControl
+  - Name: SpvExecutionModelTessellationEvaluation
+    SwiftName: tessellationEvaluation
+  - Name: SpvExecutionModelGeometry
+    SwiftName: geometry
+  - Name: SpvExecutionModelFragment
+    SwiftName: fragment
+  - Name: SpvExecutionModelGLCompute
+    SwiftName: glCompute
+  - Name: SpvExecutionModelKernel
+    SwiftName: kernel
+  - Name: SpvExecutionModelTaskNV
+    SwiftName: taskNV
+  - Name: SpvExecutionModelMeshNV
+    SwiftName: meshNV
+  - Name: SpvExecutionModelRayGenerationKHR
+    SwiftName: rayGenerationKHR
+  - Name: SpvExecutionModelRayGenerationNV
+    SwiftName: rayGenerationNV
+  - Name: SpvExecutionModelIntersectionKHR
+    SwiftName: intersectionKHR
+  - Name: SpvExecutionModelIntersectionNV
+    SwiftName: intersectionNV
+  - Name: SpvExecutionModelAnyHitKHR
+    SwiftName: anyHitKHR
+  - Name: SpvExecutionModelAnyHitNV
+    SwiftName: anyHitNV
+  - Name: SpvExecutionModelClosestHitKHR
+    SwiftName: closestHitKHR
+  - Name: SpvExecutionModelClosestHitNV
+    SwiftName: closestHitNV
+  - Name: SpvExecutionModelMissKHR
+    SwiftName: missKHR
+  - Name: SpvExecutionModelMissNV
+    SwiftName: missNV
+  - Name: SpvExecutionModelCallableKHR
+    SwiftName: callableKHR
+  - Name: SpvExecutionModelCallableNV
+    SwiftName: callableNV
+  - Name: SpvExecutionModelTaskEXT
+    SwiftName: taskEXT
+  - Name: SpvExecutionModelMeshEXT
+    SwiftName: meshEXT
+  - Name: SpvExecutionModelMax
+    Availability: nonswift
+
+  # endregion
+
+  # region SpvDim_
+  #
+  - Name: SpvDim1D
+    SwiftName: dim1D
+  - Name: SpvDim2D
+    SwiftName: dim2D
+  - Name: SpvDim3D
+    SwiftName: dim3D
+  - Name: SpvDimCube
+    SwiftName: cube
+  - Name: SpvDimRect
+    SwiftName: rect
+  - Name: SpvDimBuffer
+    SwiftName: buffer
+  - Name: SpvDimSubpassData
+    SwiftName: subpassData
+  - Name: SpvDimMax
+    Availability: nonswift
+
+  # endregion
+
+  # region SpvImageFormat_
+  #
+  - Name: SpvImageFormatUnknown
+    SwiftName: unknown
+  - Name: SpvImageFormatRgba32f
+    SwiftName: rgba32f
+  - Name: SpvImageFormatRgba16f
+    SwiftName: rgba16f
+  - Name: SpvImageFormatR32f
+    SwiftName: r32f
+  - Name: SpvImageFormatRgba8
+    SwiftName: rgba8
+  - Name: SpvImageFormatRgba8Snorm
+    SwiftName: rgba8Snorm
+  - Name: SpvImageFormatRg32f
+    SwiftName: rg32f
+  - Name: SpvImageFormatRg16f
+    SwiftName: rg16f
+  - Name: SpvImageFormatR11fG11fB10f
+    SwiftName: r11fG11fB10f
+  - Name: SpvImageFormatR16f
+    SwiftName: r16f
+  - Name: SpvImageFormatRgba16
+    SwiftName: rgba16
+  - Name: SpvImageFormatRgb10A2
+    SwiftName: rgb10A2
+  - Name: SpvImageFormatRg16
+    SwiftName: rg16
+  - Name: SpvImageFormatRg8
+    SwiftName: rg8
+  - Name: SpvImageFormatR16
+    SwiftName: r16
+  - Name: SpvImageFormatR8
+    SwiftName: r8
+  - Name: SpvImageFormatRgba16Snorm
+    SwiftName: rgba16Snorm
+  - Name: SpvImageFormatRg16Snorm
+    SwiftName: rg16Snorm
+  - Name: SpvImageFormatRg8Snorm
+    SwiftName: rg8Snorm
+  - Name: SpvImageFormatR16Snorm
+    SwiftName: r16Snorm
+  - Name: SpvImageFormatR8Snorm
+    SwiftName: r8Snorm
+  - Name: SpvImageFormatRgba32i
+    SwiftName: rgba32i
+  - Name: SpvImageFormatRgba16i
+    SwiftName: rgba16i
+  - Name: SpvImageFormatRgba8i
+    SwiftName: rgba8i
+  - Name: SpvImageFormatR32i
+    SwiftName: r32i
+  - Name: SpvImageFormatRg32i
+    SwiftName: rg32i
+  - Name: SpvImageFormatRg16i
+    SwiftName: rg16i
+  - Name: SpvImageFormatRg8i
+    SwiftName: rg8i
+  - Name: SpvImageFormatR16i
+    SwiftName: r16i
+  - Name: SpvImageFormatR8i
+    SwiftName: r8i
+  - Name: SpvImageFormatRgba32ui
+    SwiftName: rgba32ui
+  - Name: SpvImageFormatRgba16ui
+    SwiftName: rgba16ui
+  - Name: SpvImageFormatRgba8ui
+    SwiftName: rgba8ui
+  - Name: SpvImageFormatR32ui
+    SwiftName: r32ui
+  - Name: SpvImageFormatRgb10a2ui
+    SwiftName: rgb10a2ui
+  - Name: SpvImageFormatRg32ui
+    SwiftName: rg32ui
+  - Name: SpvImageFormatRg16ui
+    SwiftName: rg16ui
+  - Name: SpvImageFormatRg8ui
+    SwiftName: rg8ui
+  - Name: SpvImageFormatR16ui
+    SwiftName: r16ui
+  - Name: SpvImageFormatR8ui
+    SwiftName: r8ui
+  - Name: SpvImageFormatMax
+    Availability: nonswift
+
+  # endregion
+
+  # region SpvAccessQualifier_
+  #
+
+  - Name: SpvAccessQualifierReadOnly
+    SwiftName: readOnly
+  - Name: SpvAccessQualifierWriteOnly
+    SwiftName: writeOnly
+  - Name: SpvAccessQualifierReadWrite
+    SwiftName: readWrite
+  - Name: SpvAccessQualifierMax
+    Availability: nonswift
+
+  # endregion

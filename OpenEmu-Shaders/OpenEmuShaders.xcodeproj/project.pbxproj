@@ -1,0 +1,1115 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05059BB82863F7F70081E53C /* ShaderPassCompiler+Compiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05059BB72863F7F70081E53C /* ShaderPassCompiler+Compiled.swift */; };
+		050C0E9A28FFBC6900923E9C /* ZipCompiledShaderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C0E9928FFBC6900923E9C /* ZipCompiledShaderContainer.swift */; };
+		050C0E9C28FFBC9100923E9C /* FileCompiledShaderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C0E9B28FFBC9100923E9C /* FileCompiledShaderContainer.swift */; };
+		050C0E9E28FFBF4C00923E9C /* FilterChain+Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050C0E9D28FFBF4C00923E9C /* FilterChain+Shader.swift */; };
+		050C0EA02901DC0E00923E9C /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 050C0E9F2901DC0E00923E9C /* .swiftformat */; };
+		051C31ED2865076900281C57 /* ShaderPassCompiler+Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C31EC2865076900281C57 /* ShaderPassCompiler+Reflection.swift */; };
+		0521355C246E3A240085A598 /* CompiledShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521355B246E3A240085A598 /* CompiledShader.swift */; };
+		052BE009228D184600942C12 /* SourceParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BE008228D184600942C12 /* SourceParserTests.swift */; };
+		052BE020228D187E00942C12 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BE01F228D187E00942C12 /* TestHelpers.swift */; };
+		053E094728FE7EC20034CCB4 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 053E094628FE7EC20034CCB4 /* ZIPFoundation */; };
+		05410EDE22F5FF7400303424 /* SlangShaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05410EDD22F5FF7400303424 /* SlangShaderTests.swift */; };
+		056696F02460EF5D000A5BE3 /* SlangShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524FF842458B798005C5E83 /* SlangShader.swift */; };
+		056AC379228BA8D9005018DA /* ShaderParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AC378228BA8D9005018DA /* ShaderParameter.swift */; };
+		056AC3A7228BB3E9005018DA /* SourceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AC3A6228BB3E9005018DA /* SourceParser.swift */; };
+		056AC3A9228BD73F005018DA /* Scanner+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056AC3A8228BD73F005018DA /* Scanner+Extensions.swift */; };
+		05742BA4288CB98B006EA3D0 /* CompilerEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05742BA3288CB98B006EA3D0 /* CompilerEnums.swift */; };
+		057847CE25C1250300A842E7 /* ShaderCompilerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057847CD25C1250300A842E7 /* ShaderCompilerOptions.swift */; };
+		057848C225C2151900A842E7 /* ShaderPassCompiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057848C125C2151900A842E7 /* ShaderPassCompiler.swift */; };
+		057DDA8F283065D4002A5877 /* libCGLSLang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 057DDA7D2830615F002A5877 /* libCGLSLang.a */; };
+		057DDA90283065D4002A5877 /* libCSPIRVCross.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 057DDA812830615F002A5877 /* libCSPIRVCross.a */; };
+		057DDA91283065D4002A5877 /* libCSPIRVTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 057DDA852830615F002A5877 /* libCSPIRVTools.a */; };
+		058AB98B28507F3A009A35FA /* PixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB98A28507F3A009A35FA /* PixelBuffer.swift */; };
+		058AB9AF285130A4009A35FA /* OEShaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB9AE285130A4009A35FA /* OEShaders.swift */; };
+		058AB9B5285130EE009A35FA /* ShaderCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB9B4285130EE009A35FA /* ShaderCommand.swift */; };
+		058AB9B72851313C009A35FA /* ShaderCommand+Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB9B62851313C009A35FA /* ShaderCommand+Thumbnail.swift */; };
+		058AB9BA2851317C009A35FA /* Chalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB9B92851317C009A35FA /* Chalk.swift */; };
+		058AB9BC28513185009A35FA /* CGContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB9BB28513185009A35FA /* CGContext.swift */; };
+		058AB9BE285135D9009A35FA /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 058AB9BD285135D9009A35FA /* ArgumentParser */; };
+		058AB9C128513642009A35FA /* ShaderCommand+Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB9BF28513642009A35FA /* ShaderCommand+Benchmark.swift */; };
+		058AB9C3285137A5009A35FA /* OpenEmuShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EEE338227CC35D007D011B /* OpenEmuShaders.framework */; };
+		058AB9CA28513B33009A35FA /* CompileCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AB9C928513B33009A35FA /* CompileCommand.swift */; };
+		05AA59F7246625A20031B73E /* ShaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524FF892459E6C7005C5E83 /* ShaderModel.swift */; };
+		05AA59F9246702410031B73E /* ShaderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AA59F8246702410031B73E /* ShaderModelTests.swift */; };
+		05ABBE922842D0C0006F1A8C /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBE912842D0C0006F1A8C /* Logging.swift */; };
+		05ABBE9C2842EA5A006F1A8C /* SlangCompiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBE9B2842EA5A006F1A8C /* SlangCompiler.swift */; };
+		05ABBEA32845FB1C006F1A8C /* ShaderReflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBEA22845FB1C006F1A8C /* ShaderReflection.swift */; };
+		05ABBEA52846D318006F1A8C /* ShaderSymbolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBEA42846D318006F1A8C /* ShaderSymbolsTests.swift */; };
+		05ABBEA72847283F006F1A8C /* ShaderPassSemantics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBEA62847283F006F1A8C /* ShaderPassSemantics.swift */; };
+		05ABBEA928483072006F1A8C /* ShaderPassBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBEA828483072006F1A8C /* ShaderPassBindings.swift */; };
+		05ABBEAB2849795F006F1A8C /* FilterChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBEAA2849795F006F1A8C /* FilterChain.swift */; };
+		05ABBEAF2849DF9B006F1A8C /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABBEAE2849DF9B006F1A8C /* Matrix.swift */; };
+		05D043542439043E00B6BDBF /* String+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D043532439043E00B6BDBF /* String+Version.swift */; };
+		05D44C5E28C1576B00660A18 /* Converters.metal in Sources */ = {isa = PBXBuildFile; fileRef = 05D44C5D28C1576B00660A18 /* Converters.metal */; };
+		05D44C6028C159FC00660A18 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 05D44C5F28C159FC00660A18 /* .swiftlint.yml */; };
+		05D532962895FA30004DC253 /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D532952895FA30004DC253 /* Screenshot.swift */; };
+		05EEE342227CC35D007D011B /* OpenEmuShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EEE338227CC35D007D011B /* OpenEmuShaders.framework */; };
+		05EEE349227CC35D007D011B /* OpenEmuShaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EEE33B227CC35D007D011B /* OpenEmuShaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05F54957229BBA8800561C14 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 05F5494F229BBA8800561C14 /* Shaders.metal */; };
+		05FF59E5289CDCF500153164 /* CompiledShaderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FF59E4289CDCF500153164 /* CompiledShaderContainer.swift */; };
+		A9020051FEB9717E8F2ABA14 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9020E619BC7ACEF5904D318 /* ConfigTests.swift */; };
+		A90203772A0E044990C034EA /* NSScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A902023035423BDAFACA21E6 /* NSScannerTests.swift */; };
+		A9020AE1BBCE1F965F5F8436 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90203E4FFF77BAF2B3ECC24 /* Config.swift */; };
+		A9020C552A8D57277535094F /* MTLPixelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9020FD6E09797E3851BD2F2 /* MTLPixelConverter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		057DDA7C2830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0535636725B6223000FDAFC0;
+			remoteInfo = CGLSLang;
+		};
+		057DDA7E2830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0535654725BA13D600FDAFC0;
+			remoteInfo = GLSLang;
+		};
+		057DDA802830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0535661025BA1C7F00FDAFC0;
+			remoteInfo = CSPIRVCross;
+		};
+		057DDA822830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0535669425BA1EB300FDAFC0;
+			remoteInfo = SPIRVCross;
+		};
+		057DDA842830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0585CA3E25BA751E00C169B0;
+			remoteInfo = CSPIRVTools;
+		};
+		057DDA862830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0585D1A625BA89EA00C169B0;
+			remoteInfo = SPIRVTools;
+		};
+		057DDA882830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0535634025B5395800FDAFC0;
+			remoteInfo = testcli;
+		};
+		057DDA8A2830615F002A5877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 057DDA24282F7996002A5877;
+			remoteInfo = SPIRV;
+		};
+		058AB9C5285137A5009A35FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05EEE32F227CC35C007D011B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05EEE337227CC35C007D011B;
+			remoteInfo = OpenEmuShaders;
+		};
+		05EEE343227CC35D007D011B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05EEE32F227CC35C007D011B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05EEE337227CC35C007D011B;
+			remoteInfo = OpenEmuShaders;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		058AB9AA285130A4009A35FA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		05059BB72863F7F70081E53C /* ShaderPassCompiler+Compiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShaderPassCompiler+Compiled.swift"; sourceTree = "<group>"; };
+		050C0E9928FFBC6900923E9C /* ZipCompiledShaderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCompiledShaderContainer.swift; sourceTree = "<group>"; };
+		050C0E9B28FFBC9100923E9C /* FileCompiledShaderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCompiledShaderContainer.swift; sourceTree = "<group>"; };
+		050C0E9D28FFBF4C00923E9C /* FilterChain+Shader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterChain+Shader.swift"; sourceTree = "<group>"; };
+		050C0E9F2901DC0E00923E9C /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		051C31EC2865076900281C57 /* ShaderPassCompiler+Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShaderPassCompiler+Reflection.swift"; sourceTree = "<group>"; };
+		05201D6D277C542E0028CBE0 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		0521355B246E3A240085A598 /* CompiledShader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompiledShader.swift; sourceTree = "<group>"; };
+		0524FF842458B798005C5E83 /* SlangShader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlangShader.swift; sourceTree = "<group>"; };
+		0524FF892459E6C7005C5E83 /* ShaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderModel.swift; sourceTree = "<group>"; };
+		052A2B5D22A421CB00483370 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		052BE008228D184600942C12 /* SourceParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceParserTests.swift; sourceTree = "<group>"; };
+		052BE01F228D187E00942C12 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		05410EDD22F5FF7400303424 /* SlangShaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlangShaderTests.swift; sourceTree = "<group>"; };
+		05647FC02438DBB300BF00A9 /* libSPIRV-Tools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSPIRV-Tools.a"; path = "3rdparty/SPIRV-Tools/build/source/libSPIRV-Tools.a"; sourceTree = "<group>"; };
+		05647FC22438DBC900BF00A9 /* libSPIRV-Tools-opt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSPIRV-Tools-opt.a"; path = "3rdparty/SPIRV-Tools/build/source/opt/libSPIRV-Tools-opt.a"; sourceTree = "<group>"; };
+		056AC378228BA8D9005018DA /* ShaderParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderParameter.swift; sourceTree = "<group>"; };
+		056AC3A6228BB3E9005018DA /* SourceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceParser.swift; sourceTree = "<group>"; };
+		056AC3A8228BD73F005018DA /* Scanner+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scanner+Extensions.swift"; sourceTree = "<group>"; };
+		05742BA3288CB98B006EA3D0 /* CompilerEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilerEnums.swift; sourceTree = "<group>"; };
+		057847CD25C1250300A842E7 /* ShaderCompilerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderCompilerOptions.swift; sourceTree = "<group>"; };
+		057848C125C2151900A842E7 /* ShaderPassCompiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPassCompiler.swift; sourceTree = "<group>"; };
+		057DDA712830615E002A5877 /* SPIRV.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SPIRV.xcodeproj; path = 3rdparty/SPIRV/SPIRV.xcodeproj; sourceTree = "<group>"; };
+		058AB98A28507F3A009A35FA /* PixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBuffer.swift; sourceTree = "<group>"; };
+		058AB9AC285130A4009A35FA /* oeshaders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = oeshaders; sourceTree = BUILT_PRODUCTS_DIR; };
+		058AB9AE285130A4009A35FA /* OEShaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEShaders.swift; sourceTree = "<group>"; };
+		058AB9B4285130EE009A35FA /* ShaderCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderCommand.swift; sourceTree = "<group>"; };
+		058AB9B62851313C009A35FA /* ShaderCommand+Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShaderCommand+Thumbnail.swift"; sourceTree = "<group>"; };
+		058AB9B92851317C009A35FA /* Chalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chalk.swift; sourceTree = "<group>"; };
+		058AB9BB28513185009A35FA /* CGContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGContext.swift; sourceTree = "<group>"; };
+		058AB9BF28513642009A35FA /* ShaderCommand+Benchmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShaderCommand+Benchmark.swift"; sourceTree = "<group>"; };
+		058AB9C928513B33009A35FA /* CompileCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileCommand.swift; sourceTree = "<group>"; };
+		05AA59F8246702410031B73E /* ShaderModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderModelTests.swift; sourceTree = "<group>"; };
+		05ABBE912842D0C0006F1A8C /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		05ABBE9B2842EA5A006F1A8C /* SlangCompiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlangCompiler.swift; sourceTree = "<group>"; };
+		05ABBEA22845FB1C006F1A8C /* ShaderReflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderReflection.swift; sourceTree = "<group>"; };
+		05ABBEA42846D318006F1A8C /* ShaderSymbolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderSymbolsTests.swift; sourceTree = "<group>"; };
+		05ABBEA62847283F006F1A8C /* ShaderPassSemantics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPassSemantics.swift; sourceTree = "<group>"; };
+		05ABBEA828483072006F1A8C /* ShaderPassBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPassBindings.swift; sourceTree = "<group>"; };
+		05ABBEAA2849795F006F1A8C /* FilterChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChain.swift; sourceTree = "<group>"; };
+		05ABBEAE2849DF9B006F1A8C /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		05D043532439043E00B6BDBF /* String+Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Version.swift"; sourceTree = "<group>"; };
+		05D44C5D28C1576B00660A18 /* Converters.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Converters.metal; sourceTree = "<group>"; };
+		05D44C5F28C159FC00660A18 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		05D532952895FA30004DC253 /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
+		05EEE338227CC35D007D011B /* OpenEmuShaders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenEmuShaders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05EEE33B227CC35D007D011B /* OpenEmuShaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenEmuShaders.h; sourceTree = "<group>"; };
+		05EEE341227CC35D007D011B /* OpenEmuShadersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenEmuShadersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F5494F229BBA8800561C14 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		05F5BB1022875C0B004D713C /* OpenEmuShadersTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenEmuShadersTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		05FF59E4289CDCF500153164 /* CompiledShaderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompiledShaderContainer.swift; sourceTree = "<group>"; };
+		A902023035423BDAFACA21E6 /* NSScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSScannerTests.swift; sourceTree = "<group>"; };
+		A90203E4FFF77BAF2B3ECC24 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		A9020E619BC7ACEF5904D318 /* ConfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		A9020FD6E09797E3851BD2F2 /* MTLPixelConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTLPixelConverter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		058AB9A9285130A4009A35FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				058AB9BE285135D9009A35FA /* ArgumentParser in Frameworks */,
+				058AB9C3285137A5009A35FA /* OpenEmuShaders.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEE335227CC35C007D011B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				057DDA91283065D4002A5877 /* libCSPIRVTools.a in Frameworks */,
+				057DDA8F283065D4002A5877 /* libCGLSLang.a in Frameworks */,
+				057DDA90283065D4002A5877 /* libCSPIRVCross.a in Frameworks */,
+				053E094728FE7EC20034CCB4 /* ZIPFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEE33E227CC35D007D011B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05EEE342227CC35D007D011B /* OpenEmuShaders.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05201D6C277C541C0028CBE0 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				05201D6D277C542E0028CBE0 /* CHANGELOG.md */,
+			);
+			name = Docs;
+			sourceTree = "<group>";
+		};
+		052A2B5C22A421B400483370 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				050C0E9F2901DC0E00923E9C /* .swiftformat */,
+				05D44C5F28C159FC00660A18 /* .swiftlint.yml */,
+				052A2B5D22A421CB00483370 /* Config.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		0578144A243EA2390093CDF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		057987DE2456281C00CCF3C7 /* Compiler */ = {
+			isa = PBXGroup;
+			children = (
+				0521355B246E3A240085A598 /* CompiledShader.swift */,
+				05742BA3288CB98B006EA3D0 /* CompilerEnums.swift */,
+				057848C125C2151900A842E7 /* ShaderPassCompiler.swift */,
+				051C31EC2865076900281C57 /* ShaderPassCompiler+Reflection.swift */,
+				05059BB72863F7F70081E53C /* ShaderPassCompiler+Compiled.swift */,
+				057847CD25C1250300A842E7 /* ShaderCompilerOptions.swift */,
+				05ABBEA22845FB1C006F1A8C /* ShaderReflection.swift */,
+				05ABBE9B2842EA5A006F1A8C /* SlangCompiler.swift */,
+				05FF59E4289CDCF500153164 /* CompiledShaderContainer.swift */,
+				050C0E9928FFBC6900923E9C /* ZipCompiledShaderContainer.swift */,
+				050C0E9B28FFBC9100923E9C /* FileCompiledShaderContainer.swift */,
+			);
+			name = Compiler;
+			sourceTree = "<group>";
+		};
+		057DDA722830615E002A5877 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				057DDA7D2830615F002A5877 /* libCGLSLang.a */,
+				057DDA7F2830615F002A5877 /* libGLSLang.a */,
+				057DDA812830615F002A5877 /* libCSPIRVCross.a */,
+				057DDA832830615F002A5877 /* libSPIRVCross.a */,
+				057DDA852830615F002A5877 /* libCSPIRVTools.a */,
+				057DDA872830615F002A5877 /* libSPIRVTools.a */,
+				057DDA892830615F002A5877 /* testcli */,
+				057DDA8B2830615F002A5877 /* SPIRV.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		058AB9AD285130A4009A35FA /* oeshaders */ = {
+			isa = PBXGroup;
+			children = (
+				058AB9C828513B1E009A35FA /* Compile Command */,
+				058AB9B3285130E0009A35FA /* Shader Command */,
+				058AB9B82851316D009A35FA /* Utilities */,
+				058AB9AE285130A4009A35FA /* OEShaders.swift */,
+			);
+			path = oeshaders;
+			sourceTree = "<group>";
+		};
+		058AB9B3285130E0009A35FA /* Shader Command */ = {
+			isa = PBXGroup;
+			children = (
+				058AB9B4285130EE009A35FA /* ShaderCommand.swift */,
+				058AB9BF28513642009A35FA /* ShaderCommand+Benchmark.swift */,
+				058AB9B62851313C009A35FA /* ShaderCommand+Thumbnail.swift */,
+			);
+			name = "Shader Command";
+			sourceTree = "<group>";
+		};
+		058AB9B82851316D009A35FA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				058AB9BB28513185009A35FA /* CGContext.swift */,
+				058AB9B92851317C009A35FA /* Chalk.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		058AB9C828513B1E009A35FA /* Compile Command */ = {
+			isa = PBXGroup;
+			children = (
+				058AB9C928513B33009A35FA /* CompileCommand.swift */,
+			);
+			name = "Compile Command";
+			sourceTree = "<group>";
+		};
+		0592589D22AD71350064273D /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				05ABBE912842D0C0006F1A8C /* Logging.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		05EEE32E227CC35C007D011B = {
+			isa = PBXGroup;
+			children = (
+				05201D6C277C541C0028CBE0 /* Docs */,
+				052A2B5C22A421B400483370 /* Config */,
+				05F5BA5422865F2C004D713C /* 3rd Party */,
+				05EEE388227CDA8F007D011B /* Source */,
+				05EEE33A227CC35D007D011B /* OpenEmuShaders */,
+				05EEE345227CC35D007D011B /* OpenEmuShadersTests */,
+				058AB9AD285130A4009A35FA /* oeshaders */,
+				05EEE339227CC35D007D011B /* Products */,
+				05EEE3B6227E9766007D011B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		05EEE339227CC35D007D011B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05EEE338227CC35D007D011B /* OpenEmuShaders.framework */,
+				05EEE341227CC35D007D011B /* OpenEmuShadersTests.xctest */,
+				058AB9AC285130A4009A35FA /* oeshaders */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05EEE33A227CC35D007D011B /* OpenEmuShaders */ = {
+			isa = PBXGroup;
+			children = (
+				05EEE33B227CC35D007D011B /* OpenEmuShaders.h */,
+			);
+			path = OpenEmuShaders;
+			sourceTree = "<group>";
+		};
+		05EEE345227CC35D007D011B /* OpenEmuShadersTests */ = {
+			isa = PBXGroup;
+			children = (
+				05F5BB1022875C0B004D713C /* OpenEmuShadersTests-Bridging-Header.h */,
+				A9020E619BC7ACEF5904D318 /* ConfigTests.swift */,
+				A902023035423BDAFACA21E6 /* NSScannerTests.swift */,
+				05AA59F8246702410031B73E /* ShaderModelTests.swift */,
+				05410EDD22F5FF7400303424 /* SlangShaderTests.swift */,
+				052BE008228D184600942C12 /* SourceParserTests.swift */,
+				05ABBEA42846D318006F1A8C /* ShaderSymbolsTests.swift */,
+				052BE01F228D187E00942C12 /* TestHelpers.swift */,
+			);
+			path = OpenEmuShadersTests;
+			sourceTree = "<group>";
+		};
+		05EEE388227CDA8F007D011B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				05FF59E3289B242E00153164 /* Conversion */,
+				0578144A243EA2390093CDF3 /* Model */,
+				0592589D22AD71350064273D /* Logging */,
+				05F5494D229BBA7600561C14 /* Renderer */,
+				057987DE2456281C00CCF3C7 /* Compiler */,
+				05F5494C229BBA6500561C14 /* Shader Reader */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		05EEE3B6227E9766007D011B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05647FC22438DBC900BF00A9 /* libSPIRV-Tools-opt.a */,
+				05647FC02438DBB300BF00A9 /* libSPIRV-Tools.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05F5494C229BBA6500561C14 /* Shader Reader */ = {
+			isa = PBXGroup;
+			children = (
+				0524FF892459E6C7005C5E83 /* ShaderModel.swift */,
+				A90203E4FFF77BAF2B3ECC24 /* Config.swift */,
+				0524FF842458B798005C5E83 /* SlangShader.swift */,
+				056AC378228BA8D9005018DA /* ShaderParameter.swift */,
+				056AC3A6228BB3E9005018DA /* SourceParser.swift */,
+				056AC3A8228BD73F005018DA /* Scanner+Extensions.swift */,
+				05D043532439043E00B6BDBF /* String+Version.swift */,
+			);
+			name = "Shader Reader";
+			sourceTree = "<group>";
+		};
+		05F5494D229BBA7600561C14 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				05ABBEAA2849795F006F1A8C /* FilterChain.swift */,
+				050C0E9D28FFBF4C00923E9C /* FilterChain+Shader.swift */,
+				05ABBEAE2849DF9B006F1A8C /* Matrix.swift */,
+				05ABBEA828483072006F1A8C /* ShaderPassBindings.swift */,
+				05ABBEA62847283F006F1A8C /* ShaderPassSemantics.swift */,
+				05F5494F229BBA8800561C14 /* Shaders.metal */,
+			);
+			name = Renderer;
+			sourceTree = "<group>";
+		};
+		05F5BA5422865F2C004D713C /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				057DDA712830615E002A5877 /* SPIRV.xcodeproj */,
+			);
+			name = "3rd Party";
+			sourceTree = "<group>";
+		};
+		05FF59E3289B242E00153164 /* Conversion */ = {
+			isa = PBXGroup;
+			children = (
+				A9020FD6E09797E3851BD2F2 /* MTLPixelConverter.swift */,
+				058AB98A28507F3A009A35FA /* PixelBuffer.swift */,
+				05D532952895FA30004DC253 /* Screenshot.swift */,
+				05D44C5D28C1576B00660A18 /* Converters.metal */,
+			);
+			name = Conversion;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		05EEE333227CC35C007D011B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05EEE349227CC35D007D011B /* OpenEmuShaders.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		058AB9AB285130A4009A35FA /* oeshaders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 058AB9B0285130A4009A35FA /* Build configuration list for PBXNativeTarget "oeshaders" */;
+			buildPhases = (
+				058AB9A8285130A4009A35FA /* Sources */,
+				058AB9A9285130A4009A35FA /* Frameworks */,
+				058AB9AA285130A4009A35FA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				058AB9C6285137A5009A35FA /* PBXTargetDependency */,
+			);
+			name = oeshaders;
+			packageProductDependencies = (
+				058AB9BD285135D9009A35FA /* ArgumentParser */,
+			);
+			productName = oeshaders;
+			productReference = 058AB9AC285130A4009A35FA /* oeshaders */;
+			productType = "com.apple.product-type.tool";
+		};
+		05EEE337227CC35C007D011B /* OpenEmuShaders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05EEE34C227CC35D007D011B /* Build configuration list for PBXNativeTarget "OpenEmuShaders" */;
+			buildPhases = (
+				05915A75245DF13F00C3DBAC /* ShellScript */,
+				05EEE333227CC35C007D011B /* Headers */,
+				05EEE334227CC35C007D011B /* Sources */,
+				05EEE335227CC35C007D011B /* Frameworks */,
+				05EEE336227CC35C007D011B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenEmuShaders;
+			packageProductDependencies = (
+				053E094628FE7EC20034CCB4 /* ZIPFoundation */,
+			);
+			productName = OpenEmuShaders;
+			productReference = 05EEE338227CC35D007D011B /* OpenEmuShaders.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		05EEE340227CC35D007D011B /* OpenEmuShadersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05EEE34F227CC35D007D011B /* Build configuration list for PBXNativeTarget "OpenEmuShadersTests" */;
+			buildPhases = (
+				05EEE33D227CC35D007D011B /* Sources */,
+				05EEE33E227CC35D007D011B /* Frameworks */,
+				05EEE33F227CC35D007D011B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05EEE344227CC35D007D011B /* PBXTargetDependency */,
+			);
+			name = OpenEmuShadersTests;
+			productName = OpenEmuShadersTests;
+			productReference = 05EEE341227CC35D007D011B /* OpenEmuShadersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05EEE32F227CC35C007D011B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = OE;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = OpenEmu;
+				TargetAttributes = {
+					058AB9AB285130A4009A35FA = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					05EEE337227CC35C007D011B = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+					05EEE340227CC35D007D011B = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 05EEE332227CC35C007D011B /* Build configuration list for PBXProject "OpenEmuShaders" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05EEE32E227CC35C007D011B;
+			packageReferences = (
+				058AB9A228512DF6009A35FA /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				053E094528FE7EC20034CCB4 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
+			productRefGroup = 05EEE339227CC35D007D011B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 057DDA722830615E002A5877 /* Products */;
+					ProjectRef = 057DDA712830615E002A5877 /* SPIRV.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				05EEE337227CC35C007D011B /* OpenEmuShaders */,
+				05EEE340227CC35D007D011B /* OpenEmuShadersTests */,
+				058AB9AB285130A4009A35FA /* oeshaders */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		057DDA7D2830615F002A5877 /* libCGLSLang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCGLSLang.a;
+			remoteRef = 057DDA7C2830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057DDA7F2830615F002A5877 /* libGLSLang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGLSLang.a;
+			remoteRef = 057DDA7E2830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057DDA812830615F002A5877 /* libCSPIRVCross.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCSPIRVCross.a;
+			remoteRef = 057DDA802830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057DDA832830615F002A5877 /* libSPIRVCross.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSPIRVCross.a;
+			remoteRef = 057DDA822830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057DDA852830615F002A5877 /* libCSPIRVTools.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCSPIRVTools.a;
+			remoteRef = 057DDA842830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057DDA872830615F002A5877 /* libSPIRVTools.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSPIRVTools.a;
+			remoteRef = 057DDA862830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057DDA892830615F002A5877 /* testcli */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = testcli;
+			remoteRef = 057DDA882830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		057DDA8B2830615F002A5877 /* SPIRV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SPIRV.framework;
+			remoteRef = 057DDA8A2830615F002A5877 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05EEE336227CC35C007D011B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050C0EA02901DC0E00923E9C /* .swiftformat in Resources */,
+				05D44C6028C159FC00660A18 /* .swiftlint.yml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEE33F227CC35D007D011B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05915A75245DF13F00C3DBAC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: swiftlint not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		058AB9A8285130A4009A35FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				058AB9B5285130EE009A35FA /* ShaderCommand.swift in Sources */,
+				058AB9BA2851317C009A35FA /* Chalk.swift in Sources */,
+				058AB9B72851313C009A35FA /* ShaderCommand+Thumbnail.swift in Sources */,
+				058AB9BC28513185009A35FA /* CGContext.swift in Sources */,
+				058AB9C128513642009A35FA /* ShaderCommand+Benchmark.swift in Sources */,
+				058AB9AF285130A4009A35FA /* OEShaders.swift in Sources */,
+				058AB9CA28513B33009A35FA /* CompileCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEE334227CC35C007D011B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05F54957229BBA8800561C14 /* Shaders.metal in Sources */,
+				05742BA4288CB98B006EA3D0 /* CompilerEnums.swift in Sources */,
+				05ABBEAF2849DF9B006F1A8C /* Matrix.swift in Sources */,
+				058AB98B28507F3A009A35FA /* PixelBuffer.swift in Sources */,
+				05ABBE922842D0C0006F1A8C /* Logging.swift in Sources */,
+				0521355C246E3A240085A598 /* CompiledShader.swift in Sources */,
+				056AC3A9228BD73F005018DA /* Scanner+Extensions.swift in Sources */,
+				050C0E9E28FFBF4C00923E9C /* FilterChain+Shader.swift in Sources */,
+				05AA59F7246625A20031B73E /* ShaderModel.swift in Sources */,
+				056696F02460EF5D000A5BE3 /* SlangShader.swift in Sources */,
+				056AC3A7228BB3E9005018DA /* SourceParser.swift in Sources */,
+				05D043542439043E00B6BDBF /* String+Version.swift in Sources */,
+				05059BB82863F7F70081E53C /* ShaderPassCompiler+Compiled.swift in Sources */,
+				057848C225C2151900A842E7 /* ShaderPassCompiler.swift in Sources */,
+				05ABBEA928483072006F1A8C /* ShaderPassBindings.swift in Sources */,
+				05ABBEA72847283F006F1A8C /* ShaderPassSemantics.swift in Sources */,
+				05D532962895FA30004DC253 /* Screenshot.swift in Sources */,
+				05FF59E5289CDCF500153164 /* CompiledShaderContainer.swift in Sources */,
+				051C31ED2865076900281C57 /* ShaderPassCompiler+Reflection.swift in Sources */,
+				056AC379228BA8D9005018DA /* ShaderParameter.swift in Sources */,
+				057847CE25C1250300A842E7 /* ShaderCompilerOptions.swift in Sources */,
+				05D44C5E28C1576B00660A18 /* Converters.metal in Sources */,
+				05ABBEA32845FB1C006F1A8C /* ShaderReflection.swift in Sources */,
+				050C0E9C28FFBC9100923E9C /* FileCompiledShaderContainer.swift in Sources */,
+				050C0E9A28FFBC6900923E9C /* ZipCompiledShaderContainer.swift in Sources */,
+				A9020AE1BBCE1F965F5F8436 /* Config.swift in Sources */,
+				05ABBE9C2842EA5A006F1A8C /* SlangCompiler.swift in Sources */,
+				A9020C552A8D57277535094F /* MTLPixelConverter.swift in Sources */,
+				05ABBEAB2849795F006F1A8C /* FilterChain.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEE33D227CC35D007D011B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05ABBEA52846D318006F1A8C /* ShaderSymbolsTests.swift in Sources */,
+				05AA59F9246702410031B73E /* ShaderModelTests.swift in Sources */,
+				05410EDE22F5FF7400303424 /* SlangShaderTests.swift in Sources */,
+				052BE020228D187E00942C12 /* TestHelpers.swift in Sources */,
+				052BE009228D184600942C12 /* SourceParserTests.swift in Sources */,
+				A90203772A0E044990C034EA /* NSScannerTests.swift in Sources */,
+				A9020051FEB9717E8F2ABA14 /* ConfigTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		058AB9C6285137A5009A35FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05EEE337227CC35C007D011B /* OpenEmuShaders */;
+			targetProxy = 058AB9C5285137A5009A35FA /* PBXContainerItemProxy */;
+		};
+		05EEE344227CC35D007D011B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05EEE337227CC35C007D011B /* OpenEmuShaders */;
+			targetProxy = 05EEE343227CC35D007D011B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		058AB9B1285130A4009A35FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.oeshaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		058AB9B2285130A4009A35FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.oeshaders;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		05EEE34A227CC35D007D011B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052A2B5D22A421CB00483370 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		05EEE34B227CC35D007D011B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052A2B5D22A421CB00483370 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		05EEE34D227CC35D007D011B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2019–2023 OpenEmu. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.30.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuShaders;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+			};
+			name = Debug;
+		};
+		05EEE34E227CC35D007D011B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2019–2023 OpenEmu. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.30.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuShaders;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+			};
+			name = Release;
+		};
+		05EEE350227CC35D007D011B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPrincipalClass = OpenEmuShadersTests.TestSetup;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuShadersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenEmuShadersTests/OpenEmuShadersTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		05EEE351227CC35D007D011B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPrincipalClass = OpenEmuShadersTests.TestSetup;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuShadersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenEmuShadersTests/OpenEmuShadersTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		058AB9B0285130A4009A35FA /* Build configuration list for PBXNativeTarget "oeshaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				058AB9B1285130A4009A35FA /* Debug */,
+				058AB9B2285130A4009A35FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05EEE332227CC35C007D011B /* Build configuration list for PBXProject "OpenEmuShaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05EEE34A227CC35D007D011B /* Debug */,
+				05EEE34B227CC35D007D011B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05EEE34C227CC35D007D011B /* Build configuration list for PBXNativeTarget "OpenEmuShaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05EEE34D227CC35D007D011B /* Debug */,
+				05EEE34E227CC35D007D011B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05EEE34F227CC35D007D011B /* Build configuration list for PBXNativeTarget "OpenEmuShadersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05EEE350227CC35D007D011B /* Debug */,
+				05EEE351227CC35D007D011B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		053E094528FE7EC20034CCB4 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
+			requirement = {
+				branch = development;
+				kind = branch;
+			};
+		};
+		058AB9A228512DF6009A35FA /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		053E094628FE7EC20034CCB4 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 053E094528FE7EC20034CCB4 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		058AB9BD285135D9009A35FA /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 058AB9A228512DF6009A35FA /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 05EEE32F227CC35C007D011B /* Project object */;
+}

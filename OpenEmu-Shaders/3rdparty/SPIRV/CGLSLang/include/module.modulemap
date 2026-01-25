@@ -1,0 +1,5 @@
+module CGLSLang {
+    umbrella header "CGLSLang.h"
+    export *
+    link "c++"
+}

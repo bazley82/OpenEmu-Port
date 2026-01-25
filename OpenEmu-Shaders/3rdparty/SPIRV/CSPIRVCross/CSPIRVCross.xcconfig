@@ -1,0 +1,23 @@
+//
+//  CSPIRVCross.xcconfig
+//  SPIRV
+//
+//  Created by Stuart Carnie on 22/1/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_DIR=$(PROJECT_DIR)
+THIRD_DIR=$(BASE_DIR)/3rdparty
+
+SPIRV_BASE=$(THIRD_DIR)/SPIRV-Cross
+SPIRV_PREPROCESSOR='SPIRV_CROSS_C_API_GLSL=1' 'SPIRV_CROSS_C_API_MSL=1'
+SPIRV_HEADERS=$(SPIRV_BASE)
+
+USER_HEADER_SEARCH_PATHS=$(inherited) $(SPIRV_HEADERS)
+GCC_PREPROCESSOR_DEFINITIONS=$(inherited) $(SPIRV_PREPROCESSOR)
+
+MODULEMAP_FILE=$(SRCROOT)/$(PRODUCT_NAME)/include/module.modulemap
+PUBLIC_HEADERS_FOLDER_PATH=/usr/local/include/$(PRODUCT_NAME)
+SUPPORTED_PLATFORMS=macosx iphoneos

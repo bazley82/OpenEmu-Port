@@ -1,0 +1,12 @@
+//
+//  GLSlang.xcconfig
+//  SPIRV
+//
+//  Created by Stuart Carnie on 14/5/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_DIR=$(PROJECT_DIR)
+SUPPORTED_PLATFORMS=macosx iphoneos

@@ -1,0 +1,3 @@
+[submodule "3rdparty/SPIRV"]
+	path = 3rdparty/SPIRV
+	url = https://github.com/stuartcarnie/SwiftSPIRV-Cross.git

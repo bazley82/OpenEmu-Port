@@ -1,0 +1,443 @@
+---
+Name: CGLSLang
+SwiftInferImportAsMember: true
+Availability: available
+
+# MARK: - Typedefs
+Typedefs:
+  - Name: glslang_shader
+    SwiftName: CGLSLangShader
+    SwiftWrapper: struct
+  - Name: glslang_program
+    SwiftName: CGLSLangProgram
+    SwiftWrapper: struct
+
+# MARK: - Functions
+Functions:
+  # MARK: glslang_shader_t
+  # region glslang_shader_t
+
+  - Name: glslang_shader_create
+    SwiftName: CGLSLangShader.init(input:)
+  - Name: glslang_shader_delete
+    Nullability: [N]
+  - Name: glslang_shader_preprocess
+    SwiftName: CGLSLangShader.preprocess(self:input:)
+  - Name: glslang_shader_parse
+    SwiftName: CGLSLangShader.parse(self:input:)
+  - Name: glslang_shader_get_preprocessed_code
+    SwiftName: getter:CGLSLangShader.preprocessed_code(self:)
+    NullabilityOfRet: N
+  - Name: glslang_shader_get_info_log
+    SwiftName: getter:CGLSLangShader.info_log(self:)
+  - Name: glslang_shader_get_info_debug_log
+    SwiftName: getter:CGLSLangShader.info_debug_log(self:)
+
+  # endregion
+
+  # MARK: glslang_program_t
+  # region glslang_program_t
+
+  - Name: glslang_program_create
+    SwiftName: CGLSLangProgram.init()
+    NullabilityOfRet: N
+  - Name: glslang_program_delete
+    Nullability: [N]
+  - Name: glslang_program_add_shader
+    SwiftName: CGLSLangProgram.add_shader(self:_:)
+    Nullability: [N, N]
+  - Name: glslang_program_link
+    SwiftName: CGLSLangProgram.link(self:messages:)
+  - Name: glslang_program_SPIRV_generate
+    SwiftName: CGLSLangProgram.spirv_generate(self:stage:)
+  - Name: glslang_program_SPIRV_get_size
+    SwiftName: getter:CGLSLangProgram.spirv_size(self:)
+  - Name: glslang_program_SPIRV_get
+    SwiftName: CGLSLangProgram.spirv_get(self:_:)
+  - Name: glslang_program_SPIRV_get_ptr
+    SwiftName: getter:CGLSLangProgram.spirv_pointer(self:)
+  - Name: glslang_program_SPIRV_get_messages
+    SwiftName: getter:CGLSLangProgram.spirv_messages(self:)
+  - Name: glslang_program_get_info_log
+    SwiftName: getter:CGLSLangProgram.info_log(self:)
+    NullabilityOfRet: N
+  - Name: glslang_program_get_info_debug_log
+    SwiftName: getter:CGLSLangProgram.info_debug_log(self:)
+    NullabilityOfRet: N
+
+  # endregion
+
+# MARK: - Section: Tags
+Tags:
+  - Name: glslang_stage_s
+    SwiftName: GLStage
+    EnumKind: CFClosedEnum
+  - Name: glslang_stage_mask_s
+    SwiftName: GLStageOptions
+    EnumKind: CFOptions
+  - Name: glslang_source_s
+    SwiftName: GLSource
+    EnumKind: CFClosedEnum
+  - Name: glslang_client_s
+    SwiftName: GLClient
+    EnumKind: CFClosedEnum
+  - Name: glslang_target_language_s
+    SwiftName: GLTargetLanguage
+    EnumKind: CFClosedEnum
+  - Name: glslang_target_client_version_s
+    SwiftName: GLTargetClientVersion
+    EnumKind: CFClosedEnum
+  - Name: glslang_target_language_version_s
+    SwiftName: GLTargetLanguageVersion
+    EnumKind: CFClosedEnum
+  - Name: glslang_executable_s
+    SwiftName: GLExecutable
+    EnumKind: CFClosedEnum
+  - Name: glslang_optimization_level_s
+    SwiftName: GLOptimizationLevel
+    EnumKind: CFClosedEnum
+  - Name: glslang_texture_sampler_transform_mode_s
+    SwiftName: GLTextureSamplerTransformMode
+    EnumKind: CFClosedEnum
+  - Name: glslang_messages_s
+    SwiftName: GLMessageOptions
+    EnumKind: CFOptions
+  - Name: glslang_reflection_options_s
+    SwiftName: GLReflectionOptions
+    EnumKind: CFOptions
+  - Name: glslang_profile_s
+    SwiftName: GLProfile
+    EnumKind: CFClosedEnum
+  - Name: glslang_shader_options_s
+    SwiftName: GLShaderOptions
+    EnumKind: CFClosedEnum
+  - Name: glslang_resource_type_s
+    SwiftName: GLResourceType
+    EnumKind: CFClosedEnum
+  - Name: glslang_includer_type_s
+    SwiftName: GLIncluderType
+    EnumKind: CFClosedEnum
+
+# MARK: - Section: Enumerators
+Enumerators:
+  # MARK: glslang_stage_s
+  # region glslang_stage_s
+
+  - Name: GLSLANG_STAGE_VERTEX
+    SwiftName: vertex
+  - Name: GLSLANG_STAGE_TESSCONTROL
+    SwiftName: tessControl
+  - Name: GLSLANG_STAGE_TESSEVALUATION
+    SwiftName: tessEvaluation
+  - Name: GLSLANG_STAGE_GEOMETRY
+    SwiftName: geometry
+  - Name: GLSLANG_STAGE_FRAGMENT
+    SwiftName: fragment
+  - Name: GLSLANG_STAGE_COMPUTE
+    SwiftName: compute
+  - Name: GLSLANG_STAGE_RAYGEN
+    SwiftName: rayGen
+  - Name: GLSLANG_STAGE_INTERSECT
+    SwiftName: intersect
+  - Name: GLSLANG_STAGE_ANYHIT
+    SwiftName: anyHit
+  - Name: GLSLANG_STAGE_CLOSESTHIT
+    SwiftName: closestHit
+  - Name: GLSLANG_STAGE_MISS
+    SwiftName: miss
+  - Name: GLSLANG_STAGE_CALLABLE
+    SwiftName: callable
+  - Name: GLSLANG_STAGE_TASK
+    SwiftName: task
+  - Name: GLSLANG_STAGE_MESH
+    SwiftName: mesh
+  - Name: GLSLANG_STAGE_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_stage_mask_s
+  # region glslang_stage_mask_s
+
+  - Name: GLSLANG_STAGE_VERTEX_MASK
+    SwiftName: vertex
+  - Name: GLSLANG_STAGE_TESSCONTROL_MASK
+    SwiftName: tessControl
+  - Name: GLSLANG_STAGE_TESSEVALUATION_MASK
+    SwiftName: tessEvaluation
+  - Name: GLSLANG_STAGE_GEOMETRY_MASK
+    SwiftName: geometry
+  - Name: GLSLANG_STAGE_FRAGMENT_MASK
+    SwiftName: fragment
+  - Name: GLSLANG_STAGE_COMPUTE_MASK
+    SwiftName: compute
+  - Name: GLSLANG_STAGE_RAYGEN_MASK
+    SwiftName: rayGen
+  - Name: GLSLANG_STAGE_INTERSECT_MASK
+    SwiftName: intersect
+  - Name: GLSLANG_STAGE_ANYHIT_MASK
+    SwiftName: anyHit
+  - Name: GLSLANG_STAGE_CLOSESTHIT_MASK
+    SwiftName: closestHit
+  - Name: GLSLANG_STAGE_MISS_MASK
+    SwiftName: miss
+  - Name: GLSLANG_STAGE_CALLABLE_MASK
+    SwiftName: callable
+  - Name: GLSLANG_STAGE_TASK_MASK
+    SwiftName: task
+  - Name: GLSLANG_STAGE_MESH_MASK
+    SwiftName: mesh
+  - Name: GLSLANG_STAGE_MASK_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_source_s
+  # region glslang_source_s
+
+  - Name: GLSLANG_SOURCE_NONE
+    SwiftName: none
+  - Name: GLSLANG_SOURCE_GLSL
+    SwiftName: glsl
+  - Name: GLSLANG_SOURCE_HLSL
+    SwiftName: hlsl
+  - Name: GLSLANG_SOURCE_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_client_s
+  # region glslang_client_s
+
+  - Name: GLSLANG_CLIENT_NONE
+    SwiftName: none
+  - Name: GLSLANG_CLIENT_VULKAN
+    SwiftName: vulkan
+  - Name: GLSLANG_CLIENT_OPENGL
+    SwiftName: opengl
+  - Name: GLSLANG_CLIENT_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_target_language_s
+  # region glslang_target_language_s
+
+  - Name: GLSLANG_TARGET_NONE
+    SwiftName: none
+  - Name: GLSLANG_TARGET_SPV
+    SwiftName: spv
+  - Name: GLSLANG_TARGET_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_target_client_version_s
+  # region glslang_target_client_version_s
+
+  - Name: GLSLANG_TARGET_VULKAN_1_0
+    SwiftName: vulkan1_0
+  - Name: GLSLANG_TARGET_VULKAN_1_1
+    SwiftName: vulkan1_1
+  - Name: GLSLANG_TARGET_VULKAN_1_2
+    SwiftName: vulkan1_2
+  - Name: GLSLANG_TARGET_VULKAN_1_3
+    SwiftName: vulkan1_3
+  - Name: GLSLANG_TARGET_OPENGL_450
+    SwiftName: opengl450
+  - Name: GLSLANG_TARGET_CLIENT_VERSION_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_target_language_version_s
+  # region glslang_target_language_version_s
+
+  - Name: GLSLANG_TARGET_SPV_1_0
+    SwiftName: spv1_0
+  - Name: GLSLANG_TARGET_SPV_1_1
+    SwiftName: spv1_1
+  - Name: GLSLANG_TARGET_SPV_1_2
+    SwiftName: spv1_2
+  - Name: GLSLANG_TARGET_SPV_1_3
+    SwiftName: spv1_3
+  - Name: GLSLANG_TARGET_SPV_1_4
+    SwiftName: spv1_4
+  - Name: GLSLANG_TARGET_SPV_1_5
+    SwiftName: spv1_5
+  - Name: GLSLANG_TARGET_SPV_1_6
+    SwiftName: spv1_6
+  - Name: GLSLANG_TARGET_LANGUAGE_VERSION_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_executable_s
+  # region glslang_executable_s
+
+  - Name: GLSLANG_EX_VERTEX_FRAGMENT
+    SwiftName: vertexFragment
+  - Name: GLSLANG_EX_FRAGMENT
+    SwiftName: fragment
+
+  # endregion
+
+  # MARK: glslang_optimization_level_s
+  # region glslang_optimization_level_s
+
+  - Name: GLSLANG_OPT_NO_GENERATION
+    SwiftName: noGeneration
+  - Name: GLSLANG_OPT_NONE
+    SwiftName: none
+  - Name: GLSLANG_OPT_SIMPLE
+    SwiftName: simple
+  - Name: GLSLANG_OPT_FULL
+    SwiftName: full
+  - Name: GLSLANG_OPT_LEVEL_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_texture_sampler_transform_mode_s
+  # region glslang_texture_sampler_transform_mode_s
+
+  - Name: GLSLANG_TEX_SAMP_TRANS_KEEP
+    SwiftName: keep
+  - Name: GLSLANG_TEX_SAMP_TRANS_UPGRADE_TEXTURE_REMOVE_SAMPLER
+    SwiftName: upgradeTextureRemoveSampler
+  - Name: GLSLANG_TEX_SAMP_TRANS_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_messages_s
+  # region glslang_messages_s
+
+  - Name: GLSLANG_MSG_DEFAULT_BIT
+    SwiftName: default
+  - Name: GLSLANG_MSG_RELAXED_ERRORS_BIT
+    SwiftName: relaxedErrors
+  - Name: GLSLANG_MSG_SUPPRESS_WARNINGS_BIT
+    SwiftName: suppressWarnings
+  - Name: GLSLANG_MSG_AST_BIT
+    SwiftName: ast
+  - Name: GLSLANG_MSG_SPV_RULES_BIT
+    SwiftName: spvRules
+  - Name: GLSLANG_MSG_VULKAN_RULES_BIT
+    SwiftName: vulkanRules
+  - Name: GLSLANG_MSG_ONLY_PREPROCESSOR_BIT
+    SwiftName: onlyPreprocessor
+  - Name: GLSLANG_MSG_READ_HLSL_BIT
+    SwiftName: readHlsl
+  - Name: GLSLANG_MSG_CASCADING_ERRORS_BIT
+    SwiftName: cascadingErrors
+  - Name: GLSLANG_MSG_KEEP_UNCALLED_BIT
+    SwiftName: keepUncalled
+  - Name: GLSLANG_MSG_HLSL_OFFSETS_BIT
+    SwiftName: hlslOffsets
+  - Name: GLSLANG_MSG_DEBUG_INFO_BIT
+    SwiftName: debugInfo
+  - Name: GLSLANG_MSG_HLSL_ENABLE_16BIT_TYPES_BIT
+    SwiftName: hlslEnable16BitTypes
+  - Name: GLSLANG_MSG_HLSL_LEGALIZATION_BIT
+    SwiftName: hlslLegalization
+  - Name: GLSLANG_MSG_HLSL_DX9_COMPATIBLE_BIT
+    SwiftName: hlslDx9Compatible
+  - Name: GLSLANG_MSG_BUILTIN_SYMBOL_TABLE_BIT
+    SwiftName: builtinSymbolTable
+  - Name: GLSLANG_MSG_COUNT
+    Availability: nonswift
+
+  # endregion
+
+  # MARK: glslang_reflection_options_s
+  # region glslang_reflection_options_s
+  
+  - Name: GLSLANG_REFLECTION_DEFAULT_BIT
+    SwiftName: default
+  - Name: GLSLANG_REFLECTION_STRICT_ARRAY_SUFFIX_BIT
+    SwiftName: strictArraySuffix
+  - Name: GLSLANG_REFLECTION_BASIC_ARRAY_SUFFIX_BIT
+    SwiftName: basicArraySuffix
+  - Name: GLSLANG_REFLECTION_INTERMEDIATE_IOO_BIT
+    SwiftName: intermediateIOO
+  - Name: GLSLANG_REFLECTION_SEPARATE_BUFFERS_BIT
+    SwiftName: separateBuffers
+  - Name: GLSLANG_REFLECTION_ALL_BLOCK_VARIABLES_BIT
+    SwiftName: allBlockVariables
+  - Name: GLSLANG_REFLECTION_UNWRAP_IO_BLOCKS_BIT
+    SwiftName: unwrapIOBlocks
+  - Name: GLSLANG_REFLECTION_ALL_IO_VARIABLES_BIT
+    SwiftName: allIOVariables
+  - Name: GLSLANG_REFLECTION_SHARED_STD140_SSBO_BIT
+    SwiftName: sharedStd140ssbo
+  - Name: GLSLANG_REFLECTION_SHARED_STD140_UBO_BIT
+    SwiftName: sharedStd140ubo
+  - Name: GLSLANG_REFLECTION_COUNT
+    Availability: nonswift
+  # endregion
+
+  # MARK: glslang_profile_s
+  # region glslang_profile_s
+  
+  - Name: GLSLANG_BAD_PROFILE
+    SwiftName: badProfile
+  - Name: GLSLANG_NO_PROFILE
+    SwiftName: noProfile
+  - Name: GLSLANG_CORE_PROFILE
+    SwiftName: coreProfile
+  - Name: GLSLANG_COMPATIBILITY_PROFILE
+    SwiftName: compatibilityProfile
+  - Name: GLSLANG_ES_PROFILE
+    SwiftName: esProfile
+  - Name: GLSLANG_PROFILE_COUNT
+    Availability: nonswift
+  # endregion
+  
+  # MARK: glslang_shader_options_s
+  # region glslang_shader_options_s
+  
+  - Name: GLSLANG_SHADER_DEFAULT_BIT
+    SwiftName: defaultBit
+  - Name: GLSLANG_SHADER_AUTO_MAP_BINDINGS
+    SwiftName: autoMapBindings
+  - Name: GLSLANG_SHADER_AUTO_MAP_LOCATIONS
+    SwiftName: autoMapLocations
+  - Name: GLSLANG_SHADER_VULKAN_RULES_RELAXED
+    SwiftName: vulkanRulesRelaxed
+  - Name: GLSLANG_SHADER_COUNT
+    Availability: nonswift
+  
+  # endregion
+  
+  # MARK: glslang_resource_type_s
+  # region glslang_resource_type_s
+  
+  - Name: GLSLANG_RESOURCE_TYPE_SAMPLER
+    SwiftName: sampler
+  - Name: GLSLANG_RESOURCE_TYPE_TEXTURE
+    SwiftName: texture
+  - Name: GLSLANG_RESOURCE_TYPE_IMAGE
+    SwiftName: image
+  - Name: GLSLANG_RESOURCE_TYPE_UBO
+    SwiftName: ubo
+  - Name: GLSLANG_RESOURCE_TYPE_SSBO
+    SwiftName: ssbo
+  - Name: GLSLANG_RESOURCE_TYPE_UAV
+    SwiftName: uav
+  - Name: GLSLANG_RESOURCE_TYPE_COUNT
+    Availability: nonswift
+  
+  # endregion
+
+  # MARK: glslang_includer_type_s
+  # region glslang_includer_type_s
+  
+  - Name: GLSLANG_INCLUDER_TYPE_FORBID
+    SwiftName: forbid
+  - Name: GLSLANG_INCLUDER_TYPE_DIR_STACK
+    SwiftName: dirStack
+  - Name: GLSLANG_INCLUDER_TYPE_CUSTOM
+    SwiftName: custom
+
+  # endregion

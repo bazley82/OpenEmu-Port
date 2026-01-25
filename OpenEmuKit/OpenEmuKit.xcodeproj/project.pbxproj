@@ -1,0 +1,1032 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0518D6E824F32DD10037101D /* NSEvent+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0518D6E724F32DD10037101D /* NSEvent+Combine.swift */; };
+		05201D652777C8CC0028CBE0 /* ShaderPresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05201D642777C8CC0028CBE0 /* ShaderPresetStore.swift */; };
+		05201D672777EA910028CBE0 /* OESystemShaderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05201D662777EA910028CBE0 /* OESystemShaderStore.swift */; };
+		05201D692779642F0028CBE0 /* ShaderPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05201D682779642F0028CBE0 /* ShaderPreset.swift */; };
+		05201D6B277A6A6A0028CBE0 /* ShaderPresetModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05201D6A277A6A6A0028CBE0 /* ShaderPresetModelTests.swift */; };
+		05201D6F277D316E0028CBE0 /* UserDefaultsPresetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05201D6E277D316E0028CBE0 /* UserDefaultsPresetStorage.swift */; };
+		05201D73277D82920028CBE0 /* ShaderPresetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05201D72277D82920028CBE0 /* ShaderPresetStorage.swift */; };
+		0524372B278D7F0C004DE02C /* ShaderPresetTextEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524372A278D7F0C004DE02C /* ShaderPresetTextEncoding.swift */; };
+		0524372D278D8171004DE02C /* PeekableIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524372C278D8171004DE02C /* PeekableIterator.swift */; };
+		0524372F278E1874004DE02C /* ShaderPresetTextReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524372E278E1874004DE02C /* ShaderPresetTextReaderTests.swift */; };
+		05243731278E1C69004DE02C /* ShaderPresetTextWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05243730278E1C69004DE02C /* ShaderPresetTextWriterTests.swift */; };
+		0530C3B32512DF680050F90F /* OEScaledGameLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0530C3B22512DF680050F90F /* OEScaledGameLayerView.swift */; };
+		0547C2032707E59C00D386D3 /* ShaderPresetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0547C2022707E59C00D386D3 /* ShaderPresetTests.swift */; };
+		0547C20C2707F60500D386D3 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0547C20B2707F60500D386D3 /* Crypto.swift */; };
+		0547FD9824E7717E005C1FFC /* OEShaderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0547FD9724E7717E005C1FFC /* OEShaderStore.swift */; };
+		054A2C07278CDA2600A2F241 /* KeyValueScanner.rl in Resources */ = {isa = PBXBuildFile; fileRef = 054A2C06278CDA2600A2F241 /* KeyValueScanner.rl */; };
+		054A2C0A278CDA5A00A2F241 /* KeyValueScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 054A2C09278CDA5A00A2F241 /* KeyValueScanner.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		054A2C0C278CDA6A00A2F241 /* KeyValueScanner+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 054A2C0B278CDA6A00A2F241 /* KeyValueScanner+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		054A2C0E278CDA7800A2F241 /* KeyValueScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A2C0D278CDA7800A2F241 /* KeyValueScanner.m */; };
+		054A2C10278CDA8600A2F241 /* KeyValueScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054A2C0F278CDA8600A2F241 /* KeyValueScanner.swift */; };
+		054A2C12278CDCA000A2F241 /* KeyValueScanner.gen.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A2C11278CDCA000A2F241 /* KeyValueScanner.gen.m */; };
+		054A2C14278CDDEB00A2F241 /* KeyValueScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054A2C13278CDDEB00A2F241 /* KeyValueScannerTests.swift */; };
+		054A774925B2399100F2F3D6 /* ShaderParameterGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054A774825B2399100F2F3D6 /* ShaderParameterGroupModel.swift */; };
+		0553DE2E27B5B83F0085512F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0553DE2D27B5B83F0085512F /* String+Extensions.swift */; };
+		055F774328740EF700BBFFF9 /* AudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055F774228740EF700BBFFF9 /* AudioUnit.swift */; };
+		0572A4012877883100AC32F8 /* OpenEmuXPCHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A4002877883100AC32F8 /* OpenEmuXPCHelperApp.swift */; };
+		0572A41128783DDB00AC32F8 /* Atomics in Frameworks */ = {isa = PBXBuildFile; productRef = 0572A41028783DDB00AC32F8 /* Atomics */; };
+		0572A4132878D76C00AC32F8 /* GameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A4122878D76C00AC32F8 /* GameRenderer.swift */; };
+		0572A4152878E51C00AC32F8 /* GameCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A4142878E51C00AC32F8 /* GameCoreManager.swift */; };
+		0572A4172878EF3300AC32F8 /* OEThreadGameCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A4162878EF3300AC32F8 /* OEThreadGameCoreManager.swift */; };
+		0572A419287A334600AC32F8 /* OEXPCGameCoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A418287A334600AC32F8 /* OEXPCGameCoreManager.swift */; };
+		0572A424287B89CD00AC32F8 /* OEGameStartupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A423287B89CD00AC32F8 /* OEGameStartupInfo.swift */; };
+		0572A426287B969500AC32F8 /* OEGameCoreOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A425287B969500AC32F8 /* OEGameCoreOwner.swift */; };
+		0572A428287BAF9300AC32F8 /* OEGameCoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A427287BAF9300AC32F8 /* OEGameCoreHelper.swift */; };
+		0572A42A287BB0B000AC32F8 /* OEXPCGameCoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A429287BB0B000AC32F8 /* OEXPCGameCoreHelper.swift */; };
+		0572A42C287BEA3800AC32F8 /* NSXPCConnection+HelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A42B287BEA3800AC32F8 /* NSXPCConnection+HelperApp.swift */; };
+		0572A42E287CD66A00AC32F8 /* NSXPCListener+HelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0572A42D287CD66A00AC32F8 /* NSXPCListener+HelperApp.swift */; };
+		0578484B25C1392400A842E7 /* ShaderCompilerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578484A25C1392300A842E7 /* ShaderCompilerOptions.swift */; };
+		05796B2728727F790007E415 /* MTLGameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05796B2628727F790007E415 /* MTLGameRenderer.swift */; };
+		05796B2B28738FFE0007E415 /* CoreVideoTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05796B2A28738FFE0007E415 /* CoreVideoTexture.swift */; };
+		057E7FED28755CB100BC1C04 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E7FEC28755CB100BC1C04 /* Logging.swift */; };
+		057E7FEF28762D4700BC1C04 /* OpenGL2GameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E7FEE28762D4700BC1C04 /* OpenGL2GameRenderer.swift */; };
+		057E7FF128762D5400BC1C04 /* OpenGL3GameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E7FF028762D5400BC1C04 /* OpenGL3GameRenderer.swift */; };
+		057E7FF2287630C000BC1C04 /* OpenEmuHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E7FEA28755C5600BC1C04 /* OpenEmuHelperApp.swift */; };
+		05AAD98726758240004466E3 /* XPCDebugSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AAD98626758240004466E3 /* XPCDebugSupport.swift */; };
+		05B078172735DA2300F1E302 /* SystemShaderPresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B078162735DA2300F1E302 /* SystemShaderPresetStore.swift */; };
+		05B0781927371B2200F1E302 /* GameAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0781827371B2200F1E302 /* GameAudio.swift */; };
+		05B0781B273882C600F1E302 /* GameHelperMetalLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0781A273882C600F1E302 /* GameHelperMetalLayer.swift */; };
+		05BC69C729590DC400D2C38F /* GameAudio2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC69C629590DC400D2C38F /* GameAudio2.swift */; };
+		05BC69C929590E3800D2C38F /* GameAudioProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BC69C829590E3800D2C38F /* GameAudioProtocol.swift */; };
+		05C40F8826F69B6F0072B722 /* ShaderParamValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C40F8726F69B6F0072B722 /* ShaderParamValue.swift */; };
+		05C40F8A26F6A72F0072B722 /* ApproximatelyEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C40F8926F6A72F0072B722 /* ApproximatelyEqual.swift */; };
+		05D53292289330FF004DC253 /* OpenGLGameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D53291289330FF004DC253 /* OpenGLGameRenderer.swift */; };
+		05D532942895F73C004DC253 /* ScreenShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D532932895F73C004DC253 /* ScreenShot.swift */; };
+		05D828D524E9881E00BB975E /* OEXPCMatchMaking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D828D424E9881E00BB975E /* OEXPCMatchMaking.swift */; };
+		05D828DB24E98A8E00BB975E /* OEXPCMatchMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D828DA24E98A8E00BB975E /* OEXPCMatchMaker.swift */; };
+		05E6958424CA5D4200ACFB35 /* OpenEmuKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 05E6958224CA5D4200ACFB35 /* OpenEmuKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E6BA0F24CCD53100ACFB35 /* OpenEmuBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E6BA0E24CCD53100ACFB35 /* OpenEmuBase.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		05E6BA1324CCD56200ACFB35 /* OpenEmuSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E6BA1224CCD56200ACFB35 /* OpenEmuSystem.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		05E6BA1D24CCD71D00ACFB35 /* OESystemPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6BA1724CCD71600ACFB35 /* OESystemPlugin.swift */; };
+		05E6BA1E24CCD71D00ACFB35 /* OEPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6BA1824CCD71800ACFB35 /* OEPlugin.swift */; };
+		05E6BA2224CCD71D00ACFB35 /* OECorePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6BA1C24CCD71D00ACFB35 /* OECorePlugin.swift */; };
+		05E6BA3024CCD77600ACFB35 /* OEGameLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6BA2D24CCD77300ACFB35 /* OEGameLayerView.swift */; };
+		05E6BA3D24CCD79600ACFB35 /* OELogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E6BA3724CCD79300ACFB35 /* OELogging.m */; };
+		05E6BA3E24CCD79600ACFB35 /* OEThreadProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E6BA3824CCD79500ACFB35 /* OEThreadProxy.m */; };
+		05E6BA3F24CCD79600ACFB35 /* OELogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 05E6BA3924CCD79600ACFB35 /* OELogging.h */; };
+		05E6BA5524CCD9A000ACFB35 /* OpenEmuShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E6BA5424CCD9A000ACFB35 /* OpenEmuShaders.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		05EA2F2224FFD16B00569EBA /* OEIntegralWindowResizingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EA2F2124FFD16B00569EBA /* OEIntegralWindowResizingDelegate.swift */; };
+		05ED1CF9259D1FB200A2D400 /* FileManager+ExtendedAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ED1CF8259D1FB200A2D400 /* FileManager+ExtendedAttributes.swift */; };
+		05ED1CFC259D43E800A2D400 /* LaunchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ED1CFB259D43E800A2D400 /* LaunchControl.swift */; };
+		05EEF0F22707C875008A03DC /* ShaderPresetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF0F12707C875008A03DC /* ShaderPresetData.swift */; };
+		05EEF1022707C986008A03DC /* ShaderPresetStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEF1012707C986008A03DC /* ShaderPresetStoreTests.swift */; };
+		05EEF1052707CA9B008A03DC /* OpenEmuKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E6957F24CA5D4200ACFB35 /* OpenEmuKit.framework */; };
+		05EEF1082707D2ED008A03DC /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 05EEF1072707D2ED008A03DC /* Nimble */; };
+		8F3A1837285C9F88008A7AC9 /* NSBundle+CacheFlushing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3A1836285C9F0E008A7AC9 /* NSBundle+CacheFlushing.m */; };
+		DD75EE5D298976C60056B3BA /* MTL3DGameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75EE5C298976C60056B3BA /* MTL3DGameRenderer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05EEF0FC2707C96B008A03DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05E6957624CA5D4200ACFB35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05E6957E24CA5D4200ACFB35;
+			remoteInfo = OpenEmuKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0547FDB824E78F03005C1FFC /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		050A9A0924F9B26C00321847 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		050A9A0B24F9B2B800321847 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		050A9A0C24F9B2E900321847 /* QuartzCoreSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuartzCoreSPI.h; sourceTree = "<group>"; };
+		050A9A0F24F9B38000321847 /* OpenEmuKit.private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = OpenEmuKit.private.modulemap; sourceTree = "<group>"; };
+		050A9A1024F9C35B00321847 /* OpenEmuKitPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenEmuKitPrivate.h; sourceTree = "<group>"; };
+		0518D6E724F32DD10037101D /* NSEvent+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+Combine.swift"; sourceTree = "<group>"; };
+		05201D642777C8CC0028CBE0 /* ShaderPresetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPresetStore.swift; sourceTree = "<group>"; };
+		05201D662777EA910028CBE0 /* OESystemShaderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OESystemShaderStore.swift; sourceTree = "<group>"; };
+		05201D682779642F0028CBE0 /* ShaderPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPreset.swift; sourceTree = "<group>"; };
+		05201D6A277A6A6A0028CBE0 /* ShaderPresetModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPresetModelTests.swift; sourceTree = "<group>"; };
+		05201D6E277D316E0028CBE0 /* UserDefaultsPresetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPresetStorage.swift; sourceTree = "<group>"; };
+		05201D72277D82920028CBE0 /* ShaderPresetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPresetStorage.swift; sourceTree = "<group>"; };
+		0524372A278D7F0C004DE02C /* ShaderPresetTextEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderPresetTextEncoding.swift; sourceTree = "<group>"; };
+		0524372C278D8171004DE02C /* PeekableIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekableIterator.swift; sourceTree = "<group>"; };
+		0524372E278E1874004DE02C /* ShaderPresetTextReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderPresetTextReaderTests.swift; sourceTree = "<group>"; };
+		05243730278E1C69004DE02C /* ShaderPresetTextWriterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderPresetTextWriterTests.swift; sourceTree = "<group>"; };
+		0530C3B22512DF680050F90F /* OEScaledGameLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEScaledGameLayerView.swift; sourceTree = "<group>"; };
+		0533EA6624CDFD030095146E /* XADMaster.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XADMaster.framework; path = ../OpenEmu/XADMaster.framework; sourceTree = "<group>"; };
+		0547C2022707E59C00D386D3 /* ShaderPresetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderPresetTests.swift; sourceTree = "<group>"; };
+		0547C2092707E96400D386D3 /* .swift-format.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ".swift-format.json"; sourceTree = "<group>"; };
+		0547C20A2707E96400D386D3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		0547C20B2707F60500D386D3 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		0547FD9724E7717E005C1FFC /* OEShaderStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OEShaderStore.swift; sourceTree = "<group>"; };
+		054A2C06278CDA2600A2F241 /* KeyValueScanner.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyValueScanner.rl; sourceTree = "<group>"; };
+		054A2C09278CDA5A00A2F241 /* KeyValueScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValueScanner.h; sourceTree = "<group>"; };
+		054A2C0B278CDA6A00A2F241 /* KeyValueScanner+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KeyValueScanner+Private.h"; sourceTree = "<group>"; };
+		054A2C0D278CDA7800A2F241 /* KeyValueScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValueScanner.m; sourceTree = "<group>"; };
+		054A2C0F278CDA8600A2F241 /* KeyValueScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueScanner.swift; sourceTree = "<group>"; };
+		054A2C11278CDCA000A2F241 /* KeyValueScanner.gen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValueScanner.gen.m; sourceTree = "<group>"; };
+		054A2C13278CDDEB00A2F241 /* KeyValueScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueScannerTests.swift; sourceTree = "<group>"; };
+		054A774825B2399100F2F3D6 /* ShaderParameterGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderParameterGroupModel.swift; sourceTree = "<group>"; };
+		0553DE2D27B5B83F0085512F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		055F774228740EF700BBFFF9 /* AudioUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnit.swift; sourceTree = "<group>"; };
+		0572A4002877883100AC32F8 /* OpenEmuXPCHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenEmuXPCHelperApp.swift; sourceTree = "<group>"; };
+		0572A4122878D76C00AC32F8 /* GameRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRenderer.swift; sourceTree = "<group>"; };
+		0572A4142878E51C00AC32F8 /* GameCoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoreManager.swift; sourceTree = "<group>"; };
+		0572A4162878EF3300AC32F8 /* OEThreadGameCoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEThreadGameCoreManager.swift; sourceTree = "<group>"; };
+		0572A418287A334600AC32F8 /* OEXPCGameCoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEXPCGameCoreManager.swift; sourceTree = "<group>"; };
+		0572A423287B89CD00AC32F8 /* OEGameStartupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEGameStartupInfo.swift; sourceTree = "<group>"; usesTabs = 0; };
+		0572A425287B969500AC32F8 /* OEGameCoreOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEGameCoreOwner.swift; sourceTree = "<group>"; };
+		0572A427287BAF9300AC32F8 /* OEGameCoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEGameCoreHelper.swift; sourceTree = "<group>"; };
+		0572A429287BB0B000AC32F8 /* OEXPCGameCoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEXPCGameCoreHelper.swift; sourceTree = "<group>"; };
+		0572A42B287BEA3800AC32F8 /* NSXPCConnection+HelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSXPCConnection+HelperApp.swift"; sourceTree = "<group>"; };
+		0572A42D287CD66A00AC32F8 /* NSXPCListener+HelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSXPCListener+HelperApp.swift"; sourceTree = "<group>"; };
+		0578484A25C1392300A842E7 /* ShaderCompilerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderCompilerOptions.swift; sourceTree = "<group>"; };
+		05796B2628727F790007E415 /* MTLGameRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTLGameRenderer.swift; sourceTree = "<group>"; };
+		05796B2A28738FFE0007E415 /* CoreVideoTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreVideoTexture.swift; sourceTree = "<group>"; };
+		057E7FEA28755C5600BC1C04 /* OpenEmuHelperApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenEmuHelperApp.swift; sourceTree = "<group>"; };
+		057E7FEC28755CB100BC1C04 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		057E7FEE28762D4700BC1C04 /* OpenGL2GameRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGL2GameRenderer.swift; sourceTree = "<group>"; };
+		057E7FF028762D5400BC1C04 /* OpenGL3GameRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGL3GameRenderer.swift; sourceTree = "<group>"; };
+		05AAD98626758240004466E3 /* XPCDebugSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCDebugSupport.swift; sourceTree = "<group>"; };
+		05B078162735DA2300F1E302 /* SystemShaderPresetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemShaderPresetStore.swift; sourceTree = "<group>"; };
+		05B0781827371B2200F1E302 /* GameAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAudio.swift; sourceTree = "<group>"; };
+		05B0781A273882C600F1E302 /* GameHelperMetalLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHelperMetalLayer.swift; sourceTree = "<group>"; };
+		05BC69C629590DC400D2C38F /* GameAudio2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAudio2.swift; sourceTree = "<group>"; };
+		05BC69C829590E3800D2C38F /* GameAudioProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAudioProtocol.swift; sourceTree = "<group>"; };
+		05C40F8726F69B6F0072B722 /* ShaderParamValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderParamValue.swift; sourceTree = "<group>"; };
+		05C40F8926F6A72F0072B722 /* ApproximatelyEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproximatelyEqual.swift; sourceTree = "<group>"; };
+		05D53291289330FF004DC253 /* OpenGLGameRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGLGameRenderer.swift; sourceTree = "<group>"; };
+		05D532932895F73C004DC253 /* ScreenShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShot.swift; sourceTree = "<group>"; };
+		05D828D424E9881E00BB975E /* OEXPCMatchMaking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEXPCMatchMaking.swift; sourceTree = "<group>"; };
+		05D828DA24E98A8E00BB975E /* OEXPCMatchMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEXPCMatchMaker.swift; sourceTree = "<group>"; };
+		05E6957F24CA5D4200ACFB35 /* OpenEmuKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenEmuKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E6958224CA5D4200ACFB35 /* OpenEmuKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenEmuKit.h; sourceTree = "<group>"; };
+		05E6BA0E24CCD53100ACFB35 /* OpenEmuBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenEmuBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E6BA1224CCD56200ACFB35 /* OpenEmuSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenEmuSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05E6BA1724CCD71600ACFB35 /* OESystemPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OESystemPlugin.swift; sourceTree = "<group>"; };
+		05E6BA1824CCD71800ACFB35 /* OEPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OEPlugin.swift; sourceTree = "<group>"; };
+		05E6BA1C24CCD71D00ACFB35 /* OECorePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OECorePlugin.swift; sourceTree = "<group>"; };
+		05E6BA2D24CCD77300ACFB35 /* OEGameLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OEGameLayerView.swift; sourceTree = "<group>"; };
+		05E6BA3624CCD79200ACFB35 /* OEThreadProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEThreadProxy.h; sourceTree = "<group>"; };
+		05E6BA3724CCD79300ACFB35 /* OELogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OELogging.m; sourceTree = "<group>"; };
+		05E6BA3824CCD79500ACFB35 /* OEThreadProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEThreadProxy.m; sourceTree = "<group>"; };
+		05E6BA3924CCD79600ACFB35 /* OELogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OELogging.h; sourceTree = "<group>"; };
+		05E6BA5424CCD9A000ACFB35 /* OpenEmuShaders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenEmuShaders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05EA2F2124FFD16B00569EBA /* OEIntegralWindowResizingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEIntegralWindowResizingDelegate.swift; sourceTree = "<group>"; };
+		05ED1CF8259D1FB200A2D400 /* FileManager+ExtendedAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+ExtendedAttributes.swift"; sourceTree = "<group>"; };
+		05ED1CFB259D43E800A2D400 /* LaunchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchControl.swift; sourceTree = "<group>"; };
+		05EEF0F12707C875008A03DC /* ShaderPresetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPresetData.swift; sourceTree = "<group>"; };
+		05EEF0F72707C96B008A03DC /* OpenEmuKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenEmuKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05EEF1012707C986008A03DC /* ShaderPresetStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderPresetStoreTests.swift; sourceTree = "<group>"; };
+		05EEF1032707CA7A008A03DC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8F3A1836285C9F0E008A7AC9 /* NSBundle+CacheFlushing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CacheFlushing.m"; sourceTree = "<group>"; };
+		8F4AEABF27354776005C6246 /* NSBundle+CacheFlushing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CacheFlushing.h"; sourceTree = "<group>"; };
+		DD75EE5C298976C60056B3BA /* MTL3DGameRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTL3DGameRenderer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05E6957C24CA5D4200ACFB35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05E6BA5524CCD9A000ACFB35 /* OpenEmuShaders.framework in Frameworks */,
+				05E6BA0F24CCD53100ACFB35 /* OpenEmuBase.framework in Frameworks */,
+				05E6BA1324CCD56200ACFB35 /* OpenEmuSystem.framework in Frameworks */,
+				0572A41128783DDB00AC32F8 /* Atomics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEF0F42707C96B008A03DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05EEF1052707CA9B008A03DC /* OpenEmuKit.framework in Frameworks */,
+				05EEF1082707D2ED008A03DC /* Nimble in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		050A9A0A24F9B29300321847 /* OpenEmuKitPrivate */ = {
+			isa = PBXGroup;
+			children = (
+				050A9A0B24F9B2B800321847 /* module.modulemap */,
+				050A9A1024F9C35B00321847 /* OpenEmuKitPrivate.h */,
+				8F4AEABF27354776005C6246 /* NSBundle+CacheFlushing.h */,
+				8F3A1836285C9F0E008A7AC9 /* NSBundle+CacheFlushing.m */,
+				05E6BA3924CCD79600ACFB35 /* OELogging.h */,
+				05E6BA3724CCD79300ACFB35 /* OELogging.m */,
+				05E6BA3624CCD79200ACFB35 /* OEThreadProxy.h */,
+				05E6BA3824CCD79500ACFB35 /* OEThreadProxy.m */,
+				050A9A0C24F9B2E900321847 /* QuartzCoreSPI.h */,
+			);
+			path = OpenEmuKitPrivate;
+			sourceTree = "<group>";
+		};
+		050A9A0E24F9B36400321847 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				050A9A0F24F9B38000321847 /* OpenEmuKit.private.modulemap */,
+			);
+			name = Module;
+			sourceTree = "<group>";
+		};
+		0518D6E624F32DB40037101D /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				0518D6E724F32DD10037101D /* NSEvent+Combine.swift */,
+			);
+			name = Combine;
+			sourceTree = "<group>";
+		};
+		0547FD9E24E78E92005C1FFC /* XPC */ = {
+			isa = PBXGroup;
+			children = (
+				05ED1CFB259D43E800A2D400 /* LaunchControl.swift */,
+				05D828D424E9881E00BB975E /* OEXPCMatchMaking.swift */,
+				05D828DA24E98A8E00BB975E /* OEXPCMatchMaker.swift */,
+				05AAD98626758240004466E3 /* XPCDebugSupport.swift */,
+				0572A42B287BEA3800AC32F8 /* NSXPCConnection+HelperApp.swift */,
+				0572A42D287CD66A00AC32F8 /* NSXPCListener+HelperApp.swift */,
+			);
+			name = XPC;
+			sourceTree = "<group>";
+		};
+		054A2C08278CDA2C00A2F241 /* KeyValueScanner */ = {
+			isa = PBXGroup;
+			children = (
+				054A2C09278CDA5A00A2F241 /* KeyValueScanner.h */,
+				054A2C0B278CDA6A00A2F241 /* KeyValueScanner+Private.h */,
+				054A2C0D278CDA7800A2F241 /* KeyValueScanner.m */,
+				054A2C11278CDCA000A2F241 /* KeyValueScanner.gen.m */,
+				054A2C06278CDA2600A2F241 /* KeyValueScanner.rl */,
+				054A2C0F278CDA8600A2F241 /* KeyValueScanner.swift */,
+			);
+			name = KeyValueScanner;
+			sourceTree = "<group>";
+		};
+		05E6957524CA5D4200ACFB35 = {
+			isa = PBXGroup;
+			children = (
+				0547C2092707E96400D386D3 /* .swift-format.json */,
+				0547C20A2707E96400D386D3 /* .swiftlint.yml */,
+				050A9A0924F9B26C00321847 /* Config.xcconfig */,
+				05E6959324CA5E1100ACFB35 /* Source */,
+				05E6958124CA5D4200ACFB35 /* OpenEmuKit */,
+				05EEF0F82707C96B008A03DC /* OpenEmuKitTests */,
+				05E6958024CA5D4200ACFB35 /* Products */,
+				05E6BA0D24CCD53100ACFB35 /* Frameworks */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+		};
+		05E6958024CA5D4200ACFB35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05E6957F24CA5D4200ACFB35 /* OpenEmuKit.framework */,
+				05EEF0F72707C96B008A03DC /* OpenEmuKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05E6958124CA5D4200ACFB35 /* OpenEmuKit */ = {
+			isa = PBXGroup;
+			children = (
+				05E6958224CA5D4200ACFB35 /* OpenEmuKit.h */,
+			);
+			path = OpenEmuKit;
+			sourceTree = "<group>";
+		};
+		05E6959324CA5E1100ACFB35 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				050A9A0E24F9B36400321847 /* Module */,
+				050A9A0A24F9B29300321847 /* OpenEmuKitPrivate */,
+				05E695C924CCD32900ACFB35 /* Classes */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		05E695C924CCD32900ACFB35 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				05E6B9D824CCD41A00ACFB35 /* Helper App (Remote Layer) */,
+				05E6BA0824CCD4F500ACFB35 /* Game Core Helper Protocols */,
+				05E6BA1524CCD6B600ACFB35 /* OpenEmuCore */,
+				0547FD9E24E78E92005C1FFC /* XPC */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		05E6B9D824CCD41A00ACFB35 /* Helper App (Remote Layer) */ = {
+			isa = PBXGroup;
+			children = (
+				05E6B9F024CCD45400ACFB35 /* Renderers */,
+				05E6B9FF24CCD47400ACFB35 /* Video */,
+				057E7FEA28755C5600BC1C04 /* OpenEmuHelperApp.swift */,
+				0572A4002877883100AC32F8 /* OpenEmuXPCHelperApp.swift */,
+				05D532932895F73C004DC253 /* ScreenShot.swift */,
+			);
+			name = "Helper App (Remote Layer)";
+			sourceTree = "<group>";
+		};
+		05E6B9F024CCD45400ACFB35 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				0572A4122878D76C00AC32F8 /* GameRenderer.swift */,
+				05796B2628727F790007E415 /* MTLGameRenderer.swift */,
+				DD75EE5C298976C60056B3BA /* MTL3DGameRenderer.swift */,
+				05796B2A28738FFE0007E415 /* CoreVideoTexture.swift */,
+				05D53291289330FF004DC253 /* OpenGLGameRenderer.swift */,
+				057E7FEE28762D4700BC1C04 /* OpenGL2GameRenderer.swift */,
+				057E7FF028762D5400BC1C04 /* OpenGL3GameRenderer.swift */,
+			);
+			name = Renderers;
+			sourceTree = "<group>";
+		};
+		05E6B9FF24CCD47400ACFB35 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				05B0781A273882C600F1E302 /* GameHelperMetalLayer.swift */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		05E6BA0824CCD4F500ACFB35 /* Game Core Helper Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0572A427287BAF9300AC32F8 /* OEGameCoreHelper.swift */,
+				0572A425287B969500AC32F8 /* OEGameCoreOwner.swift */,
+				0572A429287BB0B000AC32F8 /* OEXPCGameCoreHelper.swift */,
+			);
+			name = "Game Core Helper Protocols";
+			sourceTree = "<group>";
+		};
+		05E6BA0D24CCD53100ACFB35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05EEF1032707CA7A008A03DC /* XCTest.framework */,
+				0533EA6624CDFD030095146E /* XADMaster.framework */,
+				05E6BA5424CCD9A000ACFB35 /* OpenEmuShaders.framework */,
+				05E6BA1224CCD56200ACFB35 /* OpenEmuSystem.framework */,
+				05E6BA0E24CCD53100ACFB35 /* OpenEmuBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05E6BA1524CCD6B600ACFB35 /* OpenEmuCore */ = {
+			isa = PBXGroup;
+			children = (
+				0518D6E624F32DB40037101D /* Combine */,
+				05E6BA5924CCDFB200ACFB35 /* Shaders */,
+				05E6BA1624CCD6E500ACFB35 /* Plugins */,
+				05E6BA2324CCD73E00ACFB35 /* Audio */,
+				05E6BA2C24CCD76700ACFB35 /* Graphics */,
+				05E6BA3324CCD78300ACFB35 /* Utilities */,
+				0572A4142878E51C00AC32F8 /* GameCoreManager.swift */,
+				0572A423287B89CD00AC32F8 /* OEGameStartupInfo.swift */,
+				0572A4162878EF3300AC32F8 /* OEThreadGameCoreManager.swift */,
+				0572A418287A334600AC32F8 /* OEXPCGameCoreManager.swift */,
+			);
+			name = OpenEmuCore;
+			sourceTree = "<group>";
+		};
+		05E6BA1624CCD6E500ACFB35 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				05E6BA1824CCD71800ACFB35 /* OEPlugin.swift */,
+				05E6BA1C24CCD71D00ACFB35 /* OECorePlugin.swift */,
+				05E6BA1724CCD71600ACFB35 /* OESystemPlugin.swift */,
+			);
+			name = Plugins;
+			sourceTree = "<group>";
+		};
+		05E6BA2324CCD73E00ACFB35 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				055F774228740EF700BBFFF9 /* AudioUnit.swift */,
+				05B0781827371B2200F1E302 /* GameAudio.swift */,
+				05BC69C629590DC400D2C38F /* GameAudio2.swift */,
+				05BC69C829590E3800D2C38F /* GameAudioProtocol.swift */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		05E6BA2C24CCD76700ACFB35 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				05E6BA2D24CCD77300ACFB35 /* OEGameLayerView.swift */,
+				05EA2F2124FFD16B00569EBA /* OEIntegralWindowResizingDelegate.swift */,
+				0530C3B22512DF680050F90F /* OEScaledGameLayerView.swift */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		05E6BA3324CCD78300ACFB35 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				05C40F8926F6A72F0072B722 /* ApproximatelyEqual.swift */,
+				0547C20B2707F60500D386D3 /* Crypto.swift */,
+				057E7FEC28755CB100BC1C04 /* Logging.swift */,
+				05ED1CF8259D1FB200A2D400 /* FileManager+ExtendedAttributes.swift */,
+				0524372C278D8171004DE02C /* PeekableIterator.swift */,
+				0553DE2D27B5B83F0085512F /* String+Extensions.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		05E6BA5924CCDFB200ACFB35 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				054A2C08278CDA2C00A2F241 /* KeyValueScanner */,
+				0547FD9724E7717E005C1FFC /* OEShaderStore.swift */,
+				05201D662777EA910028CBE0 /* OESystemShaderStore.swift */,
+				0578484A25C1392300A842E7 /* ShaderCompilerOptions.swift */,
+				05C40F8726F69B6F0072B722 /* ShaderParamValue.swift */,
+				054A774825B2399100F2F3D6 /* ShaderParameterGroupModel.swift */,
+				05201D682779642F0028CBE0 /* ShaderPreset.swift */,
+				05EEF0F12707C875008A03DC /* ShaderPresetData.swift */,
+				05201D642777C8CC0028CBE0 /* ShaderPresetStore.swift */,
+				05B078162735DA2300F1E302 /* SystemShaderPresetStore.swift */,
+				05201D72277D82920028CBE0 /* ShaderPresetStorage.swift */,
+				0524372A278D7F0C004DE02C /* ShaderPresetTextEncoding.swift */,
+				05201D6E277D316E0028CBE0 /* UserDefaultsPresetStorage.swift */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		05EEF0F82707C96B008A03DC /* OpenEmuKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				0547C2022707E59C00D386D3 /* ShaderPresetTests.swift */,
+				05201D6A277A6A6A0028CBE0 /* ShaderPresetModelTests.swift */,
+				054A2C13278CDDEB00A2F241 /* KeyValueScannerTests.swift */,
+				05EEF1012707C986008A03DC /* ShaderPresetStoreTests.swift */,
+				0524372E278E1874004DE02C /* ShaderPresetTextReaderTests.swift */,
+				05243730278E1C69004DE02C /* ShaderPresetTextWriterTests.swift */,
+			);
+			path = OpenEmuKitTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		05E6957A24CA5D4200ACFB35 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05E6BA3F24CCD79600ACFB35 /* OELogging.h in Headers */,
+				054A2C0C278CDA6A00A2F241 /* KeyValueScanner+Private.h in Headers */,
+				054A2C0A278CDA5A00A2F241 /* KeyValueScanner.h in Headers */,
+				05E6958424CA5D4200ACFB35 /* OpenEmuKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		05E6957E24CA5D4200ACFB35 /* OpenEmuKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05E6958724CA5D4200ACFB35 /* Build configuration list for PBXNativeTarget "OpenEmuKit" */;
+			buildPhases = (
+				0547C2082707E8AD00D386D3 /* ShellScript */,
+				05E6957A24CA5D4200ACFB35 /* Headers */,
+				05E6957B24CA5D4200ACFB35 /* Sources */,
+				05E6957C24CA5D4200ACFB35 /* Frameworks */,
+				05E6957D24CA5D4200ACFB35 /* Resources */,
+				0547FDB824E78F03005C1FFC /* Embed XPC Services */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenEmuKit;
+			packageProductDependencies = (
+				0572A41028783DDB00AC32F8 /* Atomics */,
+			);
+			productName = OpenEmuKit;
+			productReference = 05E6957F24CA5D4200ACFB35 /* OpenEmuKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		05EEF0F62707C96B008A03DC /* OpenEmuKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05EEF0FE2707C96B008A03DC /* Build configuration list for PBXNativeTarget "OpenEmuKitTests" */;
+			buildPhases = (
+				05EEF0F32707C96B008A03DC /* Sources */,
+				05EEF0F42707C96B008A03DC /* Frameworks */,
+				05EEF0F52707C96B008A03DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05EEF0FD2707C96B008A03DC /* PBXTargetDependency */,
+			);
+			name = OpenEmuKitTests;
+			packageProductDependencies = (
+				05EEF1072707D2ED008A03DC /* Nimble */,
+			);
+			productName = OpenEmuKitTests;
+			productReference = 05EEF0F72707C96B008A03DC /* OpenEmuKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05E6957624CA5D4200ACFB35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					05E6957E24CA5D4200ACFB35 = {
+						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
+					};
+					05EEF0F62707C96B008A03DC = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 05E6957924CA5D4200ACFB35 /* Build configuration list for PBXProject "OpenEmuKit" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				de,
+				"zh-Hans",
+				ja,
+				es,
+				it,
+				"zh-Hant",
+				ru,
+				fr,
+				nl,
+				pt,
+				ca,
+			);
+			mainGroup = 05E6957524CA5D4200ACFB35;
+			packageReferences = (
+				05EEF1062707D2ED008A03DC /* XCRemoteSwiftPackageReference "Nimble" */,
+				0572A40F28783DDB00AC32F8 /* XCRemoteSwiftPackageReference "swift-atomics" */,
+			);
+			productRefGroup = 05E6958024CA5D4200ACFB35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05E6957E24CA5D4200ACFB35 /* OpenEmuKit */,
+				05EEF0F62707C96B008A03DC /* OpenEmuKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05E6957D24CA5D4200ACFB35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				054A2C07278CDA2600A2F241 /* KeyValueScanner.rl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEF0F52707C96B008A03DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0547C2082707E8AD00D386D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: swiftlint not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05E6957B24CA5D4200ACFB35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05EEF0F22707C875008A03DC /* ShaderPresetData.swift in Sources */,
+				05796B2728727F790007E415 /* MTLGameRenderer.swift in Sources */,
+				057E7FF2287630C000BC1C04 /* OpenEmuHelperApp.swift in Sources */,
+				05D828D524E9881E00BB975E /* OEXPCMatchMaking.swift in Sources */,
+				057E7FEF28762D4700BC1C04 /* OpenGL2GameRenderer.swift in Sources */,
+				0572A42C287BEA3800AC32F8 /* NSXPCConnection+HelperApp.swift in Sources */,
+				054A774925B2399100F2F3D6 /* ShaderParameterGroupModel.swift in Sources */,
+				05201D692779642F0028CBE0 /* ShaderPreset.swift in Sources */,
+				055F774328740EF700BBFFF9 /* AudioUnit.swift in Sources */,
+				0572A428287BAF9300AC32F8 /* OEGameCoreHelper.swift in Sources */,
+				05C40F8A26F6A72F0072B722 /* ApproximatelyEqual.swift in Sources */,
+				05201D652777C8CC0028CBE0 /* ShaderPresetStore.swift in Sources */,
+				0547C20C2707F60500D386D3 /* Crypto.swift in Sources */,
+				05D53292289330FF004DC253 /* OpenGLGameRenderer.swift in Sources */,
+				05796B2B28738FFE0007E415 /* CoreVideoTexture.swift in Sources */,
+				05E6BA3E24CCD79600ACFB35 /* OEThreadProxy.m in Sources */,
+				05E6BA3D24CCD79600ACFB35 /* OELogging.m in Sources */,
+				05201D672777EA910028CBE0 /* OESystemShaderStore.swift in Sources */,
+				05AAD98726758240004466E3 /* XPCDebugSupport.swift in Sources */,
+				05ED1CFC259D43E800A2D400 /* LaunchControl.swift in Sources */,
+				05D532942895F73C004DC253 /* ScreenShot.swift in Sources */,
+				DD75EE5D298976C60056B3BA /* MTL3DGameRenderer.swift in Sources */,
+				8F3A1837285C9F88008A7AC9 /* NSBundle+CacheFlushing.m in Sources */,
+				0547FD9824E7717E005C1FFC /* OEShaderStore.swift in Sources */,
+				05201D73277D82920028CBE0 /* ShaderPresetStorage.swift in Sources */,
+				0524372D278D8171004DE02C /* PeekableIterator.swift in Sources */,
+				05B0781B273882C600F1E302 /* GameHelperMetalLayer.swift in Sources */,
+				05E6BA1D24CCD71D00ACFB35 /* OESystemPlugin.swift in Sources */,
+				0572A426287B969500AC32F8 /* OEGameCoreOwner.swift in Sources */,
+				0572A4012877883100AC32F8 /* OpenEmuXPCHelperApp.swift in Sources */,
+				0572A419287A334600AC32F8 /* OEXPCGameCoreManager.swift in Sources */,
+				057E7FED28755CB100BC1C04 /* Logging.swift in Sources */,
+				057E7FF128762D5400BC1C04 /* OpenGL3GameRenderer.swift in Sources */,
+				054A2C12278CDCA000A2F241 /* KeyValueScanner.gen.m in Sources */,
+				0572A42E287CD66A00AC32F8 /* NSXPCListener+HelperApp.swift in Sources */,
+				05C40F8826F69B6F0072B722 /* ShaderParamValue.swift in Sources */,
+				0572A42A287BB0B000AC32F8 /* OEXPCGameCoreHelper.swift in Sources */,
+				0524372B278D7F0C004DE02C /* ShaderPresetTextEncoding.swift in Sources */,
+				054A2C10278CDA8600A2F241 /* KeyValueScanner.swift in Sources */,
+				05EA2F2224FFD16B00569EBA /* OEIntegralWindowResizingDelegate.swift in Sources */,
+				0578484B25C1392400A842E7 /* ShaderCompilerOptions.swift in Sources */,
+				05E6BA3024CCD77600ACFB35 /* OEGameLayerView.swift in Sources */,
+				05201D6F277D316E0028CBE0 /* UserDefaultsPresetStorage.swift in Sources */,
+				0572A424287B89CD00AC32F8 /* OEGameStartupInfo.swift in Sources */,
+				05BC69C929590E3800D2C38F /* GameAudioProtocol.swift in Sources */,
+				05E6BA1E24CCD71D00ACFB35 /* OEPlugin.swift in Sources */,
+				05E6BA2224CCD71D00ACFB35 /* OECorePlugin.swift in Sources */,
+				0572A4132878D76C00AC32F8 /* GameRenderer.swift in Sources */,
+				0553DE2E27B5B83F0085512F /* String+Extensions.swift in Sources */,
+				054A2C0E278CDA7800A2F241 /* KeyValueScanner.m in Sources */,
+				05D828DB24E98A8E00BB975E /* OEXPCMatchMaker.swift in Sources */,
+				0572A4152878E51C00AC32F8 /* GameCoreManager.swift in Sources */,
+				05BC69C729590DC400D2C38F /* GameAudio2.swift in Sources */,
+				0572A4172878EF3300AC32F8 /* OEThreadGameCoreManager.swift in Sources */,
+				0530C3B32512DF680050F90F /* OEScaledGameLayerView.swift in Sources */,
+				05B078172735DA2300F1E302 /* SystemShaderPresetStore.swift in Sources */,
+				05ED1CF9259D1FB200A2D400 /* FileManager+ExtendedAttributes.swift in Sources */,
+				05B0781927371B2200F1E302 /* GameAudio.swift in Sources */,
+				0518D6E824F32DD10037101D /* NSEvent+Combine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05EEF0F32707C96B008A03DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05EEF1022707C986008A03DC /* ShaderPresetStoreTests.swift in Sources */,
+				05243731278E1C69004DE02C /* ShaderPresetTextWriterTests.swift in Sources */,
+				0524372F278E1874004DE02C /* ShaderPresetTextReaderTests.swift in Sources */,
+				0547C2032707E59C00D386D3 /* ShaderPresetTests.swift in Sources */,
+				054A2C14278CDDEB00A2F241 /* KeyValueScannerTests.swift in Sources */,
+				05201D6B277A6A6A0028CBE0 /* ShaderPresetModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05EEF0FD2707C96B008A03DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05E6957E24CA5D4200ACFB35 /* OpenEmuKit */;
+			targetProxy = 05EEF0FC2707C96B008A03DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		05E6958524CA5D4200ACFB35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG_PRINT,
+					NS_BUILD_32_LIKE_64,
+					GL_SILENCE_DEPRECATION,
+					QC_SILENCE_GL_DEPRECATION,
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "XPC_WAIT_FOREVER DEBUG";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		05E6958624CA5D4200ACFB35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NS_BUILD_32_LIKE_64,
+					GL_SILENCE_DEPRECATION,
+					QC_SILENCE_GL_DEPRECATION,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		05E6958824CA5D4200ACFB35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 050A9A0924F9B26C00321847 /* Config.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../OpenEmu";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		05E6958924CA5D4200ACFB35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 050A9A0924F9B26C00321847 /* Config.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../OpenEmu";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		05EEF0FF2707C96B008A03DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		05EEF1002707C96B008A03DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05E6957924CA5D4200ACFB35 /* Build configuration list for PBXProject "OpenEmuKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05E6958524CA5D4200ACFB35 /* Debug */,
+				05E6958624CA5D4200ACFB35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05E6958724CA5D4200ACFB35 /* Build configuration list for PBXNativeTarget "OpenEmuKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05E6958824CA5D4200ACFB35 /* Debug */,
+				05E6958924CA5D4200ACFB35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05EEF0FE2707C96B008A03DC /* Build configuration list for PBXNativeTarget "OpenEmuKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05EEF0FF2707C96B008A03DC /* Debug */,
+				05EEF1002707C96B008A03DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0572A40F28783DDB00AC32F8 /* XCRemoteSwiftPackageReference "swift-atomics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-atomics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		05EEF1062707D2ED008A03DC /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0572A41028783DDB00AC32F8 /* Atomics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0572A40F28783DDB00AC32F8 /* XCRemoteSwiftPackageReference "swift-atomics" */;
+			productName = Atomics;
+		};
+		05EEF1072707D2ED008A03DC /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05EEF1062707D2ED008A03DC /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 05E6957624CA5D4200ACFB35 /* Project object */;
+}

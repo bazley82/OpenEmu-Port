@@ -1,0 +1,313 @@
+# documented: https://github.com/apple/llvm-project/blob/apple/master/clang/lib/APINotes/APINotesYAMLCompiler.cpp
+
+---
+Name: CSPIRVTools
+SwiftInferImportAsMember: true
+Availability: available
+
+Typedefs:
+  - Name: spvt_context
+    SwiftName: CSPVTContext
+    SwiftWrapper: struct
+
+  - Name: spvt_optimizer
+    SwiftName: CSPVTOptimizer
+    SwiftWrapper: struct
+
+  - Name: spvt_vector
+    SwiftName: CSPVTVector
+    SwiftWrapper: struct
+
+  - Name: spv_optimizer_options
+    SwiftName: CSPVTOptimizerOptions
+    SwiftWrapper: struct
+
+Functions:
+
+  # region spvt_vector
+
+  - Name: spvt_vector_destroy
+    SwiftName: CSPVTVector.destroy(self:)
+
+  - Name: spvt_vector_get_size
+    SwiftName: getter:CSPVTVector.size(self:)
+
+  - Name: spvt_vector_get_ptr
+    SwiftName: getter:CSPVTVector.ptr(self:)
+    NullabilityOfRet: N
+
+  # endregion
+
+  # region spv_optimizer_options
+
+  - Name: spvOptimizerOptionsCreate
+    SwiftName: CSPVTOptimizerOptions.init()
+    NullabilityOfRet: N
+
+  - Name: spvOptimizerOptionsDestroy
+    SwiftName: CSPVTOptimizerOptions.destroy(self:)
+
+  - Name: spvOptimizerOptionsSetRunValidator
+    SwiftName: CSPVTOptimizerOptions.setRunValidator(self:_:)
+
+  # endregion
+
+  # region spvt_optimizer
+
+  - Name: spvt_optimizer_create
+    SwiftName: CSPVTOptimizer.init(environment:)
+    NullabilityOfRet: N
+
+  - Name: spvt_optimizer_destroy
+    SwiftName: CSPVTOptimizer.destroy(self:)
+
+  - Name: spvt_optimizer_run
+    SwiftName: CSPVTOptimizer.run(self:original:size:)
+    NullabilityOfRet: O
+
+  - Name: spvt_optimizer_run_options
+    SwiftName: CSPVTOptimizer.run(self:original:size:options:)
+    NullabilityOfRet: O
+
+  - Name: spvt_optimizer_register_pass_from_flag
+    SwiftName: CSPVTOptimizer.register_pass_from_flag(self:flag:)
+    
+  - Name: spvt_optimizer_register_performance_passes
+    SwiftName: CSPVTOptimizer.register_performance_passes(self:)
+    
+  - Name: spvt_optimizer_register_size_passes
+    SwiftName: CSPVTOptimizer.register_size_passes(self:)
+
+  # endregion
+
+  # region spvt_optimizer passes
+
+  - Name: spvt_optimizer_register_null_pass
+    SwiftName: CSPVTOptimizer.register_null_pass(self:)
+  - Name: spvt_optimizer_register_strip_debug_info_pass
+    SwiftName: CSPVTOptimizer.register_strip_debug_info_pass(self:)
+  - Name: spvt_optimizer_register_strip_reflect_info_pass
+    SwiftName: CSPVTOptimizer.register_strip_reflect_info_pass(self:)
+  - Name: spvt_optimizer_register_strip_non_semantic_info_pass
+    SwiftName: CSPVTOptimizer.register_strip_non_semantic_info_pass(self:)
+  - Name: spvt_optimizer_register_eliminate_dead_functions_pass
+    SwiftName: CSPVTOptimizer.register_eliminate_dead_functions_pass(self:)
+  - Name: spvt_optimizer_register_eliminate_dead_members_pass
+    SwiftName: CSPVTOptimizer.register_eliminate_dead_members_pass(self:)
+  - Name: spvt_optimizer_register_flatten_decoration_pass
+    SwiftName: CSPVTOptimizer.register_flatten_decoration_pass(self:)
+  - Name: spvt_optimizer_register_freeze_spec_constant_value_pass
+    SwiftName: CSPVTOptimizer.register_freeze_spec_constant_value_pass(self:)
+  - Name: spvt_optimizer_register_fold_spec_constant_op_and_composite_pass
+    SwiftName: CSPVTOptimizer.register_fold_spec_constant_op_and_composite_pass(self:)
+  - Name: spvt_optimizer_register_unify_constant_pass
+    SwiftName: CSPVTOptimizer.register_unify_constant_pass(self:)
+  - Name: spvt_optimizer_register_eliminate_dead_constant_pass
+    SwiftName: CSPVTOptimizer.register_eliminate_dead_constant_pass(self:)
+  - Name: spvt_optimizer_register_strength_reduction_pass
+    SwiftName: CSPVTOptimizer.register_strength_reduction_pass(self:)
+  - Name: spvt_optimizer_register_block_merge_pass
+    SwiftName: CSPVTOptimizer.register_block_merge_pass(self:)
+  - Name: spvt_optimizer_register_inline_exhaustive_pass
+    SwiftName: CSPVTOptimizer.register_inline_exhaustive_pass(self:)
+  - Name: spvt_optimizer_register_inline_opaque_pass
+    SwiftName: CSPVTOptimizer.register_inline_opaque_pass(self:)
+  - Name: spvt_optimizer_register_local_single_block_load_store_elim_pass
+    SwiftName: CSPVTOptimizer.register_local_single_block_load_store_elim_pass(self:)
+  - Name: spvt_optimizer_register_dead_branch_elim_pass
+    SwiftName: CSPVTOptimizer.register_dead_branch_elim_pass(self:)
+  - Name: spvt_optimizer_register_local_multi_store_elim_pass
+    SwiftName: CSPVTOptimizer.register_local_multi_store_elim_pass(self:)
+  - Name: spvt_optimizer_register_local_access_chain_convert_pass
+    SwiftName: CSPVTOptimizer.register_local_access_chain_convert_pass(self:)
+  - Name: spvt_optimizer_register_local_single_store_elim_pass
+    SwiftName: CSPVTOptimizer.register_local_single_store_elim_pass(self:)
+  - Name: spvt_optimizer_register_insert_extract_elim_pass
+    SwiftName: CSPVTOptimizer.register_insert_extract_elim_pass(self:)
+  - Name: spvt_optimizer_register_dead_insert_elim_pass
+    SwiftName: CSPVTOptimizer.register_dead_insert_elim_pass(self:)
+  - Name: spvt_optimizer_register_aggressive_dce_pass
+    SwiftName: CSPVTOptimizer.register_aggressive_dce_pass(self:)
+  - Name: spvt_optimizer_register_remove_unused_interface_variables_pass
+    SwiftName: CSPVTOptimizer.register_remove_unused_interface_variables_pass(self:)    
+  - Name: spvt_optimizer_register_propagate_line_info_pass
+    SwiftName: CSPVTOptimizer.register_propagate_line_info_pass(self:)
+  - Name: spvt_optimizer_register_redundant_line_info_elim_pass
+    SwiftName: CSPVTOptimizer.register_redundant_line_info_elim_pass(self:)
+  - Name: spvt_optimizer_register_compact_ids_pass
+    SwiftName: CSPVTOptimizer.register_compact_ids_pass(self:)
+  - Name: spvt_optimizer_register_remove_duplicates_pass
+    SwiftName: CSPVTOptimizer.register_remove_duplicates_pass(self:)
+  - Name: spvt_optimizer_register_cfg_cleanup_pass
+    SwiftName: CSPVTOptimizer.register_cfg_cleanup_pass(self:)
+  - Name: spvt_optimizer_register_dead_variable_elimination_pass
+    SwiftName: CSPVTOptimizer.register_dead_variable_elimination_pass(self:)
+  - Name: spvt_optimizer_register_merge_return_pass
+    SwiftName: CSPVTOptimizer.register_merge_return_pass(self:)
+  - Name: spvt_optimizer_register_local_redundancy_elimination_pass
+    SwiftName: CSPVTOptimizer.register_local_redundancy_elimination_pass(self:)
+  - Name: spvt_optimizer_register_loop_invariant_code_motion_pass
+    SwiftName: CSPVTOptimizer.register_loop_invariant_code_motion_pass(self:)
+  - Name: spvt_optimizer_register_loop_fission_pass
+    SwiftName: CSPVTOptimizer.register_loop_fission_pass(self:threshold:)
+  - Name: spvt_optimizer_register_loop_fusion_pass
+    SwiftName: CSPVTOptimizer.register_loop_fusion_pass(self:maxRegistersPerLoop:)
+  - Name: spvt_optimizer_register_loop_peeling_pass
+    SwiftName: CSPVTOptimizer.register_loop_peeling_pass(self:)
+  - Name: spvt_optimizer_register_loop_unswitch_pass
+    SwiftName: CSPVTOptimizer.register_loop_unswitch_pass(self:)
+  - Name: spvt_optimizer_register_redundancy_elimination_pass
+    SwiftName: CSPVTOptimizer.register_redundancy_elimination_pass(self:)
+  - Name: spvt_optimizer_register_scalar_replacement_pass
+    SwiftName: CSPVTOptimizer.register_scalar_replacement_pass(self:sizeLimit:)
+  - Name: spvt_optimizer_register_private_to_local_pass
+    SwiftName: CSPVTOptimizer.register_private_to_local_pass(self:)
+  - Name: spvt_optimizer_register_ccp_pass
+    SwiftName: CSPVTOptimizer.register_ccp_pass(self:)
+  - Name: spvt_optimizer_register_workaround_1209_pass
+    SwiftName: CSPVTOptimizer.register_workaround_1209_pass(self:)
+  - Name: spvt_optimizer_register_if_conversion_pass
+    SwiftName: CSPVTOptimizer.register_if_conversion_pass(self:)
+  - Name: spvt_optimizer_register_replace_invalid_opcode_pass
+    SwiftName: CSPVTOptimizer.register_replace_invalid_opcode_pass(self:)
+  - Name: spvt_optimizer_register_simplification_pass
+    SwiftName: CSPVTOptimizer.register_simplification_pass(self:)
+  - Name: spvt_optimizer_register_loop_unroll_pass
+    SwiftName: CSPVTOptimizer.register_loop_unroll_pass(self:fullyUnroll:factor:)
+  - Name: spvt_optimizer_register_ssa_rewrite_pass
+    SwiftName: CSPVTOptimizer.register_ssa_rewrite_pass(self:)
+  - Name: spvt_optimizer_register_convert_relaxed_to_half_pass
+    SwiftName: CSPVTOptimizer.register_convert_relaxed_to_half_pass(self:)
+  - Name: spvt_optimizer_register_relax_float_ops_pass
+    SwiftName: CSPVTOptimizer.register_relax_float_ops_pass(self:)
+  - Name: spvt_optimizer_register_copy_propagate_arrays_pass
+    SwiftName: CSPVTOptimizer.register_copy_propagate_arrays_pass(self:)
+  - Name: spvt_optimizer_register_vector_dce_pass
+    SwiftName: CSPVTOptimizer.register_vector_dce_pass(self:)
+  - Name: spvt_optimizer_register_reduce_load_size_pass
+    SwiftName: CSPVTOptimizer.register_reduce_load_size_pass(self:)
+  - Name: spvt_optimizer_register_combine_access_chains_pass
+    SwiftName: CSPVTOptimizer.register_combine_access_chains_pass(self:)
+  - Name: spvt_optimizer_register_inst_bindless_check_pass
+    SwiftName: CSPVTOptimizer.register_inst_bindless_check_pass(self:descriptorSet:shaderId:inputLengthEnable:inputInitEnable:)
+  - Name: spvt_optimizer_register_inst_buff_addr_check_pass
+    SwiftName: CSPVTOptimizer.register_inst_buff_addr_check_pass(self:descriptorSet:shaderId:)
+  - Name: spvt_optimizer_register_inst_debug_printf_pass
+    SwiftName: CSPVTOptimizer.register_inst_debug_printf_pass(self:descriptorSet:shaderId:)
+  - Name: spvt_optimizer_register_upgrade_memory_model_pass
+    SwiftName: CSPVTOptimizer.register_upgrade_memory_model_pass(self:)
+  - Name: spvt_optimizer_register_code_sinking_pass
+    SwiftName: CSPVTOptimizer.register_code_sinking_pass(self:)
+  - Name: spvt_optimizer_register_fix_storage_class_pass
+    SwiftName: CSPVTOptimizer.register_fix_storage_class_pass(self:)
+  - Name: spvt_optimizer_register_legalize_vector_shuffle_pass
+    SwiftName: CSPVTOptimizer.register_legalize_vector_shuffle_pass(self:)
+  - Name: spvt_optimizer_register_decompose_initialized_variables_pass
+    SwiftName: CSPVTOptimizer.register_decompose_initialized_variables_pass(self:)
+  - Name: spvt_optimizer_register_split_invalid_unreachable_pass
+    SwiftName: CSPVTOptimizer.register_split_invalid_unreachable_pass(self:)
+  - Name: spvt_optimizer_register_graphics_robust_access_pass
+    SwiftName: CSPVTOptimizer.register_graphics_robust_access_pass(self:)
+  - Name: spvt_optimizer_register_spread_volatile_semantics_pass
+    SwiftName: CSPVTOptimizer.register_spread_volatile_semantics_pass(self:)
+  - Name: spvt_optimizer_register_descriptor_scalar_replacement_pass
+    SwiftName: CSPVTOptimizer.register_descriptor_scalar_replacement_pass(self:)
+  - Name: spvt_optimizer_register_wrap_op_kill_pass
+    SwiftName: CSPVTOptimizer.register_wrap_op_kill_pass(self:)
+  - Name: spvt_optimizer_register_amd_ext_to_khr_pass
+    SwiftName: CSPVTOptimizer.register_amd_ext_to_khr_pass(self:)
+  - Name: spvt_optimizer_register_interpolate_fixup_pass
+    SwiftName: CSPVTOptimizer.register_interpolate_fixup_pass(self:)
+  - Name: spvt_optimizer_register_eliminate_dead_input_components_pass
+    SwiftName: CSPVTOptimizer.register_eliminate_dead_input_components_pass(self:)
+  - Name: spvt_optimizer_register_remove_dont_inline_pass
+    SwiftName: CSPVTOptimizer.register_remove_dont_inline_pass(self:)
+
+  # endregion
+
+Tags:
+  - Name: spv_target_env_t
+    SwiftName: SPVTargetEnvironment
+    EnumKind: CFClosedEnum
+
+  - Name: spv_message_level_t
+    SwiftName: SPVLevel
+    EnumKind: CFClosedEnum
+
+Enumerators:
+
+  # region spv_target_env_t
+
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_0
+    SwiftName: universal1_0
+  - Name: SPV_TARGET_ENV_VULKAN_1_0
+    SwiftName: vulkan1_0
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_1
+    SwiftName: universal1_1
+  - Name: SPV_TARGET_ENV_OPENCL_2_1
+    SwiftName: opencl2_1
+  - Name: SPV_TARGET_ENV_OPENCL_2_2
+    SwiftName: opencl2_2
+  - Name: SPV_TARGET_ENV_OPENGL_4_0
+    SwiftName: opengl4_0
+  - Name: SPV_TARGET_ENV_OPENGL_4_1
+    SwiftName: opengl4_1
+  - Name: SPV_TARGET_ENV_OPENGL_4_2
+    SwiftName: opengl4_2
+  - Name: SPV_TARGET_ENV_OPENGL_4_3
+    SwiftName: opengl4_3
+  - Name: SPV_TARGET_ENV_OPENGL_4_5
+    SwiftName: opengl4_5
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_2
+    SwiftName: universal1_2
+  - Name: SPV_TARGET_ENV_OPENCL_1_2
+    SwiftName: opencl1_2
+  - Name: SPV_TARGET_ENV_OPENCL_EMBEDDED_1_2
+    SwiftName: openclEmbedded1_2
+  - Name: SPV_TARGET_ENV_OPENCL_2_0
+    SwiftName: opencl2_0
+  - Name: SPV_TARGET_ENV_OPENCL_EMBEDDED_2_0
+    SwiftName: openclEmbedded2_0
+  - Name: SPV_TARGET_ENV_OPENCL_EMBEDDED_2_1
+    SwiftName: openclEmbedded2_1
+  - Name: SPV_TARGET_ENV_OPENCL_EMBEDDED_2_2
+    SwiftName: openclEmbedded2_2
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_3
+    SwiftName: universal1_3
+  - Name: SPV_TARGET_ENV_VULKAN_1_1
+    SwiftName: vulkan1_1
+  - Name: SPV_TARGET_ENV_WEBGPU_0
+    SwiftName: webgpu0
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_4
+    SwiftName: universal1_4
+  - Name: SPV_TARGET_ENV_VULKAN_1_1_SPIRV_1_4
+    SwiftName: vulkan1_1Spirv1_4
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_5
+    SwiftName: universal1_5
+  - Name: SPV_TARGET_ENV_VULKAN_1_2
+    SwiftName: vulkan1_2
+  - Name: SPV_TARGET_ENV_UNIVERSAL_1_6
+    SwiftName: universal1_6
+  - Name: SPV_TARGET_ENV_VULKAN_1_3
+    SwiftName: vulkan1_3
+  - Name: SPV_TARGET_ENV_MAX
+    Availability: nonswift
+
+  # endregion
+
+  # region spv_message_level_t
+
+  - Name: SPV_MSG_FATAL
+    SwiftName: fatal
+  - Name: SPV_MSG_INTERNAL_ERROR
+    SwiftName: internalError
+  - Name: SPV_MSG_ERROR
+    SwiftName: error
+  - Name: SPV_MSG_WARNING
+    SwiftName: warning
+  - Name: SPV_MSG_INFO
+    SwiftName: info
+  - Name: SPV_MSG_DEBUG
+    SwiftName: debug
+
+  # endregion

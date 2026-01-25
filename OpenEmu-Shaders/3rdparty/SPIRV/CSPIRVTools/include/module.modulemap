@@ -1,0 +1,5 @@
+module CSPIRVTools {
+    umbrella header "CSPIRVTools.h"
+    export *
+    link "c++"
+}

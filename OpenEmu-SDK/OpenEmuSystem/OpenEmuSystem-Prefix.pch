@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'OpenEmuSystem' target in the 'OpenEmuSystem' project
+//
+
+#define TODO(x)
+#define FIXME(x)
+#define NOTE(x)
+
+#define BOOL_STR(value) ((value) ? "YES" : "NO")
