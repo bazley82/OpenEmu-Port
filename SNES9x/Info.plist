@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string>APPL.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.62.3</string>
+	<key>NSPrincipalClass</key>
+	<string>OEGameCoreController</string>
+	<key>OEGameCoreClass</key>
+	<string>SNESGameCore</string>
+	<key>OEGameCoreOptions</key>
+	<dict>
+		<key>openemu.system.snes</key>
+		<dict>
+			<key>OEGameCoreRequiresFiles</key>
+			<true/>
+			<key>OEGameCoreRewindBufferSeconds</key>
+			<integer>60</integer>
+			<key>OEGameCoreRewindInterval</key>
+			<integer>0</integer>
+			<key>OEGameCoreSupportsCheatCode</key>
+			<true/>
+			<key>OEGameCoreSupportsRewinding</key>
+			<true/>
+			<key>OERequiredFiles</key>
+			<array>
+				<dict>
+					<key>Description</key>
+					<string>Satellaview BS-X BIOS</string>
+					<key>MD5</key>
+					<string>FED4D8242CFBED61343D53D48432ACED</string>
+					<key>Name</key>
+					<string>BS-X.bin</string>
+					<key>Optional</key>
+					<true/>
+					<key>Size</key>
+					<integer>1048576</integer>
+				</dict>
+				<dict>
+					<key>Description</key>
+					<string>BS-X BIOS (English) [No DRM] [2016 v1.3]</string>
+					<key>MD5</key>
+					<string>96CF17BF589FCBFA6F8DE2DC84F19FA2</string>
+					<key>Name</key>
+					<string>BS-X BIOS (English) [No DRM] [2016 v1.3].sfc</string>
+					<key>Optional</key>
+					<true/>
+					<key>Size</key>
+					<integer>1048576</integer>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>OEGameCorePlayerCount</key>
+	<string>8</string>
+	<key>OEProjectURL</key>
+	<string>https://github.com/snes9xgit/snes9x</string>
+	<key>OESystemIdentifiers</key>
+	<array>
+		<string>openemu.system.snes</string>
+	</array>
+	<key>SUEnableAutomaticChecks</key>
+	<string>1</string>
+	<key>SUFeedURL</key>
+	<string>https://raw.github.com/OpenEmu/OpenEmu-Update/master/snes9x_appcast.xml</string>
+</dict>
+</plist>
