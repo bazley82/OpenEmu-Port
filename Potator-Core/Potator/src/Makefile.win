@@ -1,0 +1,72 @@
+# Project: PotatorSDL
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = win/platform/SDL/main.o win/common/controls.o win/common/gpu.o win/common/interrupts.o win/common/io.o win/common/log.o win/common/memory.o win/common/memorymap.o win/common/sound.o win/common/timer.o win/common/version.o win/common/watara.o win/common/M6502/M6502.o $(RES)
+LINKOBJ  = win/platform/SDL/main.o win/common/controls.o win/common/gpu.o win/common/interrupts.o win/common/io.o win/common/log.o win/common/memory.o win/common/memorymap.o win/common/sound.o win/common/timer.o win/common/version.o win/common/watara.o win/common/M6502/M6502.o $(RES)
+LIBS =  -L"D:/GP2XSDK/lib" -lmingw32 -liconv -lgp2x -lSDL_image -lSDL_mixer -lSDL_ttf -lSDL_inifile -lSDLmain -lSDL -lpng -ljpeg -lvorbisidec -lmad -lfreetype -lz -lunicodefont  -lgmon -pg  -mwindows  
+INCS =  -I"D:/GP2XSDK/include/GP2X"  -I"D:/GP2XSDK/include/SDL"  -I"D:/GP2XSDK/include" 
+CXXINCS =  -I"D:/GP2XSDK/include/GP2X"  -I"D:/GP2XSDK/include/SDL"  -I"D:/GP2XSDK/lib/gcc/mingw32/3.4.2/include"  -I"D:/GP2XSDK/include/c++/3.4.2/backward"  -I"D:/GP2XSDK/include/c++/3.4.2/mingw32"  -I"D:/GP2XSDK/include/c++/3.4.2"  -I"D:/GP2XSDK/include" 
+BIN  = PotatorSDL.exe
+CXXFLAGS = $(CXXINCS)   -DWIN32 -DWINDOWS -D_SDL_ -fexpensive-optimizations -O3 -pg -mwindows
+CFLAGS = $(INCS) -D_REENTRANT   -DWIN32 -DWINDOWS -D_SDL_ -fexpensive-optimizations -O3 -pg -mwindows
+RM = rm -f
+MKDIR = cygwin-mkdir -p
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before PotatorSDL.exe all-after
+
+all-before:
+	$(MKDIR) "win/platform/SDL"
+	$(MKDIR) "win/common"
+	$(MKDIR) "win/common/M6502"
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $@ $(LIBS)
+
+win/platform/SDL/main.o: platform/SDL/main.c
+	$(CC) -c platform/SDL/main.c -o win/platform/SDL/main.o $(CFLAGS)
+
+win/common/controls.o: common/controls.c
+	$(CC) -c common/controls.c -o win/common/controls.o $(CFLAGS)
+
+win/common/gpu.o: common/gpu.c
+	$(CC) -c common/gpu.c -o win/common/gpu.o $(CFLAGS)
+
+win/common/interrupts.o: common/interrupts.c
+	$(CC) -c common/interrupts.c -o win/common/interrupts.o $(CFLAGS)
+
+win/common/io.o: common/io.c
+	$(CC) -c common/io.c -o win/common/io.o $(CFLAGS)
+
+win/common/log.o: common/log.c
+	$(CC) -c common/log.c -o win/common/log.o $(CFLAGS)
+
+win/common/memory.o: common/memory.c
+	$(CC) -c common/memory.c -o win/common/memory.o $(CFLAGS)
+
+win/common/memorymap.o: common/memorymap.c
+	$(CC) -c common/memorymap.c -o win/common/memorymap.o $(CFLAGS)
+
+win/common/sound.o: common/sound.c
+	$(CC) -c common/sound.c -o win/common/sound.o $(CFLAGS)
+
+win/common/timer.o: common/timer.c
+	$(CC) -c common/timer.c -o win/common/timer.o $(CFLAGS)
+
+win/common/version.o: common/version.c
+	$(CC) -c common/version.c -o win/common/version.o $(CFLAGS)
+
+win/common/watara.o: common/watara.c
+	$(CC) -c common/watara.c -o win/common/watara.o $(CFLAGS)
+
+win/common/M6502/M6502.o: common/M6502/M6502.c
+	$(CC) -c common/M6502/M6502.c -o win/common/M6502/M6502.o $(CFLAGS)

@@ -1,0 +1,40 @@
+ProSystem JG
+------------
+ProSystem JG is an emulator for the Atari 7800.
+
+This is a fork of ProSystem 1.3e with patches from OpenEmu, which contains
+patches derived from Wii7800 and js7800.
+
+The code has been significantly altered. It was ported from C++ to C, and
+all of the dependencies and Windows-specific code were removed.
+
+This repository lives at https://gitlab.com/jgemu/prosystem
+
+Compiling
+---------
+Make sure you have The Jolly Good API's header files installed. If you did
+not install them, you will be required to include their path in CFLAGS.
+
+Linux:
+  make
+
+macOS:
+  make
+
+BSD:
+  gmake
+
+Windows (MSYS2):
+  make
+
+The build will be output to "prosystem/". This directory may be used as is
+locally by copying it to your local "cores" directory, or may be installed
+system-wide using the "install" target specified in the Makefile.
+
+Input Devices
+-------------
+ProSystem JG uses a game database to determine which input devices must be
+plugged in. The following input devices are currently supported:
+
+7800 Joystick
+XG-1 Light Gun

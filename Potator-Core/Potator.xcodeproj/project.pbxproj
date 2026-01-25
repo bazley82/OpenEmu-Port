@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		837965451A616BFD00A8DE5C /* Build & Install Potator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 837965461A616BFD00A8DE5C /* Build configuration list for PBXAggregateTarget "Build & Install Potator" */;
+			buildPhases = (
+				8379654B1A616C0600A8DE5C /* ShellScript */,
+			);
+			dependencies = (
+				8379654A1A616C0300A8DE5C /* PBXTargetDependency */,
+			);
+			name = "Build & Install Potator";
+			productName = "Build & Install Protator";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		8379652C1A614E8900A8DE5C /* controls.c in Sources */ = {isa = PBXBuildFile; fileRef = 8379650F1A614E8900A8DE5C /* controls.c */; };
+		8379652D1A614E8900A8DE5C /* gpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965111A614E8900A8DE5C /* gpu.c */; };
+		8379652E1A614E8900A8DE5C /* interrupts.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965131A614E8900A8DE5C /* interrupts.c */; };
+		8379652F1A614E8900A8DE5C /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965151A614E8900A8DE5C /* io.c */; };
+		837965311A614E8900A8DE5C /* M6502.c in Sources */ = {isa = PBXBuildFile; fileRef = 8379651B1A614E8900A8DE5C /* M6502.c */; };
+		837965321A614E8900A8DE5C /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 8379651E1A614E8900A8DE5C /* memory.c */; };
+		837965331A614E8900A8DE5C /* memorymap.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965201A614E8900A8DE5C /* memorymap.c */; };
+		837965341A614E8900A8DE5C /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 837965221A614E8900A8DE5C /* Readme.txt */; };
+		837965351A614E8900A8DE5C /* sound.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965231A614E8900A8DE5C /* sound.c */; };
+		837965361A614E8900A8DE5C /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965261A614E8900A8DE5C /* timer.c */; };
+		837965371A614E8900A8DE5C /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965291A614E8900A8DE5C /* version.c */; };
+		837965381A614E8900A8DE5C /* watara.c in Sources */ = {isa = PBXBuildFile; fileRef = 8379652B1A614E8900A8DE5C /* watara.c */; };
+		8379653B1A61543C00A8DE5C /* SVGameCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8379653A1A61543C00A8DE5C /* SVGameCore.mm */; };
+		8379653D1A6154B700A8DE5C /* OpenEmuBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8379653C1A6154B700A8DE5C /* OpenEmuBase.framework */; };
+		837965401A6154D800A8DE5C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8379653F1A6154D800A8DE5C /* Cocoa.framework */; };
+		837965421A61570F00A8DE5C /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 837965171A614E8900A8DE5C /* log.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		837965491A616C0300A8DE5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 837964FC1A614D9F00A8DE5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 837965031A614D9F00A8DE5C;
+			remoteInfo = Potator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		837965041A614D9F00A8DE5C /* Potator.oecoreplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Potator.oecoreplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		837965081A614D9F00A8DE5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8379650F1A614E8900A8DE5C /* controls.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = controls.c; sourceTree = "<group>"; };
+		837965101A614E8900A8DE5C /* controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controls.h; sourceTree = "<group>"; };
+		837965111A614E8900A8DE5C /* gpu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gpu.c; sourceTree = "<group>"; };
+		837965121A614E8900A8DE5C /* gpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gpu.h; sourceTree = "<group>"; };
+		837965131A614E8900A8DE5C /* interrupts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = interrupts.c; sourceTree = "<group>"; };
+		837965141A614E8900A8DE5C /* interrupts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interrupts.h; sourceTree = "<group>"; };
+		837965151A614E8900A8DE5C /* io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = io.c; sourceTree = "<group>"; };
+		837965161A614E8900A8DE5C /* io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io.h; sourceTree = "<group>"; };
+		837965171A614E8900A8DE5C /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = log.c; sourceTree = "<group>"; };
+		837965181A614E8900A8DE5C /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		8379651A1A614E8900A8DE5C /* Codes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Codes.h; sourceTree = "<group>"; };
+		8379651B1A614E8900A8DE5C /* M6502.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = M6502.c; sourceTree = "<group>"; };
+		8379651C1A614E8900A8DE5C /* M6502.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M6502.h; sourceTree = "<group>"; };
+		8379651D1A614E8900A8DE5C /* Tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tables.h; sourceTree = "<group>"; };
+		8379651E1A614E8900A8DE5C /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
+		8379651F1A614E8900A8DE5C /* memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memory.h; sourceTree = "<group>"; };
+		837965201A614E8900A8DE5C /* memorymap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memorymap.c; sourceTree = "<group>"; };
+		837965211A614E8900A8DE5C /* memorymap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memorymap.h; sourceTree = "<group>"; };
+		837965221A614E8900A8DE5C /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		837965231A614E8900A8DE5C /* sound.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sound.c; sourceTree = "<group>"; };
+		837965241A614E8900A8DE5C /* sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sound.h; sourceTree = "<group>"; };
+		837965251A614E8900A8DE5C /* supervision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = supervision.h; sourceTree = "<group>"; };
+		837965261A614E8900A8DE5C /* timer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = timer.c; sourceTree = "<group>"; };
+		837965271A614E8900A8DE5C /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		837965281A614E8900A8DE5C /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		837965291A614E8900A8DE5C /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
+		8379652A1A614E8900A8DE5C /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		8379652B1A614E8900A8DE5C /* watara.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = watara.c; sourceTree = "<group>"; };
+		837965391A61543C00A8DE5C /* SVGameCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGameCore.h; sourceTree = "<group>"; };
+		8379653A1A61543C00A8DE5C /* SVGameCore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SVGameCore.mm; sourceTree = "<group>"; };
+		8379653C1A6154B700A8DE5C /* OpenEmuBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEmuBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8379653F1A6154D800A8DE5C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		837965411A6154FD00A8DE5C /* OESVSystemResponderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OESVSystemResponderClient.h; path = ../../OpenEmu/SystemPlugins/Supervision/OESVSystemResponderClient.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		837965011A614D9F00A8DE5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837965401A6154D800A8DE5C /* Cocoa.framework in Frameworks */,
+				8379653D1A6154B700A8DE5C /* OpenEmuBase.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		837964FB1A614D9F00A8DE5C = {
+			isa = PBXGroup;
+			children = (
+				837965061A614D9F00A8DE5C /* Potator */,
+				837965071A614D9F00A8DE5C /* Resources */,
+				8379653E1A6154BE00A8DE5C /* Frameworks & Libraries */,
+				837965051A614D9F00A8DE5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		837965051A614D9F00A8DE5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				837965041A614D9F00A8DE5C /* Potator.oecoreplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		837965061A614D9F00A8DE5C /* Potator */ = {
+			isa = PBXGroup;
+			children = (
+				837965411A6154FD00A8DE5C /* OESVSystemResponderClient.h */,
+				837965391A61543C00A8DE5C /* SVGameCore.h */,
+				8379653A1A61543C00A8DE5C /* SVGameCore.mm */,
+				8379650E1A614E8900A8DE5C /* common */,
+			);
+			path = Potator;
+			sourceTree = "<group>";
+		};
+		837965071A614D9F00A8DE5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				837965081A614D9F00A8DE5C /* Info.plist */,
+			);
+			name = Resources;
+			path = Potator;
+			sourceTree = "<group>";
+		};
+		8379650E1A614E8900A8DE5C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				8379650F1A614E8900A8DE5C /* controls.c */,
+				837965101A614E8900A8DE5C /* controls.h */,
+				837965111A614E8900A8DE5C /* gpu.c */,
+				837965121A614E8900A8DE5C /* gpu.h */,
+				837965131A614E8900A8DE5C /* interrupts.c */,
+				837965141A614E8900A8DE5C /* interrupts.h */,
+				837965151A614E8900A8DE5C /* io.c */,
+				837965161A614E8900A8DE5C /* io.h */,
+				837965171A614E8900A8DE5C /* log.c */,
+				837965181A614E8900A8DE5C /* log.h */,
+				837965191A614E8900A8DE5C /* M6502 */,
+				8379651E1A614E8900A8DE5C /* memory.c */,
+				8379651F1A614E8900A8DE5C /* memory.h */,
+				837965201A614E8900A8DE5C /* memorymap.c */,
+				837965211A614E8900A8DE5C /* memorymap.h */,
+				837965221A614E8900A8DE5C /* Readme.txt */,
+				837965231A614E8900A8DE5C /* sound.c */,
+				837965241A614E8900A8DE5C /* sound.h */,
+				837965251A614E8900A8DE5C /* supervision.h */,
+				837965261A614E8900A8DE5C /* timer.c */,
+				837965271A614E8900A8DE5C /* timer.h */,
+				837965281A614E8900A8DE5C /* types.h */,
+				837965291A614E8900A8DE5C /* version.c */,
+				8379652A1A614E8900A8DE5C /* version.h */,
+				8379652B1A614E8900A8DE5C /* watara.c */,
+			);
+			name = common;
+			path = src/common;
+			sourceTree = "<group>";
+		};
+		837965191A614E8900A8DE5C /* M6502 */ = {
+			isa = PBXGroup;
+			children = (
+				8379651A1A614E8900A8DE5C /* Codes.h */,
+				8379651B1A614E8900A8DE5C /* M6502.c */,
+				8379651C1A614E8900A8DE5C /* M6502.h */,
+				8379651D1A614E8900A8DE5C /* Tables.h */,
+			);
+			path = M6502;
+			sourceTree = "<group>";
+		};
+		8379653E1A6154BE00A8DE5C /* Frameworks & Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				8379653F1A6154D800A8DE5C /* Cocoa.framework */,
+				8379653C1A6154B700A8DE5C /* OpenEmuBase.framework */,
+			);
+			name = "Frameworks & Libraries";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		837965031A614D9F00A8DE5C /* Potator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8379650B1A614D9F00A8DE5C /* Build configuration list for PBXNativeTarget "Potator" */;
+			buildPhases = (
+				837965001A614D9F00A8DE5C /* Sources */,
+				837965011A614D9F00A8DE5C /* Frameworks */,
+				837965021A614D9F00A8DE5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Potator;
+			productName = Potator;
+			productReference = 837965041A614D9F00A8DE5C /* Potator.oecoreplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		837964FC1A614D9F00A8DE5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "OpenEmu Team";
+				TargetAttributes = {
+					837965031A614D9F00A8DE5C = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					837965451A616BFD00A8DE5C = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 837964FF1A614D9F00A8DE5C /* Build configuration list for PBXProject "Potator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 837964FB1A614D9F00A8DE5C;
+			productRefGroup = 837965051A614D9F00A8DE5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				837965031A614D9F00A8DE5C /* Potator */,
+				837965451A616BFD00A8DE5C /* Build & Install Potator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		837965021A614D9F00A8DE5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837965341A614E8900A8DE5C /* Readme.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8379654B1A616C0600A8DE5C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores\"\nrm -rf \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores/$PROJECT_NAME.oecoreplugin\"{,.dSYM}\ncp -rf \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.oecoreplugin\"{,.dSYM} \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		837965001A614D9F00A8DE5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837965381A614E8900A8DE5C /* watara.c in Sources */,
+				837965421A61570F00A8DE5C /* log.c in Sources */,
+				837965321A614E8900A8DE5C /* memory.c in Sources */,
+				837965311A614E8900A8DE5C /* M6502.c in Sources */,
+				8379652D1A614E8900A8DE5C /* gpu.c in Sources */,
+				837965331A614E8900A8DE5C /* memorymap.c in Sources */,
+				837965371A614E8900A8DE5C /* version.c in Sources */,
+				8379652F1A614E8900A8DE5C /* io.c in Sources */,
+				837965351A614E8900A8DE5C /* sound.c in Sources */,
+				837965361A614E8900A8DE5C /* timer.c in Sources */,
+				8379652E1A614E8900A8DE5C /* interrupts.c in Sources */,
+				8379652C1A614E8900A8DE5C /* controls.c in Sources */,
+				8379653B1A61543C00A8DE5C /* SVGameCore.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8379654A1A616C0300A8DE5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 837965031A614D9F00A8DE5C /* Potator */;
+			targetProxy = 837965491A616C0300A8DE5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		837965091A614D9F00A8DE5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"OPENEMU=OPENEMU",
+					"DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8379650A1A614D9F00A8DE5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "OPENEMU=OPENEMU";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8379650C1A614D9F00A8DE5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Potator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = oecoreplugin;
+			};
+			name = Debug;
+		};
+		8379650D1A614D9F00A8DE5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Potator/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = oecoreplugin;
+			};
+			name = Release;
+		};
+		837965471A616BFD00A8DE5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		837965481A616BFD00A8DE5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		837964FF1A614D9F00A8DE5C /* Build configuration list for PBXProject "Potator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837965091A614D9F00A8DE5C /* Debug */,
+				8379650A1A614D9F00A8DE5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8379650B1A614D9F00A8DE5C /* Build configuration list for PBXNativeTarget "Potator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8379650C1A614D9F00A8DE5C /* Debug */,
+				8379650D1A614D9F00A8DE5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		837965461A616BFD00A8DE5C /* Build configuration list for PBXAggregateTarget "Build & Install Potator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837965471A616BFD00A8DE5C /* Debug */,
+				837965481A616BFD00A8DE5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 837964FC1A614D9F00A8DE5C /* Project object */;
+}

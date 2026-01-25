@@ -1,0 +1,52 @@
+# Potator2x makefile
+
+# Global definitions
+
+CCPREFIX  = arm-linux-
+CC        = ${CCPREFIX}gcc
+CPP       = ${CCPREFIX}g++
+STRIP     = ${CCPREFIX}strip
+AS        = ${CCPREFIX}as
+PLATFORM  =./platform/GP2X
+
+PREFIX    = /c/devkitPro/devkitGP2X/
+OBJS      = controls.o gpu.o interrupts.o io.o \
+			log.o memory.o memorymap.o sound.o \
+			timer.o version.o watara.o M6502/M6502.o \
+			${PLATFORM}/main.o ${PLATFORM}/menues.o \
+			${PLATFORM}/memcmp.o ${PLATFORM}/memcpy.o \
+			${PLATFORM}/memset.o ${PLATFORM}/strcmp.o \
+			${PLATFORM}/strlen.o ${PLATFORM}/strncmp.o
+ASMOBJS   = arm_stub.S
+BIN       =Potator2x
+
+# Platform specific definitions 
+
+VPATH      += common/
+CFLAGS     += -O3 -DGP2X
+# NOTE: -funroll-loops will slow down compiling considerably
+CFLAGS     += -funroll-loops -fstrength-reduce -fstrict-aliasing -fexpensive-optimizations -falign-functions -fweb -frename-registers -fomit-frame-pointer -ffast-math -fno-builtin -fno-common -finline -finline-functions
+#CFLAGS     += -fsigned-char -funroll-loops -fstrength-reduce -fstrict-aliasing -fexpensive-optimizations -falign-functions -fweb -frename-registers -fomit-frame-pointer -ffast-math -fno-builtin -fno-common -finline -finline-functions
+CXXFLAGS   = ${CFLAGS} -fno-exceptions -fno-rtti
+ASFLAGS	   = -funroll-loops -fstrength-reduce -fstrict-aliasing -fexpensive-optimizations -falign-functions -fweb -frename-registers -fomit-frame-pointer -ffast-math -fno-builtin -fno-common -finline -finline-functions
+INCLUDES   = -I${PLATFORM} -I${PLATFORM}/lib -I./common -I${PREFIX}/include
+LIBS       = -L${PREFIX}/lib -static -lpthread -lm
+
+# Compilation:
+
+.SUFFIXES: .c
+
+%.o: %.c
+	${CC} ${CFLAGS} ${INCLUDES} -c $<
+
+%.o: %.cpp
+	$(CPP) $(CXXFLAGS) ${INCLUDES} -c $<
+%.o: %.S
+	$(CC) -O3 -s -c $<
+all:	${OBJS}
+	${CC} *.o ${PLATFORM}/lib/minimal.o ${LIBS} -o Potator2x.gpe  
+	${STRIP} Potator2x.gpe
+	gpecomp Potator2x.gpe Potator2x_comp.gpe 
+
+clean:
+	rm -f *.o Potator2x.gpe Potator2x_comp.gpe

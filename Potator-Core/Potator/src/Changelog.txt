@@ -1,0 +1,16 @@
+ChangeLog
+
+Private Build #1
+-Initial Port
+-File Selector
+-Menu
+
+Private Build #2
+-Added restart option to Menu
+-Added savestates to the emulator (probably not 100%)
+
+Public Build #1
+-Added Sound
+-Added Options menu
+-Updated to Minimal Lib 0.C
+-Added NDS Port (very slow)

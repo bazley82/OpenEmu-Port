@@ -1,0 +1,36 @@
+/* THIS FILE WILL BE OVERWRITTEN BY DEV-C++ */
+/* DO NOT EDIT! */
+
+#include <windows.h> // include for version info constants
+
+#include "resources.rc"
+
+//
+// TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
+//
+1 VERSIONINFO
+FILEVERSION 0,1,1,9
+PRODUCTVERSION 0,1,1,9
+FILETYPE VFT_APP
+{
+  BLOCK "StringFileInfo"
+	 {
+		 BLOCK "140904E4"
+		 {
+			 VALUE "CompanyName", "Normmatt"
+			 VALUE "FileVersion", ""
+			 VALUE "FileDescription", "Potator the Supervision emulator"
+			 VALUE "InternalName", "Potator"
+			 VALUE "LegalCopyright", "2007 - Normmatt"
+			 VALUE "LegalTrademarks", ""
+			 VALUE "OriginalFilename", ""
+			 VALUE "ProductName", ""
+			 VALUE "ProductVersion", ""
+		 }
+	 }
+  BLOCK "VarFileInfo"
+	 {
+		 VALUE "Translation", 0x1409, 1252
+	 }
+}
+

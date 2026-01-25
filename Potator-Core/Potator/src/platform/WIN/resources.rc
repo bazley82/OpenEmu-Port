@@ -1,0 +1,32 @@
+
+#include <windows.h>
+#include "resource.h"
+
+MENU_PRINCIPAL MENU 
+{
+    POPUP "&File"
+    {
+        MENUITEM "&Open",IDM_OPEN
+        MENUITEM "&Quit",IDM_QUIT
+    }
+    POPUP "&Options"
+    {
+        POPUP "Screen Size"
+        {
+             MENUITEM "&1x",IDM_SIZE1 
+             MENUITEM "&2x",IDM_SIZE2
+             MENUITEM "&3x",IDM_SIZE3 
+             MENUITEM "&4x",IDM_SIZE4 
+        }
+    }
+    POPUP "&Help"
+    {
+        MENUITEM "&Website",IDM_WEBSITE
+        MENUITEM "&About",IDM_ABOUT
+    }
+}
+
+IDR_MAIN_ACCEL ACCELERATORS DISCARDABLE 
+BEGIN
+    "O",            IDM_OPEN,               VIRTKEY, CONTROL, NOINVERT
+END

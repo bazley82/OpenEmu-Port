@@ -1,0 +1,36 @@
+Version 1.5.2
+-------------
+ - Fix potential buffer overflow in MD5 digest conversion to string
+
+Version 1.5.1
+-------------
+ - C Standards compliance improvements
+ - Build improvements
+
+Version 1.5.0
+-------------
+ - Initial tagged release after fork from ProSystem 1.3e with OpenEmu patches
+ - Convert from C++ to C
+ - Partial Expansion Module (XM) support
+   - XRAM
+   - XPokey (limited to single Pokey)
+ - Added support for cartridges with sizes greater than 144k
+ - Additional bank switching modes and cartridge types
+ - Multiple bank switching fixes
+ - Reworked cartridge header detection
+   - Now properly detects bank switching, RAM, etc.
+   - Detects Expansion Module (XM)
+   - Detects High score cartridge
+   - Detects Pokey at $0450
+ - Cartridge database
+   - Added several new cartridge properties
+     - Pokey at $0450
+     - Default difficulty switch settings
+     - Expansion Module (XM) enabled/disabled
+     - High score cartridge enabled/disabled
+   - Database content
+     - Fixed incorrect controller settings for Sirius, Crossbow,
+        and Alien Brigade
+     - Added many homebrew cartridges
+ - Fixed issue occurring when Kangaroo and Holey were enabled (caused
+    background to be displayed, resulting in large black squares)

@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		081A45EE1B95639F00565444 /* Build and Install PokeMini */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 081A45F11B95639F00565444 /* Build configuration list for PBXAggregateTarget "Build and Install PokeMini" */;
+			buildPhases = (
+				081A45F41B9563B100565444 /* ShellScript */,
+			);
+			dependencies = (
+				081A45F31B9563AC00565444 /* PBXTargetDependency */,
+			);
+			name = "Build and Install PokeMini";
+			productName = "Build and Install PokeMini";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		081A45991B95604700565444 /* PokeMiniGameCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 081A45981B95604700565444 /* PokeMiniGameCore.m */; };
+		081A45D11B95605F00565444 /* CommandLine.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A459B1B95605F00565444 /* CommandLine.c */; };
+		081A45D21B95605F00565444 /* Hardware.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A459E1B95605F00565444 /* Hardware.c */; };
+		081A45D31B95605F00565444 /* Joystick.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45A11B95605F00565444 /* Joystick.c */; };
+		081A45D41B95605F00565444 /* Keyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45A31B95605F00565444 /* Keyboard.c */; };
+		081A45D51B95605F00565444 /* MinxAudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45A51B95605F00565444 /* MinxAudio.c */; };
+		081A45D61B95605F00565444 /* MinxColorPRC.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45A71B95605F00565444 /* MinxColorPRC.c */; };
+		081A45D71B95605F00565444 /* MinxCPU_CE.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45A91B95605F00565444 /* MinxCPU_CE.c */; };
+		081A45D81B95605F00565444 /* MinxCPU_CF.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45AA1B95605F00565444 /* MinxCPU_CF.c */; };
+		081A45D91B95605F00565444 /* MinxCPU_SP.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45AC1B95605F00565444 /* MinxCPU_SP.c */; };
+		081A45DA1B95605F00565444 /* MinxCPU_XX.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45AD1B95605F00565444 /* MinxCPU_XX.c */; };
+		081A45DB1B95605F00565444 /* MinxCPU.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45AE1B95605F00565444 /* MinxCPU.c */; };
+		081A45DC1B95605F00565444 /* MinxIO.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45B01B95605F00565444 /* MinxIO.c */; };
+		081A45DD1B95605F00565444 /* MinxIRQ.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45B21B95605F00565444 /* MinxIRQ.c */; };
+		081A45DE1B95605F00565444 /* MinxLCD.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45B41B95605F00565444 /* MinxLCD.c */; };
+		081A45DF1B95605F00565444 /* MinxPRC.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45B61B95605F00565444 /* MinxPRC.c */; };
+		081A45E01B95605F00565444 /* MinxTimers.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45B81B95605F00565444 /* MinxTimers.c */; };
+		081A45E11B95605F00565444 /* Multicart.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45BA1B95605F00565444 /* Multicart.c */; };
+		081A45E21B95605F00565444 /* PMCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45BC1B95605F00565444 /* PMCommon.c */; };
+		081A45E31B95605F00565444 /* PokeMini.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45BF1B95605F00565444 /* PokeMini.c */; };
+		081A45E51B95605F00565444 /* Video_x1.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45C31B95605F00565444 /* Video_x1.c */; };
+		081A45E61B95605F00565444 /* Video_x2.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45C51B95605F00565444 /* Video_x2.c */; };
+		081A45E71B95605F00565444 /* Video_x3.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45C71B95605F00565444 /* Video_x3.c */; };
+		081A45E81B95605F00565444 /* Video_x4.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45C91B95605F00565444 /* Video_x4.c */; };
+		081A45E91B95605F00565444 /* Video_x5.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45CB1B95605F00565444 /* Video_x5.c */; };
+		081A45EA1B95605F00565444 /* Video_x6.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45CD1B95605F00565444 /* Video_x6.c */; };
+		081A45EB1B95605F00565444 /* Video.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A45CF1B95605F00565444 /* Video.c */; };
+		081A45F91B95640C00565444 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081A45F81B95640C00565444 /* OpenGL.framework */; };
+		081A45FB1B95641300565444 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081A45FA1B95641300565444 /* Cocoa.framework */; };
+		081A45FD1B95642A00565444 /* OpenEmuBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081A45FC1B95642A00565444 /* OpenEmuBase.framework */; };
+		081A46101B9565DB00565444 /* PokeMini_BG2.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A46001B9565DB00565444 /* PokeMini_BG2.c */; };
+		081A46111B9565DB00565444 /* PokeMini_BG3.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A46021B9565DB00565444 /* PokeMini_BG3.c */; };
+		081A46121B9565DB00565444 /* PokeMini_BG4.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A46041B9565DB00565444 /* PokeMini_BG4.c */; };
+		081A46131B9565DB00565444 /* PokeMini_BG5.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A46061B9565DB00565444 /* PokeMini_BG5.c */; };
+		081A46141B9565DB00565444 /* PokeMini_BG6.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A46081B9565DB00565444 /* PokeMini_BG6.c */; };
+		081A46151B9565DB00565444 /* PokeMini_ColorPal.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A460A1B9565DB00565444 /* PokeMini_ColorPal.c */; };
+		081A46161B9565DB00565444 /* PokeMini_Font12.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A460C1B9565DB00565444 /* PokeMini_Font12.c */; };
+		081A46171B9565DB00565444 /* PokeMini_Icons12.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A460E1B9565DB00565444 /* PokeMini_Icons12.c */; };
+		081A461B1B95660100565444 /* freebios.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A46191B95660100565444 /* freebios.c */; };
+		081A461E1B95669B00565444 /* NoUI.c in Sources */ = {isa = PBXBuildFile; fileRef = 081A461D1B95669B00565444 /* NoUI.c */; };
+		084808A61BA4AEFC000EEA6F /* PokeMini.icns in Resources */ = {isa = PBXBuildFile; fileRef = 084808A51BA4AEFC000EEA6F /* PokeMini.icns */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		081A45F21B9563AC00565444 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 081A45841B955FA800565444 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 081A458B1B955FA800565444;
+			remoteInfo = PokeMini;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		081A458C1B955FA800565444 /* PokeMini.oecoreplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeMini.oecoreplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		081A45901B955FA800565444 /* PokeMini-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PokeMini-Info.plist"; sourceTree = "<group>"; };
+		081A45961B95603D00565444 /* PokeMini-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PokeMini-Prefix.pch"; path = "PokeMini/PokeMini-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		081A45971B95604700565444 /* PokeMiniGameCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMiniGameCore.h; path = PokeMini/PokeMiniGameCore.h; sourceTree = SOURCE_ROOT; };
+		081A45981B95604700565444 /* PokeMiniGameCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PokeMiniGameCore.m; path = PokeMini/PokeMiniGameCore.m; sourceTree = SOURCE_ROOT; };
+		081A459B1B95605F00565444 /* CommandLine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CommandLine.c; path = "PokeMini/pokemini-code/source/CommandLine.c"; sourceTree = SOURCE_ROOT; };
+		081A459C1B95605F00565444 /* CommandLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandLine.h; path = "PokeMini/pokemini-code/source/CommandLine.h"; sourceTree = SOURCE_ROOT; };
+		081A459D1B95605F00565444 /* Endianess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Endianess.h; path = "PokeMini/pokemini-code/source/Endianess.h"; sourceTree = SOURCE_ROOT; };
+		081A459E1B95605F00565444 /* Hardware.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Hardware.c; path = "PokeMini/pokemini-code/source/Hardware.c"; sourceTree = SOURCE_ROOT; };
+		081A459F1B95605F00565444 /* Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hardware.h; path = "PokeMini/pokemini-code/source/Hardware.h"; sourceTree = SOURCE_ROOT; };
+		081A45A01B95605F00565444 /* IOMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOMap.h; path = "PokeMini/pokemini-code/source/IOMap.h"; sourceTree = SOURCE_ROOT; };
+		081A45A11B95605F00565444 /* Joystick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Joystick.c; path = "PokeMini/pokemini-code/source/Joystick.c"; sourceTree = SOURCE_ROOT; };
+		081A45A21B95605F00565444 /* Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joystick.h; path = "PokeMini/pokemini-code/source/Joystick.h"; sourceTree = SOURCE_ROOT; };
+		081A45A31B95605F00565444 /* Keyboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Keyboard.c; path = "PokeMini/pokemini-code/source/Keyboard.c"; sourceTree = SOURCE_ROOT; };
+		081A45A41B95605F00565444 /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keyboard.h; path = "PokeMini/pokemini-code/source/Keyboard.h"; sourceTree = SOURCE_ROOT; };
+		081A45A51B95605F00565444 /* MinxAudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxAudio.c; path = "PokeMini/pokemini-code/source/MinxAudio.c"; sourceTree = SOURCE_ROOT; };
+		081A45A61B95605F00565444 /* MinxAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxAudio.h; path = "PokeMini/pokemini-code/source/MinxAudio.h"; sourceTree = SOURCE_ROOT; };
+		081A45A71B95605F00565444 /* MinxColorPRC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxColorPRC.c; path = "PokeMini/pokemini-code/source/MinxColorPRC.c"; sourceTree = SOURCE_ROOT; };
+		081A45A81B95605F00565444 /* MinxColorPRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxColorPRC.h; path = "PokeMini/pokemini-code/source/MinxColorPRC.h"; sourceTree = SOURCE_ROOT; };
+		081A45A91B95605F00565444 /* MinxCPU_CE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxCPU_CE.c; path = "PokeMini/pokemini-code/source/MinxCPU_CE.c"; sourceTree = SOURCE_ROOT; };
+		081A45AA1B95605F00565444 /* MinxCPU_CF.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxCPU_CF.c; path = "PokeMini/pokemini-code/source/MinxCPU_CF.c"; sourceTree = SOURCE_ROOT; };
+		081A45AB1B95605F00565444 /* MinxCPU_noBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxCPU_noBranch.h; path = "PokeMini/pokemini-code/source/MinxCPU_noBranch.h"; sourceTree = SOURCE_ROOT; };
+		081A45AC1B95605F00565444 /* MinxCPU_SP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxCPU_SP.c; path = "PokeMini/pokemini-code/source/MinxCPU_SP.c"; sourceTree = SOURCE_ROOT; };
+		081A45AD1B95605F00565444 /* MinxCPU_XX.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxCPU_XX.c; path = "PokeMini/pokemini-code/source/MinxCPU_XX.c"; sourceTree = SOURCE_ROOT; };
+		081A45AE1B95605F00565444 /* MinxCPU.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxCPU.c; path = "PokeMini/pokemini-code/source/MinxCPU.c"; sourceTree = SOURCE_ROOT; };
+		081A45AF1B95605F00565444 /* MinxCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxCPU.h; path = "PokeMini/pokemini-code/source/MinxCPU.h"; sourceTree = SOURCE_ROOT; };
+		081A45B01B95605F00565444 /* MinxIO.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxIO.c; path = "PokeMini/pokemini-code/source/MinxIO.c"; sourceTree = SOURCE_ROOT; };
+		081A45B11B95605F00565444 /* MinxIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxIO.h; path = "PokeMini/pokemini-code/source/MinxIO.h"; sourceTree = SOURCE_ROOT; };
+		081A45B21B95605F00565444 /* MinxIRQ.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxIRQ.c; path = "PokeMini/pokemini-code/source/MinxIRQ.c"; sourceTree = SOURCE_ROOT; };
+		081A45B31B95605F00565444 /* MinxIRQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxIRQ.h; path = "PokeMini/pokemini-code/source/MinxIRQ.h"; sourceTree = SOURCE_ROOT; };
+		081A45B41B95605F00565444 /* MinxLCD.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxLCD.c; path = "PokeMini/pokemini-code/source/MinxLCD.c"; sourceTree = SOURCE_ROOT; };
+		081A45B51B95605F00565444 /* MinxLCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxLCD.h; path = "PokeMini/pokemini-code/source/MinxLCD.h"; sourceTree = SOURCE_ROOT; };
+		081A45B61B95605F00565444 /* MinxPRC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxPRC.c; path = "PokeMini/pokemini-code/source/MinxPRC.c"; sourceTree = SOURCE_ROOT; };
+		081A45B71B95605F00565444 /* MinxPRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxPRC.h; path = "PokeMini/pokemini-code/source/MinxPRC.h"; sourceTree = SOURCE_ROOT; };
+		081A45B81B95605F00565444 /* MinxTimers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = MinxTimers.c; path = "PokeMini/pokemini-code/source/MinxTimers.c"; sourceTree = SOURCE_ROOT; };
+		081A45B91B95605F00565444 /* MinxTimers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinxTimers.h; path = "PokeMini/pokemini-code/source/MinxTimers.h"; sourceTree = SOURCE_ROOT; };
+		081A45BA1B95605F00565444 /* Multicart.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Multicart.c; path = "PokeMini/pokemini-code/source/Multicart.c"; sourceTree = SOURCE_ROOT; };
+		081A45BB1B95605F00565444 /* Multicart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Multicart.h; path = "PokeMini/pokemini-code/source/Multicart.h"; sourceTree = SOURCE_ROOT; };
+		081A45BC1B95605F00565444 /* PMCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PMCommon.c; path = "PokeMini/pokemini-code/source/PMCommon.c"; sourceTree = SOURCE_ROOT; };
+		081A45BD1B95605F00565444 /* PMCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMCommon.h; path = "PokeMini/pokemini-code/source/PMCommon.h"; sourceTree = SOURCE_ROOT; };
+		081A45BE1B95605F00565444 /* PokeMini_Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_Version.h; path = "PokeMini/pokemini-code/source/PokeMini_Version.h"; sourceTree = SOURCE_ROOT; };
+		081A45BF1B95605F00565444 /* PokeMini.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini.c; path = "PokeMini/pokemini-code/source/PokeMini.c"; sourceTree = SOURCE_ROOT; };
+		081A45C01B95605F00565444 /* PokeMini.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini.h; path = "PokeMini/pokemini-code/source/PokeMini.h"; sourceTree = SOURCE_ROOT; };
+		081A45C11B95605F00565444 /* UI.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = UI.c; path = "PokeMini/pokemini-code/source/UI.c"; sourceTree = SOURCE_ROOT; };
+		081A45C21B95605F00565444 /* UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UI.h; path = "PokeMini/pokemini-code/source/UI.h"; sourceTree = SOURCE_ROOT; };
+		081A45C31B95605F00565444 /* Video_x1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Video_x1.c; path = "PokeMini/pokemini-code/source/Video_x1.c"; sourceTree = SOURCE_ROOT; };
+		081A45C41B95605F00565444 /* Video_x1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video_x1.h; path = "PokeMini/pokemini-code/source/Video_x1.h"; sourceTree = SOURCE_ROOT; };
+		081A45C51B95605F00565444 /* Video_x2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Video_x2.c; path = "PokeMini/pokemini-code/source/Video_x2.c"; sourceTree = SOURCE_ROOT; };
+		081A45C61B95605F00565444 /* Video_x2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video_x2.h; path = "PokeMini/pokemini-code/source/Video_x2.h"; sourceTree = SOURCE_ROOT; };
+		081A45C71B95605F00565444 /* Video_x3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Video_x3.c; path = "PokeMini/pokemini-code/source/Video_x3.c"; sourceTree = SOURCE_ROOT; };
+		081A45C81B95605F00565444 /* Video_x3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video_x3.h; path = "PokeMini/pokemini-code/source/Video_x3.h"; sourceTree = SOURCE_ROOT; };
+		081A45C91B95605F00565444 /* Video_x4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Video_x4.c; path = "PokeMini/pokemini-code/source/Video_x4.c"; sourceTree = SOURCE_ROOT; };
+		081A45CA1B95605F00565444 /* Video_x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video_x4.h; path = "PokeMini/pokemini-code/source/Video_x4.h"; sourceTree = SOURCE_ROOT; };
+		081A45CB1B95605F00565444 /* Video_x5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Video_x5.c; path = "PokeMini/pokemini-code/source/Video_x5.c"; sourceTree = SOURCE_ROOT; };
+		081A45CC1B95605F00565444 /* Video_x5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video_x5.h; path = "PokeMini/pokemini-code/source/Video_x5.h"; sourceTree = SOURCE_ROOT; };
+		081A45CD1B95605F00565444 /* Video_x6.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Video_x6.c; path = "PokeMini/pokemini-code/source/Video_x6.c"; sourceTree = SOURCE_ROOT; };
+		081A45CE1B95605F00565444 /* Video_x6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video_x6.h; path = "PokeMini/pokemini-code/source/Video_x6.h"; sourceTree = SOURCE_ROOT; };
+		081A45CF1B95605F00565444 /* Video.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Video.c; path = "PokeMini/pokemini-code/source/Video.c"; sourceTree = SOURCE_ROOT; };
+		081A45D01B95605F00565444 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video.h; path = "PokeMini/pokemini-code/source/Video.h"; sourceTree = SOURCE_ROOT; };
+		081A45F81B95640C00565444 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		081A45FA1B95641300565444 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		081A45FC1B95642A00565444 /* OpenEmuBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEmuBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		081A46001B9565DB00565444 /* PokeMini_BG2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_BG2.c; path = "pokemini-code/resource/PokeMini_BG2.c"; sourceTree = "<group>"; };
+		081A46011B9565DB00565444 /* PokeMini_BG2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_BG2.h; path = "pokemini-code/resource/PokeMini_BG2.h"; sourceTree = "<group>"; };
+		081A46021B9565DB00565444 /* PokeMini_BG3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_BG3.c; path = "pokemini-code/resource/PokeMini_BG3.c"; sourceTree = "<group>"; };
+		081A46031B9565DB00565444 /* PokeMini_BG3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_BG3.h; path = "pokemini-code/resource/PokeMini_BG3.h"; sourceTree = "<group>"; };
+		081A46041B9565DB00565444 /* PokeMini_BG4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_BG4.c; path = "pokemini-code/resource/PokeMini_BG4.c"; sourceTree = "<group>"; };
+		081A46051B9565DB00565444 /* PokeMini_BG4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_BG4.h; path = "pokemini-code/resource/PokeMini_BG4.h"; sourceTree = "<group>"; };
+		081A46061B9565DB00565444 /* PokeMini_BG5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_BG5.c; path = "pokemini-code/resource/PokeMini_BG5.c"; sourceTree = "<group>"; };
+		081A46071B9565DB00565444 /* PokeMini_BG5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_BG5.h; path = "pokemini-code/resource/PokeMini_BG5.h"; sourceTree = "<group>"; };
+		081A46081B9565DB00565444 /* PokeMini_BG6.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_BG6.c; path = "pokemini-code/resource/PokeMini_BG6.c"; sourceTree = "<group>"; };
+		081A46091B9565DB00565444 /* PokeMini_BG6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_BG6.h; path = "pokemini-code/resource/PokeMini_BG6.h"; sourceTree = "<group>"; };
+		081A460A1B9565DB00565444 /* PokeMini_ColorPal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_ColorPal.c; path = "pokemini-code/resource/PokeMini_ColorPal.c"; sourceTree = "<group>"; };
+		081A460B1B9565DB00565444 /* PokeMini_ColorPal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_ColorPal.h; path = "pokemini-code/resource/PokeMini_ColorPal.h"; sourceTree = "<group>"; };
+		081A460C1B9565DB00565444 /* PokeMini_Font12.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_Font12.c; path = "pokemini-code/resource/PokeMini_Font12.c"; sourceTree = "<group>"; };
+		081A460D1B9565DB00565444 /* PokeMini_Font12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_Font12.h; path = "pokemini-code/resource/PokeMini_Font12.h"; sourceTree = "<group>"; };
+		081A460E1B9565DB00565444 /* PokeMini_Icons12.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PokeMini_Icons12.c; path = "pokemini-code/resource/PokeMini_Icons12.c"; sourceTree = "<group>"; };
+		081A460F1B9565DB00565444 /* PokeMini_Icons12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PokeMini_Icons12.h; path = "pokemini-code/resource/PokeMini_Icons12.h"; sourceTree = "<group>"; };
+		081A46191B95660100565444 /* freebios.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = freebios.c; path = "pokemini-code/freebios/freebios.c"; sourceTree = "<group>"; };
+		081A461A1B95660100565444 /* freebios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = freebios.h; path = "pokemini-code/freebios/freebios.h"; sourceTree = "<group>"; };
+		081A461D1B95669B00565444 /* NoUI.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NoUI.c; path = "pokemini-code/sourcex/NoUI.c"; sourceTree = "<group>"; };
+		084808A51BA4AEFC000EEA6F /* PokeMini.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PokeMini.icns; sourceTree = SOURCE_ROOT; };
+		086769701B96EA26006545DA /* OEPMSystemResponderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OEPMSystemResponderClient.h; path = "../../OpenEmu/SystemPlugins/Pokemon mini/OEPMSystemResponderClient.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		081A45891B955FA800565444 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				081A45FD1B95642A00565444 /* OpenEmuBase.framework in Frameworks */,
+				081A45FB1B95641300565444 /* Cocoa.framework in Frameworks */,
+				081A45F91B95640C00565444 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		081A45831B955FA800565444 = {
+			isa = PBXGroup;
+			children = (
+				081A458E1B955FA800565444 /* PokeMini */,
+				081A45F71B9563EF00565444 /* Frameworks */,
+				081A458D1B955FA800565444 /* Products */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		081A458D1B955FA800565444 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				081A458C1B955FA800565444 /* PokeMini.oecoreplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		081A458E1B955FA800565444 /* PokeMini */ = {
+			isa = PBXGroup;
+			children = (
+				086769701B96EA26006545DA /* OEPMSystemResponderClient.h */,
+				081A45971B95604700565444 /* PokeMiniGameCore.h */,
+				081A45981B95604700565444 /* PokeMiniGameCore.m */,
+				081A46181B9565F800565444 /* freebios */,
+				081A45FF1B9565CF00565444 /* resources */,
+				081A459A1B95605100565444 /* src */,
+				081A458F1B955FA800565444 /* Supporting Files */,
+			);
+			path = PokeMini;
+			sourceTree = "<group>";
+		};
+		081A458F1B955FA800565444 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				084808A51BA4AEFC000EEA6F /* PokeMini.icns */,
+				081A45901B955FA800565444 /* PokeMini-Info.plist */,
+				081A45961B95603D00565444 /* PokeMini-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		081A459A1B95605100565444 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				081A459B1B95605F00565444 /* CommandLine.c */,
+				081A459C1B95605F00565444 /* CommandLine.h */,
+				081A459D1B95605F00565444 /* Endianess.h */,
+				081A459E1B95605F00565444 /* Hardware.c */,
+				081A459F1B95605F00565444 /* Hardware.h */,
+				081A45A01B95605F00565444 /* IOMap.h */,
+				081A45A11B95605F00565444 /* Joystick.c */,
+				081A45A21B95605F00565444 /* Joystick.h */,
+				081A45A31B95605F00565444 /* Keyboard.c */,
+				081A45A41B95605F00565444 /* Keyboard.h */,
+				081A45A51B95605F00565444 /* MinxAudio.c */,
+				081A45A61B95605F00565444 /* MinxAudio.h */,
+				081A45A71B95605F00565444 /* MinxColorPRC.c */,
+				081A45A81B95605F00565444 /* MinxColorPRC.h */,
+				081A45A91B95605F00565444 /* MinxCPU_CE.c */,
+				081A45AA1B95605F00565444 /* MinxCPU_CF.c */,
+				081A45AB1B95605F00565444 /* MinxCPU_noBranch.h */,
+				081A45AC1B95605F00565444 /* MinxCPU_SP.c */,
+				081A45AD1B95605F00565444 /* MinxCPU_XX.c */,
+				081A45AE1B95605F00565444 /* MinxCPU.c */,
+				081A45AF1B95605F00565444 /* MinxCPU.h */,
+				081A45B01B95605F00565444 /* MinxIO.c */,
+				081A45B11B95605F00565444 /* MinxIO.h */,
+				081A45B21B95605F00565444 /* MinxIRQ.c */,
+				081A45B31B95605F00565444 /* MinxIRQ.h */,
+				081A45B41B95605F00565444 /* MinxLCD.c */,
+				081A45B51B95605F00565444 /* MinxLCD.h */,
+				081A45B61B95605F00565444 /* MinxPRC.c */,
+				081A45B71B95605F00565444 /* MinxPRC.h */,
+				081A45B81B95605F00565444 /* MinxTimers.c */,
+				081A45B91B95605F00565444 /* MinxTimers.h */,
+				081A45BA1B95605F00565444 /* Multicart.c */,
+				081A45BB1B95605F00565444 /* Multicart.h */,
+				081A45BC1B95605F00565444 /* PMCommon.c */,
+				081A45BD1B95605F00565444 /* PMCommon.h */,
+				081A45BE1B95605F00565444 /* PokeMini_Version.h */,
+				081A45BF1B95605F00565444 /* PokeMini.c */,
+				081A45C01B95605F00565444 /* PokeMini.h */,
+				081A461D1B95669B00565444 /* NoUI.c */,
+				081A45C11B95605F00565444 /* UI.c */,
+				081A45C21B95605F00565444 /* UI.h */,
+				081A45C31B95605F00565444 /* Video_x1.c */,
+				081A45C41B95605F00565444 /* Video_x1.h */,
+				081A45C51B95605F00565444 /* Video_x2.c */,
+				081A45C61B95605F00565444 /* Video_x2.h */,
+				081A45C71B95605F00565444 /* Video_x3.c */,
+				081A45C81B95605F00565444 /* Video_x3.h */,
+				081A45C91B95605F00565444 /* Video_x4.c */,
+				081A45CA1B95605F00565444 /* Video_x4.h */,
+				081A45CB1B95605F00565444 /* Video_x5.c */,
+				081A45CC1B95605F00565444 /* Video_x5.h */,
+				081A45CD1B95605F00565444 /* Video_x6.c */,
+				081A45CE1B95605F00565444 /* Video_x6.h */,
+				081A45CF1B95605F00565444 /* Video.c */,
+				081A45D01B95605F00565444 /* Video.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		081A45F71B9563EF00565444 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				081A45FC1B95642A00565444 /* OpenEmuBase.framework */,
+				081A45F81B95640C00565444 /* OpenGL.framework */,
+				081A45FA1B95641300565444 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		081A45FF1B9565CF00565444 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				081A46001B9565DB00565444 /* PokeMini_BG2.c */,
+				081A46011B9565DB00565444 /* PokeMini_BG2.h */,
+				081A46021B9565DB00565444 /* PokeMini_BG3.c */,
+				081A46031B9565DB00565444 /* PokeMini_BG3.h */,
+				081A46041B9565DB00565444 /* PokeMini_BG4.c */,
+				081A46051B9565DB00565444 /* PokeMini_BG4.h */,
+				081A46061B9565DB00565444 /* PokeMini_BG5.c */,
+				081A46071B9565DB00565444 /* PokeMini_BG5.h */,
+				081A46081B9565DB00565444 /* PokeMini_BG6.c */,
+				081A46091B9565DB00565444 /* PokeMini_BG6.h */,
+				081A460A1B9565DB00565444 /* PokeMini_ColorPal.c */,
+				081A460B1B9565DB00565444 /* PokeMini_ColorPal.h */,
+				081A460C1B9565DB00565444 /* PokeMini_Font12.c */,
+				081A460D1B9565DB00565444 /* PokeMini_Font12.h */,
+				081A460E1B9565DB00565444 /* PokeMini_Icons12.c */,
+				081A460F1B9565DB00565444 /* PokeMini_Icons12.h */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		081A46181B9565F800565444 /* freebios */ = {
+			isa = PBXGroup;
+			children = (
+				081A46191B95660100565444 /* freebios.c */,
+				081A461A1B95660100565444 /* freebios.h */,
+			);
+			name = freebios;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		081A458B1B955FA800565444 /* PokeMini */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 081A45931B955FA800565444 /* Build configuration list for PBXNativeTarget "PokeMini" */;
+			buildPhases = (
+				081A45881B955FA800565444 /* Sources */,
+				081A45891B955FA800565444 /* Frameworks */,
+				081A458A1B955FA800565444 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PokeMini;
+			productName = PokeMini;
+			productReference = 081A458C1B955FA800565444 /* PokeMini.oecoreplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		081A45841B955FA800565444 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Chloe Stars";
+				TargetAttributes = {
+					081A458B1B955FA800565444 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					081A45EE1B95639F00565444 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 081A45871B955FA800565444 /* Build configuration list for PBXProject "PokeMini" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 081A45831B955FA800565444;
+			productRefGroup = 081A458D1B955FA800565444 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				081A458B1B955FA800565444 /* PokeMini */,
+				081A45EE1B95639F00565444 /* Build and Install PokeMini */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		081A458A1B955FA800565444 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				084808A61BA4AEFC000EEA6F /* PokeMini.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		081A45F41B9563B100565444 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores\"\nrm -rf \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores/$PROJECT_NAME.oecoreplugin\"\ncp -rf \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.oecoreplugin\"{,.dSYM} \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		081A45881B955FA800565444 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				081A45991B95604700565444 /* PokeMiniGameCore.m in Sources */,
+				081A45D71B95605F00565444 /* MinxCPU_CE.c in Sources */,
+				081A45DC1B95605F00565444 /* MinxIO.c in Sources */,
+				081A45E01B95605F00565444 /* MinxTimers.c in Sources */,
+				081A45E71B95605F00565444 /* Video_x3.c in Sources */,
+				081A46171B9565DB00565444 /* PokeMini_Icons12.c in Sources */,
+				081A46141B9565DB00565444 /* PokeMini_BG6.c in Sources */,
+				081A45DE1B95605F00565444 /* MinxLCD.c in Sources */,
+				081A46101B9565DB00565444 /* PokeMini_BG2.c in Sources */,
+				081A45DA1B95605F00565444 /* MinxCPU_XX.c in Sources */,
+				081A45D61B95605F00565444 /* MinxColorPRC.c in Sources */,
+				081A45D21B95605F00565444 /* Hardware.c in Sources */,
+				081A45D51B95605F00565444 /* MinxAudio.c in Sources */,
+				081A45DB1B95605F00565444 /* MinxCPU.c in Sources */,
+				081A45EB1B95605F00565444 /* Video.c in Sources */,
+				081A45DD1B95605F00565444 /* MinxIRQ.c in Sources */,
+				081A46111B9565DB00565444 /* PokeMini_BG3.c in Sources */,
+				081A46121B9565DB00565444 /* PokeMini_BG4.c in Sources */,
+				081A45D11B95605F00565444 /* CommandLine.c in Sources */,
+				081A45E61B95605F00565444 /* Video_x2.c in Sources */,
+				081A45DF1B95605F00565444 /* MinxPRC.c in Sources */,
+				081A45E11B95605F00565444 /* Multicart.c in Sources */,
+				081A45EA1B95605F00565444 /* Video_x6.c in Sources */,
+				081A46161B9565DB00565444 /* PokeMini_Font12.c in Sources */,
+				081A45D31B95605F00565444 /* Joystick.c in Sources */,
+				081A45E31B95605F00565444 /* PokeMini.c in Sources */,
+				081A46131B9565DB00565444 /* PokeMini_BG5.c in Sources */,
+				081A461E1B95669B00565444 /* NoUI.c in Sources */,
+				081A45D91B95605F00565444 /* MinxCPU_SP.c in Sources */,
+				081A45E91B95605F00565444 /* Video_x5.c in Sources */,
+				081A461B1B95660100565444 /* freebios.c in Sources */,
+				081A45E51B95605F00565444 /* Video_x1.c in Sources */,
+				081A45D41B95605F00565444 /* Keyboard.c in Sources */,
+				081A45E81B95605F00565444 /* Video_x4.c in Sources */,
+				081A46151B9565DB00565444 /* PokeMini_ColorPal.c in Sources */,
+				081A45D81B95605F00565444 /* MinxCPU_CF.c in Sources */,
+				081A45E21B95605F00565444 /* PMCommon.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		081A45F31B9563AC00565444 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 081A458B1B955FA800565444 /* PokeMini */;
+			targetProxy = 081A45F21B9563AC00565444 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		081A45911B955FA800565444 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		081A45921B955FA800565444 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		081A45941B955FA800565444 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NO_ZIP=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PokeMini/PokeMini-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = oecoreplugin;
+			};
+			name = Debug;
+		};
+		081A45951B955FA800565444 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "NO_ZIP=1";
+				INFOPLIST_FILE = "PokeMini/PokeMini-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = oecoreplugin;
+			};
+			name = Release;
+		};
+		081A45EF1B95639F00565444 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_MODULE_NAME = PokeMini;
+				PRODUCT_NAME = PokeMini;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		081A45F01B95639F00565444 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_MODULE_NAME = PokeMini;
+				PRODUCT_NAME = PokeMini;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		081A45871B955FA800565444 /* Build configuration list for PBXProject "PokeMini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				081A45911B955FA800565444 /* Debug */,
+				081A45921B955FA800565444 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		081A45931B955FA800565444 /* Build configuration list for PBXNativeTarget "PokeMini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				081A45941B955FA800565444 /* Debug */,
+				081A45951B955FA800565444 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		081A45F11B95639F00565444 /* Build configuration list for PBXAggregateTarget "Build and Install PokeMini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				081A45EF1B95639F00565444 /* Debug */,
+				081A45F01B95639F00565444 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 081A45841B955FA800565444 /* Project object */;
+}
