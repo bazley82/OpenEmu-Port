@@ -1,0 +1,136 @@
+
+"File" = "Fitxer";
+
+"Launch Game…" = "Executa un joc…";
+
+"Edit Smart Collection" = "Edita la col·lecció intel·ligent";
+
+"New Smart Collection…" = "Crea una nova col·lecció intel·ligent…";
+
+"New Collection Folder" = "Nou directori de col·lecció";
+
+"Display Exact Duplicates" = "Mostra els duplicats exactes";
+
+"Display Duplicates" = "Mostra els duplicats";
+
+"Get Info" = "Obteniu informació";
+
+"Close Window" = "Tanca la finestra";
+
+"Print…" = "Imprimeix…";
+
+"Page Setup…" = "Configuració de la pàgina…";
+
+"Back Up…" = "Còpia de seguretat…";
+
+"Organize Library…" = "Organitzeu la biblioteca…";
+
+"Export Library…" = "Exporta la biblioteca…";
+
+"Import Collection" = "Importa la biblioteca";
+
+"Export Collection" = "Exporta la col·lecció";
+
+"Preferences…" = "Preferències…";
+
+"Check for Updates…" = "Comprova si hi ha actualitzacions…";
+
+"About OpenEmu" = "Quant a l'OpenEmu";
+
+"Hide OpenEmu" = "Amaga l'OpenEmu";
+
+"Show All" = "Mostra-ho tot";
+
+"Quit OpenEmu" = "Surt de l'OpenEmu";
+
+"Services" = "Serveis";
+
+"Hide Others" = "Amaga els altres";
+
+"Window" = "Finestra";
+
+"Bring All to Front" = "Porta-ho tot al davant";
+
+"Zoom" = "Zoom";
+
+"Minimize" = "Minimitza";
+
+"View" = "Visualitza";
+
+"as List" = "com una llista";
+
+"Fullscreen" = "Pantalla completa";
+
+"as Grid" = "com una graella";
+
+"Undock Game Window" = "Separa la finestra del joc";
+
+"Controls" = "Controla";
+
+"Volume Down" = "Abaixa el volum";
+
+"Start Game" = "Inicia el joc";
+
+"Volume Up" = "Apuja el volum";
+
+"Last Played" = "Jugats últimament";
+
+"Save State" = "Desa la partida";
+
+"Load State" = "Carrega la partida";
+
+"Edit" = "Edita";
+
+"Find" = "Cerca";
+
+"Select All" = "Selecciona-ho tot";
+
+"Delete" = "Suprimeix";
+
+"Paste" = "Enganxa";
+
+"Copy" = "Copia";
+
+"Cut" = "Retalla";
+
+"Redo" = "Refés";
+
+"Undo" = "Desfés";
+
+"Jump to Selection" = "Ves a la selecció";
+
+"Use Selection for Find" = "Utilitza la selecció per cercar";
+
+"Find Previous" = "Cerca l'anterior";
+
+"Find Next" = "Cerca el següent";
+
+"Find…" = "Cerca…";
+
+"Log Responder Chain" = "Registre de la cadena de resposta";
+
+"Show ROM Names" = "Mostra els noms dels ROMs";
+
+"Show Library" = "Mostra la biblioteca";
+
+"Take Screenshot" = "Fes una captura de pantalla";
+
+"Help" = "Ajuda";
+
+"Release Notes" = "Notes de llançament";
+
+"OpenEmu Web Site" = "Lloc web de l'OpenEmu";
+
+"Always Hide HUD" = "Amaga sempre el HUD";
+
+"Submit Feedback" = "Envieu-nos comentaris";
+
+"Send a Donation…" = "Feu una donació…";
+
+"User Guide" = "Guia d'usuari";
+
+"Next Display Mode" = "Mode de visualització següent";
+
+"Last Display Mode" = "Mode de visualització anterior";
+
+"Float on Top" = "Posa-ho en primer pla"; // (same as QuickTime Player → View)

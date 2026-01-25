@@ -1,0 +1,102 @@
+
+/* Preferences: Library (PrefLibraryController.xib) */
+
+"Move..." = "Move...";  // TODO
+
+"Move to Default Location" = "Move to Default Location";  // TODO
+
+"Organization Methods:" = "Organisatiemethodes:";
+
+"Game Library Folder Location:" = "Locatie van spellenbibliotheekmap:";
+
+"Copy files to Game Library folder when adding to library" = "Kopiëer bestanden naar spellenbibliotheekmap bij toevoegen\naan bibliotheek";
+
+"Automatically lookup game information & artwork" = "Zoek automatisch spelinformatie en omslagafbeeldingen op";
+
+"Available Libraries:" = "Beschikbare bibliotheken:";
+
+"Reset all dialog warnings:" = "Stel alle dialoogvensterwaarschuwingen opnieuw in:";
+
+"Reset Warnings" = "Stel waarschuwingen opnieuw in";
+
+
+/* Preferences: Gameplay (PrefGameplayController.xib) */
+
+"Window Management:" = "Vensterbeheer:";
+
+"Shader:" = "Shader:";
+
+"Always use popout gameplay window" = "Gebruik altijd pop-out gameplay-venster";
+
+"Always launch games fullscreen" = "Start spellen altijd in schermvullende weergave";
+
+"Always pause gameplay when in background" = "Pauzeer altijd gameplay wanneer op de achtergrond";
+
+"Always snap popout gameplay window to integer scale" = "Always snap popout gameplay window to integer scale";  // TODO
+
+"Allow playing with controllers when in background" = "Allow playing with controllers when in background"; // TODO
+
+"Always float popout gameplay window on top" = "Always float popout gameplay window on top"; // TODO
+
+
+/* Preferences: Controls (PrefControlsController.xib) */
+
+"Input:" = "Invoer:";
+
+
+/* Issue Resolver (GameScanner.xib) */
+
+"Resolve Issues:" = "Herstel problemen met import:";
+
+"Apply" = "Pas toe";
+
+"Import Into:" = "Import Into:";   // TODO
+
+
+/* Setup Assistant (SetupAssistant.xib) */
+
+"Next" = "Volgende";
+
+"Back" = "Terug";
+
+"Welcome to OpenEmu!" = "Welkom bij OpenEmu!";
+
+"An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…\n\n• Ensure you are running the correct system plugins (cores)." = "Een opwindende wereld van videospellen ligt binnen handbereik. Om u te helpen beginnen zouden we u graag enkele snelle vragen stellen die u door het volgende heen zullen leiden…\n\n• Verzekeren dat u de juiste systeemplug-ins (kernen) gebruikt.";
+
+"Click on the ‘Next’ button to begin!" = "Klik op de knop ‘Volgende’ om te beginnen!";
+
+"OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores." = "OpenEmu is modulair, en dankzij het werk van andere grote open-source projecten kan het een brede waaier aan consoles (‘kernen’) emuleren. Een beperkt aantal van deze vragen dat u ze aanvinkt en bevestigt dat u ze wilt installeren en gebruiken. Uw favoriete consoles en spellen werken mogelijk niet zonder deze kernen.";
+
+"System Cores Installation" = "Systeemkerninstallatie";
+
+"Let’s Go!" = "Kom op!";
+
+"Great! You are all setup now and ready to get gaming!\n\nRemember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time." = "Goed zo! Alles is klaar voor u om te beginnen spelen!\n\nOnthoud dat u op elk moment via Voorkeuren de bediening via toetsenbord en gamepad kunt wijzigen voor uzelf en andere spelers.";
+
+"Click the ‘Go’ button to begin your adventure." = "Klik op de ‘Begin’ knop om uw avontuur te beginnen.";
+
+"Go" = "Begin";
+
+"Downloading Data…" = "Downloading Data…";  // TODO
+
+
+/* Shader Parameters (ShaderParameters.xib) */
+
+"Reset All" = "Reset All";  // TODO
+
+
+/* Sidebar Header (SidebarController.xib) */
+
+"Edit" = "Wijzig";
+
+
+/* Shader Parameters (ShaderParametersViewController.xib) */
+
+"New Preset" = "New Preset"; // TODO
+
+
+/* Name Shader Preset (NameShaderPreset.xib) */
+
+"Save Preset" = "Opslaan"; // TODO
+
+"Cancel" = "Annuleer";

@@ -1,0 +1,102 @@
+
+/* Preferences: Library (PrefLibraryController.xib) */
+
+"Move..." = "Sposta...";
+
+"Move to Default Location" = "Sposta nella posizione originale";
+
+"Organization Methods:" = "Organizzazione:";
+
+"Game Library Folder Location:" = "Posizione della cartella della Libreria:";
+
+"Copy files to Game Library folder when adding to library" = "Copia i file nella cartella della Libreria quando aggiungi un gioco";
+
+"Automatically lookup game information & artwork" = "Cerca automaticamente dati e illustrazioni dei giochi";
+
+"Available Libraries:" = "Librerie disponibili:";
+
+"Reset all dialog warnings:" = "Reimposta visibilità degli avvisi:";
+
+"Reset Warnings" = "Reimposta avvisi";
+
+
+/* Preferences: Gameplay (PrefGameplayController.xib) */
+
+"Window Management:" = "Gestione finestre:";
+
+"Shader:" = "Shader:";
+
+"Always use popout gameplay window" = "Apri in una finestra separata";
+
+"Always launch games fullscreen" = "Apri in modalità a tutto schermo";
+
+"Always pause gameplay when in background" = "Sospendi il gioco quando non è in primo piano";
+
+"Always snap popout gameplay window to integer scale" = "Ridimensiona finestra separata solo a fattori di scala interi";
+
+"Allow playing with controllers when in background" = "Gioca con un controller anche se non in primo piano";
+
+"Always float popout gameplay window on top" = "Finestra di gioco separata sempre in primo piano";
+
+
+/* Preferences: Controls (PrefControlsController.xib) */
+
+"Input:" = "Input:";
+
+
+/* Issue Resolver (GameScanner.xib) */
+
+"Resolve Issues:" = "Risolvi problemi di importazione:";
+
+"Apply" = "Applica";
+
+"Import Into:" = "Importa in:";
+
+
+/* Setup Assistant (SetupAssistant.xib) */
+
+"Next" = "Avanti";
+
+"Back" = "Indietro";
+
+"Welcome to OpenEmu!" = "Benvenuto in OpenEmu!";
+
+"An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…\n\n• Ensure you are running the correct system plugins (cores)." = "A portata di mano c'è un incredibile mondo di videogiochi. Per iniziare, basterà rispondere a delle semplici domande guidate: in questo modo potrai…\n\n• Assicurarti che stai usando i plugin di sistema giusti (core).";
+
+"Click on the ‘Next’ button to begin!" = "Fai clic su \"Avanti\" per iniziare!";
+
+"OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores." = "OpenEmu è modulare: grazie al lavoro di altri progetti open source, può emulare una grande varietà di console per videogiochi (\"core\"). Puoi installare alcuni core opzionali contrassegnandoli nella seguente lista. Le tue console e giochi preferiti potrebbero non funzionare senza questi core.";
+
+"System Cores Installation" = "Installazione dei core di sistema";
+
+"Let’s Go!" = "Andiamo!";
+
+"Great! You are all setup now and ready to get gaming!\n\nRemember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time." = "Fantastico! I preparativi sono completati e puoi iniziare a giocare!\n\nRicorda che puoi cambiare in qualunque momento i controlli per tastiera e gamepad, sia per te che per gli altri giocatori, attraverso il pannello Preferenze.";
+
+"Click the ‘Go’ button to begin your adventure." = "Fai clic su \"Vai\" per iniziare l'avventura.";
+
+"Go" = "Vai";
+
+"Downloading Data…" = "Download dati in corso…";
+
+
+/* Shader Parameters (ShaderParameters.xib) */
+
+"Reset All" = "Reimposta Tutte";
+
+
+/* SidebarController.xib */
+
+"Edit" = "Modifica";
+
+
+/* Shader Parameters (ShaderParametersViewController.xib) */
+
+"New Preset" = "New Preset"; // TODO
+
+
+/* Name Shader Preset (NameShaderPreset.xib) */
+
+"Save Preset" = "Salva"; // TODO
+
+"Cancel" = "Annulla";

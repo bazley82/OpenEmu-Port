@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SetupAssistant" customModule="OpenEmu" customModuleProvider="target">
+            <connections>
+                <outlet property="coreListDownloadProgress" destination="PNc-hQ-xPv" id="geG-0t-iZl"/>
+                <outlet property="coreListDownloadView" destination="7Ca-z2-XWe" id="Bcb-GD-7mW"/>
+                <outlet property="coreSelectionView" destination="263" id="591"/>
+                <outlet property="installCoreTableView" destination="286" id="561"/>
+                <outlet property="lastStepView" destination="394" id="594"/>
+                <outlet property="replaceView" destination="265" id="267"/>
+                <outlet property="view" destination="238" id="240"/>
+                <outlet property="welcomeView" destination="295" id="590"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view id="238" customClass="SetupAssistantBackgroundView" customModule="OpenEmu" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="830" height="510"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <customView id="265">
+                    <rect key="frame" x="0.0" y="0.0" width="830" height="510"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="7Ca-z2-XWe">
+                            <rect key="frame" x="664" y="0.0" width="166" height="56"/>
+                            <subviews>
+                                <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="PNc-hQ-xPv">
+                                    <rect key="frame" x="130" y="20" width="16" height="16"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="16" id="92S-Ue-9HN"/>
+                                        <constraint firstAttribute="width" constant="16" id="TUA-4v-ZAI"/>
+                                    </constraints>
+                                </progressIndicator>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="LLm-5n-F1L">
+                                    <rect key="frame" x="-2" y="20" width="126" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Downloading Data..." id="efA-lF-zmj">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="PNc-hQ-xPv" firstAttribute="leading" secondItem="LLm-5n-F1L" secondAttribute="trailing" constant="8" id="2lS-d9-Tkt"/>
+                                <constraint firstItem="PNc-hQ-xPv" firstAttribute="centerY" secondItem="LLm-5n-F1L" secondAttribute="centerY" id="47w-gu-uDU"/>
+                                <constraint firstAttribute="trailing" secondItem="PNc-hQ-xPv" secondAttribute="trailing" constant="20" id="KlW-gK-bOD"/>
+                                <constraint firstAttribute="height" constant="56" id="PGW-Dx-EfH"/>
+                                <constraint firstItem="LLm-5n-F1L" firstAttribute="leading" secondItem="7Ca-z2-XWe" secondAttribute="leading" id="Tf1-1d-xzh"/>
+                                <constraint firstAttribute="bottom" secondItem="PNc-hQ-xPv" secondAttribute="bottom" constant="20" id="ozh-Rd-b1S"/>
+                            </constraints>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="7Ca-z2-XWe" secondAttribute="bottom" id="BCH-Ac-hpU"/>
+                        <constraint firstAttribute="trailing" secondItem="7Ca-z2-XWe" secondAttribute="trailing" id="t0d-SH-P3a"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="139" y="-421"/>
+        </view>
+        <customView appearanceType="darkAqua" id="295" userLabel="Welcome View">
+            <rect key="frame" x="0.0" y="0.0" width="830" height="510"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="296">
+                    <rect key="frame" x="164" y="102" width="504" height="335"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="298" customClass="BackgroundImageView" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="20" y="59" width="462" height="256"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="315">
+                                    <rect key="frame" x="17" y="220" width="150" height="16"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Welcome to OpenEmu!" id="316">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="317">
+                                    <rect key="frame" x="17" y="142" width="388" height="70"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="384" id="xAo-I1-LwT"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" state="on" id="318">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <string key="title">An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</string>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="319">
+                                    <rect key="frame" x="17" y="90" width="216" height="16"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Click on the ‘Next’ button to begin!" id="320">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="317" firstAttribute="leading" secondItem="298" secondAttribute="leading" constant="19" id="4Bm-ig-9Ht"/>
+                                <constraint firstItem="315" firstAttribute="top" secondItem="298" secondAttribute="top" constant="20" id="76I-Jp-wF7"/>
+                                <constraint firstItem="319" firstAttribute="leading" secondItem="298" secondAttribute="leading" constant="19" id="9hn-70-gIK"/>
+                                <constraint firstItem="319" firstAttribute="top" secondItem="317" secondAttribute="bottom" constant="36" id="gA6-JH-DrI"/>
+                                <constraint firstItem="317" firstAttribute="top" secondItem="315" secondAttribute="bottom" constant="8" id="lG2-v4-eqO"/>
+                                <constraint firstItem="315" firstAttribute="leading" secondItem="298" secondAttribute="leading" constant="19" id="uh2-p1-uFl"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="background" value="installer_dark_inset_box"/>
+                            </userDefinedRuntimeAttributes>
+                        </customView>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="300" customClass="GlossButton" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="381" y="19" width="103" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <buttonCell key="cell" type="smallSquare" title="Next" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="301">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="color" value="blue"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="nextEvent:" target="-2" id="UE6-nW-434"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="298" firstAttribute="top" secondItem="296" secondAttribute="top" constant="20" id="7Zz-SP-xn3"/>
+                        <constraint firstAttribute="trailing" secondItem="298" secondAttribute="trailing" constant="22" id="Azn-JM-Dvm"/>
+                        <constraint firstAttribute="height" constant="335" id="hih-ha-DjS"/>
+                        <constraint firstAttribute="bottom" secondItem="298" secondAttribute="bottom" constant="59" id="mGA-9s-VKV"/>
+                        <constraint firstItem="298" firstAttribute="leading" secondItem="296" secondAttribute="leading" constant="20" id="pP7-P6-uwT"/>
+                        <constraint firstAttribute="width" constant="504" id="qTb-A5-Owb"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="296" secondAttribute="centerY" multiplier="1.1919" constant="-32" id="6Bc-rJ-zy1"/>
+                <constraint firstItem="296" firstAttribute="centerX" secondItem="295" secondAttribute="centerX" constant="1" id="gmT-dF-pQx"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="-996"/>
+        </customView>
+        <customView appearanceType="darkAqua" id="263" userLabel="Core Selection View">
+            <rect key="frame" x="0.0" y="0.0" width="830" height="510"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="294">
+                    <rect key="frame" x="164" y="102" width="504" height="335"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="249" customClass="GlossButton" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="21" y="19" width="103" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <buttonCell key="cell" type="smallSquare" title="Back" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="250">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="backEvent:" target="-2" id="MA8-F9-Izg"/>
+                            </connections>
+                        </button>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="239" customClass="BackgroundImageView" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="20" y="59" width="462" height="256"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="326">
+                                    <rect key="frame" x="17" y="220" width="170" height="16"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="System Cores Installation" id="329">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="327">
+                                    <rect key="frame" x="17" y="156" width="422" height="56"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="418" id="QOC-Si-zyb"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" state="on" id="328">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <string key="title">OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</string>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A5g-3z-11R">
+                                    <rect key="frame" x="20" y="23" width="416" height="121"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="installer_scrollview_box" id="oJR-xg-3Gv"/>
+                                </imageView>
+                                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="25" horizontalPageScroll="10" verticalLineScroll="25" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="282">
+                                    <rect key="frame" x="22" y="25" width="412" height="117"/>
+                                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tgZ-8g-LXB">
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="117"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="fullWidth" alternatingRowBackgroundColors="YES" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="23" id="286" customClass="SetupAssistantTableView" customModule="OpenEmu" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="412" height="117"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <size key="intercellSpacing" width="3" height="2"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                <tableColumns>
+                                                    <tableColumn identifier="enabled" width="40" minWidth="40" maxWidth="1000" id="287">
+                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                        </tableHeaderCell>
+                                                        <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="left" inset="2" id="293" customClass="GlossCheckboxCell" customModule="OpenEmu" customModuleProvider="target">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    </tableColumn>
+                                                    <tableColumn identifier="emulatorName" width="152" minWidth="40" maxWidth="1000" id="291">
+                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                        </tableHeaderCell>
+                                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="292" customClass="CenteredTextFieldCell" customModule="OpenEmu" customModuleProvider="target">
+                                                            <font key="font" metaFont="systemBold" size="12"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    </tableColumn>
+                                                    <tableColumn identifier="emulatorSystem" width="202" minWidth="40" maxWidth="1000" id="288">
+                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                        </tableHeaderCell>
+                                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="289" customClass="CenteredTextFieldCell" customModule="OpenEmu" customModuleProvider="target">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    </tableColumn>
+                                                </tableColumns>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="-2" id="574"/>
+                                                    <outlet property="delegate" destination="-2" id="575"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <nil key="backgroundColor"/>
+                                    </clipView>
+                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="285">
+                                        <rect key="frame" x="0.0" y="105" width="412" height="16"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="283">
+                                        <rect key="frame" x="397" y="0.0" width="15" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                </scrollView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="A5g-3z-11R" firstAttribute="leading" secondItem="239" secondAttribute="leading" constant="20" id="2VM-XG-dcj"/>
+                                <constraint firstAttribute="bottom" secondItem="A5g-3z-11R" secondAttribute="bottom" constant="23" id="AE1-4B-SHu"/>
+                                <constraint firstItem="326" firstAttribute="leading" secondItem="239" secondAttribute="leading" constant="19" id="Aez-ep-oYz"/>
+                                <constraint firstItem="A5g-3z-11R" firstAttribute="trailing" secondItem="282" secondAttribute="trailing" constant="2" id="EgS-2t-k2m"/>
+                                <constraint firstAttribute="trailing" secondItem="A5g-3z-11R" secondAttribute="trailing" constant="26" id="LpJ-bi-Wc3"/>
+                                <constraint firstItem="326" firstAttribute="top" secondItem="239" secondAttribute="top" constant="20" id="b2q-4P-0vS"/>
+                                <constraint firstItem="327" firstAttribute="top" secondItem="326" secondAttribute="bottom" constant="8" id="cc8-MX-eUz"/>
+                                <constraint firstItem="A5g-3z-11R" firstAttribute="bottom" secondItem="282" secondAttribute="bottom" constant="2" id="dzB-dZ-rNc"/>
+                                <constraint firstItem="A5g-3z-11R" firstAttribute="top" secondItem="327" secondAttribute="bottom" constant="12" id="eHI-hY-dtC"/>
+                                <constraint firstItem="282" firstAttribute="top" secondItem="A5g-3z-11R" secondAttribute="top" constant="2" id="pdd-kh-Gai"/>
+                                <constraint firstItem="327" firstAttribute="leading" secondItem="239" secondAttribute="leading" constant="19" id="xKa-7D-jsP"/>
+                                <constraint firstItem="282" firstAttribute="leading" secondItem="A5g-3z-11R" secondAttribute="leading" constant="2" id="xrR-zn-cW4"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="background" value="installer_dark_inset_box"/>
+                            </userDefinedRuntimeAttributes>
+                        </customView>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="245" customClass="GlossButton" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="381" y="19" width="103" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <buttonCell key="cell" type="smallSquare" title="Next" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="246">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="color" value="blue"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="nextEvent:" target="-2" id="C4D-2e-O6q"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="239" firstAttribute="leading" secondItem="294" secondAttribute="leading" constant="20" id="3ne-0g-sS6"/>
+                        <constraint firstAttribute="height" constant="335" id="6iq-Yw-Zu9"/>
+                        <constraint firstItem="239" firstAttribute="top" secondItem="294" secondAttribute="top" constant="20" id="CKt-CB-oQS"/>
+                        <constraint firstAttribute="width" constant="504" id="GW7-Am-xan"/>
+                        <constraint firstAttribute="trailing" secondItem="239" secondAttribute="trailing" constant="22" id="fjE-Xh-DxT"/>
+                        <constraint firstAttribute="bottom" secondItem="239" secondAttribute="bottom" constant="59" id="nsR-Du-I0T"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="294" firstAttribute="centerX" secondItem="263" secondAttribute="centerX" constant="1" id="wbH-yu-Q0h"/>
+                <constraint firstAttribute="centerY" secondItem="294" secondAttribute="centerY" multiplier="1.1919" constant="-32" id="yV3-eo-11d"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="1312"/>
+        </customView>
+        <customView appearanceType="darkAqua" id="394" userLabel="Last Step">
+            <rect key="frame" x="0.0" y="0.0" width="830" height="510"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="395">
+                    <rect key="frame" x="164" y="102" width="504" height="335"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="397" customClass="BackgroundImageView" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="20" y="59" width="462" height="256"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="400">
+                                    <rect key="frame" x="17" y="220" width="62" height="16"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Let’s Go!" id="401">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="399">
+                                    <rect key="frame" x="17" y="156" width="383" height="56"/>
+                                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" state="on" id="402">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <string key="title">Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</string>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="398">
+                                    <rect key="frame" x="17" y="132" width="280" height="16"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Click the ‘Go’ button to begin your adventure." id="403">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="400" firstAttribute="top" secondItem="397" secondAttribute="top" constant="20" id="0v8-3P-NP7"/>
+                                <constraint firstAttribute="trailing" secondItem="399" secondAttribute="trailing" constant="64" id="2m8-zW-1nU"/>
+                                <constraint firstItem="400" firstAttribute="leading" secondItem="397" secondAttribute="leading" constant="19" id="54H-qT-R4n"/>
+                                <constraint firstItem="399" firstAttribute="top" secondItem="400" secondAttribute="bottom" constant="8" id="Sqm-RN-cOj"/>
+                                <constraint firstItem="398" firstAttribute="top" secondItem="399" secondAttribute="bottom" constant="8" id="bkg-29-h4c"/>
+                                <constraint firstItem="398" firstAttribute="leading" secondItem="397" secondAttribute="leading" constant="19" id="cdv-uS-b7E"/>
+                                <constraint firstItem="399" firstAttribute="leading" secondItem="397" secondAttribute="leading" constant="19" id="dxJ-V6-qdA"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="background" value="installer_dark_inset_box"/>
+                            </userDefinedRuntimeAttributes>
+                        </customView>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="396" customClass="GlossButton" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="381" y="19" width="103" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <buttonCell key="cell" type="smallSquare" title="Go" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="404">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="color" value="green"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="nextEvent:" target="-2" id="gHq-GH-thV"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="412" customClass="GlossButton" customModule="OpenEmu" customModuleProvider="target">
+                            <rect key="frame" x="20" y="19" width="103" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <buttonCell key="cell" type="smallSquare" title="Back" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="413">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="localizeTitle" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="backEvent:" target="-2" id="DmF-60-UR2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="397" secondAttribute="bottom" constant="59" id="36b-Su-LAc"/>
+                        <constraint firstAttribute="trailing" secondItem="397" secondAttribute="trailing" constant="22" id="FEJ-Fi-kOV"/>
+                        <constraint firstAttribute="height" constant="335" id="GNi-Ja-7nP"/>
+                        <constraint firstItem="397" firstAttribute="leading" secondItem="395" secondAttribute="leading" constant="20" id="LYp-BZ-aeX"/>
+                        <constraint firstAttribute="width" constant="504" id="RAL-qi-VTN"/>
+                        <constraint firstItem="397" firstAttribute="top" secondItem="395" secondAttribute="top" constant="20" id="gpM-dK-QMA"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="395" firstAttribute="centerX" secondItem="394" secondAttribute="centerX" constant="1" id="8FT-db-VRw"/>
+                <constraint firstAttribute="centerY" secondItem="395" secondAttribute="centerY" multiplier="1.1919" constant="-32" id="gJQ-Qo-j14"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="1891"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="installer_dark_inset_box" width="33" height="33"/>
+        <image name="installer_scrollview_box" width="11" height="11"/>
+    </resources>
+</document>

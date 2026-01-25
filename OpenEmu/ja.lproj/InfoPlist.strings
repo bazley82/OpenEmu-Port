@@ -1,0 +1,12 @@
+
+"Archived Game" = "アーカイブされたゲーム";
+
+"OpenEmu Core Plugin" = "ゲームコアプラグイン";
+
+"OpenEmu Save State" = "OpenEmuセーブステート";
+
+"OpenEmu System Plugin" = "システムプラグイン";
+
+"OpenEmu Shader" = "ビデオフィルタプラグイン";
+
+"%@ Game" = "%@ Game";  // TODO // Used in OESystemPluginPostInstall to dynamically generate localized file type names

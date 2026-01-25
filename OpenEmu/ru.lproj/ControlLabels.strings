@@ -1,0 +1,277 @@
+
+/* Section Title */
+
+"Gameplay Buttons" = "Игровые кнопки";
+
+"Special Keys" = "Особые кнопки";
+
+
+/* Group Labels */
+
+"-" = "-";   // TODO
+
+"3D Control Pad" = "3D Control Pad";   // TODO
+
+"Analog" = "Аналог";
+
+"C-Pad" = "C-Pad";
+
+"C-Stick" = "C-Stick";
+
+"D-Pad" = "D-Pad";
+
+"Keypad" = "Клавиатура";
+
+"Left Analog" = "Левый аналог";
+
+"Left D-Pad" = "Левый D-Pad";
+
+"Right Analog" = "Правый аналог";
+
+"Right D-Pad" = "Правый D-Pad";
+
+"Switches" = "Переключатели";
+
+
+/* Button Labels */
+
+"#" = "#";
+
+"*" = "*";
+
+"0" = "0";
+
+"1" = "1";
+
+"2" = "2";
+
+"2/6 Mode" = "2/6 Mode";
+
+"3" = "3";
+
+"4" = "4";
+
+"5" = "5";
+
+"6" = "6";
+
+"7" = "7";
+
+"8" = "8";
+
+"9" = "9";
+
+"A" = "A";
+
+"Action" = "Action";
+
+"Analog Mode" = "Режим аналога";
+
+"B" = "B";
+
+"Bottom Left Action" = "Bottom Left Action";
+
+"Bottom Right Action" = "Bottom Right Action";
+
+"Button 1" = "Кнопка 1";
+
+"Button 1/Start" = "Кнопка 1/Start";
+
+"Button 2" = "Кнопка 2";
+
+"Button 3" = "Кнопка 3";
+
+"Button 4" = "Кнопка 4";
+
+"Button 5" = "Кнопка 5";
+
+"Button 6" = "Кнопка 6";
+
+"C" = "C";
+
+"Change Disk Side" = "Изменить сторону диска";
+
+"Clear" = "Очистить";
+
+"Configure" = "Настроить";
+
+"Console Pause" = "Приостановка консоли";
+
+"Console Reset" = "Сброс консоли";
+
+"Down" = "Вниз";
+
+"Enter" = "Enter";
+
+"Fire" = "Fire";
+
+"Fire 1" = "Fire 1";
+
+"Fire 2" = "Fire 2";
+
+"Insert Coin" = "Вставить монету";
+
+"Jump" = "Прыжок";
+
+"L" = "L";
+
+"L Diff" = "L Diff";
+
+"L Diff A" = "L Diff A";
+
+"L Diff B" = "L Diff B";
+
+"L1" = "L1";
+
+"L2" = "L2";
+
+"L3" = "L3";
+
+"Left" = "Налево";
+
+"Left Action" = "Left Action";
+
+"Left Trigger" = "Левый курок";
+
+"Lid" = "Lid";
+
+"Menu" = "Menu";
+
+"Mic" = "Mic";
+
+"Mode" = "Mode";
+
+"Mode Switch" = "Переключатель режима";
+
+"Option" = "Option";
+
+"Option 1" = "Option 1";
+
+"Option 2" = "Option 2";
+
+"P" = "P";
+
+"Player Start" = "Player Start";
+
+"Power" = "Power";
+
+"R" = "R";
+
+"R Diff" = "R Diff";
+
+"R Diff A" = "R Diff A";
+
+"R Diff B" = "R Diff B";
+
+"R1" = "R1";
+
+"R2" = "R2";
+
+"R3" = "R3";
+
+"Right" = "Направо";
+
+"Right Action" = "Right Action";
+
+"Right Trigger" = "Правый курок";
+
+"Run" = "Run";
+
+"Select" = "Select";
+
+"Service" = "Service";
+
+"Shake" = "Shake";
+
+"Sound" = "Sound";
+
+"Start" = "Start";
+
+"Swap Joysticks" = "Поменять джойстики местами";
+
+"TV Black & White" = "TV Black & White";
+
+"TV Color" = "TV Color";
+
+"Top Action" = "Top Action";
+
+"Trigger L" = "Курок L";
+
+"Trigger R" = "Курок R";
+
+"Up" = "Вверх";
+
+"X" = "X";
+
+"X1 Up" = "X1 Up";
+
+"X2 Right" = "X2 Right";
+
+"X3 Down" = "X3 Down";
+
+"X4 Left" = "X4 Left";
+
+"Y" = "Y";
+
+"Y1 Up" = "Y1 Up";
+
+"Y2 Right" = "Y2 Right";
+
+"Y3 Down" = "Y3 Down";
+
+"Y4 Left" = "Y4 Left";
+
+"Z" = "Z";
+
+"▢" = "▢";
+
+"△" = "△";
+
+"◯" = "◯";
+
+"✕" = "✕";
+
+
+/* Special Keys */
+
+"Display Mode" = "Режим отображения";
+
+"Fast Forward" = "Быстрая перемотка";
+
+"Fullscreen" = "Полный экран";
+
+"Last Display Mode" = "Последний режим отображения";
+
+"Load" = "Загрузить";
+
+"Mute" = "Отключить звук";
+
+"Next Display Mode" = "Следующий режим отображения";
+
+"Pause/Resume" = "Пауза";
+
+"Quick Load" = "Быстрая загрузка";
+
+"Quick Save" = "Быстрое сохранение";
+
+"Rapid Fire Clear" = "Rapid Fire Clear";      // TODO
+
+"Rapid Fire Reset" = "Rapid Fire Reset";      // TODO
+
+"Rapid Fire Toggle" = "Rapid Fire Toggle";    // TODO
+
+"Reset" = "Сброс";
+
+"Rewind" = "Перемотка назад";
+
+"Save" = "Сохранение";
+
+"Screenshot" = "Снимок экрана";
+
+"Step Backward" = "Шаг назад";
+
+"Step Forward" = "Шаг вперёд";
+
+"Volume Down" = "Тише";
+
+"Volume Up" = "Громче";

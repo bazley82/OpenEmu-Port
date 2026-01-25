@@ -1,0 +1,124 @@
+
+"General" = "General";
+
+"Debug Mode" = "Mode de depuració";
+
+"Setup Assistant has finished" = "L'assistent de configuració ha acabat";
+
+"Region:" = "Regió:";
+
+"Run games using:" = "Executeu els jocs utilitzant:";
+
+"Library Window" = "Finestra de la biblioteca";
+
+"Reset main window size" = "Restableix la mida de la finestra principal";
+
+"Show game titles instead of rom names" = "Mostra el nom dels jocs en comptes del nom dels ROMs";
+
+"Manually choose system on import" = "Selecciona el sistema manualment durant la importació";
+
+"Show autosave states in save state category" = "Mostra les partides desades automàticament a la categoria de les partides desades";
+
+"Show quicksave states in save state category" = "Mostra les partides desades ràpidament a la categoria de les partides desades";
+
+"Toggle game scanner view" = "Mostra/Amaga la visualització de l'escàner de jocs";
+
+"HUD Bar / Gameplay" = "Barra HUD / Joc";
+
+"Show notifications during gameplay" = "Mostra notificacions mentre jugueu";
+
+"Use quicksave slots" = "Utilitza els espais del desat ràpid";
+
+"Show quicksave in menu" = "Mostra el desat ràpid al menú";
+
+"Show autosave in menu" = "Mostra el desat automàtic al menú";
+
+"Show audio output device in menu" = "Mostra el dispositiu de sortida del so al menú";
+
+"Take screenshots in native size" = "Fes les captures de pantalla en la mida nativa";
+
+"Disable aspect ratio correction in screenshots" = "Desactiva la correcció de la relació d'aspecte en les captures de pantalla";
+
+"Game View Background color:" = "Color de fons de la vista del joc:";
+
+"Controls Setup" = "Configuració dels controls";
+
+"Select first field after setting the last" = "Seleccioneu el primer camp després de selecionar l'últim";
+
+"Draw button mask above image" = "Dibuixa la màscara del botó a sobre de la imatge";
+
+"Log HID Events" = "Registra els esdeveniments del dispositiu d'interfície humana";
+
+"Log Keyboard Events" = "Registra els esdeveniments del teclat";
+
+"Show all special keys" = "Mostra totes les tecles especials";
+
+"Set default save states directory" = "Defineix el directori de les partides desades";
+
+"Cleanup autosave state" = "Neteja les partides desades automàticament";
+
+"Cleanup Save States" = "Neteja les partides desades";
+
+"OpenVGDB" = "OpenVGDB";
+
+"Update OpenVGDB" = "Actualitza l'OpenVGDB";
+
+"Database Actions" = "Accions de la base de dades";
+
+"Delete artwork that can be downloaded" = "Esborra les imatges que es poden baixar";
+
+"Download missing artwork…" = "Baixa les imatges que falten…";
+
+"Remove untracked artwork files" = "Esborra les imatges sense seguiment";
+
+"Cleanup rom hashes" = "Neteja les sumes de verificació dels ROMs";
+
+"Remove duplicated roms" = "Esborra els ROMs duplicats";
+
+"Cancel cover sync for all games" = "Cancel·la la sincronització de caràtules de tots els jocs";
+
+"Perform Sanity Check on Database" = "Realitza les comprovacions de validesa a la base de dades";
+
+"While performing this operation OpenEmu will be unresponsive." = "L'OpenEmu no respondrà durant aquesta operació.";
+
+"Delete useless image objects" = "Esborra els objectes d'imatge inútils";
+
+"Sync games without artwork" = "Sincronitza els jocs sense imatges";
+
+"Threshold for analog controls bound to buttons:" = "Llindar de la vinculació dels controls\nanalògics amb els botons:";
+
+"Range: %@ to %@" = "Interval: %@ a %@";  // Range indicator tooltip for numeric text boxes in the Debug Preferences
+
+"Default Value: %@" = "Valor per defecte: %@";  // Default value tooltip format in the Debug Preferences
+
+"Checked" = "Marcat";  // Default value tooltip for checkboxes: checked default
+
+"Unchecked" = "Desmarcat";  // Default value tooltip for checkboxes: unchecked default
+
+"Shaders" = "Shaders";
+
+"Clear shader cache" = "Esborra la memòria cau dels shaders";
+
+"Reveal user shader folder" = "Mostra la carpeta d'usuari dels shaders";
+
+"Appearance:" = "Aparença:";
+
+"Auto (region)" = "Auto (regió)";
+
+"North America" = "Amèrica del Nord";
+
+"Japan" = "Japó";
+
+"Europe" = "Europa";
+
+"Other" = "Altres";
+
+"XPC" = "XPC";
+
+"Background Thread" = "Fil d'execució en segon pla";
+
+"System" = "Sistema";
+
+"Dark (default)" = "Fosc (per defecte)";
+
+"Light" = "Clar";

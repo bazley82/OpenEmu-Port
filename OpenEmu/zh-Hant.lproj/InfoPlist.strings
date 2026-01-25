@@ -1,0 +1,12 @@
+
+"Archived Game" = "已封存遊戲";
+
+"OpenEmu Core Plugin" = "OpenEmu 核心外掛";
+
+"OpenEmu Save State" = "OpenEmu 儲存狀態";
+
+"OpenEmu System Plugin" = "OpenEmu 系統外掛";
+
+"OpenEmu Shader" = "OpenEmu 著色器";
+
+"%@ Game" = "%@ Game";  // Used in OESystemPluginPostInstall to dynamically generate localized file type names

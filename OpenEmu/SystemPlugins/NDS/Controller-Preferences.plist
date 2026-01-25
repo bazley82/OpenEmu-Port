@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OEControllerImageKey</key>
+	<string>controller_nds</string>
+	<key>OEControllerImageMaskKey</key>
+	<string>controller_nds_mask</string>
+	<key>OEControllerKeyPositionKey</key>
+	<dict>
+		<key>OENDSButtonUp</key>
+		<string>{111, 168}</string>
+		<key>OENDSButtonDown</key>
+		<string>{111, 132}</string>
+		<key>OENDSButtonA</key>
+		<string>{408, 158}</string>
+		<key>OENDSButtonLeft</key>
+		<string>{93, 150}</string>
+		<key>OENDSButtonRight</key>
+		<string>{129, 150}</string>
+		<key>OENDSButtonStart</key>
+		<string>{361, 92}</string>
+		<key>OENDSButtonSelect</key>
+		<string>{361, 71}</string>
+		<key>OENDSButtonB</key>
+		<string>{387, 137}</string>
+		<key>OENDSButtonL</key>
+		<string>{97, 229}</string>
+		<key>OENDSButtonR</key>
+		<string>{402, 229}</string>
+		<key>OENDSButtonX</key>
+		<string>{387, 179}</string>
+		<key>OENDSButtonY</key>
+		<string>{366, 158}</string>
+		<key>OENDSButtonMicrophone</key>
+		<string>{249, 230}</string>
+		<key>OENDSButtonLid</key>
+		<string>{249, 404}</string>
+		<key>OENDSButtonDebug</key>
+		<string>{0, 0}</string>
+	</dict>
+</dict>
+</plist>

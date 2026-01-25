@@ -1,0 +1,102 @@
+
+/* Preferences: Library (PrefLibraryController.xib) */
+
+"Move..." = "Move…";
+
+"Move to Default Location" = "Move to Default Location";
+
+"Organization Methods:" = "Organization Methods:";
+
+"Game Library Folder Location:" = "Game Library Folder Location:";
+
+"Copy files to Game Library folder when adding to library" = "Copy files to Game Library folder when adding to library";
+
+"Automatically lookup game information & artwork" = "Automatically lookup game information & artwork";
+
+"Available Libraries:" = "Available Libraries:";
+
+"Reset all dialog warnings:" = "Reset all dialog warnings:";
+
+"Reset Warnings" = "Reset Warnings";
+
+
+/* Preferences: Gameplay (PrefGameplayController.xib) */
+
+"Window Management:" = "Window Management:";
+
+"Shader:" = "Shader:";
+
+"Always use popout gameplay window" = "Always use popout gameplay window";
+
+"Always launch games fullscreen" = "Always launch games fullscreen";
+
+"Always pause gameplay when in background" = "Always pause gameplay when in background";
+
+"Always snap popout gameplay window to integer scale" = "Always snap popout gameplay window to integer scale";
+
+"Allow playing with controllers when in background" = "Allow playing with controllers when in background";
+
+"Always float popout gameplay window on top" = "Always float popout gameplay window on top";
+
+
+/* Preferences: Controls (PrefControlsController.xib) */
+
+"Input:" = "Input:";
+
+
+/* Issue Resolver (GameScanner.xib) */
+
+"Resolve Issues:" = "Resolve Issues:";
+
+"Apply" = "Apply";
+
+"Import Into:" = "Import Into:";
+
+
+/* Setup Assistant (SetupAssistant.xib) */
+
+"Next" = "Next";
+
+"Back" = "Back";
+
+"Welcome to OpenEmu!" = "Welcome to OpenEmu!";
+
+"An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…\n\n• Ensure you are running the correct system plugins (cores)." = "An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…\n\n• Ensure you are running the correct system plugins (cores).";
+
+"Click on the ‘Next’ button to begin!" = "Click on the ‘Next’ button to begin!";
+
+"OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores." = "OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.";
+
+"System Cores Installation" = "System Cores Installation";
+
+"Let’s Go!" = "Let’s Go!";
+
+"Great! You are all setup now and ready to get gaming!\n\nRemember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time." = "Great! You are all setup now and ready to get gaming!\n\nRemember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.";
+
+"Click the ‘Go’ button to begin your adventure." = "Click the ‘Go’ button to begin your adventure.";
+
+"Go" = "Go";
+
+"Downloading Data…" = "Downloading Data…";
+
+
+/* Shader Parameters (ShaderParameters.xib) */
+
+"Reset All" = "Reset All";
+
+
+/* Sidebar Header (SidebarController.xib) */
+
+"Edit" = "Edit";
+
+
+/* Shader Parameters (ShaderParametersViewController.xib) */
+
+"New Preset" = "New Preset";
+
+
+/* Name Shader Preset (NameShaderPreset.xib) */
+
+"Save Preset" = "Save";
+
+"Cancel" = "Cancel";

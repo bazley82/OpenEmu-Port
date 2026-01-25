@@ -1,0 +1,102 @@
+
+/* Preferences: Library (PrefLibraryController.xib) */
+
+"Move..." = "移動...";
+
+"Move to Default Location" = "移動到預設位置";
+
+"Organization Methods:" = "整理方式:";
+
+"Game Library Folder Location:" = "遊戲庫檔案夾路徑:";
+
+"Copy files to Game Library folder when adding to library" = "加入到遊戲庫時將檔案複製到遊戲庫檔案夾";
+
+"Automatically lookup game information & artwork" = "自動查找遊戲資訊和插圖";
+
+"Available Libraries:" = "可用遊戲庫:";
+
+"Reset all dialog warnings:" = "重設所有對話框警告:";
+
+"Reset Warnings" = "重設警告";
+
+
+/* Preferences: Gameplay (PrefGameplayController.xib) */
+
+"Window Management:" = "視窗管理:";
+
+"Shader:" = "著色器:";
+
+"Always use popout gameplay window" = "總是使用彈出式遊戲視窗";
+
+"Always launch games fullscreen" = "總是全螢幕啟動遊戲";
+
+"Always pause gameplay when in background" = "總是在背景時暫停遊戲";
+
+"Always snap popout gameplay window to integer scale" = "總是將彈出的遊戲視窗對齊為整數比例";
+
+"Allow playing with controllers when in background" = "允許在背景時使用控制器遊玩";
+
+"Always float popout gameplay window on top" = "總是在頂部浮動彈出遊戲視窗";
+
+
+/* Preferences: Controls (PrefControlsController.xib) */
+
+"Input:" = "輸入:";
+
+
+/* Issue Resolver (GameScanner.xib) */
+
+"Resolve Issues:" = "修復匯入問題:";
+
+"Apply" = "套用";
+
+"Import Into:" = "匯入至:";
+
+
+/* Setup Assistant (SetupAssistant.xib) */
+
+"Next" = "下一個";
+
+"Back" = "後退";
+
+"Welcome to OpenEmu!" = "歡迎使用 OpenEmu!";
+
+"An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…\n\n• Ensure you are running the correct system plugins (cores)." = "激動人心的電視遊戲世界盡在你手。為幫助你入門，我們想問你以下幾個問題以為引導…\n\n• 確保你已運行正確的系統外掛 (核心)。";
+
+"Click on the ‘Next’ button to begin!" = "點擊“下一步”按鈕開始！";
+
+"OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores." = "OpenEmu 是整合而成的，感謝其他偉大的開源項目的工作，使其可以模擬大部分電視遊戲系統 (‘核心’)。 有幾個選項需要你勾選並確認你要安裝並使用這些核心。沒有這些核心，你喜歡的系統和遊戲可能無法運行。";
+
+"System Cores Installation" = "系統核心安裝";
+
+"Let’s Go!" = "執行！";
+
+"Great! You are all setup now and ready to get gaming!\n\nRemember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time." = "非常好！你已經全部設置完畢，可以開始遊戲了！\n\n記住，你可以隨時在偏好設置裡為自己或其他玩家更改鍵盤和手柄控制設置。";
+
+"Click the ‘Go’ button to begin your adventure." = "點擊“執行”按鈕開始你的旅程。";
+
+"Go" = "執行";
+
+"Downloading Data…" = "下載資料…";
+
+
+/* Shader Parameters (ShaderParameters.xib) */
+
+"Reset All" = "全部重置";
+
+
+/* Sidebar Header (SidebarController.xib) */
+
+"Edit" = "編輯";
+
+
+/* Shader Parameters (ShaderParametersViewController.xib) */
+
+"New Preset" = "新增 Preset";
+
+
+/* Name Shader Preset (NameShaderPreset.xib) */
+
+"Save Preset" = "儲存 Preset ";
+
+"Cancel" = "取消";

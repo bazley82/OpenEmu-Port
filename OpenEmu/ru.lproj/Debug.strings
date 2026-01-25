@@ -1,0 +1,124 @@
+
+"General" = "Основное";
+
+"Debug Mode" = "Режим отладки";
+
+"Setup Assistant has finished" = "Ассистент установки закончил свою работу";
+
+"Region:" = "Регион:";
+
+"Run games using:" = "Запустить игры используя:";
+
+"Library Window" = "Окно библиотеки";
+
+"Reset main window size" = "Сбросить размер главного окна";
+
+"Show game titles instead of rom names" = "Показывать название игры вместо названия рома";
+
+"Manually choose system on import" = "Определить систему вручную в процессе импорта";
+
+"Show autosave states in save state category" = "Показывать автосохранения в категории сохранений";
+
+"Show quicksave states in save state category" = "Показывать быстрые сохранения в категории сохранений";
+
+"Toggle game scanner view" = "Показать/Скрыть сканер игр"; //TODO
+
+"HUD Bar / Gameplay" = "HUD-полоса / Геймплей";
+
+"Show notifications during gameplay" = "Показать уведомления в процессе игры";
+
+"Use quicksave slots" = "Использовать слоты быстрых сохранений";
+
+"Show quicksave in menu" = "Показать быстрое сохранение в меню";
+
+"Show autosave in menu" = "Показать автоматическое сохранение в меню";
+
+"Show audio output device in menu" = "Показать звуковыводящее устройство в меню";
+
+"Take screenshots in native size" = "Делать снимки экрана в реальном размере";
+
+"Disable aspect ratio correction in screenshots" = "Отключить коррекцию соотношения сторон в снимках экрана";
+
+"Game View Background color:" = "Цвет фона окна игры:";
+
+"Controls Setup" = "Настроить управление";
+
+"Select first field after setting the last" = "Выберите первое поле после установки последнего";
+
+"Draw button mask above image" = "Нарисуйте маску кнопки на изображении";
+
+"Log HID Events" = "Логировать события HID";
+
+"Log Keyboard Events" = "Логировать события клавиатуры";
+
+"Show all special keys" = "Показать все особые кнопки"; // TODO
+
+"Set default save states directory" = "Установить директорию по-умолчанию для сохранения состояний";
+
+"Cleanup autosave state" = "Очистить автоматически сохраненное состояние";
+
+"Cleanup Save States" = "Очистить сохраненные состояния";
+
+"OpenVGDB" = "OpenVGDB";
+
+"Update OpenVGDB" = "Обновить OpenVGDB";
+
+"Database Actions" = "Действия с базой данных";
+
+"Delete artwork that can be downloaded" = "Удалить обложку, которая может быть загружена";
+
+"Download missing artwork…" = "Загрузить отсутствующую обложку…";
+
+"Remove untracked artwork files" = "Удалить неотслеживаемые файлы обложек";
+
+"Cleanup rom hashes" = "Очистить хэши ромов";
+
+"Remove duplicated roms" = "Удалить дубликаты ромов";
+
+"Cancel cover sync for all games" = "Прекратить синхронизацию обложек для всех игр";
+
+"Perform Sanity Check on Database" = "Выполните проверку исправности базы данных";
+
+"While performing this operation OpenEmu will be unresponsive." = "Во время выполнения данной операции OpenEmu может не отвечать.";
+
+"Delete useless image objects" = "Удалять бесполезные объекты изображений";
+
+"Sync games without artwork" = "Синхронизировать игры без обложки";
+
+"Threshold for analog controls bound to buttons:" = "Порог для аналоговых элементов\nназначенных на кнопки:";
+
+"Range: %@ to %@" = "Диапазон: от %@ до %@";  // Range indicator tooltip for numeric text boxes in the Debug Preferences
+
+"Default Value: %@" = "Значение по умолчанию: %@";  // Default value tooltip format in the Debug Preferences
+
+"Checked" = "Включено";  // Default value tooltip for checkboxes: checked default
+
+"Unchecked" = "Выключено";  // Default value tooltip for checkboxes: unchecked default
+
+"Shaders" = "Шейдеры";
+
+"Clear shader cache" = "Очистить кэш шейдеров";
+
+"Reveal user shader folder" = "Показать папку пользовательских шейдеров";
+
+"Appearance:" = "Оформление:";
+
+"Auto (region)" = "Автоматически";
+
+"North America" = "Северная Америка";
+
+"Japan" = "Япония";
+
+"Europe" = "Европа";
+
+"Other" = "Другой";
+
+"XPC" = "XPC";
+
+"Background Thread" = "Фоновый поток";
+
+"System" = "Системное";
+
+"Dark (default)" = "Тёмное (по умолчанию)";
+
+"Light" = "Светлое";

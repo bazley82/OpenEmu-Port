@@ -1,0 +1,102 @@
+
+/* Preferences: Library (PrefLibraryController.xib) */
+
+"Move..." = "Move...";  // TODO
+
+"Move to Default Location" = "Move to Default Location";  // TODO
+
+"Organization Methods:" = "整理順序:";
+
+"Game Library Folder Location:" = "ゲームライブラリフォルダの場所:";
+
+"Copy files to Game Library folder when adding to library" = "ライブラリへ追加されたファイルをゲームライブラリフォルダへコピーする";
+
+"Automatically lookup game information & artwork" = "ゲーム情報とカバー写真を自動的に検索する";
+
+"Available Libraries:" = "利用可能なライブラリ:";
+
+"Reset all dialog warnings:" = "全てのダイアログ警告をリセットする:";
+
+"Reset Warnings" = "警告をリセット";
+
+
+/* Preferences: Gameplay (PrefGameplayController.xib) */
+
+"Window Management:" = "ウィンドウ管理:";
+
+"Shader:" = "シェーダー:";
+
+"Always use popout gameplay window" = "常にゲーム画面をポップアップする";
+
+"Always launch games fullscreen" = "常にゲーム画面をフルスクリーンで起動する";
+
+"Always pause gameplay when in background" = "ゲーム画面がバックグラウンドにある時は一時停止する";
+
+"Always snap popout gameplay window to integer scale" = "Always snap popout gameplay window to integer scale";  // TODO
+
+"Allow playing with controllers when in background" = "ゲーム画面がバックグラウンドにあってもコントローラを有効にする";
+
+"Always float popout gameplay window on top" = "Always float popout gameplay window on top"; // TODO
+
+
+/* Preferences: Controls (PrefControlsController.xib) */
+
+"Input:" = "入力:";
+
+
+/* Issue Resolver (GameScanner.xib) */
+
+"Resolve Issues:" = "インポートの問題を解決する:";
+
+"Apply" = "適用";
+
+"Import Into:" = "インポート先:";   // TODO
+
+
+/* Setup Assistant (SetupAssistant.xib) */
+
+"Next" = "次へ";
+
+"Back" = "前へ";
+
+"Welcome to OpenEmu!" = "OpenEmuへようこそ！";
+
+"An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…\n\n• Ensure you are running the correct system plugins (cores)." = "ビデオゲームの興奮をもう一度。OpenEmuを始めるにあたって、いくつかの簡単な質問にお答えください。\n\n• システムに合ったプラグイン(コア)をご利用ください。";
+
+"Click on the ‘Next’ button to begin!" = "「次へ」ボタンを押して先に進みます。";
+
+"OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores." = "OpenEmuオープンソースプロジェクトの貢献に寄与する全ての方々へ感謝します。OpenEmuは様々な種類のビデオゲームを起動することが出来ます。いくつかのシステムではコアを別途必要とする場合があります。 ";
+
+"System Cores Installation" = "システムコアをインストール";
+
+"Let’s Go!" = "次へ";
+
+"Great! You are all setup now and ready to get gaming!\n\nRemember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time." = "セットアップが完了しました！\n\nキーボードやゲームパッドの設定は、環境設定からいつでも変更可能です。お好みに合わせてご変更ください。";
+
+"Click the ‘Go’ button to begin your adventure." = "「次へ」を押してゲームを始める";
+
+"Go" = "次へ";
+
+"Downloading Data…" = "Downloading Data…";  // TODO
+
+
+/* Shader Parameters (ShaderParameters.xib) */
+
+"Reset All" = "Reset All";  // TODO
+
+
+/* Sidebar Header (SidebarController.xib) */
+
+"Edit" = "編集";
+
+
+/* Shader Parameters (ShaderParametersViewController.xib) */
+
+"New Preset" = "New Preset"; // TODO
+
+
+/* Name Shader Preset (NameShaderPreset.xib) */
+
+"Save Preset" = "セーブ"; // TODO
+
+"Cancel" = "キャンセル";

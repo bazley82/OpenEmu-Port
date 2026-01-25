@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "filename" : "gloss_checkbox_on_highlighted.png",
+      "idiom" : "mac",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "gloss_checkbox_on_highlighted@2x.png",
+      "idiom" : "mac",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

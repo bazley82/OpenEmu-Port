@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OEControllerImageKey</key>
+	<string>controller_intellivision</string>
+	<key>OEControllerImageMaskKey</key>
+	<string>controller_intellivision_mask</string>
+	<key>OEControllerKeyPositionKey</key>
+	<dict>
+		<key>OEIntellivisionButtonUp</key>
+		<string>{251, 140}</string>
+		<key>OEIntellivisionButtonDown</key>
+		<string>{251, 95}</string>
+		<key>OEIntellivisionButtonLeft</key>
+		<string>{228, 118}</string>
+		<key>OEIntellivisionButtonRight</key>
+		<string>{273, 118}</string>
+		<key>OEIntellivisionButtonTopAction</key>
+		<string>{170, 300}</string>
+		<key>OEIntellivisionButtonBottomLeftAction</key>
+		<string>{170, 250}</string>
+		<key>OEIntellivisionButtonBottomRightAction</key>
+		<string>{334, 250}</string>
+		<key>OEIntellivisionButton1</key>
+		<string>{212, 332}</string>
+		<key>OEIntellivisionButton2</key>
+		<string>{250, 332}</string>
+		<key>OEIntellivisionButton3</key>
+		<string>{288, 332}</string>
+		<key>OEIntellivisionButton4</key>
+		<string>{212, 294}</string>
+		<key>OEIntellivisionButton5</key>
+		<string>{250, 294}</string>
+		<key>OEIntellivisionButton6</key>
+		<string>{288, 294}</string>
+		<key>OEIntellivisionButton7</key>
+		<string>{212, 256}</string>
+		<key>OEIntellivisionButton8</key>
+		<string>{250, 256}</string>
+		<key>OEIntellivisionButton9</key>
+		<string>{288, 256}</string>
+		<key>OEIntellivisionButton0</key>
+		<string>{250, 218}</string>
+		<key>OEIntellivisionButtonClear</key>
+		<string>{212, 218}</string>
+		<key>OEIntellivisionButtonEnter</key>
+		<string>{288, 218}</string>
+	</dict>
+</dict>
+</plist>

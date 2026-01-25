@@ -1,0 +1,676 @@
+
+"%@ copy" = "%@ копия";
+
+"%@ could not be enabled because its plugin was not found." = "%@ не может быть включен, так как плагин не найден.";
+
+"%@ games will appear here. Check out %@ on how to add disc-based games." = "Игры для %@ появятся здесь. Смотрите %@ о том, как добавлять игры на дисках.";
+
+"%@ games you add to OpenEmu will appear in this Console Library" = "Игры для %@, добавленные в OpenEmu, появятся в Библиотеке Консолей";
+
+"%ux" = "%ux";
+
+"ERROR_PLUGIN_IMPORT_ALREADYLOADED" = "Версия этого плагина уже загружена";
+
+"Add" = "Добавить";
+
+"Add a Wiimote…" = "Добавить Wiimote…";
+
+"Add Cheat…" = "Добавить Чит-код…";
+
+"Add Cheat" = "Добавить Чит-код";
+
+"Add Cover Art from File…" = "Добавить обложку из файла…";
+
+"Add to Collection" = "Добавить в коллекцию";
+
+"Add to Library…" = "Добавить в библиотеку…";
+
+"All Games" = "Все игры";
+
+"All Homebrew" = "Все Homebrew";
+
+"Already in library:" = "Уже в библиотеке:";
+
+"Already in library, but manually deleted or unreachable:" = "Уже в библиотеке, но удалены вручную или недоступны:";
+
+"Are you sure you want to delete %ld save states from your OpenEmu library?" = "Вы уверены, что хотите удалить %ld сохранений игр из медиатеки OpenEmu?";
+
+"Are you sure you want to delete %ld screenshots from your OpenEmu library?" = "Вы уверены, что хотите удалить %ld снимков экрана из медиатеки OpenEmu?";
+
+"Are you sure you want to delete the save state called '%@' from your OpenEmu library?" = "Вы уверены, что хотите удалить сохранение игры: '%@' из медиатеки OpenEmu?";
+
+"Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?" = "Вы уверены, что хотите удалить снимок экрана: '%@' из медиатеки OpenEmu?";
+
+"Are you sure you want to delete the selected game from your OpenEmu library?" = "Вы уверены, что хотите удалить выбранную игру из медиатеки OpenEmu?";
+
+"Are you sure you want to delete the selected games from your OpenEmu library?" = "Вы уверены, что хотите удалить выбранные игры из медиатеки OpenEmu?";
+
+"Are you sure you want to quit the application?" = "Вы уверены, что хотите закрыть приложение?";
+
+"Are you sure you want to remove the selected game from the collection?" = "Вы уверены, что хотите удалить выбранную игру из коллекции?";
+
+"Are you sure you want to remove the selected games from the collection?" = "Вы уверены, что хотите удалить выбранные игры из коллекции?";
+
+"Are you sure you want to remove the collection '%@'?" = "Вы уверены, что хотите удалить коллекцию '%@'?";
+
+"Are you sure you want to restart the game?" = "Вы уверены, что хотите перезапустить игру?";
+
+"Are you sure you want to quit the game?" = "Вы уверены, что хотите выйти из игры?";
+
+"At least one System must be enabled" = "По крайней мере одна система должна быть включена";
+
+"Auto Save State" = "Автоматическое сохранение состояния";
+
+"Bluetooth must be enabled to pair a Wii controller." = "Bluetooth должен быть включен для создания пары с контроллером Wii.";
+
+"Bluetooth Not Enabled" = "Bluetooth не включен";
+
+"Cancel Cover Art Download" = "Отменить загрузку обложки";
+
+"Cancel" = "Отменить";
+
+"Change Core" = "Сменить ядро";
+
+"Change Volume" = "Изменить громкость";
+
+"Cheat Description" = "Описание чит-кода";
+
+"Check out some excellent homebrew games." = "Проверьте некоторые отличные homebrew-игры.";
+
+"Choose a valid file." = "Выберите правильный файл.";
+
+"Choose Library…" = "Выберите библиотеку…";
+
+"Choose OpenEmu Library" = "Выберите библиотеку OpenEmu";
+
+"This will remove all items from the queue. Items that finished importing will be preserved in your library." = "Это удалит все элементы из очереди. Элементы, для которых импорт был завершён, останутся в вашей библиотеке.";
+
+"Code:" = "Код:";
+
+"Collections" = "Коллекции";
+
+"Configure Shader…" = "Настроить шейдер…";
+
+"Console" = "Консоль";
+
+"Consoles" = "Консоли";
+
+"Consolidate Files…" = "Консолидировать файлы…";
+
+"Consolidate" = "Консолидировать";
+
+"Consolidating files failed." = "Не удалось консолидировать файлы.";
+
+"Consolidating will copy all of the selected games into the OpenEmu Library folder." = "Консолидация скопирует все выбранные игры в папку библиотеки OpenEmu.";
+
+"This cannot be undone." = "Это действие отменить невозможно.";
+
+"Contains no data:" = "Не содержит данных:";
+
+"Controls" = "Управление";
+
+"Copying artwork failed!" = "Не удалось скопировать обложку!";
+
+"Copying Artwork Files…" = "Копирование файлов обложки…";
+
+"Copying Game Files…" = "Копирование файлов игры…";
+
+"Copying ROM Files…" = "Копирование ROM-файлов…";
+
+"Copying ROM files failed!" = "Не удалось скопировать ROM-файлы!";
+
+"Core Provided By…" = "Ядро предоставляется…";
+
+"Core" = "Ядро";
+
+"Cores" = "Ядра";
+
+"Could not move library data!" = "Не удалось переместить данные из библиотеки!";
+
+"Couldn't load %@ plugin" = "Не удалось загрузить плагин: %@";
+
+"Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar." = "Создайте свой набор игр. Чтобы добавить игры в коллекцию, выберите игру из вашей библиотеки консолей и перетащите ’%@’ на левую панель.";
+
+"Create Library…" = "Создать библиотеку…";
+
+"Create or Load Save State" = "Создать или загрузить сохраненное состояние";
+
+"Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game." = "Создайте свою коллекцию снимков экрана. Чтобы сделать снимок экрана, используйте сочетание клавиш ⌘ + T во время игры.";
+
+"Default Core" = "Ядро по-умолчанию";
+
+"Delete Collection" = "Удалить коллекцию";
+
+"Delete Game" = "Удалить игру";
+
+"Delete Games" = "Удалить игры";
+
+"Delete Save State" = "Удалить сохраненное состояние";
+
+"Delete Save States" = "Удалить сохраненные состояния";
+
+"Delete Save" = "Удалить сохранение";
+
+"Delete Saves" = "Удалить сохранения";
+
+"Delete Screenshot" = "Удалить снимок экрана";
+
+"Delete Screenshots" = "Удалить снимки экрана";
+
+"Delete" = "Удалить";
+
+"Description" = "Описание"; // Search field menu, only search description
+
+"Deselect All" = "Сбросить выделения со всех";
+
+"Device Disconnected" = "Устройство отключено";
+
+"Device number %lu, %@, has disconnected." = "Устройство под номером %1$lu, %2$@, было отключено.";
+
+"Disc %u" = "Диск %u";
+
+"Disc-based games have special requirements. Please read the disc importing guide." = "Для игр на дисках имеются особые требования. Пожалуйста, прочитайте инструкцию о том, как их импортировать.";
+
+"Dismiss" = "Закрыть";
+
+"Do not ask me again" = "Больше не спрашивать";
+
+"Do not show me again" = "Больше не показывать";
+
+"Do you really want to cancel importation?" = "Вы действительно хотите отменить процесс импорта?";
+
+"Do you want to continue playing where you left off?" = "Вы хотите продолжить игру там где остановились?";
+
+"Don't Import Selected" = "Не импортировать выбранное";
+
+"Done" = "Готово";
+
+"Download Cover Art" = "Загрузить обложку";
+
+"Download" = "Скачать";
+
+"Downloading %@…" = "Скачивание %@…";
+
+"Downloading and Installing Core…" = "Скачивание и установка ядра…";
+
+"Downloading Game DB" = "Скачивание базы данных игр";
+
+"Drag & Drop Games Here" = "Перетащите игры сюда";
+
+"Drag & Drop Save States Here" = "Перетащите сохранения сюда";
+
+"Duplicate Collection" = "Дублировать коллекцию";
+
+"Edit Game Controls…" = "Редактировать управление в игре…";
+
+"Enable now" = "Включить сейчас";
+
+"Error!" = "Ошибка!";
+
+"Everything" = "Все"; // Search field menu, search everything item title
+
+"Featured Games" = "Рекомендуемые игры";
+
+"Fetching Games…" = "Выборка игр…";
+
+"Filter by:" = "Фильтровать по:"; // Search field menu, first item, instructional
+
+"Game %ld of %ld" = "Игра %1$ld из %2$ld";
+
+"Game Name" = "Название игры"; // Search field menu, only search game name
+
+"Game requires download" = "Игру необходимо скачать";
+
+"Game Scanner" = "Сканер игр";
+
+"Gameplay" = "Геймплей";
+
+"Have you read the guide?" = "Вы прочитали инструкцию?";
+
+"Hide \"%@\"" = "Скрыть \"%@\"";
+
+"Homebrew Games" = "Homebrew-игры";
+
+"If there is a red button on the back battery cover, press it.\nIf not, hold down buttons ①+②." = "Если есть красная кнопка на задней крышке аккумулятора, нажмите ее.\nЕсли ее нет, зажмите кнопки ①+②.";
+
+"If you change the core you current progress will be lost and save states will not work anymore." = "Если вы измените ядро, то ваш текущий прогресс будет потерян и сохраненные состояния не будут работать.";
+
+"In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information." = "Для того, чтобы эмулировать некоторые системы, необходимы файлы BIOS в связи с увеличением сложности аппаратных средств и программного обеспечения современных игровых консолей. Для получения дополнительной информации, прочтите %@.";
+
+"In order to play the game it must be downloaded." = "Для того, чтобы играть в игру, необходимо ее скачать.";
+
+"Insert Cart/Disk/Tape…" = "Insert Cart/Disk/Tape…";
+
+"Install" = "Установить";
+
+"Installing Core" = "Установка ядра";
+
+"Invalid cue sheet format:" = "Неверный формат cue sheet:";
+
+"Invalid gdi format:" = "Неверный формат gdi:";
+
+"Join multi-line cheats with '+' e.g. 000-000+111-111" = "Объединяйте многострочные чит-коды при помощи символа '+', например: 000-000+111-111";
+
+"Keyboard" = "Клавиатура";
+
+"Learn More" = "Подробнее"; // Missing BIOS files modal, Wiimote modal
+
+"Library" = "Библиотека";
+
+"Load" = "Загрузить";
+
+"Locate '%@'" = "Найти '%@'";
+
+"Locate…" = "Найти…";
+
+"Low Controller Battery" = "Низкий уровень заряда батареи контроллера";
+
+"Make sure your internet connection is active and download a suitable core." = "Убедитесь что вам доступно соединение с интернетом и скачайте необходимое ядро.";
+
+"Make your Wiimote discoverable" = "Убедитесь, что Wiimote доступен";
+
+"Missing Core" = "Ядро не найдено";
+
+"Missing referenced file:" = "Отсутствует файл по ссылке:";
+
+"Move to Trash" = "Переместить в корзину";
+
+"Moving Library…" = "Перемещение библиотеки…";
+
+"Must not be compressed:" = "Не должно быть сжато:";
+
+"Mute Audio" = "Выключить звук";
+
+"Name" = "Имя"; // Search field menu, only search names
+
+"New Collection from Selection" = "Новая коллекция из выбранного";
+
+"New Collection" = "Новая коллекция";
+
+"New Folder" = "Новая папка";
+
+"New Smart Collection" = "Новая смарт-коллекция";
+
+"No available controllers" = "Нет доступных контроллеров";
+
+"No game played yet!" = "Вы пока не играли ни в одну игру!";
+
+"No Internet Connection" = "Нет соединения с интернетом";
+
+"No permission to open:" = "Нет доступа для открытия:";
+
+"No Save States available" = "Нет доступных сохраненных состояний";
+
+"No Screenshots Found" = "Снимки экрана не найдены";
+
+"No valid system detected:" = "Не обнаружена правильная система:";
+
+"No" = "Нет";
+
+"None" = "Ничего";
+
+"Not plain text:" = "Не простой текст:";
+
+"OK" = "ОК";
+
+"Only files in the OpenEmu Library folder will be moved to the Trash." = "Только файлы из папки библиотеки OpenEmu будут перемещены в корзину.";
+
+"Open Collection" = "Открыть коллекцию";
+
+"Open Library" = "Открыть библиотеку";
+
+"OpenEmu could not find a Core to launch the game" = "OpenEmu не может найти подходящее ядро для запуска игры";
+
+"OpenEmu includes a save state feature that allows you to continue playing exactly where you left off." = "OpenEmu включает в себя возможность сохранения игр, благодаря которой вы можете продолжать играть именно там, где вы остановились";
+
+"OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one" = "OpenEmu необходима библиотека для продолжения. Вы можете выбрать существующую библиотеку OpenEmu или создать новую";
+
+"OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@" = "OpenEmu использует 'ядра' для эмуляции игр. Вам необходимо %1$@ ядро чтобы играть в %2$@";
+
+"OpenEmu will save and quit all games that are currently running." = "OpenEmu сохранит и закроет все игры, которые выполняются в настоящее время.";
+
+"Options" = "Опции";
+
+"Pause/Restart" = "Пауза/Перезапуск";
+
+"Pause Game" = "Приостановить игру";
+
+"Play" = "Играть";
+
+"Play Game" = "Запустить игру";
+
+"Play Games (Caution)" = "Запустить игры (Внимание)";
+
+"Play Save Games" = "Запустить сохранение";
+
+"Play Save State" = "Запустить сохраненное состояние";
+
+"Player %ld" = "Игрок %ld";
+
+"Please close all games and wait for the importer to finish." = "Пожалуйста, закройте все игры и подождите, пока закончится процесс импорта.";
+
+"Quick Load" = "Быстрая загрузка";
+
+"Quick Save State" = "Быстрое сохранение состояния";
+
+"Quick Save, Slot %@" = "Быстрое сохранение в слот %@";
+
+"Quick Save" = "Быстрое сохранение";
+
+"Quit" = "Выйти";
+
+"Rating" = "Рейтинг";
+
+"Recently Added" = "Недавно добавленные";
+
+"Recovered Auto Save" = "Восстановленное автоматическое сохранение";
+
+"Remove Collection" = "Удалить коллекцию";
+
+"Remove Game" = "Удалить игру";
+
+"Remove Games" = "Удалить игры";
+
+"Rename \"%@\"" = "Переименовать \"%@\"";
+
+"Rename Game" = "Переименовать игру";
+
+"Rename Special Save State or something?" = "Переименовать сохраненное состояние или что-то еще?";
+
+"Rename" = "Переименовать";
+
+"Required files are missing." = "Необходимые файлы не найдены.";
+
+"Resolve %ld Issue" = "Решить %ld проблему"; // yeah Russian doesn't quite work like that... you need 3 strings and some code to pick the right one.
+
+"Resolve %ld Issues" = "Решить %ld проблем";
+
+"Restart Game" = "Перезапустить игру";
+
+"Restart" = "Перезапустить";
+
+"Resume Game" = "Продолжить игру";
+
+"Resume" = "Продолжить";
+
+"Save As:" = "Сохранить как:";
+
+"Save Current Game…" = "Сохранить текущую игру…";
+
+"Save Game" = "Сохранить игру";
+
+"Save States" = "Сохранить состояние";
+
+"Save-Game-%ld %@" = "Сохранение-%ld %@";
+
+"Scanner Paused" = "Сканер приостановлен";
+
+"Scanning Directory" = "Сканируется директория";
+
+"Screenshots" = "Снимки экрана";
+
+"Search" = "Поиск";
+
+"Secrets" = "Секреты";
+
+"Select All" = "Выбрать все";
+
+"Select Audio Output Device" = "Выбрать звуковыводящее устройство";
+
+"Select Cheat" = "Выбрать чит-код";
+
+"Select Core" = "Выбрать ядро";
+
+"Select Disc" = "Выбрать диск";
+
+"Select Display Mode" = "Выбрать режим отображения";
+
+"Select Shader" = "Выбрать шейдер";
+
+"Select Scale" = "Выбрать размер";
+
+"Shader Parameters" = "Параметры шейдера";
+
+"Share" = "Поделиться";
+
+"SHARE_STANDARD_MENU_ITEM_TITLE" = "Поделиться…";
+
+"Show in Finder" = "Показать в Finder";
+
+"Slot %ld" = "Слот %ld";
+
+"Some migrations failed to complete properly" = "Не удалось применить некоторые миграции";
+
+"Special thanks to everyone that made\nOpenEmu possible. To find out more\nabout our contributors, emulator cores,\ndocumentation, licenses and to issue\nbugs please visit us on our GitHub." = "Большое спасибо всем, кто сделал\nOpenEmu возможным. Чтобы узнать больше\nо наших контрибьюторах, ядрах эмуляции,\nдокументации, лицензиях, и для сообщений\nоб ошибках, посетите наш GitHub.";
+
+"Start Scanning" = "Начать сканирование";
+
+"Quit Game" = "Выйти из игры";
+
+"Stop" = "Остановить";
+
+"Switch To Grid View" = "Переключиться на отображение сеткой";
+
+"Switch To List View" = "Переключиться на отображение списком";
+
+"System Default" = "По умолчанию"; // Default audio device setting
+
+"System Files" = "Системные файлы";
+
+"System" = "Система";
+
+"Takes you to the %@ project website" = "Перенаправит вас на сайт проекта: %@";
+
+"The %@ core has compatibility issues and some games may contain glitches or not play at all.\n\nPlease do not report problems as we are not responsible for the development of %@." = "У ядра %1$@ есть известные проблемы совместимости и некоторые игры могут воспроизводиться с ошибками или не воспроизводиться вообще.\n\nПожалуйста не сообщайте нам о проблемах совместимости, так как мы не ответственны за разработку %2$@.";
+
+"The battery in device number %lu, %@, is low. Please charge or replace the battery." = "Батарея в устройстве под номером %1$lu, %2$@, близка к состоянию разрядки. Пожалуйста, зарядите или замените батарею.";
+
+"The core could not be downloaded. Try installing it from the Cores preferences." = "Не удается загрузить ядро. Попробуйте установить его вручную из раздела опций 'Ядра'.";
+
+"The file you selected doesn't exist" = "Выбранного вами файла не существует";
+
+"The game '%@' could not be started because a rom file could not be found. Do you want to locate it?" = "Игра '%@' не может быть запущена, так как ром не найден. Хотите указать его расположение?";
+
+"The game '%@' was imported." = "Игра '%@' была импортирована.";
+
+"The OpenEmu Library could not be found." = "Библиотеку OpenEmu не удается найти.";
+
+"The System plugin could not be found!" = "Системный плагин не удается найти!";
+
+"this guide" = "эту инструкцию";
+
+"This save state was created with a different core. Do you want to switch to that core now?" = "Этот снимок состояния был сделан с другим ядром. Хотите переключиться на это ядро сейчас?";
+
+"This System has no corresponding core installed." = "В системе не установлено соответствующее ядро.";
+
+"Title:" = "Название:";
+
+"To launch the save state %@ you will need to install the '%@' Core" = "Для запуска сохраненного состояния %1$@ вам необходимо установить ядро: '%2$@'";
+
+"To run this core you need the following:\n\n%@Drag and drop the required file(s) onto the game library window and try again." = "Для запуска данного ядра вам необходимо:\n\n%@Перетащите необходимые файлы в окно библиотеки и попробуйте повторить операцию.";
+
+"Toggle Fullscreen" = "Полный экран";
+
+"Trash downloaded Files" = "Переместить в корзину скаченные файлы";
+
+"Unexpected error:" = "Неожиданная ошибка:";
+
+"Unmute Audio" = "Включить звук";
+
+"Update" = "Обновить";
+
+"Updating Library" = "Обновление библиотеки";
+
+"User guide on BIOS files" = "Руководство пользователя по файлам BIOS";
+
+"Version" = "Версия";
+
+"View Guide in Browser" = "Посмотреть инструкцию в браузере";
+
+"Volume" = "Громкость";
+
+"Warning" = "Внимание";
+
+"With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves." = "С OpenEmu вы можете сохранять свой прогресс в любой момент с помощью сохранения состояний. Мы даже сохранимся за вас при выходе из игры. Вернитесь сюда, чтобы увидеть обзор всех своих сохранений.";
+
+"Won't be able to recognize it as special save state…" = "Невозможно распознать в качестве сохраненного состояния…";
+
+"Would you like to continue your last game?" = "Вы хотите продолжить последнюю запущенную игру?";
+
+"Would you like to save your game before you quit?" = "Вы хотите сохранить игру перед выходом?";
+
+"Yes" = "Да";
+
+"You can't move your library into one of its subfolders." = "Вы не можете переместить библиотеку в папку внутри неё самой.";
+
+"You need to restart the application to commit the change" = "Вам необходимо перезапустить приложение чтобы изменения вступили в силу";
+
+"Your game finished importing, do you want to play it now?" = "Ваша игра импортирована, хотите запустить ее сейчас?";
+
+"Your library was moved sucessfully." = "Ваша библиотека успешно перемещена.";
+
+"Toolbar: Library" = "Библиотека";
+
+"Toolbar: Save States" = "Сохранения";
+
+"Toolbar: Screenshots" = "Снимки экрана";
+
+"Toolbar: Homebrew" = "Homebrew";
+
+"Grid Size" = "Размер сетки";   // shown when the corresponding item does not fit in the main window's toolbar
+
+"View Mode" = "Режим отображения";   // shown when the corresponding item does not fit in the main window's toolbar
+
+"Category" = "Категория";   // shown when the corresponding item does not fit in the main window's toolbar
+
+"An issue was detected with one of your controllers." = "Обнаружена проблема с одним из ваших контроллеров.";  // Headline for bindings repaired alert
+
+"The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.\n\nYou can go to the Controls preferences to check which associations were affected." = "Профиль кнопок для одного из ваших контроллеров не совпадает с профилем, обнаруженным при предыдущем подключении к OpenEmu. Некоторые элементы управления, ассоциированные с этим контроллером, были сброшены.\n\nВы можете зайти в настройки управления, чтобы проверить, какие ассоциации были затронуты.";  // Message for bindings repaired alert
+
+"Keycode 0x%lX" = "Код кнопки 0x%lX";  // Fallback for unknown keys
+
+"Your Mac is too old for this version of OpenEmu" = "Ваш Mac слишком старый для этой версии OpenEmu";  // Message for the alert which appears when no Metal-enabled GPUs are detected
+
+"Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.\n\nAs OpenEmu does not work with your current hardware/software configuration, it will now close." = "Начиная с версии 2.1, OpenEmu требует видеокарту с поддержкой Metal. Metal доступен на всех компьютерах Mac, поддерживающих macOS 10.14 и новее.\n\nПоскольку приложение OpenEmu не работает с вашей текушей конфигурацией аппаратного/программного обеспечения, оно будет завершено.";  // Informative text for the alert which appears when no Metal-enabled GPUs are detected
+
+"Quit OpenEmu" = "Завершить OpenEmu";  // Button title for the alert which appears when no Metal-enabled GPUs are detected
+
+"The %@ core plugin is deprecated" = "Плагин ядра %@ устарел";  // Message title (removal far away)
+
+"The %@ core plugin is deprecated, and will be removed soon" = "Плагин ядра %@ устарел, он скоро будет удалён";  // Message title (removal happening soon)
+
+"This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working." = "Этот плагин ядра будет недоступен в будущем. После того, как он будет удалён, созданные через него сохранения перестанут работать.";  // Message info, part 1 (removal far away)
+
+"In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working." = "Этот плагин ядра будет автоматически удалён в течение нескольких дней. После того, как он будет удалён, созданные через него сохранения перестанут работать.";  // Message info, part 1 (removal happening soon)
+
+"We suggest you switch to the %@ core plugin as soon as possible." = "Мы предлагаем перейти на плагин ядра %@ как можно скорее.";  // Message info, part 2 (shown only if the replacement plugin is available)
+
+"ERROR_PLUGIN_IMPORT_OUTOFSUPPORT" = "Этот плагин сейчас не поддерживается";
+
+"Install %@" = "Установить %@";
+
+"Install %@ and Set as Default" = "Установить %@ и выбрать по умолчанию";
+
+"Ignore" = "Игнорировать";
+
+"ALERT_INPUT_MONITORING_HEADLINE" = "OpenEmu требуются дополнительные разрешения";
+
+"ALERT_INPUT_MONITORING_PART1" = "OpenEmu необходим доступ к отслеживанию ввода для использования клавиатуры в качестве устройства ввода.";
+
+"ALERT_INPUT_MONITORING_PART2" = "Включение этого доступа может также исправить проблемы с вводом с клавиатуры.";
+
+"ALERT_INPUT_MONITORING_PART2_MONTEREY" = "Удаление и повторное предоставление разрешения может также исправить проблемы с вводом с клавиатуры.";
+
+"Open System Preferences" = "Открыть Системные настройки";
+
+"Moving the Game Library is not recommended" = "Перемещение библиотеки игр не рекомендуется";  //Message headline (attempted to change location of library)
+
+"ALERT_MOVE_LIBRARY_HTML" = "Библиотека игр OpenEmu содержит файл базы данных, который может быть повреждён при перемещении библиотеки в следующие места:<br><br><ul><li>Папки, управляемые ПО для синхронизации с облаком (например, <b>iCloud Drive</b>)</li><li>Сетевые диски</li></ul><br>В дополнение к этому, <b>совместное использование библиотеки между несколькими компьютерами или пользователями</b> может также повредить её. Это также касается перемещения библиотеки на внешние USB-накопители.";  // Message text (attempted to change location of library, HTML
+
+"I understand the risks" = "Я понимаю риски";  // OK button (attempted to change location of library)
+
+"Continue" = "Продолжить";
+
+"Last Played" = "Последний запуск";
+
+"Save Games" = "Сохранения";
+
+"Play Count" = "Количество запусков";
+
+"Play Time" = "Время игры";
+
+"Fill Screen" = "Заполнить экран";  // Integral scale menu item title
+
+"ECM compressed binary detected." = "Обнаружен ECM-сжатый исполняемый файл.";
+
+"ECM compressed binaries cannot be imported. Please read the disc importing guide." = "ECM-сжатые исполняемые файлы не могут быть импортированы. Пожалуйста, прочитайте инструкцию об импорте дисков.";
+
+"Files failed to import." = "Не удалось импортировать файлы.";
+
+"\"%@\" in %@" = "\"%1$@\" в %2$@";  // Import error description: file already imported (first item: filename, second item: system library name)
+
+"NOT FOUND: \"%@\"" = "НЕ НАЙДЕНО: \"%@\"";  // Import error description: referenced file not found
+
+"Choose Apple menu  > System Preferences, click Security & Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access." = "Выберите Меню Apple  > Системные настройки, нажмите Защита и безопасность, затем выберите вкладку Конфиденциальность. Удалите существующий доступ к файлам и папкам для OpenEmu, если он есть, и вместо этого дайте доступ к диску.";
+
+"Decrease Grid Size" = "Уменьшить размер сетки";
+
+"Increase Grid Size" = "Увеличить размер сетки";
+
+"The emulator could not load ROM." = "Эмулятор не может загрузить ROM.";
+
+"To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad." = "Чтобы назначить новую кнопку для %@, нажмите эту кнопку, затем нажмите нужную кнопку на вашей клавиатуре или геймпаде."; // Controls preferences, accessibility help
+
+"Changed button for %1$@ to %2$@." = "Кнопка для %1$@ изменена на %2$@."; // Controls preferences, accessibility notification (“Changed button for Up to W.”)
+
+"Not assigned" = "Не назначено"; // Controls preferences, accessibility title (key is not mapped, “empty”)
+
+"OpenEmu could not download required data from the internet" = "OpenEmu не может скачать необходимые данные из интернета";  // Setup Assistant
+
+"An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again." = "При подготовке ассистента настройки произошла ошибка. (%@) Убедитесь, что вы подключены к интернету, и попробуйте ещё раз.";  // Setup Assistant
+
+"Retry" = "Повторить попытку";
+
+"Downloading core list..." = "Скачиваю список ядер...";
+
+"The %@ core has quit unexpectedly" = "Ядро %@ неожиданно завершилось";
+
+"ALERT_CORE_GLITCHES_FEEDBACK_HTML" = "<b>Если и только если эта проблема постоянна</b>, пожалуйста, отправьте обратную связь <b>на английском языке</b>, включив:<br><br><ul><li>Модель компьютера Mac, который вы используете <b>и</b> версию macOS, которая у вас установлена<ul><li>Эта информация находится в  > Об этом Mac</li></ul></li><li><b>Точное название</b> игры, в которую вы играли</li><li>Отчёт об ошибке OpenEmuHelperApp<ul><li>Откройте Консоль.app, нажмите \"Отчеты об ошибках\" или \"Отчеты пользователя\" в боковой панели, затем найдите самый новый документ с OpenEmuHelperApp в имени</ul></li></li></ul><br><b>Всегда ищите похожие отчёты об ошибках, ранее отправленные другими пользователями!</b><br>Если что-то из этой информации отсутствует, или если похожие отчёты уже существуют, ваш может быть закрыт.";  // Suggestion for crashed cores (HTML). Localizers: specify the report must be written in English
+
+"The %@ core has quit unexpectedly after loading a save state" = "Ядро %@ неожиданно завершилось после загрузки сохранения";
+
+"Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?" = "Иногда ядро может упасть при загрузке сохранения из-за несовместимости между разными версиями одного и того же ядра. Открыть игру без загрузки сохранения?";
+
+"Reopen without loading state" = "Открыть заново без загрузки сохранения";
+
+"MOVE_ALERT_TITLE" = "Переместить в папку Программы";
+
+"MOVE_ALERT_INFO_TEXT" = "OpenEmu необходимо переместить в папку Программы для корректной работы.";
+
+"MOVE_ALERT_NEEDS_AUTH" = "Для выполнения этого шага необходимо авторизоваться с помощью имени и пароля администратора. В качестве альтернативы можно выбрать другое расположение или выйти из программы и переместить его вручную.";
+
+"MOVE_ALERT_MOVE_BUTTON" = "Переместить в папку Программы";
+
+"Choose Location…" = "Выбрать Расположение…";
+
+"No parameters available." = "Нет доступных параметров.";
+
+"Reset parameters" = "Сбросить параметры"; // undo action: Reset shader parameters
+
+"Paste parameters" = "Вставить параметры"; // undo action: Paste parameter values
+
+"Parameters" = "Параметры"; // Window title: Shader parameters customisation window
+
+"New Shader Preset" = "Новый Пресет Шейдеров"; // Window title: Used to specify the name of a new shader preset
+
+"Rename Shader Preset" = "Переименовать Пресет Шейдеров"; // Window title: Used to rename an existing shader preset
+
+"A name is required." = "Необходимо указать название."; // warning: Displayed when user enters a zero-length shader preset name
+
+"Name must not contain “%@.”" = "Название не должно содержать “%@.”"; // warning: Displayed when user enters a shader preset name containing an invalid character
+
+"Default %@ preset for %@" = "Стандартный %@ пресет для %@"; // 1st parameter: shader name; 2nd parameter: system name
+
+"Are you sure you want to delete the shader preset called '%@'?" = "Вы уверены, что хотите удалить пресет шейдеров под названием '%@'?";
+
+"Delete Shader Preset" = "Удалить Пресет Шейдеров";

@@ -1,0 +1,102 @@
+
+/* Preferences: Library (PrefLibraryController.xib) */
+
+"Move..." = "Déplacer…";
+
+"Move to Default Location" = "Déplacer vers l’emplacement par défaut";
+
+"Organization Methods:" = "Méthodes d’organisation :";
+
+"Game Library Folder Location:" = "Emplacement du dossier de bibliothèque de jeux :";
+
+"Copy files to Game Library folder when adding to library" = "Copier fichiers dans la bibliothèque de jeux lors de l’ajout";
+
+"Automatically lookup game information & artwork" = "Récupérer automatiquement les infos et jaquettes";
+
+"Available Libraries:" = "Bibliothèques disponibles :";
+
+"Reset all dialog warnings:" = "Rétablir tous les avertissements d’alerte :";
+
+"Reset Warnings" = "Rétablir les avertissements";
+
+
+/* Preferences: Gameplay (PrefGameplayController.xib) */
+
+"Window Management:" = "Gestion de la fenêtre :";
+
+"Shader:" = "Shader :";
+
+"Always use popout gameplay window" = "Détacher la fenêtre de jeu";
+
+"Always launch games fullscreen" = "Lancer les jeux en mode plein écran";
+
+"Always pause gameplay when in background" = "Mettre en pause le jeu quand il est en arrière-plan";
+
+"Always snap popout gameplay window to integer scale" = "Aligner la fenêtre de jeu contextuelle sur une échelle entière";
+
+"Allow playing with controllers when in background" = "Autoriser à jouer avec des manettes quand le jeu est en arrière-plan";
+
+"Always float popout gameplay window on top" = "Faire flotter la fenêtre de jeu contextuelle en haut";
+
+
+/* Preferences: Controls (PrefControlsController.xib) */
+
+"Input:" = "Entrée :";
+
+
+/* Issue Resolver (GameScanner.xib) */
+
+"Resolve Issues:" = "Résoudre les problèmes :";
+
+"Apply" = "Appliquer";
+
+"Import Into:" = "Importer dans :";
+
+
+/* Setup Assistant (SetupAssistant.xib) */
+
+"Next" = "Suivant";
+
+"Back" = "Précédent";
+
+"Welcome to OpenEmu!" = "Bienvenue dans OpenEmu !";
+
+"An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…\n\n• Ensure you are running the correct system plugins (cores)." = "Un monde excitant de jeux vidéo est à votre portée. Pour vous aider à démarrer, nous aimerions vous poser quelques questions rapides qui vous guideront…\n\n• Assurez-vous d’exécuter les bons plugins système (cœurs).";
+
+"Click on the ‘Next’ button to begin!" = "Cliquez sur « Suivant » pour commencer !";
+
+"OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores." = "OpenEmu est modulaire, et grâce au travail d’autres grands projets open source, il peut émuler une large variété de systèmes de jeux vidéo (« cœurs »). Cochez et confirmez les cœurs que vous souhaitez installer et utiliser. Vos jeux et systèmes de jeux favoris peuvent ne pas fonctionner sans ces cœurs.";
+
+"System Cores Installation" = "Installation des cœurs système";
+
+"Let’s Go!" = "C’est parti !";
+
+"Great! You are all setup now and ready to get gaming!\n\nRemember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time." = "Génial ! Tout est paramétré et vous êtes prêt à jouer !\n\nVous pouvez changer à tout moment les contrôles de votre clavier et manette pour vous et d’autres joueurs dans les préférences.";
+
+"Click the ‘Go’ button to begin your adventure." = "Cliquez sur « Commencer » pour démarrer l’aventure.";
+
+"Go" = "Commencer";
+
+"Downloading Data…" = "Téléchargement des données…";
+
+
+/* Shader Parameters (ShaderParameters.xib) */
+
+"Reset All" = "Tout réinitialiser";
+
+
+/* Sidebar Header (SidebarController.xib) */
+
+"Edit" = "Modifier";
+
+
+/* Shader Parameters (ShaderParametersViewController.xib) */
+
+"New Preset" = "New Preset"; // TODO
+
+
+/* Name Shader Preset (NameShaderPreset.xib) */
+
+"Save Preset" = "Sauvegarder"; // TODO
+
+"Cancel" = "Annuler";

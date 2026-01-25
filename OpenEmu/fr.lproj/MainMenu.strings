@@ -1,0 +1,136 @@
+
+"File" = "Fichier";
+
+"Launch Game…" = "Lancer le jeu…";
+
+"Edit Smart Collection" = "Modifier la collection intelligente";
+
+"New Smart Collection…" = "Nouvelle collection intelligente…";
+
+"New Collection Folder" = "Nouveau dossier de collections";
+
+"Display Exact Duplicates" = "Afficher les doublons exacts";
+
+"Display Duplicates" = "Afficher les doublons";
+
+"Get Info" = "Lire les informations";
+
+"Close Window" = "Fermer la fenêtre";
+
+"Print…" = "Imprimer…";
+
+"Page Setup…" = "Format d’impression…";
+
+"Back Up…" = "Sauvegarder…";
+
+"Organize Library…" = "Organiser la bibliothèque…";
+
+"Export Library…" = "Exporter la biblitohèque…";
+
+"Import Collection" = "Importer une collection";
+
+"Export Collection" = "Exporter la collection";
+
+"Preferences…" = "Préférences…";
+
+"Check for Updates…" = "Rechercher les mises à jour…";
+
+"About OpenEmu" = "À propos d’OpenEmu";
+
+"Hide OpenEmu" = "Masquer OpenEmu";
+
+"Show All" = "Tout afficher";
+
+"Quit OpenEmu" = "Quitter OpenEmu";
+
+"Services" = "Services";
+
+"Hide Others" = "Masquer les autres";
+
+"Window" = "Fenêtre";
+
+"Bring All to Front" = "Tout ramener au premier plan";
+
+"Zoom" = "Réduire/agrandir";
+
+"Minimize" = "Placer dans le Dock";
+
+"View" = "Présentation";
+
+"as List" = "Par liste";
+
+"Fullscreen" = "Activer le mode plein écran";
+
+"as Grid" = "Par grille";
+
+"Undock Game Window" = "Détacher la fenêtre de jeu";
+
+"Controls" = "Contrôles";
+
+"Volume Down" = "Diminuer le son";
+
+"Start Game" = "Démarrer le jeu";
+
+"Volume Up" = "Augmenter le son";
+
+"Last Played" = "Derniers jeux lancés";
+
+"Save State" = "Sauvegarder partie";
+
+"Load State" = "Charger partie";
+
+"Edit" = "Édition";
+
+"Find" = "Rechercher";
+
+"Select All" = "Tout sélectionner";
+
+"Delete" = "Supprimer";
+
+"Paste" = "Coller";
+
+"Copy" = "Copier";
+
+"Cut" = "Couper";
+
+"Redo" = "Rétablir";
+
+"Undo" = "Annuler";
+
+"Jump to Selection" = "Aller à la sélection";
+
+"Use Selection for Find" = "Rechercher la sélection";
+
+"Find Previous" = "Rechercher le précédent";
+
+"Find Next" = "Rechercher le suivant";
+
+"Find…" = "Rechercher…";
+
+"Log Responder Chain" = "Journaliser la chaîne de répondeurs";
+
+"Show ROM Names" = "Afficher les noms des ROM";
+
+"Show Library" = "Afficher la bibliothèque";
+
+"Take Screenshot" = "Prendre une capture d’écran";
+
+"Help" = "Aide";
+
+"Release Notes" = "Notes de publication";
+
+"OpenEmu Web Site" = "Site web OpenEmu";
+
+"Always Hide HUD" = "Toujours masquer les contrôles";
+
+"Submit Feedback" = "Émettre un commentaire";
+
+"User Guide" = "Guide de l’utilisateur";
+
+"Send a Donation…" = "Faire un don…";
+
+"Next Display Mode" = "Mode d’affichage suivant";
+
+"Last Display Mode" = "Mode d’affichage précédent";
+
+"Float on Top" = "Garder au premier plan"; // (same as QuickTime Player → View)

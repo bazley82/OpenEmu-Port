@@ -1,0 +1,12 @@
+
+"Archived Game" = "Joc arxivat";
+
+"OpenEmu Core Plugin" = "OpenEmu Core Plugin";
+
+"OpenEmu Save State" = "Partida desada de l'OpenEmu";
+
+"OpenEmu System Plugin" = "Connector del sistema";
+
+"OpenEmu Shader" = "OpenEmu Shader";
+
+"%@ Game" = "Joc %@";  // Used in OESystemPluginPostInstall to dynamically generate localized file type names

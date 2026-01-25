@@ -1,0 +1,14 @@
+
+"Consolidating will copy all of the selected games into the OpenEmu Library folder." = "Consolidating will copy all the selected games into the OpenEmu Library folder.";
+
+"Move to Trash" = "Move to the Bin";
+
+"Only files in the OpenEmu Library folder will be moved to the Trash." = "Only files in the OpenEmu Library folder will be moved to the Bin.";
+
+"Special thanks to everyone that made\nOpenEmu possible. To find out more\nabout our contributors, emulator cores,\ndocumentation, licenses and to issue\nbugs please visit us on our GitHub." = "Special thanks to everyone that made\nOpenEmu possible. To find out more\nabout our contributors, emulator cores,\ndocumentation, licences and to issue\nbugs please visit us on our GitHub.";
+
+"Trash downloaded Files" = "Delete downloaded Files";
+
+"Won't be able to recognize it as special save state…" = "Won’t be able to recognise it as special save state…";
+
+"The %@ core plugin is deprecated, and will be removed soon" = "The %@ core plugin is deprecated and will be removed soon";  // Message title (removal happening soon)
