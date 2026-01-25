@@ -1,0 +1,112 @@
+JollyCV
+-------
+JollyCV is a highly accurate emulator for the ColecoVision, including support
+for the Super Game Module.
+
+JollyCV was the first emulator written specifically for The Jolly Good API.
+It is designed to document the ColecoVision for educational purposes through
+verbose comments, and high quality emulation. The ColecoVision is the perfect
+console to use to demonstrate how computer systems and emulators function
+because it is very simple and uses generic, off-the-shelf chips with widely
+available datasheets.
+
+This repository lives at https://gitlab.com/jgemu/jollycv
+
+Compiling
+---------
+Make sure you have The Jolly Good API's header files installed. If you did
+not install them, you will be required to include their path in CFLAGS.
+
+Options:
+  USE_VENDORED_SPEEXDSP - Set to a non-zero value to use vendored SpeexDSP.
+
+Linux:
+  make
+
+macOS:
+  make
+
+BSD:
+  gmake
+
+Windows (MSYS2):
+  make
+
+The build will be output to "jollycv/". This directory may be used as is
+locally by copying it to your local "cores" directory, or may be installed
+system-wide using the "install" target specified in the Makefile.
+
+Input Devices
+-------------
+JollyCV supports the following input devices:
+
+ColecoVision Paddle
+Roller Controller
+Steering Wheel
+Super Action Controller
+
+Input Notes
+-----------
+- The Roller Controller is implemented using a mouse. It is recommended to
+  assign the Fire buttons to mouse buttons.
+- The Steering Wheel is implemented using the X axis of a mouse. Buttons may
+  be assigned as usual.
+- The Super Action Controller's rollers are implemented using buttons which
+  may be held down to simulate a continuous roll. It is recommended to assign
+  the RollerL and RollerR input definitions to shoulder buttons on a gamepad.
+
+Settings
+--------
+mask_overscan = 0
+0 = Show Overscan, 1 = Mask Overscan
+
+palette = 0 
+0 = TeaTime, 1 = SYoung
+
+rsqual = 3
+N = Resampler Quality (0-10)
+
+region = 0
+0 = NTSC, 1 = PAL
+
+Compatibility
+-------------
+JollyCV is compatible with 100% of the commercially released ColecoVision
+library, and all known and freely available homebrew.
+
+Only a single game is known not to boot (possibly a bad dump):
+Lord of the Dungeon (USA) (Beta)
+
+Super Sketch boots, but is not usable due to a lack of documentation on the
+Super Sketch Pad.
+
+Porting
+-------
+JollyCV was written in standards compliant ISO C11 and should be extremely
+portable. Though it was written for The Jolly Good API, it was done in a
+manner that allows it to be used easily in multi-emulator frameworks or
+standalone binaries for many potential platforms. If a fork is created with
+significant modifications, it is requested that a clear indication of fork
+status is made. Please be an honest person and respect the licenses that
+apply to the software.
+
+Documentation
+-------------
+Documentation used to create the emulator is available at
+https://gitlab.com/carmiker/colecodocs
+
+Copyright
+---------
+JollyCV (BSD-3-Clause)
+  Copyright (c) 2020-2022 Rupert Carmichael
+  See LICENSE
+
+Jolly Good Z80 (MIT)
+  Copyright (c) 2019 Nicolas Allemand
+  Copyright (c) 2020-2022 Rupert Carmichael
+  Copyright (c) 2022 rofl0r
+  See src/z80/LICENSE
+
+Speex Resampler (BSD-3-Clause)
+  Copyright (c) 2003, 2007, 2008 Xiph.org Foundation
+  See source files in deps/speex/ for detailed information

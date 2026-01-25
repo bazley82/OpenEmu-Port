@@ -1,0 +1,760 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		8230C6A110AFBC9100412F24 /* Distribution */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8230C6AD10AFBCC700412F24 /* Build configuration list for PBXAggregateTarget "Distribution" */;
+			buildPhases = (
+				8230C6AC10AFBCC700412F24 /* CopyFiles */,
+				8230C6A010AFBC9100412F24 /* ShellScript */,
+			);
+			dependencies = (
+				8230C6A510AFBC9600412F24 /* PBXTargetDependency */,
+			);
+			name = Distribution;
+			productName = Distribution;
+		};
+		82B9195310150EA2007BD6DB /* Build & Install 4DO */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 82B9195D10150EA4007BD6DB /* Build configuration list for PBXAggregateTarget "Build & Install 4DO" */;
+			buildPhases = (
+				82B9195210150EA2007BD6DB /* ShellScript */,
+			);
+			dependencies = (
+				82B9195F10150EB3007BD6DB /* PBXTargetDependency */,
+			);
+			name = "Build & Install 4DO";
+			productName = "Build & Install";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		575ACC2D1582D50400EAC45A /* cd.c in Sources */ = {isa = PBXBuildFile; fileRef = 575ACBE81582C37400EAC45A /* cd.c */; };
+		575ACC2E1582D50400EAC45A /* cdtext.c in Sources */ = {isa = PBXBuildFile; fileRef = 575ACBEA1582C37400EAC45A /* cdtext.c */; };
+		575ACC301582D50400EAC45A /* cue_parser.ym in Sources */ = {isa = PBXBuildFile; fileRef = 575ACBEE1582C37400EAC45A /* cue_parser.ym */; };
+		575ACC321582D50400EAC45A /* cue_scanner.lm in Sources */ = {isa = PBXBuildFile; fileRef = 575ACBF01582C37400EAC45A /* cue_scanner.lm */; };
+		575ACC331582D50400EAC45A /* rem.c in Sources */ = {isa = PBXBuildFile; fileRef = 575ACBF71582C37400EAC45A /* rem.c */; };
+		575ACC341582D50400EAC45A /* time.c in Sources */ = {isa = PBXBuildFile; fileRef = 575ACBF91582C37400EAC45A /* time.c */; };
+		575ACC391582D51900EAC45A /* liblibcue.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 575ACC271582D4F000EAC45A /* liblibcue.a */; };
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		942597C515146FF40074E3A3 /* OpenEmuBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942597C415146FF40074E3A3 /* OpenEmuBase.framework */; };
+		94551A1719A71E390080929A /* _3do_sys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D12271582B03E003F64E5 /* _3do_sys.cpp */; };
+		94551A1819A71E390080929A /* arm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D12281582B03E003F64E5 /* arm.cpp */; };
+		94551A1919A71E390080929A /* bitop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D122A1582B03E003F64E5 /* bitop.cpp */; };
+		94551A1A19A71E390080929A /* Clio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D122C1582B03E003F64E5 /* Clio.cpp */; };
+		94551A1B19A71E390080929A /* DiagPort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D122E1582B03E003F64E5 /* DiagPort.cpp */; };
+		94551A1C19A71E390080929A /* DSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D12301582B03E003F64E5 /* DSP.cpp */; };
+		94551A1D19A71E390080929A /* frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94551A0E19A570170080929A /* frame.cpp */; };
+		94551A1E19A71E390080929A /* Iso.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D12341582B03F003F64E5 /* Iso.cpp */; };
+		94551A1F19A71E390080929A /* Madam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D12371582B03F003F64E5 /* Madam.cpp */; };
+		94551A2019A71E390080929A /* quarz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D123A1582B03F003F64E5 /* quarz.cpp */; };
+		94551A2119A71E390080929A /* SPORT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D123C1582B03F003F64E5 /* SPORT.cpp */; };
+		94551A2219A71E390080929A /* vdlp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D123F1582B03F003F64E5 /* vdlp.cpp */; };
+		94551A2319A71E390080929A /* XBUS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578D12411582B03F003F64E5 /* XBUS.cpp */; };
+		94D9257314CA9879008F697D /* FreeDOGameCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 826FE0F41014D8930023A8E9 /* FreeDOGameCore.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		575ACC371582D51000EAC45A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 575ACC261582D4F000EAC45A;
+			remoteInfo = libcue;
+		};
+		8230C6A410AFBC9600412F24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = BSNES;
+		};
+		82B9195E10150EB3007BD6DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = BSNES;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		578D12E61582B9A5003F64E5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8230C6AC10AFBCC700412F24 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		089C167EFE841241C02AAC07 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		37E8246D172B7BEB00E58D77 /* OE3DOSystemResponderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OE3DOSystemResponderClient.h; path = ../OpenEmu/SystemPlugins/3DO/OE3DOSystemResponderClient.h; sourceTree = "<group>"; };
+		575ACBE81582C37400EAC45A /* cd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cd.c; sourceTree = "<group>"; };
+		575ACBE91582C37400EAC45A /* cd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cd.h; sourceTree = "<group>"; };
+		575ACBEA1582C37400EAC45A /* cdtext.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cdtext.c; sourceTree = "<group>"; };
+		575ACBEB1582C37400EAC45A /* cdtext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdtext.h; sourceTree = "<group>"; };
+		575ACBEC1582C37400EAC45A /* cue_parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cue_parser.c; sourceTree = "<group>"; };
+		575ACBED1582C37400EAC45A /* cue_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cue_parser.h; sourceTree = "<group>"; };
+		575ACBEE1582C37400EAC45A /* cue_parser.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = cue_parser.ym; sourceTree = "<group>"; };
+		575ACBEF1582C37400EAC45A /* cue_scanner.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cue_scanner.c; sourceTree = "<group>"; };
+		575ACBF01582C37400EAC45A /* cue_scanner.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = cue_scanner.lm; sourceTree = "<group>"; };
+		575ACBF11582C37400EAC45A /* libcue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libcue.h; sourceTree = "<group>"; };
+		575ACBF71582C37400EAC45A /* rem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rem.c; sourceTree = "<group>"; };
+		575ACBF81582C37400EAC45A /* rem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rem.h; sourceTree = "<group>"; };
+		575ACBF91582C37400EAC45A /* time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = time.c; sourceTree = "<group>"; };
+		575ACBFA1582C37400EAC45A /* time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time.h; sourceTree = "<group>"; };
+		575ACC0E1582C3A100EAC45A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = "libcue-1.4.0/config.h"; sourceTree = SOURCE_ROOT; };
+		575ACC271582D4F000EAC45A /* liblibcue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibcue.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		578D12271582B03E003F64E5 /* _3do_sys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = _3do_sys.cpp; sourceTree = "<group>"; };
+		578D12281582B03E003F64E5 /* arm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = arm.cpp; sourceTree = "<group>"; };
+		578D12291582B03E003F64E5 /* arm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arm.h; sourceTree = "<group>"; };
+		578D122A1582B03E003F64E5 /* bitop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bitop.cpp; sourceTree = "<group>"; };
+		578D122B1582B03E003F64E5 /* bitop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitop.h; sourceTree = "<group>"; };
+		578D122C1582B03E003F64E5 /* Clio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clio.cpp; sourceTree = "<group>"; };
+		578D122D1582B03E003F64E5 /* Clio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clio.h; sourceTree = "<group>"; };
+		578D122E1582B03E003F64E5 /* DiagPort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiagPort.cpp; sourceTree = "<group>"; };
+		578D122F1582B03E003F64E5 /* DiagPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagPort.h; sourceTree = "<group>"; };
+		578D12301582B03E003F64E5 /* DSP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DSP.cpp; sourceTree = "<group>"; };
+		578D12311582B03E003F64E5 /* DSP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSP.h; sourceTree = "<group>"; };
+		578D12321582B03E003F64E5 /* freedoconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freedoconfig.h; sourceTree = "<group>"; };
+		578D12331582B03F003F64E5 /* freedocore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freedocore.h; sourceTree = "<group>"; };
+		578D12341582B03F003F64E5 /* Iso.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Iso.cpp; sourceTree = "<group>"; };
+		578D12351582B03F003F64E5 /* IsoXBUS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsoXBUS.h; sourceTree = "<group>"; };
+		578D12371582B03F003F64E5 /* Madam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Madam.cpp; sourceTree = "<group>"; };
+		578D12381582B03F003F64E5 /* Madam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Madam.h; sourceTree = "<group>"; };
+		578D123A1582B03F003F64E5 /* quarz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = quarz.cpp; sourceTree = "<group>"; };
+		578D123B1582B03F003F64E5 /* quarz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quarz.h; sourceTree = "<group>"; };
+		578D123C1582B03F003F64E5 /* SPORT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SPORT.cpp; sourceTree = "<group>"; };
+		578D123D1582B03F003F64E5 /* SPORT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPORT.h; sourceTree = "<group>"; };
+		578D123E1582B03F003F64E5 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		578D123F1582B03F003F64E5 /* vdlp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vdlp.cpp; sourceTree = "<group>"; };
+		578D12401582B03F003F64E5 /* vdlp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vdlp.h; sourceTree = "<group>"; };
+		578D12411582B03F003F64E5 /* XBUS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XBUS.cpp; sourceTree = "<group>"; };
+		578D12421582B03F003F64E5 /* XBUS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBUS.h; sourceTree = "<group>"; };
+		826FE0F31014D8930023A8E9 /* FreeDOGameCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeDOGameCore.h; sourceTree = "<group>"; };
+		826FE0F41014D8930023A8E9 /* FreeDOGameCore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FreeDOGameCore.mm; sourceTree = "<group>"; };
+		82B91C841015267F007BD6DB /* libco.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libco.a; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* 4DO.oecoreplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 4DO.oecoreplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		942597C415146FF40074E3A3 /* OpenEmuBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEmuBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94551A0E19A570170080929A /* frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frame.cpp; sourceTree = "<group>"; };
+		94551A0F19A570170080929A /* frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frame.h; sourceTree = "<group>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		575ACC241582D4F000EAC45A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				575ACC391582D51900EAC45A /* liblibcue.a in Frameworks */,
+				942597C515146FF40074E3A3 /* OpenEmuBase.framework in Frameworks */,
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* BSNES */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = BSNES;
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				575ACBE01582C37400EAC45A /* libcue */,
+				578D12261582B03E003F64E5 /* libfreedo */,
+				826FE0F31014D8930023A8E9 /* FreeDOGameCore.h */,
+				826FE0F41014D8930023A8E9 /* FreeDOGameCore.mm */,
+				37E8246D172B7BEB00E58D77 /* OE3DOSystemResponderClient.h */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				942597C415146FF40074E3A3 /* OpenEmuBase.framework */,
+				82B91C841015267F007BD6DB /* libco.a */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* 4DO.oecoreplugin */,
+				575ACC271582D4F000EAC45A /* liblibcue.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		575ACBE01582C37400EAC45A /* libcue */ = {
+			isa = PBXGroup;
+			children = (
+				575ACC0E1582C3A100EAC45A /* config.h */,
+				575ACBE81582C37400EAC45A /* cd.c */,
+				575ACBE91582C37400EAC45A /* cd.h */,
+				575ACBEA1582C37400EAC45A /* cdtext.c */,
+				575ACBEB1582C37400EAC45A /* cdtext.h */,
+				575ACBEC1582C37400EAC45A /* cue_parser.c */,
+				575ACBED1582C37400EAC45A /* cue_parser.h */,
+				575ACBEE1582C37400EAC45A /* cue_parser.ym */,
+				575ACBEF1582C37400EAC45A /* cue_scanner.c */,
+				575ACBF01582C37400EAC45A /* cue_scanner.lm */,
+				575ACBF11582C37400EAC45A /* libcue.h */,
+				575ACBF71582C37400EAC45A /* rem.c */,
+				575ACBF81582C37400EAC45A /* rem.h */,
+				575ACBF91582C37400EAC45A /* time.c */,
+				575ACBFA1582C37400EAC45A /* time.h */,
+			);
+			name = libcue;
+			path = "libcue-1.4.0/src/libcue";
+			sourceTree = "<group>";
+		};
+		578D12261582B03E003F64E5 /* libfreedo */ = {
+			isa = PBXGroup;
+			children = (
+				578D12271582B03E003F64E5 /* _3do_sys.cpp */,
+				578D12281582B03E003F64E5 /* arm.cpp */,
+				578D12291582B03E003F64E5 /* arm.h */,
+				578D122A1582B03E003F64E5 /* bitop.cpp */,
+				578D122B1582B03E003F64E5 /* bitop.h */,
+				578D122C1582B03E003F64E5 /* Clio.cpp */,
+				578D122D1582B03E003F64E5 /* Clio.h */,
+				578D122E1582B03E003F64E5 /* DiagPort.cpp */,
+				578D122F1582B03E003F64E5 /* DiagPort.h */,
+				578D12301582B03E003F64E5 /* DSP.cpp */,
+				578D12311582B03E003F64E5 /* DSP.h */,
+				94551A0E19A570170080929A /* frame.cpp */,
+				94551A0F19A570170080929A /* frame.h */,
+				578D12321582B03E003F64E5 /* freedoconfig.h */,
+				578D12331582B03F003F64E5 /* freedocore.h */,
+				578D12341582B03F003F64E5 /* Iso.cpp */,
+				578D12351582B03F003F64E5 /* IsoXBUS.h */,
+				578D12371582B03F003F64E5 /* Madam.cpp */,
+				578D12381582B03F003F64E5 /* Madam.h */,
+				578D123A1582B03F003F64E5 /* quarz.cpp */,
+				578D123B1582B03F003F64E5 /* quarz.h */,
+				578D123C1582B03F003F64E5 /* SPORT.cpp */,
+				578D123D1582B03F003F64E5 /* SPORT.h */,
+				578D123E1582B03F003F64E5 /* types.h */,
+				578D123F1582B03F003F64E5 /* vdlp.cpp */,
+				578D12401582B03F003F64E5 /* vdlp.h */,
+				578D12411582B03F003F64E5 /* XBUS.cpp */,
+				578D12421582B03F003F64E5 /* XBUS.h */,
+			);
+			path = libfreedo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		575ACC251582D4F000EAC45A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		575ACC261582D4F000EAC45A /* libcue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 575ACC281582D4F000EAC45A /* Build configuration list for PBXNativeTarget "libcue" */;
+			buildPhases = (
+				575ACC231582D4F000EAC45A /* Sources */,
+				575ACC241582D4F000EAC45A /* Frameworks */,
+				575ACC251582D4F000EAC45A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libcue;
+			productName = libcue;
+			productReference = 575ACC271582D4F000EAC45A /* liblibcue.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8D5B49AC048680CD000E48DA /* 4DO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "4DO" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				578D12E61582B9A5003F64E5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				575ACC381582D51000EAC45A /* PBXTargetDependency */,
+			);
+			name = 4DO;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = BSNES;
+			productReference = 8D5B49B6048680CD000E48DA /* 4DO.oecoreplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "4DO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* BSNES */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* 4DO */,
+				82B9195310150EA2007BD6DB /* Build & Install 4DO */,
+				8230C6A110AFBC9100412F24 /* Distribution */,
+				575ACC261582D4F000EAC45A /* libcue */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8230C6A010AFBC9100412F24 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/bin/openemu_rb_automation.rb\n";
+		};
+		82B9195210150EA2007BD6DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores\"\nrm -rf \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores/$PROJECT_NAME.oecoreplugin\"{,.dSYM}\ncp -rf \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.oecoreplugin\"{,.dSYM} \"$USER_LIBRARY_DIR/Application Support/OpenEmu/Cores/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		575ACC231582D4F000EAC45A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				575ACC2D1582D50400EAC45A /* cd.c in Sources */,
+				575ACC2E1582D50400EAC45A /* cdtext.c in Sources */,
+				575ACC301582D50400EAC45A /* cue_parser.ym in Sources */,
+				575ACC321582D50400EAC45A /* cue_scanner.lm in Sources */,
+				575ACC331582D50400EAC45A /* rem.c in Sources */,
+				575ACC341582D50400EAC45A /* time.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94D9257314CA9879008F697D /* FreeDOGameCore.mm in Sources */,
+				94551A1719A71E390080929A /* _3do_sys.cpp in Sources */,
+				94551A1819A71E390080929A /* arm.cpp in Sources */,
+				94551A1919A71E390080929A /* bitop.cpp in Sources */,
+				94551A1A19A71E390080929A /* Clio.cpp in Sources */,
+				94551A1B19A71E390080929A /* DiagPort.cpp in Sources */,
+				94551A1C19A71E390080929A /* DSP.cpp in Sources */,
+				94551A1D19A71E390080929A /* frame.cpp in Sources */,
+				94551A1E19A71E390080929A /* Iso.cpp in Sources */,
+				94551A1F19A71E390080929A /* Madam.cpp in Sources */,
+				94551A2019A71E390080929A /* quarz.cpp in Sources */,
+				94551A2119A71E390080929A /* SPORT.cpp in Sources */,
+				94551A2219A71E390080929A /* vdlp.cpp in Sources */,
+				94551A2319A71E390080929A /* XBUS.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		575ACC381582D51000EAC45A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 575ACC261582D4F000EAC45A /* libcue */;
+			targetProxy = 575ACC371582D51000EAC45A /* PBXContainerItemProxy */;
+		};
+		8230C6A510AFBC9600412F24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* 4DO */;
+			targetProxy = 8230C6A410AFBC9600412F24 /* PBXContainerItemProxy */;
+		};
+		82B9195F10150EB3007BD6DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* 4DO */;
+			targetProxy = 82B9195E10150EB3007BD6DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/core/lib/\"",
+					"\"$(PROJECT_DIR)/core/\"",
+					"\"$(PROJECT_DIR)/libfreedo\"",
+					"\"$(PROJECT_DIR)/libcue/\"/**",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/libfreedo\"",
+				);
+				OTHER_CFLAGS = (
+					"-I.",
+					"-DPROFILE_PERFORMANCE",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-g",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = 4DO;
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/core/\" \"$(PROJECT_DIR)/libcue/\"/** \"$(PROJECT_DIR)/libfreedo/\"";
+				WRAPPER_EXTENSION = oecoreplugin;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/core/lib/\"",
+					"\"$(PROJECT_DIR)/core/\"",
+					"\"$(PROJECT_DIR)/libfreedo\"",
+					"\"$(PROJECT_DIR)/libcue/\"/**",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/libfreedo\"",
+				);
+				OTHER_CFLAGS = (
+					"-I.",
+					"-DPROFILE_PERFORMANCE",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-g",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = 4DO;
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/core/\" \"$(PROJECT_DIR)/libcue/\"/** \"$(PROJECT_DIR)/libfreedo/\"";
+				WRAPPER_EXTENSION = oecoreplugin;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "\"$(USER_LIBRARY_DIR)/Application Support/OpenEmu/Cores\"";
+				LD_NO_PIE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "\"$(USER_LIBRARY_DIR)/Application Support/OpenEmu/Cores\"";
+				LD_NO_PIE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		575ACC291582D4F000EAC45A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		575ACC2A1582D4F000EAC45A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8230C6A210AFBC9100412F24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Distribution;
+			};
+			name = Debug;
+		};
+		8230C6A310AFBC9100412F24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = Distribution;
+			};
+			name = Release;
+		};
+		82B9195410150EA2007BD6DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Build & Install";
+			};
+			name = Debug;
+		};
+		82B9195510150EA2007BD6DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Build & Install";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "4DO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "4DO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		575ACC281582D4F000EAC45A /* Build configuration list for PBXNativeTarget "libcue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				575ACC291582D4F000EAC45A /* Debug */,
+				575ACC2A1582D4F000EAC45A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8230C6AD10AFBCC700412F24 /* Build configuration list for PBXAggregateTarget "Distribution" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8230C6A210AFBC9100412F24 /* Debug */,
+				8230C6A310AFBC9100412F24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82B9195D10150EA4007BD6DB /* Build configuration list for PBXAggregateTarget "Build & Install 4DO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82B9195410150EA2007BD6DB /* Debug */,
+				82B9195510150EA2007BD6DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

@@ -1,0 +1,58 @@
+Gambatte JG
+-----------
+Gambatte JG is an emulator for the Nintendo Game Boy/Game Boy Color.
+
+This is a fork of the final public revision of Gambatte.
+
+This repository lives at https://gitlab.com/jgemu/gambatte
+
+Compiling
+---------
+Make sure you have The Jolly Good API's header files installed. If you did
+not install them, you will be required to include their path in CXXFLAGS.
+
+GNU Make's default behaviour for compiling C++ sources is to use g++. If your
+platform of choice uses an unpatched GNU Make, you will need to override the
+CXX implicit variable if you wish to use a different compiler.
+
+Options:
+  USE_VENDORED_SOXR - Set non-zero to use vendored soxr
+
+Linux:
+  make
+
+macOS:
+  make
+
+BSD:
+  gmake
+
+Windows (MSYS2):
+  make
+
+The build will be output to "gambatte/". This directory may be used as is
+locally by copying it to your local "cores" directory, or may be installed
+system-wide using the "install" target specified in the Makefile.
+
+Settings
+--------
+palette = 0
+0 = Internal, 1 = Original Green, 2 = GB Pocket, 3 = Blue, 4 = Brown,
+5 = Dark Blue, 6 = Dark Brown, 7 = Dark Green, 8 = Grayscale, 9 = Green,
+10 = Inverted, 11 = Orange, 12 = Pastel Mix, 13 = Red, 14 = Yellow
+
+system = 0
+0 = Auto (CGB), 1 = DMG, 2 = GBA-CGB
+
+turbo_rate = 3
+N = Pulse every N frames
+
+Copyright
+---------
+Gambatte JG (GPL-2.0-or-later)
+  Copyright (c) 2007-2020 Sindre Aamås
+  Copyright (c) 2020-2022 Rupert Carmichael
+
+SoX Resampler Library (LGPL-2.1-or-later)
+  Copyright (c) 2007-2018 Rob Sykes
+  See source files in deps/soxr/ (https://sourceforge.net/projects/soxr/)
