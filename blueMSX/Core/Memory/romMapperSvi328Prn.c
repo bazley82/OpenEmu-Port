@@ -132,8 +132,8 @@ static void getDebugInfo(RomMapperSvi328Prn* rm, DbgDevice* dbgDevice)
 
 int romMapperSvi328PrnCreate(void) 
 {
-    DeviceCallbacks callbacks = {destroy, reset, saveState, loadState};
-    DebugCallbacks dbgCallbacks = {getDebugInfo, NULL, NULL, NULL};
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
+    DebugCallbacks dbgCallbacks = { (void (*)(void*, DbgDevice*))getDebugInfo, NULL, NULL, NULL };
     RomMapperSvi328Prn* prn;
 
     prn = malloc(sizeof(RomMapperSvi328Prn));
@@ -143,9 +143,9 @@ int romMapperSvi328PrnCreate(void)
     prn->deviceHandle = deviceManagerRegister(ROM_SVI328PRN, &callbacks, prn);
     prn->debugHandle = debugDeviceRegister(DBGTYPE_BIOS, langDbgDevSviPrn(), &dbgCallbacks, prn);
 
-    ioPortRegister(0x10, NULL, writeIo, prn);
-    ioPortRegister(0x11, NULL, writeIo, prn);
-    ioPortRegister(0x12, readIo, NULL, prn);
+    ioPortRegister(0x10, NULL, (IoPortWrite)writeIo, prn);
+    ioPortRegister(0x11, NULL, (IoPortWrite)writeIo, prn);
+    ioPortRegister(0x12, (IoPortRead)readIo, NULL, prn);
 
     reset(prn);
 

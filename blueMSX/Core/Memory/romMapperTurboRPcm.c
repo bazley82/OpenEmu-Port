@@ -166,8 +166,8 @@ static void getDebugInfo(RomMapperTurboRPcm* rm, DbgDevice* dbgDevice)
 
 int romMapperTurboRPcmCreate() 
 {
-    DeviceCallbacks callbacks = { destroy, reset, saveState, loadState };
-    DebugCallbacks dbgCallbacks = { getDebugInfo, NULL, NULL, NULL };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
+    DebugCallbacks dbgCallbacks = { (void (*)(void*, DbgDevice*))getDebugInfo, NULL, NULL, NULL };
     RomMapperTurboRPcm* rm = malloc(sizeof(RomMapperTurboRPcm));
 
     rm->deviceHandle = deviceManagerRegister(ROM_TURBORPCM, &callbacks, rm);
@@ -179,8 +179,8 @@ int romMapperTurboRPcmCreate()
 	rm->status = 0;
     rm->time   = 0;
 
-    ioPortRegister(0xa4, read, write, rm);
-    ioPortRegister(0xa5, read, write, rm);
+    ioPortRegister(0xa4, (IoPortRead)read, (IoPortWrite)write, rm);
+    ioPortRegister(0xa5, (IoPortRead)read, (IoPortWrite)write, rm);
 
     return 1;
 }

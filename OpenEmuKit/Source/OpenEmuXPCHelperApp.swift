@@ -52,9 +52,14 @@ import Foundation
     }
     
     public static func run() {
+        NSLog("[OpenEmuHelperApp] run() started")
+        
         guard let serviceName = Self.serviceNameArgument else {
+            NSLog("[OpenEmuHelperApp] FATAL: Unable to find XPCBrokerServiceName argument")
             fatalError("Unable to find XPCBrokerServiceName argument")
         }
+        
+        NSLog("[OpenEmuHelperApp] Initializing and launching application for service: %@", serviceName)
         
         autoreleasepool {
             let app = OpenEmuXPCHelperApp(serviceName: serviceName)

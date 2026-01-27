@@ -208,8 +208,8 @@ RTL8019* rtl8019Create()
     int i;
 
     rtl->archInit = 0;
-    rtl->timerTx = boardTimerCreate(onTxTimer, rtl);
-    rtl->timerRx = boardTimerCreate(onRxTimer, rtl);
+    rtl->timerTx = boardTimerCreate((BoardTimerCb)onTxTimer, rtl);
+    rtl->timerRx = boardTimerCreate((BoardTimerCb)onRxTimer, rtl);
 
     boardTimerAdd(rtl->timerRx, boardSystemTime() + 1);
 

@@ -133,7 +133,9 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
     [_gridView setDataSource:self];
     [_gridView setDraggingDestinationDelegate:self];
     [_gridView setCellSize:defaultGridSize];
-
+    [_gridView setValue:[NSColor clearColor] forKey:IKImageBrowserBackgroundColorKey];
+    [[_gridView enclosingScrollView] setDrawsBackground:NO];
+    
     // Set up list view
     [listView setTarget:self];
     [listView setDelegate:self];
@@ -144,6 +146,8 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
     [listView setSortDescriptors:[self defaultSortDescriptors]];
     [listView setAllowsMultipleSelection:YES];
     [listView registerForDraggedTypes:@[NSPasteboardTypeFileURL]];
+    [listView setBackgroundColor:[NSColor clearColor]];
+    [[listView enclosingScrollView] setDrawsBackground:NO];
 
     // Setup BlankSlate View
     [blankSlateView setDelegate:self];

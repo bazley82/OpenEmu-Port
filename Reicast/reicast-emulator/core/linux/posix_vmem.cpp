@@ -224,8 +224,14 @@ bool vmem_platform_prepare_jit_block(void *code_area, unsigned size, void **code
 
 #if HOST_CPU == CPU_ARM64
 
+#if HOST_OS == OS_DARWIN
+#include <libkern/OSCacheControl.h>
+#endif
+
 // Code borrowed from Dolphin https://github.com/dolphin-emu/dolphin
-static void Arm64_CacheFlush(void* start, void* end) {
+static void Arm64_CacheFlush(void* _start, void* _end) {
+	char* start = (char*)_start;
+	char* end = (char*)_end;
 	if (start == end)
 		return;
 

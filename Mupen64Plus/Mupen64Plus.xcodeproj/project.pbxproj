@@ -296,6 +296,7 @@
 		EE2BBC41225AD5050007BF6F /* GraphicBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2BBC38225AD5040007BF6F /* GraphicBuffer.cpp */; };
 		EE2BBC46225AD5380007BF6F /* iob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2BBC45225AD5370007BF6F /* iob.cpp */; };
 		EE2BBC48225AD6520007BF6F /* MemoryStatus_mupenplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE2BBC47225AD6510007BF6F /* MemoryStatus_mupenplus.cpp */; };
+                8784175F25994FEF002ED39D /* linkage_arm64.S in Sources */ = {isa = PBXBuildFile; fileRef = 8784175E25994FEF002ED39D /* linkage_arm64.S */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1193,7 +1194,6 @@
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				3D208E981182550400BEAA42 /* OpenGL.framework in Frameworks */,
-				551FEEB025B64D9000B9030D /* linkage.o in Frameworks */,
 				C6D120F71711312600E868A8 /* OpenEmuBase.framework in Frameworks */,
 				3D208E9E1182551500BEAA42 /* libz.dylib in Frameworks */,
 			);
@@ -3225,6 +3225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+                                8784175F25994FEF002ED39D /* linkage_arm64.S in Sources */,
 				8784165025993CA3002ED39D /* callbacks.c in Sources */,
 				8784164F25993CA3002ED39D /* common.c in Sources */,
 				8784164D25993CA3002ED39D /* config.c in Sources */,
@@ -3661,7 +3662,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/png\"",
-					"$(PROJECT_DIR)/GLideN64/src/GLideNHQ/lib",
 				);
 				MACH_O_TYPE = mh_bundle;
 				OTHER_CFLAGS = (
@@ -3709,7 +3709,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/png\"",
-					"$(PROJECT_DIR)/GLideN64/src/GLideNHQ/lib",
 				);
 				MACH_O_TYPE = mh_bundle;
 				OTHER_CFLAGS = (

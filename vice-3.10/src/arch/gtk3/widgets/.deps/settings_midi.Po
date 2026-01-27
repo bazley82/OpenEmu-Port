@@ -1,0 +1,4 @@
+settings_midi.o: settings_midi.c ../../../../src/vice.h \
+  ../../../../src/config.h
+../../../../src/vice.h:
+../../../../src/config.h:

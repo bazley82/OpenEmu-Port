@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.52
+     from vice.texi on 25 January 2026 -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<TITLE>VICE Manual - 5  Quick setup</TITLE>
+<style type="text/css">
+    @import 'vice.css';
+</style>
+</HEAD>
+<BODY>
+Go to the <A HREF="vice_1.html">first</A>, <A HREF="vice_4.html">previous</A>, <A HREF="vice_6.html">next</A>, <A HREF="vice_24.html">last</A> section, <A HREF="vice_toc.html">table of contents</A>.
+<P><HR><P>
+
+
+<H1><A NAME="SEC83" HREF="vice_toc.html#TOC83">5  Quick setup</A></H1>
+
+<P>
+This chapter is mostly aimed at people who are used to older VICE releases. The
+default configuration has shifted from "make the emulator fast enough to work
+on consumer hardware" to "pedantic focus on emulation accuracy", which is why
+newer releases have been perceived as "slower" by some people.
+
+</P>
+<P>
+However, a couple things can be reverted and "improved" - if better performance
+is what you can afford to trade for a little less emulation accuracy.
+<STRONG>Note that if you encounter any strange problems, you should always try to
+reset settings to default first.</STRONG>
+
+</P>
+
+<UL>
+
+<LI>
+
+To speed up loading .prg files, enable
+Options-&#62;Host-&#62;Autostart-&#62;Autostart PRG Settings-&#62;Autostart mode-&#62;Inject into RAM
+(<CODE>AutostartPrgMode</CODE> = 1)
+
+<LI>
+
+To speed up loading .d64 files,
+enable Options-&#62;Peripherial devices-&#62;Drive-&#62;Virtual (traps)
+(<CODE>TrapDevice8..11</CODE> = 1)
+and enable Options-&#62;Host-&#62;Autostart-&#62;Handle True Drive Emulation on autostart
+(<CODE>AutostartHandleTrueDriveEmulation</CODE> = 1)
+
+<LI>
+
+To speed up warp mode,
+disable Options-&#62;Audio-&#62;Sound driver-&#62;Enable sound emulation in warpmode
+(<CODE>SoundEmulateOnWarp</CODE> = 0)
+
+</UL>
+
+<P>
+Last not least (does not really fit into the above list):
+
+</P>
+
+<UL>
+
+<LI>
+
+If you are coming from WinVICE to GTK3, you might want to restore the original
+WinVICE hotkeys. Go to
+Options-&#62;Host-&#62;Hotkeys-&#62;Load From,
+and navigate to data/hotkeys/hotkeys-winvice-legacy.vhk
+
+</UL>
+
+<P><HR><P>
+Go to the <A HREF="vice_1.html">first</A>, <A HREF="vice_4.html">previous</A>, <A HREF="vice_6.html">next</A>, <A HREF="vice_24.html">last</A> section, <A HREF="vice_toc.html">table of contents</A>.
+</BODY>
+</HTML>

@@ -152,8 +152,8 @@ static void getDebugInfo(RomMapperSvi328Rs232* rs232, DbgDevice* dbgDevice)
 
 int romMapperSvi328Rs232Create(Svi328UartConnector connector)
 {
-    DeviceCallbacks callbacks = {destroy, NULL, saveState, loadState};
-    DebugCallbacks dbgCallbacks = {getDebugInfo, NULL, NULL, NULL};
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, NULL, (void (*)(void*))saveState, (void (*)(void*))loadState };
+    DebugCallbacks dbgCallbacks = { (void (*)(void*, DbgDevice*))getDebugInfo, NULL, NULL, NULL };
 
     rs232 = malloc(sizeof(RomMapperSvi328Rs232));
 
@@ -169,26 +169,26 @@ int romMapperSvi328Rs232Create(Svi328UartConnector connector)
     switch (rs232->connector) {
     case SVI328_MODEM:
         rs232->baseAddress = 0x20;
-        ioPortRegister(0x20, readIo, writeIo, rs232);
-        ioPortRegister(0x21, readIo, writeIo, rs232);
-        ioPortRegister(0x22, readIo, NULL,    rs232);
-        ioPortRegister(0x23, readIo, writeIo, rs232);
-        ioPortRegister(0x24, readIo, writeIo, rs232);
-        ioPortRegister(0x25, readIo, NULL,    rs232);
-        ioPortRegister(0x26, readIo, NULL,    rs232);
-        ioPortRegister(0x27, readIo, writeIo, rs232);
+        ioPortRegister(0x20, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x21, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x22, (IoPortRead)readIo, NULL,    rs232);
+        ioPortRegister(0x23, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x24, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x25, (IoPortRead)readIo, NULL,    rs232);
+        ioPortRegister(0x26, (IoPortRead)readIo, NULL,    rs232);
+        ioPortRegister(0x27, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
         break;
 
     case SVI328_RS232:
         rs232->baseAddress = 0x28;
-        ioPortRegister(0x28, readIo, writeIo, rs232);
-        ioPortRegister(0x29, readIo, writeIo, rs232);
-        ioPortRegister(0x2A, readIo, NULL,    rs232);
-        ioPortRegister(0x2B, readIo, writeIo, rs232);
-        ioPortRegister(0x2C, readIo, writeIo, rs232);
-        ioPortRegister(0x2D, readIo, NULL,    rs232);
-        ioPortRegister(0x2E, readIo, NULL,    rs232);
-        ioPortRegister(0x2F, readIo, writeIo, rs232);
+        ioPortRegister(0x28, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x29, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x2A, (IoPortRead)readIo, NULL,    rs232);
+        ioPortRegister(0x2B, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x2C, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
+        ioPortRegister(0x2D, (IoPortRead)readIo, NULL,    rs232);
+        ioPortRegister(0x2E, (IoPortRead)readIo, NULL,    rs232);
+        ioPortRegister(0x2F, (IoPortRead)readIo, (IoPortWrite)writeIo, rs232);
         break;
 
     default:

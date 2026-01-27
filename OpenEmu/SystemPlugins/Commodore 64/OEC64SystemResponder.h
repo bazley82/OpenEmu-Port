@@ -24,7 +24,7 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import OpenEmuSystem;
+#import "../../OpenEmu-SDK/OpenEmuSystem/OpenEmuSystem.h"
 #import "OEC64SystemResponderClient.h"
 
 OE_EXPORTED_CLASS

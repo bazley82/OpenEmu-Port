@@ -76,10 +76,10 @@ namespace Nes
 			{
 				const byte data[4] =
 				{
-					latch,
-					stream == ~0U ? 0xFF : stream,
-					output,
-					counter
+					static_cast<byte>(latch),
+					static_cast<byte>(stream == ~0U ? 0xFF : stream),
+					static_cast<byte>(output),
+					static_cast<byte>(counter)
 				};
 
 				saver.Begin( AsciiId<'P','G'>::R(0,0,id) ).Write( data ).End();

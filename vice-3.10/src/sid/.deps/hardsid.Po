@@ -1,0 +1,5 @@
+hardsid.o: hardsid.c ../../src/vice.h ../../src/config.h \
+  ../../src/hardsid.h
+../../src/vice.h:
+../../src/config.h:
+../../src/hardsid.h:

@@ -229,13 +229,13 @@ int romMapperTC8566AFCreate(const char* filename, UInt8* romData,
                            int size, int slot, int sslot, int startPage,
                            RomType romType) 
 {
-    DeviceCallbacks callbacks = { destroy, reset, saveState, loadState };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
     RomMapperTC8566AF* rm;
 
     rm = malloc(sizeof(RomMapperTC8566AF));
 
     rm->deviceHandle = deviceManagerRegister(romType, &callbacks, rm);
-    slotRegister(slot, sslot, startPage, 4, read, peek, write, destroy, rm);
+    slotRegister(slot, sslot, startPage, 4, (SlotRead)read, (SlotRead)peek, (SlotWrite)write, (SlotEject)destroy, rm);
 
     size = (size + 0x3fff) & ~0x3fff;
 

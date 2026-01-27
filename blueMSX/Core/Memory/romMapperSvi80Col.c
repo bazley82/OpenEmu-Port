@@ -146,8 +146,8 @@ static void getDebugInfo(RomMapperSvi328Col80* rm, DbgDevice* dbgDevice)
 
 int romMapperSvi328Col80Create(int frameRate, UInt8* romData, int size)
 {
-    DeviceCallbacks callbacks = {destroy, reset, saveState, loadState};
-    DebugCallbacks dbgCallbacks = {getDebugInfo, NULL, NULL, NULL};
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
+    DebugCallbacks dbgCallbacks = { (void (*)(void*, DbgDevice*))getDebugInfo, NULL, NULL, NULL };
     RomMapperSvi328Col80* svi328col80;
 
     if (size != 0x1000)
@@ -163,9 +163,9 @@ int romMapperSvi328Col80Create(int frameRate, UInt8* romData, int size)
 
     svi328col80->debugHandle = debugDeviceRegister(DBGTYPE_VIDEO, langDbgDevSvi80Col(), &dbgCallbacks, svi328col80);
 
-    ioPortRegister(0x50, NULL,   writeIo, svi328col80);
-    ioPortRegister(0x51, readIo, writeIo, svi328col80);
-    ioPortRegister(0x58, readIo, writeIo, svi328col80);
+    ioPortRegister(0x50, NULL,   (IoPortWrite)writeIo, svi328col80);
+    ioPortRegister(0x51, (IoPortRead)readIo, (IoPortWrite)writeIo, svi328col80);
+    ioPortRegister(0x58, (IoPortRead)readIo, (IoPortWrite)writeIo, svi328col80);
 
     reset(svi328col80);
 

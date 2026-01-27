@@ -48,6 +48,6 @@ enum OEAppearance {
     }
     
     static var controlsPrefs: ControlsPrefs {
-        ControlsPrefs(rawValue: UserDefaults.standard.integer(forKey: ControlsPrefs.key)) ?? .wood
+        ControlsPrefs(rawValue: UserDefaults.standard.integer(forKey: ControlsPrefs.key)) ?? .vibrant
     }
 }

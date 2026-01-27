@@ -3570,7 +3570,7 @@
 				);
 				GCC_PREFIX_HEADER = openemu/DeSmuME_Prefix_OpenEmu.pch;
 				INFOPLIST_FILE = "openemu/Info (OpenEmu Plug-in).plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				"MACOSX_DEPLOYMENT_TARGET[arch=arm64]" = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.desmume;
 				PRODUCT_NAME = DeSmuME;
@@ -3591,7 +3591,7 @@
 				GCC_PREFIX_HEADER = openemu/DeSmuME_Prefix_OpenEmu.pch;
 				INFOPLIST_FILE = "openemu/Info (OpenEmu Plug-in).plist";
 				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				"MACOSX_DEPLOYMENT_TARGET[arch=arm64]" = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.desmume;
 				PRODUCT_NAME = DeSmuME;
@@ -3679,7 +3679,7 @@
 				IBC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = "Info (Debug).plist";
 				LD_NO_PIE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "DeSmuME (Debug)";
 				SDKROOT = macosx;
@@ -3725,7 +3725,7 @@
 				INFOPLIST_FILE = Info.plist;
 				LD_NO_PIE = YES;
 				LLVM_VECTORIZE_LOOPS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = DeSmuME;
 				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;

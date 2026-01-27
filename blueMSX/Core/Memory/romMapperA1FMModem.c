@@ -118,7 +118,7 @@ static void reset(RomMapperA1FMModem* rm)
 int romMapperA1FMModemCreate(const char* filename, UInt8* romData, 
                              int size, int slot, int sslot, int startPage) 
 {
-    DeviceCallbacks callbacks = { destroy, reset, saveState, loadState };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
     RomMapperA1FMModem* rm;
 
     rm = malloc(sizeof(RomMapperA1FMModem));

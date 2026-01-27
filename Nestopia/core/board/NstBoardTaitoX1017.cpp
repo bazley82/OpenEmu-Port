@@ -137,13 +137,13 @@ namespace Nes
 
 					const byte data[7] =
 					{
-						regs.ctrl,
-						regs.security[0],
-						regs.security[1],
-						regs.security[2],
-						regs.unused[0],
-						regs.unused[1],
-						regs.unused[2]
+						static_cast<byte>(regs.ctrl),
+						static_cast<byte>(regs.security[0]),
+						static_cast<byte>(regs.security[1]),
+						static_cast<byte>(regs.security[2]),
+						static_cast<byte>(regs.unused[0]),
+						static_cast<byte>(regs.unused[1]),
+						static_cast<byte>(regs.unused[2])
 					};
 
 					state.Begin( AsciiId<'R','E','G'>::V ).Write( data ).End();

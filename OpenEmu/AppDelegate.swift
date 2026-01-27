@@ -59,7 +59,7 @@ class AppDelegate: NSObject {
     var hidEventsMonitor: Any?
     var keyboardEventsMonitor: Any?
     var unhandledEventsMonitor: Any?
-        
+    
     var cachedLastPlayedInfo = [CachedLastPlayedInfoItem]()
     
     var logHIDEvents = false {
@@ -363,26 +363,30 @@ class AppDelegate: NSObject {
         }
     }
     
-    fileprivate func loadPlugins() {
+    fileprivate func loadPlugins(with library: OELibraryDatabase) {
         // Register all system controllers with the bindings controller.
         for plugin in OESystemPlugin.allPlugins {
-            OEBindingsController.register(plugin.controller)
+            if let controller = plugin.controller {
+                OEBindingsController.register(controller)
+            }
         }
-        
-        let library = OELibraryDatabase.default!
+
         
         let context = library.mainThreadContext
         for plugin in OESystemPlugin.allPlugins {
-            _ = OEDBSystem.system(for: plugin, in: context)
+            if plugin.controller != nil {
+                let system = OEDBSystem.system(for: plugin, in: context)
+                if !system.isEnabled {
+                    system.isEnabled = true
+                }
+            }
         }
         
         library.disableSystemsWithoutPlugin()
         try? library.mainThreadContext.save()
     }
     
-    fileprivate func removeIncompatibleSaveStates() {
-        
-        let database = OELibraryDatabase.default!
+    fileprivate func removeIncompatibleSaveStates(from database: OELibraryDatabase) {
         let context = database.mainThreadContext
 
         // Remove save states for deprecated core plugins.
@@ -766,20 +770,13 @@ extension AppDelegate: NSMenuDelegate {
         notificationCenter.removeObserver(self, name: NSApplication.didFinishRestoringWindowsNotification, object: nil)
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
-        
         // Get the “Customize Touch Bar…” menu to display in the View menu.
         NSApp.isAutomaticCustomizeTouchBarMenuItemEnabled = true
-        
-        #if DEBUG
-        helpMenu.addItem(withTitle: "Show Application Support Folder in Finder", action: #selector(showAppSupportFolder), keyEquivalent: "")
-        #endif
         
         let notificationCenter = NotificationCenter.default
         
         notificationCenter.addObserver(self, selector: #selector(libraryDatabaseDidLoad), name: .libraryDidLoad, object: nil)
         notificationCenter.addObserver(self, selector: #selector(openPreferencePane), name: PreferencesWindowController.openPaneNotificationName, object: nil)
-        
-        notificationCenter.addObserver(self, selector: #selector(didRepairBindings), name: .OEBindingsRepaired, object: nil)
         
         NSDocumentController.shared.clearRecentDocuments(nil)
         
@@ -788,7 +785,7 @@ extension AppDelegate: NSMenuDelegate {
         DispatchQueue.main.async {
             self.loadDatabase()
         }
-        
+
         /* Check if there is at least one metal-enabled device in the system.
          * Informs users that are using unsupported hacks for installing macOS on old machines,
          * so that we do not get issues like #4020 posted */
@@ -803,12 +800,18 @@ extension AppDelegate: NSMenuDelegate {
         }
     }
     
+    
     func libraryDatabaseDidLoad(notification: Notification) {
         
         libraryLoaded = true
 
-        loadPlugins()
-        removeIncompatibleSaveStates()
+        guard let database = notification.object as? OELibraryDatabase else {
+            return
+        }
+
+        loadPlugins(with: database)
+        removeIncompatibleSaveStates(from: database)
+
         
         CoreUpdater.shared.checkForUpdatesAndInstall()
         

@@ -101,18 +101,18 @@ namespace Nes
 
 					const byte data[12] =
 					{
-						regs.ctrl0,
-						regs.ctrl1,
-						banks.prg[0],
-						banks.prg[1],
+						static_cast<byte>(regs.ctrl0),
+						static_cast<byte>(regs.ctrl1),
+						static_cast<byte>(banks.prg[0]),
+						static_cast<byte>(banks.prg[1]),
 						0x7E,
 						0x7F,
-						banks.chr[0] >> 1,
-						banks.chr[2] >> 1,
-						banks.chr[4],
-						banks.chr[5],
-						banks.chr[6],
-						banks.chr[7]
+						static_cast<byte>(banks.chr[0] >> 1),
+						static_cast<byte>(banks.chr[2] >> 1),
+						static_cast<byte>(banks.chr[4]),
+						static_cast<byte>(banks.chr[5]),
+						static_cast<byte>(banks.chr[6]),
+						static_cast<byte>(banks.chr[7])
 					};
 
 					state.Begin( AsciiId<'R','E','G'>::V ).Write( data ).End();

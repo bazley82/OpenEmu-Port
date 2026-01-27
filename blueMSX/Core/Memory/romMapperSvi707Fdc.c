@@ -186,7 +186,7 @@ static void reset(RomMapperSvi707Fdc* rm)
 int romMapperSvi707FdcCreate(const char* filename, UInt8* romData, 
                               int size, int slot, int sslot, int startPage) 
 {
-    DeviceCallbacks callbacks = { destroy, reset, saveState, loadState };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
     RomMapperSvi707Fdc* rm;
     int pages = 4;
     int i;
@@ -213,7 +213,7 @@ int romMapperSvi707FdcCreate(const char* filename, UInt8* romData,
     rm = malloc(sizeof(RomMapperSvi707Fdc));
 
     rm->deviceHandle = deviceManagerRegister(ROM_SVI707FDC, &callbacks, rm);
-    slotRegister(slot, sslot, startPage, pages, read, peek, write, destroy, rm);
+    slotRegister(slot, sslot, startPage, pages, (SlotRead)read, (SlotRead)peek, (SlotWrite)write, (SlotEject)destroy, rm);
 
     rm->romData = malloc(size);
     rm->romDataCpm = malloc(size);

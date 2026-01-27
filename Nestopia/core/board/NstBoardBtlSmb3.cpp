@@ -94,7 +94,7 @@ namespace Nes
 				{
 					const byte data[3] =
 					{
-						irq.unit.enabled ? 0x1 : 0x0,
+						static_cast<byte>(irq.unit.enabled ? 0x1 : 0x0),
 						static_cast<byte>(irq.unit.count & 0xFF),
 						static_cast<byte>(irq.unit.count >> 8)
 					};
@@ -149,7 +149,7 @@ namespace Nes
 				NES_POKE_D(Smb3,800E)
 				{
 					irq.Update();
-					irq.unit.count = (static_cast<byte>(irq.unit.count & 0xFF)00) | (data << 0);
+					irq.unit.count = (irq.unit.count & 0xFF00) | data;
 				}
 
 				NES_POKE_D(Smb3,800F)

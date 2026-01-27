@@ -103,6 +103,18 @@ final class SidebarController: NSViewController {
                 self.reloadData()
             },
         ]
+        
+        // Liquid Glass Aesthetics
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.clear.cgColor
+        sidebarView.backgroundColor = .clear
+        sidebarView.enclosingScrollView?.drawsBackground = false
+        
+        // Retro Gradient Tint (Cyber Blue)
+        let gradientView = SidebarGradientView(frame: view.bounds)
+        gradientView.autoresizingMask = [.width, .height]
+        // Insert at index 0 to be behind the outline view but visible if outline view is clear
+        view.addSubview(gradientView, positioned: .below, relativeTo: nil)
     }
     
     deinit {
@@ -676,4 +688,27 @@ class SidebarGroupItem: NSObject, SidebarItem {
 
 extension Key {
     static let lastSidebarSelection: Key = "lastSidebarSelection"
+}
+
+final class SidebarGradientView: NSView {
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        wantsLayer = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func makeBackingLayer() -> CALayer {
+        let layer = CAGradientLayer()
+        // Cyber Blue Palette: Blue -> Purple
+        layer.colors = [
+            NSColor.systemBlue.withAlphaComponent(0.20).cgColor,
+            NSColor.systemPurple.withAlphaComponent(0.20).cgColor
+        ]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x: 0, y: 1) // Top to Bottom
+        return layer
+    }
 }

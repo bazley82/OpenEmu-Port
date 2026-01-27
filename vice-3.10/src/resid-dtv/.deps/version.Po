@@ -1,0 +1,3 @@
+version.o: version.cc residdtv-config.h siddtvdefs.h
+residdtv-config.h:
+siddtvdefs.h:

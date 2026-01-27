@@ -1,0 +1,67 @@
+/*
+ Copyright (c) 2023, OpenEmu Team
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+     * Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+     * Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+     * Neither the name of the OpenEmu Team nor the
+       names of its contributors may be used to endorse or promote products
+       derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY OpenEmu Team ''AS IS'' AND ANY
+ EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL OpenEmu Team BE LIABLE FOR ANY
+ DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#import "OEC64SystemController.h"
+#import <dlfcn.h>
+
+@implementation OEC64SystemController
+
++ (void)load {
+    NSLog(@"[C64] System Controller LOADED (dlopen success)");
+    FILE *f = fopen("/tmp/c64_system_load.txt", "w");
+    if (f) {
+        fprintf(f, "C64 System Plugin +load at %ld\n", time(NULL));
+        
+        // Try to manually load the Core Plugin to see if process allows it
+        const char *corePath = "/Users/barriesanders/Library/Application Support/OpenEmu/Cores/VICE.oecoreplugin/Contents/MacOS/VICE";
+        void *handle = dlopen(corePath, RTLD_NOW);
+        if (handle) {
+            fprintf(f, "SUCCESS: Manually dlopened VICE core at %s\n", corePath);
+        } else {
+            fprintf(f, "FAILURE: Could not dlopen VICE core: %s\n", dlerror());
+        }
+        
+        fclose(f);
+    }
+}
+
+- (OEFileSupport)canHandleFile:(OEFile *)file {
+    return OEFileSupportYes;
+}
+
+- (NSImage *)systemIcon
+{
+    NSImage *image = [NSImage imageNamed:@"c64_library"];
+    if(image == nil)
+    {
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        image = [bundle imageForResource:@"c64_library"];
+        [image setName:@"c64_library"];
+    }
+    return image;
+}
+
+@end

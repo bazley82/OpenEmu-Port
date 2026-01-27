@@ -161,8 +161,8 @@ static void getDebugInfo(SramMapperS1985* rm, DbgDevice* dbgDevice)
 
 int sramMapperS1985Create() 
 {
-    DeviceCallbacks callbacks = { destroy, NULL, saveState, loadState };
-    DebugCallbacks dbgCallbacks = { getDebugInfo, NULL, NULL, NULL };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, NULL, (void (*)(void*))saveState, (void (*)(void*))loadState };
+    DebugCallbacks dbgCallbacks = { (void (*)(void*, DbgDevice*))getDebugInfo, NULL, NULL, NULL };
     SramMapperS1985* rm;
 
     rm = malloc(sizeof(SramMapperS1985));
@@ -175,7 +175,7 @@ int sramMapperS1985Create()
 
     sramLoad(sramCreateFilename("S1985.SRAM"), rm->sram, 0x10, NULL, 0);
 
-    ioPortRegisterSub(0xfe, read, write, rm);
+    ioPortRegisterSub(0xfe, (IoPortRead)read, (IoPortWrite)write, rm);
 
     return 1;
 }

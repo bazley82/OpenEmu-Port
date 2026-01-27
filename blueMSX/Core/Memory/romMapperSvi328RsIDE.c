@@ -219,8 +219,8 @@ static void getDebugInfo(RomMapperRsIde* rm, DbgDevice* dbgDevice)
 
 int romMapperSvi328RsIdeCreate(int hdId)
 {
-    DeviceCallbacks callbacks = { destroy, reset, saveState, loadState };
-    DebugCallbacks dbgCallbacks = { getDebugInfo, NULL, NULL, NULL };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
+    DebugCallbacks dbgCallbacks = { (void (*)(void*, DbgDevice*))getDebugInfo, NULL, NULL, NULL };
     RomMapperRsIde* rm;
 
     rm = malloc(sizeof(RomMapperRsIde));
@@ -228,16 +228,15 @@ int romMapperSvi328RsIdeCreate(int hdId)
     rm->deviceHandle = deviceManagerRegister(ROM_SVI328RSIDE, &callbacks, rm);
     rm->debugHandle = debugDeviceRegister(DBGTYPE_PORT, langDbgDevIdeSviRs(), &dbgCallbacks, rm);
 
-    rm->i8255 = i8255Create( NULL, NULL,    writeA,
-                             NULL, readB,   writeB,
-                             NULL, readCLo, writeCLo,
-                             NULL, readCHi, writeCHi,
+    rm->i8255 = i8255Create( (I8255Read)NULL,    (I8255Write)NULL,    (I8255Write)writeA,
+                             (I8255Read)readB,   (I8255Write)writeB,   (I8255Read)readCLo,
+                             (I8255Write)writeCLo, (I8255Read)readCHi, (I8255Write)writeCHi,
                              rm);
 
-    ioPortRegister(0x14, i8255Read, i8255Write, rm->i8255); // PPI Port A
-    ioPortRegister(0x15, i8255Read, i8255Write, rm->i8255); // PPI Port B
-    ioPortRegister(0x16, i8255Read, i8255Write, rm->i8255); // PPI Port C
-    ioPortRegister(0x17, i8255Read, i8255Write, rm->i8255); // PPI Mode
+    ioPortRegister(0x14, (IoPortRead)i8255Read, (IoPortWrite)i8255Write, rm->i8255); // PPI Port A
+    ioPortRegister(0x15, (IoPortRead)i8255Read, (IoPortWrite)i8255Write, rm->i8255); // PPI Port B
+    ioPortRegister(0x16, (IoPortRead)i8255Read, (IoPortWrite)i8255Write, rm->i8255); // PPI Port C
+    ioPortRegister(0x17, (IoPortRead)i8255Read, (IoPortWrite)i8255Write, rm->i8255); // PPI Mode
 
     rm->hdide = harddiskIdeCreate(diskGetHdDriveId(hdId, 0));
 

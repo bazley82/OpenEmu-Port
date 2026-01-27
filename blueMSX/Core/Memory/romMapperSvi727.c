@@ -111,7 +111,7 @@ static void reset(RomMapperSvi727Col80* rm)
 int romMapperSvi727Col80Create(const char* filename, UInt8* charRom, int charSize,
                                  int slot, int sslot, int startPage) 
 {
-    DeviceCallbacks callbacks = { destroy, reset, saveState, loadState };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, (void (*)(void*))reset, (void (*)(void*))saveState, (void (*)(void*))loadState };
     RomMapperSvi727Col80* rm;
     int pages = 8;
     int i;
@@ -121,7 +121,7 @@ int romMapperSvi727Col80Create(const char* filename, UInt8* charRom, int charSiz
     rm = malloc(sizeof(RomMapperSvi727Col80));
 
     rm->deviceHandle = deviceManagerRegister(ROM_SVI727COL80, &callbacks, rm);
-    slotRegister(slot, sslot, startPage, pages, read, read, write, destroy, rm);
+    slotRegister(slot, sslot, startPage, pages, (SlotRead)read, (SlotRead)read, (SlotWrite)write, (SlotEject)destroy, rm);
 
     rm->charData = calloc(1, 0x2000);
     if (charRom != NULL) {
@@ -143,8 +143,8 @@ int romMapperSvi727Col80Create(const char* filename, UInt8* charRom, int charSiz
         slotMapPage(slot, sslot, i + startPage, NULL, 0, 0);
     }
 
-    ioPortRegister(0x78, NULL,   writeIo, rm);
-    ioPortRegister(0x79, readIo, writeIo, rm);
+    ioPortRegister(0x78, NULL,   (IoPortWrite)writeIo, rm);
+    ioPortRegister(0x79, (IoPortRead)readIo, (IoPortWrite)writeIo, rm);
 
     reset(rm);
 

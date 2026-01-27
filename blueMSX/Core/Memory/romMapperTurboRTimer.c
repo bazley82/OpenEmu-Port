@@ -113,7 +113,7 @@ static void write(RomMapperTurboRTimer* rm, UInt16 ioPort, UInt8 value)
 
 int romMapperTurboRTimerCreate() 
 {
-    DeviceCallbacks callbacks = { destroy, NULL, saveState, loadState };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, NULL, (void (*)(void*))saveState, (void (*)(void*))loadState };
     RomMapperTurboRTimer* rm = malloc(sizeof(RomMapperTurboRTimer));
 
     rm->deviceHandle = deviceManagerRegister(ROM_TURBORTIMER, &callbacks, rm);
@@ -122,8 +122,8 @@ int romMapperTurboRTimerCreate()
     rm->refFrag = 0;
     rm->counter = 0;
 
-    ioPortRegister(0xe6, read, write, rm);
-    ioPortRegister(0xe7, read, write, rm);
+    ioPortRegister(0xe6, (IoPortRead)read, (IoPortWrite)write, rm);
+    ioPortRegister(0xe7, (IoPortRead)read, (IoPortWrite)write, rm);
 
     theTimer = rm;
 

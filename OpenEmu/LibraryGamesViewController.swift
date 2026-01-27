@@ -40,6 +40,7 @@ final class LibraryGamesViewController: NSSplitViewController {
     
     private var sidebarController: SidebarController!
     private var collectionController: OEGameCollectionViewController!
+    private var libraryGradientView: LibraryGradientView?
     
     private var toolbar: LibraryToolbar? {
         view.window?.toolbar as? LibraryToolbar
@@ -56,8 +57,21 @@ final class LibraryGamesViewController: NSSplitViewController {
         setUpSplitView()
         assignDatabase()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCollectionContentsFromSidebar), name: .OESidebarSelectionDidChange, object: sidebarController)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCollectionContentsFromSidebar), name: .OESidebarSelectionDidChange, object: nil)
+        
+        // Liquid Glass Aesthetics
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.clear.cgColor
+        
+        // Retro Gradient Tint
+        let gradientView = LibraryGradientView(frame: view.bounds)
+        gradientView.autoresizingMask = [.width, .height]
+        view.addSubview(gradientView, positioned: .below, relativeTo: nil)
+        self.libraryGradientView = gradientView
+        print("DEBUG: Dynamic Tint - LibraryGradientView initialized")
     }
+
+
     
     override func viewWillAppear() {
         super.viewWillAppear()
@@ -96,6 +110,8 @@ final class LibraryGamesViewController: NSSplitViewController {
     private func setUpSplitView() {
         
         splitView.translatesAutoresizingMaskIntoConstraints = false
+        splitView.wantsLayer = true
+        splitView.layer?.backgroundColor = NSColor.clear.cgColor
         
         let sidebarItem = NSSplitViewItem(sidebarWithViewController: sidebarController)
         sidebarItem.minimumThickness = sidebarMinWidth
@@ -180,6 +196,21 @@ final class LibraryGamesViewController: NSSplitViewController {
         let selectedItem = sidebarController.selectedSidebarItem
         collectionController.representedObject = selectedItem as? GameCollectionViewItemProtocol
         
+        // Dynamic Background Update
+        if let system = selectedItem as? OEDBSystem {
+            print("DEBUG: Dynamic Tint - Updating for system: \(system.systemIdentifier)")
+            updateBackgroundForSystem(system)
+        } else {
+            if let item = selectedItem as? SidebarItem {
+                print("DEBUG: Dynamic Tint - Selected item is NOT a system: \(item.sidebarName)")
+            }
+            // Default tint for collections/all games
+            libraryGradientView?.updateColors(
+                start: NSColor.systemPink.withAlphaComponent(0.15),
+                end: NSColor.systemOrange.withAlphaComponent(0.15)
+            )
+        }
+        
         // For empty collections of disc-based games, display an alert to compel the user to read the disc-importing guide.
         // Delay disc alert by 200 ms to allow navigating past disc-based systems with arrow keys in the sidebar without triggering the alert.
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
@@ -208,6 +239,83 @@ final class LibraryGamesViewController: NSSplitViewController {
                 self.discGuideMessageSystemIDs.append(system.systemIdentifier)
             }
         }
+    }
+    
+    private func updateBackgroundForSystem(_ system: OEDBSystem) {
+        let colors: (NSColor, NSColor)
+        let opacity: CGFloat = 0.35 // Slightly more vibrant
+        let sysID = system.systemIdentifier
+        
+        print("DEBUG: Dynamic Tint - Applying colors for systemID: \(sysID)")
+
+        switch sysID {
+        // --- NINTENDO ---
+        case "openemu.system.nes", "openemu.system.fds":
+            colors = (NSColor(red: 0.9, green: 0.1, blue: 0.1, alpha: 1.0), .white) // Nintendo Red
+        case "openemu.system.snes":
+            colors = (NSColor(red: 0.5, green: 0.2, blue: 0.7, alpha: 1.0), NSColor(red: 0.3, green: 0.1, blue: 0.5, alpha: 1.0)) // SNES Purple
+        case "openemu.system.n64":
+            colors = (NSColor.systemBlue, NSColor.systemRed)
+        case "openemu.system.gb", "openemu.system.gbc":
+            colors = (NSColor(red: 0.3, green: 0.8, blue: 0.3, alpha: 1.0), .white) // GameBoy Green
+        case "openemu.system.gba":
+            colors = (.systemIndigo, .systemPink)
+        case "openemu.system.nds":
+            colors = (.systemTeal, .white)
+        case "openemu.system.3ds":
+            colors = (.systemRed, .systemBlue)
+        case "openemu.system.vb":
+            colors = (.black, NSColor(red: 0.8, green: 0.0, blue: 0.0, alpha: 1.0)) // Virtual Boy
+        case "openemu.system.gc":
+            colors = (.systemPurple, .black)
+        case "openemu.system.wii":
+            colors = (.white, .systemBlue)
+
+        // --- SEGA ---
+        case "openemu.system.genesis", "openemu.system.master", "openemu.system.scd", "openemu.system.sms", "openemu.system.gamegear", "openemu.system.gg", "openemu.system.sg1000", "openemu.system.sg", "openemu.system.32x":
+            colors = (NSColor(red: 0.0, green: 0.24, blue: 0.6, alpha: 1.0), .white) // Classic Sega Blue
+        case "openemu.system.saturn":
+            colors = (.lightGray, .systemBlue)
+        case "openemu.system.dreamcast":
+            colors = (.systemOrange, .white)
+
+        // --- SONY ---
+        case "openemu.system.psx":
+            colors = (.white, .systemGray)
+        case "openemu.system.psp":
+            colors = (.black, .systemBlue)
+        case "openemu.system.ps2":
+            colors = (.systemBlue, .black)
+
+        // --- ATARI ---
+        case "openemu.system.2600", "openemu.system.5200", "openemu.system.7800":
+            colors = (.brown, .black)
+        case "openemu.system.lynx":
+            colors = (.darkGray, .systemOrange)
+
+        // --- OTHERS ---
+        case "openemu.system.c64":
+            colors = (.systemBlue, .systemPurple)
+        case "openemu.system.colecovision":
+            colors = (NSColor(red: 0.0, green: 0.0, blue: 0.4, alpha: 1.0), .white)
+        case "openemu.system.intellivision":
+            colors = (NSColor(red: 0.4, green: 0.2, blue: 0.0, alpha: 1.0), NSColor(red: 1.0, green: 0.8, blue: 0.0, alpha: 1.0))
+        case "openemu.system.pce", "openemu.system.tg16", "openemu.system.pcecd", "openemu.system.tgcd":
+            colors = (.systemOrange, .black)
+        case "openemu.system.neogeo":
+            colors = (.systemYellow, .systemRed)
+        case "openemu.system.ws", "openemu.system.wsc":
+            colors = (.systemPink, .white)
+
+        default:
+            print("WARNING: No signature color for systemID: \(sysID)")
+            colors = (.systemBlue, .systemIndigo)
+        }
+
+        libraryGradientView?.updateColors(
+            start: colors.0.withAlphaComponent(opacity),
+            end: colors.1.withAlphaComponent(opacity)
+        )
     }
     
     @objc func makeNewCollectionWithSelectedGames(_ sender: Any?) {
@@ -242,5 +350,38 @@ extension LibraryGamesViewController: NSMenuItemValidation {
         default:
             return true
         }
+    }
+}
+
+final class LibraryGradientView: NSView {
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        wantsLayer = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func makeBackingLayer() -> CALayer {
+        let layer = CAGradientLayer()
+        // Default Sunset Pink Palette: Pink -> Orange
+        layer.colors = [
+            NSColor.systemPink.withAlphaComponent(0.15).cgColor,
+            NSColor.systemOrange.withAlphaComponent(0.15).cgColor
+        ]
+        layer.startPoint = CGPoint(x: 0, y: 0)
+        layer.endPoint = CGPoint(x: 1, y: 1) // Top-Left to Bottom-Right
+        return layer
+    }
+    
+    func updateColors(start: NSColor, end: NSColor) {
+        guard let layer = self.layer as? CAGradientLayer else { 
+            print("DEBUG: Dynamic Tint - LibraryGradientView updateColors FAILED - Layer is not CAGradientLayer")
+            return 
+        }
+        print("DEBUG: Dynamic Tint - LibraryGradientView updating colors to \(start) and \(end)")
+        layer.colors = [start.cgColor, end.cgColor]
+        layer.setNeedsDisplay()
     }
 }

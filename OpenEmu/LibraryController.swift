@@ -83,6 +83,9 @@ final class LibraryController: NSTabViewController, NSMenuItemValidation {
         
         tabView.autoresizingMask = [.width, .height]
         tabView.tabViewType = .noTabsNoBorder
+        tabView.drawsBackground = false
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.clear.cgColor
         tabStyle = .unspecified
         transitionOptions = []
         setUpTabViews()

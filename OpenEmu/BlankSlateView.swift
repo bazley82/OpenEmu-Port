@@ -210,6 +210,9 @@ class BlankSlateView: NSView {
     }
     
     private func commonInit() {
+        wantsLayer = true
+        layer?.backgroundColor = NSColor.clear.cgColor
+        
         // Set up drag indication layer
         let layer = CALayer()
         layer.delegate = self

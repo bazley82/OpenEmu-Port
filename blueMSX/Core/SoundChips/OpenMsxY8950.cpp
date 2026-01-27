@@ -635,8 +635,10 @@ void Y8950::Slot::calc_envelope()
 {
 	#define S2E(x) (ALIGN((unsigned int)(x/SL_STEP),SL_STEP,EG_STEP)<<(EG_DP_BITS-EG_BITS)) 
 	static unsigned int SL[16] = {
-		S2E( 0), S2E( 3), S2E( 6), S2E( 9), S2E(12), S2E(15), S2E(18), S2E(21),
-		S2E(24), S2E(27), S2E(30), S2E(33), S2E(36), S2E(39), S2E(42), S2E(93)
+		static_cast<unsigned int>(S2E( 0)), static_cast<unsigned int>(S2E( 3)), static_cast<unsigned int>(S2E( 6)), static_cast<unsigned int>(S2E( 9)),
+		static_cast<unsigned int>(S2E(12)), static_cast<unsigned int>(S2E(15)), static_cast<unsigned int>(S2E(18)), static_cast<unsigned int>(S2E(21)),
+		static_cast<unsigned int>(S2E(24)), static_cast<unsigned int>(S2E(27)), static_cast<unsigned int>(S2E(30)), static_cast<unsigned int>(S2E(33)),
+		static_cast<unsigned int>(S2E(36)), static_cast<unsigned int>(S2E(39)), static_cast<unsigned int>(S2E(42)), static_cast<unsigned int>(S2E(93))
 	};
 	
 	switch (eg_mode) {

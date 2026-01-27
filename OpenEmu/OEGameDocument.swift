@@ -268,6 +268,7 @@ final class OEGameDocument: NSDocument {
     }
     
     private func setUpDocument(with rom: OEDBRom, using core: OECorePlugin?) throws {
+        NSLog("[OEGameDocument] setUpDocument(with: %@, using: %@)", rom.game?.displayName ?? "nil", core?.bundleIdentifier ?? "nil")
         Self.initializeDefaults
         
         var fileURL = rom.url
@@ -574,10 +575,14 @@ final class OEGameDocument: NSDocument {
     // MARK: - Setup
     
     func setUpGame(completionHandler handler: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        NSLog("[OEGameDocument] setUpGame() called")
         do {
             // TODO: Remove after further testing.
+            NSLog("[OEGameDocument] Pre-loading core bundle: %@", corePlugin.bundle.bundleURL.path)
             try corePlugin.bundle.loadAndReturnError()
+            NSLog("[OEGameDocument] Core bundle loaded successfully")
         } catch {
+            NSLog("[OEGameDocument] Core bundle load FAILED: %@", error.localizedDescription)
             handler(false, error)
             return
         }
@@ -593,7 +598,9 @@ final class OEGameDocument: NSDocument {
         checkGlitches()
         
         gameCoreManager?.loadROM(completionHandler: {
+            NSLog("[OEGameDocument] ROM loaded by manager, setting up emulation")
             self.gameCoreManager?.setupEmulation() { screenSize, aspectSize in
+                NSLog("[OEGameDocument] Emulation setup COMPLETE, screenSize: %@, aspectSize: %@", NSStringFromOEIntSize(screenSize), NSStringFromOEIntSize(aspectSize))
                 self.gameViewController.setScreenSize(screenSize, aspectSize: aspectSize)
                 
                 DLog("SETUP DONE.")
@@ -711,35 +718,49 @@ final class OEGameDocument: NSDocument {
     
     private func core(forSystem system: OESystemPlugin) throws -> OECorePlugin {
         let systemIdentifier = system.systemIdentifier
+        NSLog("[DEBUG] OEGameDocument: selecting core for system: %@", systemIdentifier)
         var validPlugins = OECorePlugin.corePlugins(forSystemIdentifier: systemIdentifier)
-        
+        NSLog("[DEBUG] OEGameDocument: found %d valid core plugins for system: %@", validPlugins.count, systemIdentifier)
+        for p in validPlugins { NSLog("[DEBUG]   - Plugin: %@", p.bundleIdentifier) }
+
         if validPlugins.isEmpty {
+            NSLog("[DEBUG] OEGameDocument ERROR: No core found for system: %@", systemIdentifier)
             throw Errors.noCore
         }
         else if validPlugins.count == 1 {
-            return validPlugins.first!
+            let core = validPlugins.first!
+            NSLog("[DEBUG] OEGameDocument: Selected only available core: %@", core.bundleIdentifier)
+            return core
         }
         else {
             let defaults = UserDefaults.standard
             if let coreIdentifier = defaults.string(forKey: "defaultCore.\(systemIdentifier)"),
                let core = OECorePlugin.corePlugin(bundleIdentifier: coreIdentifier) {
+                NSLog("[DEBUG] OEGameDocument: Selected default core: %@", coreIdentifier)
                 return core
             } else {
                 validPlugins.sort { $0.displayName.caseInsensitiveCompare($1.displayName) == .orderedAscending }
-                return validPlugins.first!
+                let core = validPlugins.first!
+                NSLog("[DEBUG] OEGameDocument: Selected first available core: %@", core.bundleIdentifier)
+                return core
             }
         }
     }
     
     private func checkRequiredFiles() -> Bool {
+        NSLog("[DEBUG] OEGameDocument: checkRequiredFiles() for system: %@", systemPlugin.systemIdentifier)
         // Check current system plugin for OERequiredFiles and core plugin for OEGameCoreRequiresFiles opt-in
         if !corePlugin.requiresFiles(forSystemIdentifier: systemPlugin.systemIdentifier) {
+            NSLog("[DEBUG] OEGameDocument: core does not require files for this system")
             return true
         }
         
         if let validRequiredFiles = corePlugin.requiredFiles(forSystemIdentifier: systemPlugin.systemIdentifier) {
-            return BIOSFile.requiredFilesAvailable(forSystemIdentifier: validRequiredFiles)
+            let available = BIOSFile.requiredFilesAvailable(forSystemIdentifier: validRequiredFiles)
+            NSLog("[DEBUG] OEGameDocument: BIOSFile.requiredFilesAvailable: %d", available)
+            return available
         } else {
+            NSLog("[DEBUG] OEGameDocument: No specific required files found for system")
             return true
         }
     }

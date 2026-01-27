@@ -193,8 +193,8 @@ static void getDebugInfo(SramMapperMatsushita* rm, DbgDevice* dbgDevice)
 
 int sramMapperMatsushitaCreate(int inverted) 
 {
-    DeviceCallbacks callbacks = { destroy, NULL, saveState, loadState };
-    DebugCallbacks dbgCallbacks = { getDebugInfo, NULL, NULL, NULL };
+    DeviceCallbacks callbacks = { (void (*)(void*))destroy, NULL, (void (*)(void*))saveState, (void (*)(void*))loadState };
+    DebugCallbacks dbgCallbacks = { (void (*)(void*, DbgDevice*))getDebugInfo, NULL, NULL, NULL };
     SramMapperMatsushita* rm;
 
     rm = malloc(sizeof(SramMapperMatsushita));
@@ -208,7 +208,7 @@ int sramMapperMatsushitaCreate(int inverted)
 
     sramLoad(sramCreateFilename("Matsushita.SRAM"), rm->sram, 0x800, NULL, 0);
 
-    ioPortRegisterSub(0x08, read, write, rm);
+    ioPortRegisterSub(0x08, (IoPortRead)read, (IoPortWrite)write, rm);
 
     return 1;
 }

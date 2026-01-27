@@ -49,6 +49,7 @@ import OpenEmuKitPrivate
         
         let cn: NSXPCConnection
         do {
+            NSLog("[OEXPCGameCoreManager] Launching helper at %@", executableURL.path)
             cn = try .makeConnection(serviceName: serviceName, executableURL: executableURL)
             helperConnection = cn
         } catch {

@@ -129,8 +129,8 @@ typedef struct
 @property (assign) BOOL softwareMicState;
 @property (assign) NSInteger softwareMicMode;
 @property (assign) NSInteger micMode;
-@property (readonly, strong) CoreAudioInput *CAInputDevice;
-@property (readonly, strong) AudioGenerator *softwareMicSampleGenerator;
+@property (readonly, assign) CoreAudioInput *CAInputDevice;
+@property (readonly, assign) AudioGenerator *softwareMicSampleGenerator;
 @property (assign) AudioSampleBlockGenerator *selectedAudioFileGenerator;
 @property (assign) NSInteger paddleAdjust;
 @property (copy) NSString *hardwareMicInfoString;

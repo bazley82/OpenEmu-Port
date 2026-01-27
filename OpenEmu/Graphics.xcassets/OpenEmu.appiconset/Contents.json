@@ -1,424 +1,102 @@
 {
   "images" : [
     {
-      "display-gamut" : "sRGB",
+      "scale" : "1x",
       "filename" : "icon-16-srgb.png",
       "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "16x16"
+      "size" : "16x16",
+      "display-gamut" : "sRGB"
     },
     {
-      "display-gamut" : "sRGB",
       "idiom" : "mac",
-      "language-direction" : "left-to-right",
       "scale" : "1x",
-      "size" : "16x16"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "16x16"
-    },
-    {
-      "display-gamut" : "display-P3",
+      "size" : "16x16",
       "filename" : "icon-16-p3.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "16x16"
+      "display-gamut" : "display-P3"
     },
     {
-      "display-gamut" : "display-P3",
       "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "16x16"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "16x16"
-    },
-    {
       "display-gamut" : "sRGB",
       "filename" : "icon-32-srgb.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "16x16"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "16x16"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
       "display-gamut" : "display-P3",
-      "filename" : "icon-32-p3.png",
-      "idiom" : "mac",
       "scale" : "2x",
-      "size" : "16x16"
+      "idiom" : "mac",
+      "size" : "16x16",
+      "filename" : "icon-32-p3.png"
     },
     {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
       "scale" : "2x",
-      "size" : "16x16"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "16x16"
-    },
-    {
       "display-gamut" : "sRGB",
-      "filename" : "icon-32-srgb.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "filename" : "icon-32-p3.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "sRGB",
+      "size" : "32x32",
       "filename" : "icon-64-srgb.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "32x32"
+      "idiom" : "mac"
     },
     {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "32x32"
-    },
-    {
+      "size" : "32x32",
       "display-gamut" : "display-P3",
+      "scale" : "2x",
       "filename" : "icon-64-p3.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "32x32"
+      "idiom" : "mac"
     },
     {
-      "display-gamut" : "display-P3",
       "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "32x32"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "32x32"
-    },
-    {
+      "scale" : "1x",
       "display-gamut" : "sRGB",
       "filename" : "icon-128-srgb.png",
-      "idiom" : "mac",
-      "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "128x128"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "128x128"
-    },
-    {
-      "display-gamut" : "display-P3",
       "filename" : "icon-128-p3.png",
       "idiom" : "mac",
       "scale" : "1x",
-      "size" : "128x128"
+      "size" : "128x128",
+      "display-gamut" : "display-P3"
     },
     {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "128x128"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "128x128"
-    },
-    {
+      "size" : "128x128",
       "display-gamut" : "sRGB",
-      "filename" : "icon-256-srgb.png",
-      "idiom" : "mac",
       "scale" : "2x",
-      "size" : "128x128"
+      "idiom" : "mac",
+      "filename" : "icon-256-srgb.png"
     },
     {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "128x128"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "128x128"
-    },
-    {
-      "display-gamut" : "display-P3",
       "filename" : "icon-256-p3.png",
-      "idiom" : "mac",
       "scale" : "2x",
-      "size" : "128x128"
-    },
-    {
+      "size" : "128x128",
       "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "128x128"
+      "idiom" : "mac"
     },
     {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "128x128"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "filename" : "icon-256-srgb.png",
-      "idiom" : "mac",
       "scale" : "1x",
-      "size" : "256x256"
-    },
-    {
+      "size" : "512x512",
+      "idiom" : "mac",
       "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "256x256"
+      "filename" : "icon-512-srgb.png"
     },
     {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "filename" : "icon-256-p3.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "filename" : "icon-512-srgb.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "display-P3",
       "filename" : "icon-512-p3.png",
+      "scale" : "1x",
       "idiom" : "mac",
+      "size" : "512x512",
+      "display-gamut" : "display-P3"
+    },
+    {
       "scale" : "2x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "256x256"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "filename" : "icon-512-srgb.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "sRGB",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "filename" : "icon-512-p3.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "1x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "1x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "sRGB",
       "filename" : "icon-1024-srgb.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "512x512"
-    },
-    {
       "display-gamut" : "sRGB",
       "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
       "size" : "512x512"
     },
     {
-      "display-gamut" : "sRGB",
       "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "512x512"
-    },
-    {
       "display-gamut" : "display-P3",
-      "filename" : "icon-1024-p3.png",
-      "idiom" : "mac",
       "scale" : "2x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "left-to-right",
-      "scale" : "2x",
-      "size" : "512x512"
-    },
-    {
-      "display-gamut" : "display-P3",
-      "idiom" : "mac",
-      "language-direction" : "right-to-left",
-      "scale" : "2x",
-      "size" : "512x512"
+      "size" : "512x512",
+      "filename" : "icon-1024-p3.png"
     }
   ],
   "info" : {

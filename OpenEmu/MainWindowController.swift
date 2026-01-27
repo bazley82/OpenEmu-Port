@@ -163,9 +163,24 @@ final class MainWindowController: NSWindowController {
     
     private func setUpWindow() {
         window?.delegate = self
+        NSLog("DEBUG: Liquid Glass Setup - Window Transparency Enabled")
         window?.isExcludedFromWindowsMenu = true
         window?.restorationClass = type(of: self)
-        window?.backgroundColor = .controlBackgroundColor
+        window?.titlebarAppearsTransparent = true
+        window?.styleMask.insert(.fullSizeContentView)
+        window?.backgroundColor = .clear
+        window?.isOpaque = false // Crucial for Liquid Glass
+        
+        let visualEffectView = NSVisualEffectView()
+        visualEffectView.material = .fullScreenUI // Thinner, glassier material
+        visualEffectView.blendingMode = .behindWindow
+        visualEffectView.state = .active
+        
+        if let contentView = window?.contentView {
+            visualEffectView.frame = contentView.bounds
+            visualEffectView.autoresizingMask = [.width, .height]
+            contentView.addSubview(visualEffectView, positioned: .below, relativeTo: nil)
+        }
         
         assert(window?.identifier == .mainWindow, "Main library window identifier does not match between nib and code")
     }
