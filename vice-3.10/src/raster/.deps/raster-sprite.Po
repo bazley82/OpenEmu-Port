@@ -1,5 +1,0 @@
-raster-sprite.o: raster-sprite.c ../../src/vice.h ../../src/config.h \
-  raster-sprite.h
-../../src/vice.h:
-../../src/config.h:
-raster-sprite.h:

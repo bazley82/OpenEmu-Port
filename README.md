@@ -14,6 +14,7 @@ This version of OpenEmu has been specifically patched to run natively on Apple S
 - **C64 Support:** Integrated Commodore 64 system support directly into the app bundle.
 - **Permission Fixes:** Resolved the persistent "Input Monitoring" permission loop that affects many users on modern macOS versions.
 - **Flattened Architecture:** Converted all submodules into regular directories to create a standalone, portable repository.
+- **Custom Design:** Features a new, high-resolution "Liquid Glass" application icon, optimized for macOS Big Sur and Monterey/Ventura/Sonoma aesthetics.
 
 ## Quick Start
 You can download the pre-compiled native app from the **[Releases](https://github.com/bazley82/OpenEmu-Port/releases)** section.

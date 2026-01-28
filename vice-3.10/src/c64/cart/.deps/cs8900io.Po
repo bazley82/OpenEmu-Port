@@ -1,3 +1,0 @@
-cs8900io.o: cs8900io.c ../../../src/vice.h ../../../src/config.h
-../../../src/vice.h:
-../../../src/config.h:

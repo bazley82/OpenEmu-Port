@@ -91,4 +91,7 @@
    <FileRef
       location = "group:VirtualJaguar/VirtualJaguar.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:VirtualC64-Core/VirtualC64.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -25,3 +25,6 @@ CodeSign.xcconfig
 /OpenEmu.xcworkspace/xcshareddata/swiftpm/Package.resolved
 Build/
 DerivedData/
+build_*.log
+*.tar.gz
+Releases/

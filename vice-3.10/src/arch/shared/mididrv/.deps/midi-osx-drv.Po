@@ -1,4 +1,0 @@
-midi-osx-drv.o: midi-osx-drv.c ../../../../src/vice.h \
-  ../../../../src/config.h
-../../../../src/vice.h:
-../../../../src/config.h:

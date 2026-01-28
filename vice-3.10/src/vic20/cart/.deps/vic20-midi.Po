@@ -1,3 +1,0 @@
-vic20-midi.o: vic20-midi.c ../../../src/vice.h ../../../src/config.h
-../../../src/vice.h:
-../../../src/config.h:

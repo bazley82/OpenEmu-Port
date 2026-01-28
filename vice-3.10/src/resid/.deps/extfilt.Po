@@ -1,4 +1,0 @@
-extfilt.o: extfilt.cc extfilt.h resid-config.h siddefs.h
-extfilt.h:
-resid-config.h:
-siddefs.h:

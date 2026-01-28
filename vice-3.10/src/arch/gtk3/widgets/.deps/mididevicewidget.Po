@@ -1,4 +1,0 @@
-mididevicewidget.o: mididevicewidget.c ../../../../src/vice.h \
-  ../../../../src/config.h
-../../../../src/vice.h:
-../../../../src/config.h:

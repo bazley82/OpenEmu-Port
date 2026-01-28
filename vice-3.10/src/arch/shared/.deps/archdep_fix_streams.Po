@@ -1,5 +1,0 @@
-archdep_fix_streams.o: archdep_fix_streams.c ../../../src/vice.h \
-  ../../../src/config.h archdep_fix_streams.h
-../../../src/vice.h:
-../../../src/config.h:
-archdep_fix_streams.h:

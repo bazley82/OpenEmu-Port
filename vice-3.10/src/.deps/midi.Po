@@ -1,3 +1,0 @@
-midi.o: midi.c vice.h config.h
-vice.h:
-config.h:

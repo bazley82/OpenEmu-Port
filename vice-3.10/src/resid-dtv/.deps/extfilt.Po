@@ -1,4 +1,0 @@
-extfilt.o: extfilt.cc extfilt.h residdtv-config.h siddtvdefs.h
-extfilt.h:
-residdtv-config.h:
-siddtvdefs.h:

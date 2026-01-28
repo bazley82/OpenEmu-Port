@@ -1,3 +1,0 @@
-rawnet.o: rawnet.c vice.h config.h
-vice.h:
-config.h:

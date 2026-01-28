@@ -1,4 +1,0 @@
-filter.o: filter.cc filter.h residdtv-config.h siddtvdefs.h
-filter.h:
-residdtv-config.h:
-siddtvdefs.h:

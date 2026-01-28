@@ -1,4 +1,0 @@
-pot.o: pot.cc pot.h resid-config.h siddefs.h
-pot.h:
-resid-config.h:
-siddefs.h:

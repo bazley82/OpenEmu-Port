@@ -1,3 +1,0 @@
-c64-midi.o: c64-midi.c ../../../src/vice.h ../../../src/config.h
-../../../src/vice.h:
-../../../src/config.h:

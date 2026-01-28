@@ -1,6 +1,0 @@
-voice.o: voice.cc voice.h resid-config.h siddefs.h wave.h envelope.h
-voice.h:
-resid-config.h:
-siddefs.h:
-wave.h:
-envelope.h:
