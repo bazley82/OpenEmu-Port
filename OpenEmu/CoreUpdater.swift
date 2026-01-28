@@ -48,6 +48,13 @@ final class CoreUpdater: NSObject {
     private var lastCoreListURLTask: URLSessionDataTask?
     private var pendingUserInitiatedDownloads: Set<CoreDownload> = []
     
+    // Backup directory
+    private var coresDirectory: URL {
+        let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
+        let appSupportDir = URL(fileURLWithPath: paths.first!).appendingPathComponent("OpenEmu")
+        return appSupportDir.appendingPathComponent("Cores")
+    }
+    
     override init() {
         super.init()
         
@@ -115,7 +122,8 @@ final class CoreUpdater: NSObject {
                        let minOSVersion = item.elements(forName: "sparkle:minimumSystemVersion").first?.stringValue,
                        SUStandardVersionComparator.default.compareVersion(version, toVersion: plugin.version) == .orderedDescending
                     {
-                        let item = CoreAppcastItem(url: url, version: version, minOSVersion: minOSVersion)
+                        let pubDateString = item.elements(forName: "pubDate").first?.stringValue
+                        let item = CoreAppcastItem(url: url, version: version, minOSVersion: minOSVersion, pubDate: pubDateString)
                         if item.isSupported {
                             handler(item)
                         }
@@ -340,6 +348,60 @@ final class CoreUpdater: NSObject {
     
     // MARK: -
     
+    func backupCore(bundleID: String) {
+        let fileManager = FileManager.default
+        let coreURL = coresDirectory.appendingPathComponent("\(bundleID).oecoreplugin")
+        let backupURL = coresDirectory.appendingPathComponent("\(bundleID).oecoreplugin.bak")
+        
+        // Remove existing backup if any
+        try? fileManager.removeItem(at: backupURL)
+        
+        // Copy current core to backup if it exists
+        if fileManager.fileExists(atPath: coreURL.path) {
+            do {
+                try fileManager.copyItem(at: coreURL, to: backupURL)
+                if #available(macOS 11.0, *) {
+                    Logger.download.info("Backed up core \(bundleID) to \(backupURL.lastPathComponent)")
+                }
+            } catch {
+                if #available(macOS 11.0, *) {
+                    Logger.download.error("Failed to backup core \(bundleID): \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    func revertCore(bundleID: String, completionHandler: @escaping (Error?) -> Void) {
+        let fileManager = FileManager.default
+        let coreURL = coresDirectory.appendingPathComponent("\(bundleID).oecoreplugin")
+        let backupURL = coresDirectory.appendingPathComponent("\(bundleID).oecoreplugin.bak")
+        
+        guard fileManager.fileExists(atPath: backupURL.path) else {
+            completionHandler(NSError(domain: "OpenEmu", code: 404, userInfo: [NSLocalizedDescriptionKey: "No backup found"]))
+            return
+        }
+        
+        do {
+            try? fileManager.removeItem(at: coreURL)
+            try fileManager.moveItem(at: backupURL, to: coreURL)
+            completionHandler(nil)
+            
+            // Allow re-updating
+            if let download = coresDict[bundleID.lowercased()] {
+                download.hasUpdate = true
+                updateCoreList()
+            }
+            
+        } catch {
+            completionHandler(error)
+        }
+    }
+    
+    func hasBackup(bundleID: String) -> Bool {
+        let backupURL = coresDirectory.appendingPathComponent("\(bundleID).oecoreplugin.bak")
+        return FileManager.default.fileExists(atPath: backupURL.path)
+    }
+
     @objc func cancelInstall() {
         coreDownload?.cancel()
         completionHandler = nil
@@ -372,6 +434,14 @@ final class CoreUpdater: NSObject {
         }
         
         coreDownload = pluginDL
+        
+        // Backup before updating
+        if coreDownload?.hasUpdate == true {
+             if let bundleID = coreDownload?.bundleIdentifier {
+                 backupCore(bundleID: bundleID)
+             }
+        }
+        
         coreDownload?.start()
     }
     
@@ -514,7 +584,8 @@ private final class CoreAppcast {
                let version = enclosure.attribute(forName: "sparkle:version")?.stringValue,
                let minOSVersion = item.elements(forName: "sparkle:minimumSystemVersion").first?.stringValue
             {
-                return .init(url: url, version: version, minOSVersion: minOSVersion)
+                let pubDateString = item.elements(forName: "pubDate").first?.stringValue
+                return .init(url: url, version: version, minOSVersion: minOSVersion, pubDate: pubDateString)
             } else {
                 return nil
             }
@@ -527,11 +598,17 @@ struct CoreAppcastItem {
     var version: String
     var fileURL: URL
     var minimumSystemVersion: String
+    var pubDate: Date?
     
-    init(url: URL, version: String, minOSVersion: String) {
+    init(url: URL, version: String, minOSVersion: String, pubDate: String? = nil) {
         fileURL = url
         self.version = version
         minimumSystemVersion = minOSVersion
+        if let pubDate {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
+            self.pubDate = formatter.date(from: pubDate)
+        }
     }
     
     var isSupported: Bool {
