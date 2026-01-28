@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>OpenEmu Changelog</title>
+    <link>https://raw.githubusercontent.com/bazley82/OpenEmu-Port/master/appcast.xml</link>
+    <description>Most recent changes with links to updates.</description>
+    <language>en</language>
+         <item>
+            <title>OpenEmu v1.1-core-mgmt</title>
+            <sparkle:releaseNotesLink>https://github.com/bazley82/OpenEmu-Port/releases/tag/v1.1-core-mgmt</sparkle:releaseNotesLink>
+            <pubDate>Mon, 28 Jan 2026 12:00:00 +0000</pubDate>
+            <enclosure url="https://github.com/bazley82/OpenEmu-Port/releases/download/v1.1-core-mgmt/OpenEmu-ARM64.zip" sparkle:version="2.4.2" sparkle:shortVersionString="2.4.2" sparkle:os="macos" length="0" type="application/octet-stream" sparkle:minimumSystemVersion="11.0"/>
+        </item>
+  </channel>
+</rss>
