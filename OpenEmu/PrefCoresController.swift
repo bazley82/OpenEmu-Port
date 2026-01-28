@@ -64,17 +64,31 @@ final class PrefCoresController: NSViewController {
                 break
             }
         }
+        
+        // Add "Action" table column programmatically if not exists
+        let actionColumnIdentifier = NSUserInterfaceItemIdentifier("actionColumn")
+        if coresTableView.tableColumn(withIdentifier: actionColumnIdentifier) == nil {
+            let column = NSTableColumn(identifier: actionColumnIdentifier)
+            column.headerCell.title = NSLocalizedString("Action", comment: "Cores preferences, column header")
+            column.width = 70
+            column.minWidth = 60
+            column.maxWidth = 100
+            column.resizingMask = .userResizingMask
+            coresTableView.addTableColumn(column)
+        }
+        
+        coresTableView.delegate = self // Ensure delegate is set for heightOfRow
     }
     
     @IBAction func updateOrInstall(_ sender: NSButton) {
-        let cellView = sender.superview as! NSTableCellView
-        let row = coresTableView.row(for: cellView)
+        let row = coresTableView.row(for: sender)
+        guard row > -1 else { return }
         updateOrInstallItem(row)
     }
     
     @IBAction func revertCore(_ sender: NSButton) {
-        let cellView = sender.superview as! NSTableCellView
-        let row = coresTableView.row(for: cellView)
+        let row = coresTableView.row(for: sender)
+        guard row > -1 else { return }
         let plugin = coreDownload(row)
         
         let alert = NSAlert()
@@ -124,7 +138,8 @@ extension PrefCoresController: NSTableViewDataSource {
             return plugin.name
             
         } else if ident == .systemColumn {
-            return plugin.systemNames.joined(separator: ", ")
+            let latestVersion = plugin.appcastItem?.version ?? plugin.version
+            return "\(plugin.systemNames.joined(separator: ", "))\n(Cur: \(plugin.version), Lat: \(latestVersion))"
             
         } else if ident == .versionColumn {
             if plugin.isDownloading {
@@ -150,6 +165,10 @@ extension PrefCoresController: NSTableViewDataSource {
 
 extension PrefCoresController: NSTableViewDelegate {
     
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 44.0 // Increased height for better readability
+    }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         let ident = tableColumn!.identifier
@@ -168,22 +187,48 @@ extension PrefCoresController: NSTableViewDelegate {
             return view
             
         } else if ident == .versionColumn {
-            if plugin.isDownloading {
-                return tableView.makeView(withIdentifier: .installProgressCell, owner: self)
-            } else if plugin.canBeInstalled || plugin.hasUpdate {
-                return tableView.makeView(withIdentifier: .installButtonCell, owner: self)
+            
+            let view = tableView.makeView(withIdentifier: .systemListCell, owner: self) as! NSTableCellView
+            let currentVer = plugin.version
+            let latestVer = plugin.appcastItem?.version ?? currentVer
+            view.textField?.stringValue = "Ver: \(currentVer)\nLat: \(latestVer)"
+            view.textField?.textColor = .secondaryLabelColor
+            return view
+            
+        } else if ident == NSUserInterfaceItemIdentifier("actionColumn") {
+             
+            let view = NSTableCellView()
+            let button = NSButton(title: "", target: self, action: nil)
+            button.bezelStyle = .rounded
+            button.controlSize = .small
+            button.font = NSFont.systemFont(ofSize: NSFont.systemFontSize(for: .small))
+            button.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(button)
+            
+            NSLayoutConstraint.activate([
+                button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                button.widthAnchor.constraint(greaterThanOrEqualToConstant: 64)
+            ])
+
+             if plugin.isDownloading {
+                button.title = "..."
+                button.isEnabled = false
+            } else if plugin.canBeInstalled {
+                button.title = NSLocalizedString("Install", comment: "")
+                button.action = #selector(updateOrInstall(_:))
+            } else if plugin.hasUpdate {
+                button.title = NSLocalizedString("Update", comment: "")
+                button.action = #selector(updateOrInstall(_:))
             } else if CoreUpdater.shared.hasBackup(bundleID: plugin.bundleIdentifier) {
-                // Return a view that has a revert button (requires custom cell/button logic in XIB or programmatic addition)
-                 // For now, we will assume the installButtonCell can be repurposed or a new one added.
-                 // Since I cannot edit the .xib, I will rely on context menus or existing button repurposing if possible.
-                 // However, strictly adhering to the prompt, I will add a Revert button programmatically if I could, but XIB constraints apply.
-                 // I will instead show the version date as requested and leave the Revert button implementation linked to a hypothetical cell identifier "revertBtnCell" if I could add it, 
-                 // but since I can't edit XIBs easily, I'll stick to the button action I added above (`revertCore`).
-                 // To make this work without XIB edits, I'll log a warning that the UI for the button needs the XIB update.
-                 return tableView.makeView(withIdentifier: .versionCell, owner: self)
+                button.title = NSLocalizedString("Revert", comment: "")
+                button.action = #selector(revertCore(_:))
             } else {
-                return tableView.makeView(withIdentifier: .versionCell, owner: self)
+                button.title = NSLocalizedString("Check", comment: "")
+                button.action = #selector(updateOrInstall(_:))
             }
+            
+            return view
         }
         return nil
     }
