@@ -1,6 +1,7 @@
-/*	Copyright (C) 2006 yopyop
+/*
+	Copyright (C) 2006 yopyop
 	Copyright (C) 2011 Loren Merritt
-	Copyright (C) 2012-2015 DeSmuME team
+	Copyright (C) 2012-2021 DeSmuME team
 
 	This file is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -30,20 +31,22 @@
 #include <errno.h>
 #include <unistd.h>
 #include <stddef.h>
-// Apple has become very strict about memory protection!
-// The static code buffer won't work anymore!
+// The static code buffer relies on write+execute privileges provided by mprotect(),
+// which isn't supported by the macOS v10.15 SDK and later, as well as Apple's other
+// modern operating systems. Therefore, we are disabling this on all Apple systems
+// for now.
 #ifndef __APPLE__
 #define HAVE_STATIC_CODE_BUFFER
 #endif
 #endif
 
+#include "utils/bits.h"
+#include "utils/AsmJit/AsmJit.h"
 #include "armcpu.h"
 #include "instructions.h"
 #include "instruction_attributes.h"
-#include "Disassembler.h"
 #include "MMU.h"
 #include "MMU_timing.h"
-#include "utils/AsmJit/AsmJit.h"
 #include "arm_jit.h"
 #include "bios.h"
 
@@ -1914,15 +1917,29 @@ template<int PROCNUM, u8 Rnum>
 static u32 FASTCALL OP_LDRD_REG(u32 adr)
 {
 	cpu->R[Rnum] = READ32(cpu->mem_if->data, adr);
-	cpu->R[Rnum+1] = READ32(cpu->mem_if->data, adr+4);
-	return (MMU_memAccessCycles<PROCNUM,32,MMU_AD_READ>(adr) + MMU_memAccessCycles<PROCNUM,32,MMU_AD_READ>(adr+4));
+	
+	// For even-numbered registers, we'll do a double-word load. Otherwise, we'll just do a single-word load.
+	if ((Rnum & 0x01) == 0)
+	{
+		cpu->R[Rnum+1] = READ32(cpu->mem_if->data, adr+4);
+		return (MMU_memAccessCycles<PROCNUM,32,MMU_AD_READ>(adr) + MMU_memAccessCycles<PROCNUM,32,MMU_AD_READ>(adr+4));
+	}
+	
+	return MMU_memAccessCycles<PROCNUM,32,MMU_AD_READ>(adr);
 }
 template<int PROCNUM, u8 Rnum>
 static u32 FASTCALL OP_STRD_REG(u32 adr)
 {
 	WRITE32(cpu->mem_if->data, adr, cpu->R[Rnum]);
-	WRITE32(cpu->mem_if->data, adr + 4, cpu->R[Rnum + 1]);
-	return (MMU_memAccessCycles<PROCNUM,32,MMU_AD_WRITE>(adr) + MMU_memAccessCycles<PROCNUM,32,MMU_AD_WRITE>(adr+4));
+	
+	// For even-numbered registers, we'll do a double-word store. Otherwise, we'll just do a single-word store.
+	if ((Rnum & 0x01) == 0)
+	{
+		WRITE32(cpu->mem_if->data, adr+4, cpu->R[Rnum + 1]);
+		return (MMU_memAccessCycles<PROCNUM,32,MMU_AD_WRITE>(adr) + MMU_memAccessCycles<PROCNUM,32,MMU_AD_WRITE>(adr+4));
+	}
+	
+	return MMU_memAccessCycles<PROCNUM,32,MMU_AD_WRITE>(adr);
 }
 #define T(op, proc) op<proc,0>, op<proc,1>, op<proc,2>, op<proc,3>, op<proc,4>, op<proc,5>, op<proc,6>, op<proc,7>, op<proc,8>, op<proc,9>, op<proc,10>, op<proc,11>, op<proc,12>, op<proc,13>, op<proc,14>, op<proc,15>
 static const LDRD_STRD_REG op_ldrd_tab[2][16] = { {T(OP_LDRD_REG, 0)}, {T(OP_LDRD_REG, 1)} };
@@ -2496,7 +2513,7 @@ static void maskPrecalc(u32 _num)
 			mask = 0 ; set = 0 ;   /* (x & 0) == 0  is allways true (enabled) */  \
 		} \
 	}  \
-	cp15.setSingleRegionAccess(num, mask, set) ;  \
+	armcp15_setSingleRegionAccess(&cp15, num, mask, set) ;  \
 }
 	switch(_num)
 	{
@@ -2662,15 +2679,14 @@ static int OP_MCR(const u32 i)
 			if((CRm==0)&&(opcode1==0)&&((opcode2==4)))
 			{
 				//CP15wait4IRQ;
-				c.mov(cpu_ptr(waitIRQ), true);
-				c.mov(cpu_ptr(halt_IE_and_IF), true);
+				c.mov(cpu_ptr(freeze), CPU_FREEZE_IRQ_IE_IF);
 				//IME set deliberately omitted: only SWI sets IME to 1
 				break;
 			}
 			bUnknown = true;
 			break;
 		case 9:
-			if((opcode1==0))
+			if(opcode1==0)
 			{
 				switch(CRm)
 				{

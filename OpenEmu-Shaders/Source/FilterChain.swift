@@ -25,7 +25,7 @@
 import Foundation
 import Metal
 import MetalKit
-@_implementationOnly import os.log
+import os.log
 
 // swiftlint:disable type_body_length
 public final class FilterChain {
@@ -54,6 +54,8 @@ public final class FilterChain {
     private var samplers: SamplerFilterArray<MTLSamplerState>
     
     public var hasShader: Bool = false
+    public var globalGamma: Float = 1.0
+    public var globalSaturation: Float = 1.0
     
     private var frameCount: UInt = 0
     private var passCount: Int = 0
@@ -234,7 +236,7 @@ public final class FilterChain {
         psd.vertexDescriptor = vd
         psd.vertexFunction = library.makeFunction(name: "basic_vertex_proj_tex")
         psd.fragmentFunction = library.makeFunction(name: "basic_fragment_proj_tex")
-        
+
         return try device.makeRenderPipelineState(descriptor: psd)
     }
     
@@ -517,7 +519,10 @@ public final class FilterChain {
     }
     
     private func renderTexture(_ texture: MTLTexture, renderCommandEncoder rce: MTLRenderCommandEncoder) {
+        uniforms.gamma = globalGamma
+        uniforms.saturation = globalSaturation
         rce.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: BufferIndex.uniforms.rawValue)
+        rce.setFragmentBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: BufferIndex.uniforms.rawValue)
         rce.setRenderPipelineState(pipelineState)
         rce.setFragmentSamplerState(samplers[.nearest][.edge], index: SamplerIndex.draw.rawValue)
         rce.setViewport(outputFrame.viewport)
@@ -670,7 +675,9 @@ public final class FilterChain {
             os_log("pass %d, render target size %0.0f x %0.0f", log: .default, type: .debug, i, passSize.width, passSize.height)
             
             let fmt = self.pass[i].format
-            if i == lastPassIndex, passSize == viewportSize, fmt == .bgra8Unorm {
+            // Always force offscreen rendering so renderFinalPass (with gamma/saturation)
+            // is always applied after all shader passes complete.
+            if false /* was: i == lastPassIndex, passSize == viewportSize, fmt == .bgra8Unorm */ {
                 // last pass can render directly to the output render target
                 self.pass[i].renderTarget.size = .init(width: passSize.width, height: passSize.height)
             } else {
@@ -699,7 +706,17 @@ public final class FilterChain {
                                                                   width: width,
                                                                   height: height,
                                                                   mipmapped: false)
-                td.storageMode = .private
+                // Optimization: Use shared storage on Apple Silicon (unified memory)
+                // to avoid unnecessary GPU-only heap copies
+#if os(macOS)
+                if deviceHasUnifiedMemory {
+                    td.storageMode = .shared
+                } else {
+                    td.storageMode = .private
+                }
+#else
+                td.storageMode = .shared
+#endif
                 td.usage = [.shaderRead, .renderTarget]
                 initTexture(&self.pass[i].renderTarget, withDescriptor: td)
                 // textures should be cleared before first use
@@ -803,14 +820,10 @@ public final class FilterChain {
                                semantic: .user)
             }
             
-            if passNumber == lastPassIndex {
-                withUnsafePointer(to: &uniforms.projectionMatrix) {
-                    sem.addUniformData(UnsafeRawPointer($0), semantic: .mvp)
-                }
-            } else {
-                withUnsafePointer(to: &uniformsNoRotate.projectionMatrix) {
-                    sem.addUniformData(UnsafeRawPointer($0), semantic: .mvp)
-                }
+            // All Slang shader passes render offscreen, so they always use the
+            // unrotated projection matrix. Rotation is applied during renderFinalPass.
+            withUnsafePointer(to: &uniformsNoRotate.projectionMatrix) {
+                sem.addUniformData(UnsafeRawPointer($0), semantic: .mvp)
             }
             
             withUnsafePointer(to: &pass[passNumber]) {
@@ -880,6 +893,14 @@ public final class FilterChain {
             
             let options = MTLCompileOptions()
             options.languageVersion = try MTLLanguageVersion(ss.languageVersion)
+            
+            if #available(macOS 11.0, iOS 14.0, *) {
+                // Metal 4 / ARM64 fast math optimizations
+                options.fastMathEnabled = true
+                if options.languageVersion.rawValue < MTLLanguageVersion.version2_3.rawValue {
+                    options.languageVersion = .version2_3
+                }
+            }
             do {
                 let lib = try device.makeLibrary(source: pass.vertexSource, options: options)
                 psd.vertexFunction = lib.makeFunction(name: "main0")
@@ -1068,11 +1089,15 @@ extension FilterChain {
     }
     
     @frozen @usableFromInline struct Uniforms {
-        static let empty: Uniforms = .init(projectionMatrix: simd_float4x4(), outputSize: simd_float2(), time: 0)
+        static let empty: Uniforms = .init(projectionMatrix: simd_float4x4(), outputSize: simd_float2(), time: 0, gamma: 1.0, saturation: 1.0, padding1: 0, padding2: simd_float2(0,0))
         
-        var projectionMatrix: simd_float4x4
-        var outputSize: simd_float2
-        var time: simd_float1
+        var projectionMatrix: simd_float4x4 // 64 bytes
+        var outputSize: simd_float2         // 8 bytes
+        var time: simd_float1               // 4 bytes
+        var gamma: simd_float1              // 4 bytes
+        var saturation: simd_float1         // 4 bytes
+        var padding1: simd_float1           // 4 bytes, to align to 16 bytes. Total = 88 bytes. Need 8 for layout alignment
+        var padding2: simd_float2           // 8 bytes. Total = 96 bytes. (Matches stride)
     }
 }
 

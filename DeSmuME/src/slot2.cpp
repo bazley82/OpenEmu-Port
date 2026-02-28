@@ -250,6 +250,7 @@ NDS_SLOT2_TYPE slot2_DetermineTypeByGameCode(const char *theGameCode)
 		{"CB6", NDS_SLOT2_PADDLE},			// Space Bust-A-Move
 		{"YXX", NDS_SLOT2_PADDLE},			// Space Invaders Extreme
 		{"CV8", NDS_SLOT2_PADDLE},			// Space Invaders Extreme 2
+		{"AMH", NDS_SLOT2_RUMBLEPAK},		// Metroid Prime Hunters
 		{"AP2", NDS_SLOT2_RUMBLEPAK},		// Metroid Prime Pinball
 	};
 	
@@ -265,12 +266,12 @@ NDS_SLOT2_TYPE slot2_DetermineTypeByGameCode(const char *theGameCode)
 	return theType;
 }
 
-void slot2_Savestate(EMUFILE* os)
+void slot2_Savestate(EMUFILE &os)
 {
 	slot2_device->savestate(os);
 }
 
-void slot2_Loadstate(EMUFILE* is)
+void slot2_Loadstate(EMUFILE &is)
 {
 	slot2_device->loadstate(is);
 }

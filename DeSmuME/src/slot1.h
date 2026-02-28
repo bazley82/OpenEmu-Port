@@ -53,6 +53,7 @@ private:
 class ISlot1Interface
 {
 public:
+   virtual ~ISlot1Interface() {}
 	//called to get info about device (description)
 	virtual Slot1Info const* info() = 0;
 
@@ -87,22 +88,22 @@ public:
 	//called when NDS_FakeBoot terminates, emulate in here the BIOS behaviour
 	virtual void post_fakeboot(int PROCNUM) {}
 
-	virtual void savestate(EMUFILE* os) {}
+	virtual void savestate(EMUFILE &os) {}
 
-	virtual void loadstate(EMUFILE* is) {}
+	virtual void loadstate(EMUFILE &is) {}
 }; 
 
 typedef ISlot1Interface* TISlot1InterfaceConstructor();
 
 enum NDS_SLOT1_TYPE
 {
-	NDS_SLOT1_NONE,			// 0xFF - None
-	NDS_SLOT1_RETAIL_AUTO,	// 0xFE - autodetect which kind of retail card to use 
-	NDS_SLOT1_R4,			// 0x03 - R4 flash card
-	NDS_SLOT1_RETAIL_NAND,	// 0x02 - Made in Ore/WarioWare D.I.Y.
-	NDS_SLOT1_RETAIL_MCROM,	// 0x01 - a standard MC (eeprom, flash, fram) -bearing retail card. Also supports motion, for now, because that's the way we originally coded it
-	NDS_SLOT1_RETAIL_DEBUG,	// 0x04 - for romhacking and fan-made translations
-	NDS_SLOT1_COUNT			//use to count addons - MUST BE LAST!!!
+	NDS_SLOT1_NONE          = 0,			// 0xFF - None
+	NDS_SLOT1_RETAIL_AUTO,	            // 0xFE - autodetect which kind of retail card to use 
+	NDS_SLOT1_R4,			               // 0x03 - R4 flash card
+	NDS_SLOT1_RETAIL_NAND,	            // 0x02 - Made in Ore/WarioWare D.I.Y.
+	NDS_SLOT1_RETAIL_MCROM,	            // 0x01 - a standard MC (eeprom, flash, fram) -bearing retail card. Also supports motion, for now, because that's the way we originally coded it
+	NDS_SLOT1_RETAIL_DEBUG,	            // 0x04 - for romhacking and fan-made translations
+	NDS_SLOT1_COUNT			            //use to count addons - MUST BE LAST!!!
 };
 
 extern ISlot1Interface* slot1_device;						//the current slot1 device instance
@@ -113,8 +114,8 @@ void slot1_Init();
 bool slot1_Connect();
 void slot1_Disconnect();
 void slot1_Shutdown();
-void slot1_Savestate(EMUFILE* os);
-void slot1_Loadstate(EMUFILE* is);
+void slot1_Savestate(EMUFILE &os);
+void slot1_Loadstate(EMUFILE &is);
 
 //just disconnects and reconnects the device. ideally, the disconnection and connection would be called with sensible timing
 void slot1_Reset();

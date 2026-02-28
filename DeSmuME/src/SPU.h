@@ -47,7 +47,7 @@ FORCEINLINE s32 spumuldiv7(s32 val, u8 multiplier) {
 
 enum SPUInterpolationMode
 {
-	SPUInterpolation_None = 0,
+	SPUInterpolation_None   = 0,
 	SPUInterpolation_Linear = 1,
 	SPUInterpolation_Cosine = 2
 };
@@ -123,7 +123,7 @@ struct channel_struct
    u32 lastsampcnt;
    s16 pcm16b, pcm16b_last;
    s16 loop_pcm16b;
-   int index;
+   s32 index;
    int loop_index;
    u16 x;
    s16 psgnoise_last;
@@ -137,8 +137,8 @@ public:
 	s16 dequeue();
 	s16 buffer[16];
 	s32 head,tail,size;
-	void save(EMUFILE* fp);
-	bool load(EMUFILE* fp);
+	void save(EMUFILE &fp);
+	bool load(EMUFILE &fp);
 	void reset();
 };
 
@@ -223,13 +223,13 @@ public:
 extern SPU_struct *SPU_core, *SPU_user;
 extern int spu_core_samples;
 
-int SPU_ChangeSoundCore(int coreid, int buffersize);
+int SPU_ChangeSoundCore(int coreid, int newBufferSizeBytes);
 SoundInterface_struct *SPU_SoundCore();
 
 void SPU_ReInit(bool fakeBoot = false);
-int SPU_Init(int coreid, int buffersize);
+int SPU_Init(int coreid, int newBufferSizeBytes);
 void SPU_Pause(int pause);
-void SPU_SetVolume(int volume);
+void SPU_SetVolume(int newVolume);
 void SPU_SetSynchMode(int mode, int method);
 void SPU_ClearOutputBuffer(void);
 void SPU_Reset(void);
@@ -267,8 +267,8 @@ void SPU_Emulate_user(bool mix = true);
 void SPU_DefaultFetchSamples(s16 *sampleBuffer, size_t sampleCount, ESynchMode synchMode, ISynchronizingAudioBuffer *theSynchronizer);
 size_t SPU_DefaultPostProcessSamples(s16 *postProcessBuffer, size_t requestedSampleCount, ESynchMode synchMode, ISynchronizingAudioBuffer *theSynchronizer);
 
-void spu_savestate(EMUFILE* os);
-bool spu_loadstate(EMUFILE* is, int size);
+void spu_savestate(EMUFILE &os);
+bool spu_loadstate(EMUFILE &is, int size);
 
 enum WAVMode
 {

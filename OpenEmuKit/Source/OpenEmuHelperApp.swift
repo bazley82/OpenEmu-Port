@@ -28,7 +28,7 @@ import OpenEmuBase
 import OpenEmuSystem
 import OpenEmuKitPrivate
 import OpenEmuShaders
-@_implementationOnly import os.log
+import os.log
 
 extension OSLog {
     static let display  = OSLog(subsystem: "org.openemu.OpenEmuKit", category: "display")
@@ -128,9 +128,13 @@ extension OSLog {
         _scope          = MTLCaptureManager.shared().makeCaptureScope(device: _device)
         _commandQueue   = _device.makeCommandQueue()
         
-        // TODO: Handle error
-        // Original Obj-C didn't handle the error either
-        _filterChain    = try? FilterChain(device: _device)
+        do {
+            _filterChain = try FilterChain(device: _device)
+            os_log(.info, log: .helper, "FilterChain initialized successfully")
+        } catch {
+            os_log(.error, log: .helper, "Failed to initialize FilterChain: %{public}@", error.localizedDescription)
+        }
+        
         _screenshot     = Screenshot(device: _device)
         
         updateScreenSize()
@@ -138,7 +142,11 @@ extension OSLog {
         setupCVBuffer()
         setupRemoteLayer()
         if let _shader = _shader {
-            try? setShaderURL(_shader, parameters: _shaderParameters)
+            do {
+                try setShaderURL(_shader, parameters: _shaderParameters)
+            } catch {
+                os_log(.error, log: .helper, "Initial shader setup failed: %{public}@", error.localizedDescription)
+            }
             self._shader            = nil
             self._shaderParameters  = nil
         }
@@ -426,8 +434,14 @@ extension OSLog {
     
     func setShaderURL(_ url: URL, parameters: [String: Double]?) throws {
         if _currentShader != url {
-            try _filterChain.setShader(fromURL: url, options: .makeOptions())
-            _currentShader = url
+            do {
+                try _filterChain.setShader(fromURL: url, options: .makeOptions())
+                _currentShader = url
+                os_log(.info, log: .helper, "Shader set to %{public}@", url.path)
+            } catch {
+                os_log(.error, log: .helper, "Failed to set shader URL %{public}@: %{public}@", url.path, error.localizedDescription)
+                throw error
+            }
         }
         
         if let parameters = parameters, let filter = _filterChain {
@@ -439,6 +453,11 @@ extension OSLog {
     
     public func setShaderParameterValue(_ value: CGFloat, forKey key: String) {
         _filterChain.setValue(value, forParameterName: key)
+    }
+    
+    public func setGlobalShaderParameters(gamma: CGFloat, saturation: CGFloat) {
+        _filterChain.globalGamma = Float(gamma)
+        _filterChain.globalSaturation = Float(saturation)
     }
     
     public func setupEmulation(completionHandler handler: @escaping (_ screenSize: OEIntSize, _ aspectSize: OEIntSize) -> Void) {
@@ -720,9 +739,9 @@ extension OSLog {
             
             let rpd = MTLRenderPassDescriptor()
             rpd.colorAttachments[0].clearColor = _clearColor
-            // TODO: Investigate whether we can avoid the MTLLoadActionClear
-            // Frame buffer should be overwritten completely by final pass.
-            rpd.colorAttachments[0].loadAction = .clear
+            // Optimization: use .dontCare instead of .clear since the final shader pass
+            // fully overwrites every pixel, saving GPU bandwidth on tile memory zeroing.
+            rpd.colorAttachments[0].loadAction = .dontCare
             rpd.colorAttachments[0].texture    = drawable.texture
             
             guard
