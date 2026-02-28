@@ -1,0 +1,213 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "openemu_cores",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "4do::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-4do-Debug-a0d08578bd0e969edc83.json",
+					"name" : "4do",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "atari800::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-atari800-Debug-7c235c25deddfd6fd64d.json",
+					"name" : "atari800",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bsnes::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bsnes-Debug-ab444ff530a5a56360c2.json",
+					"name" : "bsnes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desmume::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desmume-Debug-a6ce69ddfc7537bda9b2.json",
+					"name" : "desmume",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fceu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fceu-Debug-2a6957aa6fa22f4fa707.json",
+					"name" : "fceu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gambatte::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gambatte-Debug-8fb5904e04f33a92d7e4.json",
+					"name" : "gambatte",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "genesisplus::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-genesisplus-Debug-81459371638c3bd6800f.json",
+					"name" : "genesisplus",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mednafen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mednafen-Debug-8783961e494513e6e6a6.json",
+					"name" : "mednafen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mgba::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mgba-Debug-60863cedd8ba1649b6d3.json",
+					"name" : "mgba",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mupen64plus::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mupen64plus-Debug-5817566cf8c093ceca40.json",
+					"name" : "mupen64plus",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nestopia::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nestopia-Debug-60cb661c719343844ff0.json",
+					"name" : "nestopia",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "o2em::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-o2em-Debug-661a3093ec7f13c32837.json",
+					"name" : "o2em",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "picodrive::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-picodrive-Debug-bfd5df743a0b9a5c0091.json",
+					"name" : "picodrive",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pokemini::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pokemini-Debug-8f976706f37b246cc33f.json",
+					"name" : "pokemini",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "prosystem::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-prosystem-Debug-cbb4695e70842a17c45d.json",
+					"name" : "prosystem",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "snes9x::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-snes9x-Debug-e3bf4da72c617419cf5e.json",
+					"name" : "snes9x",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stella::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stella-Debug-66bdd159daffad528bb5.json",
+					"name" : "stella",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vecxgl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vecxgl-Debug-82ca67ad7955902b37bd.json",
+					"name" : "vecxgl",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a",
+		"source" : "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

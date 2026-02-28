@@ -11,25 +11,28 @@ object RomSystemIdentifier {
     )
 
     private val systems = listOf(
-        SystemInfo("Nintendo Entertainment System", "nestopia", listOf("nes", "fds")),
-        SystemInfo("Super Nintendo", "snes9x", listOf("sfc", "smc")),
-        SystemInfo("Game Boy Advance", "mgba", listOf("gba")),
-        SystemInfo("Game Boy / Color", "gambatte", listOf("gb", "gbc")),
-        SystemInfo("Nintendo 64", "mupen64plus", listOf("n64", "z64", "v64")),
-        SystemInfo("Nintendo DS", "desmume", listOf("nds")),
-        SystemInfo("Sega Genesis", "genesisplus", listOf("md", "gen", "smd")),
-        SystemInfo("Sega Master System", "genesisplus", listOf("sms")),
-        SystemInfo("Sega Game Gear", "genesisplus", listOf("gg")),
-        SystemInfo("Sega Saturn", "mednafen_saturn", listOf("cue")),
-        SystemInfo("Sony PlayStation", "mednafen_psx", listOf("cue", "bin", "img")),
-        SystemInfo("Atari 2600", "stella", listOf("a26")),
-        SystemInfo("Atari 5200", "atari800", listOf("a52")),
-        SystemInfo("Atari 7800", "prosystem", listOf("a78")),
-        SystemInfo("Sega 32X", "picodrive", listOf("32x")),
-        SystemInfo("3DO", "4do", listOf("iso")),
-        SystemInfo("Pokémon Mini", "pokemini", listOf("min")),
-        SystemInfo("Odyssey²", "o2em", listOf("bin")),
-        SystemInfo("Vectrex", "vecxgl", listOf("vec"))
+        // ── THE BIG 3: Real C++ cores (Beta 7) ──────────────────────────────
+        SystemInfo("Game Boy",       "gambatte",    listOf("gb")),
+        SystemInfo("Game Boy Color", "gambatte",    listOf("gbc")),
+        SystemInfo("NES",            "nestopia",    listOf("nes", "fds")),
+        SystemInfo("Nintendo 64",    "mupen64plus", listOf("n64", "z64", "v64")),
+        // ── Stub cores (wired in future betas) ──────────────────────────────
+        SystemInfo("Super Nintendo", "snes9x",      listOf("sfc", "smc")),
+        SystemInfo("Game Boy Advance","mgba",        listOf("gba")),
+        SystemInfo("Nintendo DS",    "desmume",      listOf("nds")),
+        SystemInfo("Sega Genesis",   "genesisplus",  listOf("md", "gen", "smd")),
+        SystemInfo("Sega Master System","genesisplus",listOf("sms")),
+        SystemInfo("Sega Game Gear", "genesisplus",  listOf("gg")),
+        SystemInfo("Sega Saturn",    "mednafen",     listOf("cue")),
+        SystemInfo("Sony PlayStation","mednafen",    listOf("bin", "img")),
+        SystemInfo("Atari 2600",     "stella",       listOf("a26")),
+        SystemInfo("Atari 5200",     "atari800",     listOf("a52")),
+        SystemInfo("Atari 7800",     "prosystem",    listOf("a78")),
+        SystemInfo("Sega 32X",       "picodrive",    listOf("32x")),
+        SystemInfo("3DO",            "4do",          listOf("iso")),
+        SystemInfo("Pokémon Mini",   "pokemini",     listOf("min")),
+        SystemInfo("Odyssey²",       "o2em",         listOf("o2")),
+        SystemInfo("Vectrex",        "vecxgl",       listOf("vec"))
     )
 
     fun identify(fileName: String): SystemInfo? {

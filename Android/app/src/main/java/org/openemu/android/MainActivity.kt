@@ -68,11 +68,14 @@ val macOS_Library_Dark = Color(0xFF1A1A1A)
 val macOS_Sidebar_Light = Color(0xFFEBEBEB)
 val macOS_Library_Light = Color(0xFFFFFFFF)
 val AppleBlue = Color(0xFF007AFF)
-
-// Liquid Glass Composition
-val VibrantGlass = Color.White.copy(alpha = 0.08f)
 val FrostedGlass = Color.White.copy(alpha = 0.12f)
+val VibrantGlass = Color.White.copy(alpha = 0.08f)
 
+/**
+ * Returns a Modifier that blurs ONLY the layer it is applied to.
+ * Use this on a background Box; place content in a SEPARATE sibling Box above it.
+ * This prevents children (text/icons) from being blurred.
+ */
 @Composable
 fun Modifier.liquidGlass(
     blurX: Float = 30f,
@@ -156,25 +159,83 @@ class MainActivity : ComponentActivity() {
                 ModalNavigationDrawer(
                     drawerState = drawerState,
                     drawerContent = {
-                                ModalDrawerSheet(
-                                    drawerContainerColor = macOS_Sidebar_Dark.copy(alpha = 0.95f),
-                                    drawerShape = RoundedCornerShape(0.dp),
-                                    modifier = Modifier.liquidGlass(20f, 20f)
-                                ) {
-                                    Spacer(Modifier.height(48.dp))
-                                    Text("LIBRARY", Modifier.padding(16.dp), color = Color.Gray.copy(alpha = 0.6f), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
-                                    NavigationDrawerItem(label = { Text("Game Boy Advance", color = Color.White) }, selected = selectedSystem == "Game Boy Advance", onClick = { selectedSystem = "Game Boy Advance"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(AppleBlue, CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
-                                    NavigationDrawerItem(label = { Text("NES", color = Color.White) }, selected = selectedSystem == "NES", onClick = { selectedSystem = "NES"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(Color(0xFFE60012), CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
-                                    NavigationDrawerItem(label = { Text("SNES", color = Color.White) }, selected = selectedSystem == "SNES", onClick = { selectedSystem = "SNES"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(Color(0xFF51268F), CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
-                                    NavigationDrawerItem(label = { Text("Sony PlayStation", color = Color.White) }, selected = selectedSystem == "Sony PlayStation", onClick = { selectedSystem = "Sony PlayStation"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(Color(0xFF00ADB5), CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
+                        ModalDrawerSheet(
+                            drawerContainerColor = macOS_Sidebar_Dark.copy(alpha = 0.95f),
+                            drawerShape = RoundedCornerShape(0.dp),
+                        ) {
+                            // ── Layered Liquid Glass header ─────────────────
+                            Box(Modifier.fillMaxWidth().height(48.dp)) {
+                                Box(Modifier.matchParentSize().liquidGlass(20f, 20f)
+                                    .background(macOS_Sidebar_Dark.copy(alpha = 0.6f)))
+                                Text("LIBRARY",
+                                    Modifier.align(Alignment.BottomStart).padding(start = 16.dp, bottom = 8.dp),
+                                    color = Color.Gray.copy(alpha = 0.6f), fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                            }
+
+                            // ── Dynamic system list ──────────────────────────
+                            val scanned = scannedGames
+                            val detected = RomSystemIdentifier.getAllSupportedExtensions()
+                                .mapNotNull { ext ->
+                                    val matching = scanned.filter { it.endsWith(".$ext", ignoreCase = true) }
+                                    if (matching.isEmpty()) return@mapNotNull null
+                                    RomSystemIdentifier.identify("file.$ext")
+                                        ?.let { Triple(it.systemName, ext, matching.size) }
+                                }.distinctBy { it.first }
+
+                            val displayList: List<Triple<String, String, Int>> =
+                                if (detected.isEmpty()) listOf(
+                                    Triple("Game Boy", "gb", 0),
+                                    Triple("NES", "nes", 0),
+                                    Triple("Nintendo 64", "n64", 0)
+                                ) else detected
+
+                            displayList.forEach { (sysName, _, count) ->
+                                val dotColor = when (sysName) {
+                                    "Game Boy", "Game Boy Color" -> Color(0xFF8BBE1B)
+                                    "NES" -> Color(0xFFE60012)
+                                    "Nintendo 64" -> Color(0xFF3BA3DC)
+                                    "Super Nintendo" -> Color(0xFF51268F)
+                                    "Sony PlayStation" -> Color(0xFF00ADB5)
+                                    else -> AppleBlue
+                                }
+                                NavigationDrawerItem(
+                                    label = { Text(sysName, color = Color.White) },
+                                    badge = if (count > 0) {{ Text("$count", color = Color.Gray, fontSize = 11.sp) }} else null,
+                                    selected = selectedSystem == sysName,
+                                    onClick = {
+                                        selectedSystem = sysName
+                                        scope.launch { drawerState.close() }
+                                    },
+                                    icon = { Box(Modifier.size(10.dp).background(dotColor, CircleShape)) },
+                                    colors = NavigationDrawerItemDefaults.colors(
+                                        selectedContainerColor = Color.White.copy(alpha = 0.12f),
+                                        unselectedContainerColor = Color.Transparent
+                                    )
+                                )
+                            }
+
                             Divider(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), color = Color.DarkGray)
-                            NavigationDrawerItem(label = { Text("Settings") }, selected = false, onClick = { isSettingsOpen = true; scope.launch { drawerState.close() } }, icon = { Icon(Icons.Default.Settings, null, tint = Color.Gray) })
+                            NavigationDrawerItem(
+                                label = { Text("Settings", color = Color.White) }, selected = false,
+                                onClick = { isSettingsOpen = true; scope.launch { drawerState.close() } },
+                                icon = { Icon(Icons.Default.Settings, null, tint = Color.Gray) },
+                                colors = NavigationDrawerItemDefaults.colors(unselectedContainerColor = Color.Transparent)
+                            )
                             Divider(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), color = Color.DarkGray)
-                            NavigationDrawerItem(label = { Text("Connect Cloud") }, selected = false, onClick = {
-                                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestScopes(com.google.android.gms.common.api.Scope(com.google.api.services.drive.DriveScopes.DRIVE_APPDATA)).build()
-                                val client = GoogleSignIn.getClient(this@MainActivity, gso)
-                                googleSignInLauncher.launch(client.signInIntent)
-                            })
+                            NavigationDrawerItem(
+                                label = { Text("Connect Cloud", color = Color.White) }, selected = false,
+                                onClick = {
+                                    val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                                        .requestEmail()
+                                        .requestScopes(com.google.android.gms.common.api.Scope(
+                                            com.google.api.services.drive.DriveScopes.DRIVE_APPDATA))
+                                        .build()
+                                    val client = GoogleSignIn.getClient(this@MainActivity, gso)
+                                    googleSignInLauncher.launch(client.signInIntent)
+                                },
+                                colors = NavigationDrawerItemDefaults.colors(unselectedContainerColor = Color.Transparent)
+                            )
                         }
                     }
                 ) {
@@ -207,26 +268,60 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun GameLibraryGrid() {
-        val games = when (selectedSystem) {
-            "Game Boy Advance" -> listOf("Metroid Fusion", "Pokémon Emerald", "Castlevania: Aria of Sorrow")
-            "NES" -> listOf("Super Mario Bros", "The Legend of Zelda", "Metroid")
-            "SNES" -> listOf("Super Mario World", "Chrono Trigger", "Donkey Kong Country")
-            "PlayStation" -> listOf("Metal Gear Solid", "Final Fantasy VII", "Resident Evil 2")
-            else -> emptyList()
-        }
-        
-        Column(Modifier.fillMaxSize().padding(top = 8.dp)) {
-            Row(Modifier.fillMaxWidth().padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Text("Library: $selectedSystem", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        // Filter scanned games to those matching the selected system's extensions
+        val filteredGames = remember(scannedGames, selectedSystem) {
+            val systemExtensions = RomSystemIdentifier.getAllSupportedExtensions()
+                .filter { ext ->
+                    val info = RomSystemIdentifier.identify("file.$ext")
+                    info?.systemName == selectedSystem
+                }
+            if (systemExtensions.isEmpty()) {
+                scannedGames // show all if no system selected
+            } else {
+                scannedGames.filter { game ->
+                    systemExtensions.any { ext -> game.endsWith(".$ext", ignoreCase = true) }
+                }
             }
-            LazyVerticalGrid(
-                columns = GridCells.Adaptive(minSize = 120.dp),
-                contentPadding = PaddingValues(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+        }
+
+        Column(Modifier.fillMaxSize().padding(top = 8.dp)) {
+            Row(
+                Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 12.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                items(games) { game ->
-                    GameCard(game)
+                Text(
+                    selectedSystem,
+                    color = Color.White,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.ExtraBold
+                )
+                Text(
+                    "${filteredGames.size} games",
+                    color = Color.Gray,
+                    fontSize = 13.sp
+                )
+            }
+
+            if (filteredGames.isEmpty()) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Icon(Icons.Default.Add, null, tint = Color.Gray, modifier = Modifier.size(48.dp))
+                        Spacer(Modifier.height(12.dp))
+                        Text("No games found for $selectedSystem", color = Color.Gray)
+                        Text("Tap \"Scan Folder\" in Settings to import ROMs", color = Color.DarkGray, fontSize = 12.sp)
+                    }
+                }
+            } else {
+                LazyVerticalGrid(
+                    columns = GridCells.Adaptive(minSize = 120.dp),
+                    contentPadding = PaddingValues(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    items(filteredGames) { game ->
+                        GameCard(game)
+                    }
                 }
             }
         }
