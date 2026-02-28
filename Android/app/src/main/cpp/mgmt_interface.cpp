@@ -12,3 +12,38 @@ Java_org_openemu_android_MainActivity_stringFromJNI(JNIEnv *env,
   LOGI("JNI: Core interface initialized.");
   return env->NewStringUTF(hello.c_str());
 }
+
+extern "C" JNIEXPORT void JNICALL
+Java_org_openemu_android_MainActivity_nativeSendInput(JNIEnv *env,
+                                                      jobject /* this */,
+                                                      jstring button) {
+  const char *nativeButton = env->GetStringUTFChars(button, 0);
+  LOGI("JNI Input: %s", nativeButton);
+  // TODO: Map to Libretro/mGBA input state
+  env->ReleaseStringUTFChars(button, nativeButton);
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_org_openemu_android_MainActivity_nativeLoadROM(JNIEnv *env,
+                                                    jobject /* this */,
+                                                    jstring path) {
+  const char *nativePath = env->GetStringUTFChars(path, 0);
+  LOGI("JNI: Loading ROM: %s", nativePath);
+  // TODO: Initialize mGBA core and load ROM
+  env->ReleaseStringUTFChars(path, nativePath);
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_org_openemu_android_MainActivity_nativeSetSurface(JNIEnv *env,
+                                                       jobject /* this */,
+                                                       jobject surface) {
+  LOGI("JNI: Surface set.");
+  // TODO: Initialize Vulkan/OpenGL with the native surface
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_org_openemu_android_MainActivity_nativeSetSize(JNIEnv *env,
+                                                    jobject /* this */,
+                                                    jint width, jint height) {
+  LOGI("JNI: Surface size changed: %dx%d", width, height);
+}
