@@ -1,0 +1,2 @@
+rootProject.name = "OpenEmuARM64"
+include ':app'
