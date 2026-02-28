@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/5bem5761/arm64-v8a",
+  "command": "/Users/barriesanders/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android26 --sysroot=/Users/barriesanders/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dopenemu_EXPORTS -I/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp/../../../../../Shared-Cores/mGBA/src -I/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp/../../../../../Shared-Cores/Nestopia/core -I/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp/../../../../../Shared-Cores/Nestopia/core/api -I/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp/../../../../../Shared-Cores/SNES9x/src -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -o CMakeFiles/openemu.dir/mgmt_interface.cpp.o -c /Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp/mgmt_interface.cpp",
+  "file": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp/mgmt_interface.cpp"
+}
+]

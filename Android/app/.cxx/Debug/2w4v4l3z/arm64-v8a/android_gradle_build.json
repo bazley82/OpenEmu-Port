@@ -1,0 +1,157 @@
+{
+  "buildFiles": [
+    "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/barriesanders/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/barriesanders/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "4do::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "4do",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/lib4do.so",
+      "runtimeFiles": []
+    },
+    "atari800::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "atari800",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libatari800.so",
+      "runtimeFiles": []
+    },
+    "bsnes::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "bsnes",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libbsnes.so",
+      "runtimeFiles": []
+    },
+    "desmume::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "desmume",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libdesmume.so",
+      "runtimeFiles": []
+    },
+    "fceu::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "fceu",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libfceu.so",
+      "runtimeFiles": []
+    },
+    "gambatte::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "gambatte",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libgambatte.so",
+      "runtimeFiles": []
+    },
+    "genesisplus::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "genesisplus",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libgenesisplus.so",
+      "runtimeFiles": []
+    },
+    "mednafen::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "mednafen",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libmednafen.so",
+      "runtimeFiles": []
+    },
+    "mgba::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "mgba",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libmgba.so",
+      "runtimeFiles": []
+    },
+    "mupen64plus::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "mupen64plus",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libmupen64plus.so",
+      "runtimeFiles": []
+    },
+    "nestopia::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "nestopia",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libnestopia.so",
+      "runtimeFiles": []
+    },
+    "o2em::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "o2em",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libo2em.so",
+      "runtimeFiles": []
+    },
+    "picodrive::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "picodrive",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libpicodrive.so",
+      "runtimeFiles": []
+    },
+    "pokemini::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "pokemini",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libpokemini.so",
+      "runtimeFiles": []
+    },
+    "prosystem::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "prosystem",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libprosystem.so",
+      "runtimeFiles": []
+    },
+    "snes9x::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "snes9x",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libsnes9x.so",
+      "runtimeFiles": []
+    },
+    "stella::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "stella",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libstella.so",
+      "runtimeFiles": []
+    },
+    "vecxgl::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "vecxgl",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libvecxgl.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/barriesanders/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/barriesanders/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

@@ -1,30 +1,106 @@
 package org.openemu.android
 
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.lifecycle.lifecycleScope
 import androidx.window.layout.FoldingFeature
 import androidx.window.layout.WindowInfoTracker
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.asComposeRenderEffect
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.documentfile.provider.DocumentFile
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.File
+import java.io.FileOutputStream
 
+// Design Tokens (macOS Parity)
+// macOS Palette (Beta 6)
+val macOS_Sidebar_Dark = Color(0xFF282828)
+val macOS_Library_Dark = Color(0xFF1A1A1A)
+val macOS_Sidebar_Light = Color(0xFFEBEBEB)
+val macOS_Library_Light = Color(0xFFFFFFFF)
+val AppleBlue = Color(0xFF007AFF)
+
+// Liquid Glass Composition
+val VibrantGlass = Color.White.copy(alpha = 0.08f)
+val FrostedGlass = Color.White.copy(alpha = 0.12f)
+
+@Composable
+fun Modifier.liquidGlass(
+    blurX: Float = 30f,
+    blurY: Float = 30f
+): Modifier {
+    return if (android.os.Build.VERSION.SDK_INT >= 31) {
+        this.graphicsLayer {
+            renderEffect = android.graphics.RenderEffect.createBlurEffect(
+                blurX, blurY, android.graphics.Shader.TileMode.DECAL
+            ).asComposeRenderEffect()
+        }
+    } else {
+        this.blur(20.dp)
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
 
     private var isFlexMode by mutableStateOf(false)
+    private var isSettingsOpen by mutableStateOf(false)
+    private var controllerOpacity by mutableFloatStateOf(0.7f)
+    private var rootFolderUri by mutableStateOf<Uri?>(null)
+    private var scannedGames by mutableStateOf<List<String>>(emptyList())
+    private var selectedSystem by mutableStateOf("Game Boy Advance")
+    private var selectedCore by mutableStateOf("mGBA")
+    private var psxBiosPath by mutableStateOf<String?>(null)
+    private var isPaused by mutableStateOf(false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +114,6 @@ class MainActivity : ComponentActivity() {
                         .filterIsInstance<FoldingFeature>()
                         .firstOrNull()
                     
-                    // Flex mode is typically when the device is half-opened
                     isFlexMode = foldingFeature?.state == FoldingFeature.State.HALF_OPENED
                 }
         }
@@ -47,11 +122,204 @@ class MainActivity : ComponentActivity() {
             OpenEmuTheme {
                 val configuration = LocalConfiguration.current
                 val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+                val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+                val scope = rememberCoroutineScope()
                 
-                Surface(modifier = Modifier.fillMaxSize(), color = Color.Black) {
-                    ResponsiveEmulatorLayout(isLandscape, isFlexMode)
+                // SAF ROM Picker Launcher
+                val romPickerLauncher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.OpenDocument(),
+                    onResult = { uri ->
+                        uri?.let { handleRomSelection(it) }
+                    }
+                )
+
+                // SAF Folder Picker Launcher
+                val folderPickerLauncher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.OpenDocumentTree(),
+                    onResult = { uri ->
+                        uri?.let { 
+                            rootFolderUri = it
+                            scanFolder(it)
+                        }
+                    }
+                )
+
+                // Google Sign-In Launcher
+                val googleSignInLauncher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.StartActivityForResult(),
+                    onResult = { result ->
+                        val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                        handleSignInResult(task)
+                    }
+                )
+
+                ModalNavigationDrawer(
+                    drawerState = drawerState,
+                    drawerContent = {
+                                ModalDrawerSheet(
+                                    drawerContainerColor = macOS_Sidebar_Dark.copy(alpha = 0.95f),
+                                    drawerShape = RoundedCornerShape(0.dp),
+                                    modifier = Modifier.liquidGlass(20f, 20f)
+                                ) {
+                                    Spacer(Modifier.height(48.dp))
+                                    Text("LIBRARY", Modifier.padding(16.dp), color = Color.Gray.copy(alpha = 0.6f), fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                                    NavigationDrawerItem(label = { Text("Game Boy Advance", color = Color.White) }, selected = selectedSystem == "Game Boy Advance", onClick = { selectedSystem = "Game Boy Advance"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(AppleBlue, CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
+                                    NavigationDrawerItem(label = { Text("NES", color = Color.White) }, selected = selectedSystem == "NES", onClick = { selectedSystem = "NES"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(Color(0xFFE60012), CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
+                                    NavigationDrawerItem(label = { Text("SNES", color = Color.White) }, selected = selectedSystem == "SNES", onClick = { selectedSystem = "SNES"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(Color(0xFF51268F), CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
+                                    NavigationDrawerItem(label = { Text("Sony PlayStation", color = Color.White) }, selected = selectedSystem == "Sony PlayStation", onClick = { selectedSystem = "Sony PlayStation"; scope.launch { drawerState.close() } }, icon = { Box(Modifier.size(10.dp).background(Color(0xFF00ADB5), CircleShape)) }, colors = NavigationDrawerItemDefaults.colors(selectedContainerColor = Color.White.copy(alpha = 0.1f), unselectedContainerColor = Color.Transparent))
+                            Divider(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), color = Color.DarkGray)
+                            NavigationDrawerItem(label = { Text("Settings") }, selected = false, onClick = { isSettingsOpen = true; scope.launch { drawerState.close() } }, icon = { Icon(Icons.Default.Settings, null, tint = Color.Gray) })
+                            Divider(Modifier.padding(horizontal = 16.dp, vertical = 8.dp), color = Color.DarkGray)
+                            NavigationDrawerItem(label = { Text("Connect Cloud") }, selected = false, onClick = {
+                                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestScopes(com.google.android.gms.common.api.Scope(com.google.api.services.drive.DriveScopes.DRIVE_APPDATA)).build()
+                                val client = GoogleSignIn.getClient(this@MainActivity, gso)
+                                googleSignInLauncher.launch(client.signInIntent)
+                            })
+                        }
+                    }
+                ) {
+                    Scaffold(
+                        topBar = { /* ... */ }
+                    ) { padding ->
+                        Surface(modifier = Modifier.fillMaxSize().padding(padding), color = macOS_Library_Dark) {
+                            if (isSettingsOpen) {
+                                SettingsScreen(onClose = { isSettingsOpen = false }, onPickFolder = { folderPickerLauncher.launch(null) })
+                            } else if (isGameRunning) {
+                                Box(Modifier.fillMaxSize()) {
+                                    ResponsiveEmulatorLayout(isLandscape, isFlexMode)
+                                    
+                                    // Pause Menu Overlay
+                                    if (isPaused) {
+                                        PauseOverlay(onResume = { isPaused = false }, onQuit = { isGameRunning = false; isPaused = false })
+                                    }
+                                }
+                            } else {
+                                GameLibraryGrid()
+                            }
+                        }
+                    }
                 }
             }
+        }
+    }
+
+    private var isGameRunning by mutableStateOf(false)
+
+    @Composable
+    fun GameLibraryGrid() {
+        val games = when (selectedSystem) {
+            "Game Boy Advance" -> listOf("Metroid Fusion", "Pokémon Emerald", "Castlevania: Aria of Sorrow")
+            "NES" -> listOf("Super Mario Bros", "The Legend of Zelda", "Metroid")
+            "SNES" -> listOf("Super Mario World", "Chrono Trigger", "Donkey Kong Country")
+            "PlayStation" -> listOf("Metal Gear Solid", "Final Fantasy VII", "Resident Evil 2")
+            else -> emptyList()
+        }
+        
+        Column(Modifier.fillMaxSize().padding(top = 8.dp)) {
+            Row(Modifier.fillMaxWidth().padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Text("Library: $selectedSystem", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            }
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(minSize = 120.dp),
+                contentPadding = PaddingValues(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                items(games) { game ->
+                    GameCard(game)
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun GameCard(name: String) {
+        Column(
+            modifier = Modifier
+                .width(120.dp)
+                .clickable { /* Simulate ROM loading */ },
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(130.dp, 175.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(Brush.verticalGradient(listOf(Color(0xFF2C2C2E), Color(0xFF1C1C1E))))
+                    .padding(1.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Box(Modifier.fillMaxSize().clip(RoundedCornerShape(11.dp)).background(Color.Black)) {
+                    Text(name.take(1), color = when(selectedSystem) {
+                        "NES" -> Color(0xFFE60012)
+                        "SNES" -> Color(0xFF51268F)
+                        "PlayStation" -> Color(0xFF00ADB5)
+                        else -> AppleBlue
+                    }, fontSize = 52.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.align(Alignment.Center))
+                    
+                    // System Badge
+                    Box(Modifier.align(Alignment.BottomEnd).padding(8.dp).background(Color.Black.copy(alpha = 0.6f), RoundedCornerShape(4.dp)).padding(horizontal = 4.dp, vertical = 2.dp)) {
+                        Text(selectedSystem.take(3).uppercase(), color = Color.Gray, fontSize = 8.sp, fontWeight = FontWeight.Bold)
+                    }
+                }
+            }
+            Spacer(Modifier.height(8.dp))
+            Text(
+                name,
+                color = Color.White,
+                fontSize = 14.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+
+    private fun handleRomSelection(uri: Uri) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                // Copy selected file to internal cache for NDK access
+                val file = File(cacheDir, "current_rom") // Use a generic name for the cached ROM
+                contentResolver.openInputStream(uri)?.use { input ->
+                    file.outputStream().use { output ->
+                        input.copyTo(output)
+                    }
+                }
+                
+                Log.d("OpenEmuCore", "ROM copied to path: ${file.absolutePath}")
+                val systemInfo = RomSystemIdentifier.identify(uri.toString())
+                val coreToUse = systemInfo?.coreName ?: selectedCore
+                val systemToUse = systemInfo?.systemName ?: selectedSystem
+                
+                withContext(Dispatchers.Main) {
+                    try {
+                         System.loadLibrary(coreToUse)
+                         selectedSystem = systemToUse
+                         selectedCore = coreToUse
+                         isGameRunning = true
+                         nativeLoadROM(file.absolutePath, coreToUse)
+                    } catch (e: UnsatisfiedLinkError) {
+                        Log.e("OpenEmuCore", "Failed to load core library: $coreToUse", e)
+                        // Fallback or show error
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("OpenEmuCore", "Failed to load ROM", e)
+            }
+        }
+    }
+
+    private fun handleSignInResult(task: com.google.android.gms.tasks.Task<com.google.android.gms.auth.api.signin.GoogleSignInAccount>) {
+        try {
+            val account = task.getResult(com.google.android.gms.common.api.ApiException::class.java)
+            Log.d("OpenEmuCore", "Signed in successfully: ${account.email}")
+            // Initialize sync logic
+            val sync = GoogleDriveSync(this, account)
+            lifecycleScope.launch(Dispatchers.IO) {
+                val files = sync.listCloudFiles()
+                Log.d("OpenEmuCore", "Cloud Files Found: ${files.size}")
+            }
+        } catch (e: Exception) {
+            Log.e("OpenEmuCore", "Google Sign-In failed", e)
         }
     }
 
@@ -84,8 +352,44 @@ class MainActivity : ComponentActivity() {
                     EmulatorVideoSurface()
                 }
                 // Controls at bottom
-                Box(modifier = Modifier.weight(0.6f).fillMaxWidth().background(Color(0xFF1A1A1A))) {
+                Box(modifier = Modifier.weight(0.6f).fillMaxWidth().background(macOS_Library_Dark)) {
                     OnScreenController(transparent = false)
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun PauseOverlay(onResume: () -> Unit, onQuit: () -> Unit) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .liquidGlass(50f, 50f)
+                .background(Color.Black.copy(alpha = 0.4f))
+                .pointerInput(Unit) { detectTapGestures { /* Block underlying clicks */ } },
+            contentAlignment = Alignment.Center
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(24.dp)) {
+                Text("PAUSED", color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 4.sp)
+                
+                Column(Modifier.width(280.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Button(onClick = onResume, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = AppleBlue)) {
+                        Text("Resume")
+                    }
+                    Button(onClick = onQuit, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent), border = ButtonDefaults.outlinedButtonBorder) {
+                        Text("Quit to Library", color = Color.White)
+                    }
+                }
+                
+                // Opacity Slider inside Pause Menu
+                Column(Modifier.width(280.dp).padding(top = 32.dp)) {
+                    Text("CONTROL OPACITY", color = Color.Gray, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Slider(
+                        value = controllerOpacity,
+                        onValueChange = { controllerOpacity = it },
+                        valueRange = 0.0f..1.0f,
+                        colors = SliderDefaults.colors(thumbColor = Color.White, activeTrackColor = AppleBlue)
+                    )
                 }
             }
         }
@@ -115,44 +419,292 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun OnScreenController(transparent: Boolean) {
-        val alpha = if (transparent) 0.5f else 1.0f
-        val color = if (transparent) Color.White.copy(alpha = 0.3f) else MaterialTheme.colorScheme.primary
+        val color = if (transparent) FrostedGlass else AppleBlue
         
-        // Simplified controller layout
-        Box(modifier = Modifier.fillMaxSize()) {
-            // D-Pad (Left side)
-            Column(modifier = Modifier.align(Alignment.CenterStart).padding(start = 24.dp)) {
-                Button(onClick = { sendInput("UP") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("U") }
-                Row {
-                    Button(onClick = { sendInput("LEFT") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("L") }
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Button(onClick = { sendInput("RIGHT") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("R") }
-                }
-                Button(onClick = { sendInput("DOWN") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("D") }
+        Box(modifier = Modifier.fillMaxSize()
+            .pointerInput(Unit) {
+                detectTapGestures(onLongPress = { isPaused = true }) // Long press to pause
             }
+        ) {
+            if (transparent) {
+                // Liquid Glass HUD background
+                Box(Modifier.fillMaxSize().liquidGlass(20f, 20f).background(
+                    Brush.verticalGradient(listOf(Color.Black.copy(alpha = 0.1f), Color.Black.copy(alpha = 0.3f)))
+                ))
+            }
+            
+            // System-Specific Dynamic Layout
+            val assetName = when (selectedSystem) {
+                "NES" -> "controller_nes.png"
+                "Super Nintendo" -> "controller_snes_usa.png"
+                "Game Boy Advance" -> "controller_gba.png"
+                "Sony PlayStation" -> "controller_psx.png"
+                "Nintendo 64" -> "controller_n64.png"
+                "Genesis" -> "controller_genesis.png"
+                else -> "controller_gba.png"
+            }
+            
+            DynamicControllerLayout(assetName, color)
+        }
+    }
 
-            // Action Buttons (Right side)
-            Row(modifier = Modifier.align(Alignment.CenterEnd).padding(end = 24.dp)) {
-                Button(onClick = { sendInput("B") }, shape = androidx.compose.foundation.shape.CircleShape, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("B") }
-                Spacer(modifier = Modifier.width(16.dp))
-                Button(onClick = { sendInput("A") }, shape = androidx.compose.foundation.shape.CircleShape, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("A") }
+    @Composable
+    fun DynamicControllerLayout(assetName: String, tint: Color) {
+        // Here we would implement complex layout logic. For now, we use a generic 
+        // layout that uses the system color and potentially shows the asset.
+        when (selectedSystem) {
+            "NES" -> NESLayout(tint)
+            "Super Nintendo" -> SNESLayout(tint)
+            "Sony PlayStation" -> PlayStationLayout(tint)
+            else -> GBALayout(tint)
+        }
+        
+        // Overlay a Pause Button if not in Landscape
+        Box(Modifier.fillMaxSize().padding(16.dp)) {
+            IconButton(onClick = { isPaused = true }, modifier = Modifier.align(Alignment.TopCenter).background(Color.White.copy(alpha = 0.05f), CircleShape)) {
+                Icon(Icons.Default.Menu, null, tint = Color.White.copy(alpha = 0.3f))
             }
         }
     }
 
-    private fun sendInput(button: String) {
-        nativeSendInput(button)
+    @Composable
+    fun PlayStationLayout(color: Color) {
+        // High-fidelity PlayStation controls
+        Box(Modifier.fillMaxSize()) {
+            // D-Pad (Cross shaped)
+            Box(Modifier.align(Alignment.CenterStart).padding(start = 32.dp).size(160.dp)) {
+                ControllerButton("U", Color.DarkGray) { sendInput("UP", it) }
+                Box(Modifier.align(Alignment.CenterStart)) { ControllerButton("L", Color.DarkGray) { sendInput("LEFT", it) } }
+                Box(Modifier.align(Alignment.CenterEnd)) { ControllerButton("R", Color.DarkGray) { sendInput("RIGHT", it) } }
+                Box(Modifier.align(Alignment.BottomCenter)) { ControllerButton("D", Color.DarkGray) { sendInput("DOWN", it) } }
+            }
+
+            // DualShock Buttons (Diamond with Symbols)
+            Box(Modifier.align(Alignment.CenterEnd).padding(end = 32.dp).size(180.dp)) {
+                // Triangle
+                Box(Modifier.align(Alignment.TopCenter)) { 
+                    ControllerButton("△", Color.DarkGray, circle = true) { sendInput("TRIANGLE", it) } 
+                }
+                // Square
+                Box(Modifier.align(Alignment.CenterStart)) { 
+                    ControllerButton("□", Color.DarkGray, circle = true) { sendInput("SQUARE", it) } 
+                }
+                // Circle
+                Box(Modifier.align(Alignment.CenterEnd)) { 
+                    ControllerButton("○", Color(0xFFE41B17), circle = true) { sendInput("CIRCLE", it) } 
+                }
+                // Cross
+                Box(Modifier.align(Alignment.BottomCenter)) { 
+                    ControllerButton("✕", AppleBlue, circle = true) { sendInput("CROSS", it) } 
+                }
+            }
+            
+            // L/R Triggers (Shoulders)
+            Row(Modifier.align(Alignment.TopCenter).padding(top = 48.dp)) {
+                ControllerButton("L1", color) { /* L1 */ }
+                Spacer(Modifier.width(120.dp))
+                ControllerButton("R1", color) { /* R1 */ }
+            }
+        }
     }
 
-    private external fun nativeSendInput(button: String)
-    private external fun nativeLoadROM(path: String)
+    @Composable
+    fun NESLayout(color: Color) {
+        // NES specific hardware layout
+        Box(Modifier.fillMaxSize()) {
+            // D-Pad
+            Column(Modifier.align(Alignment.CenterStart).padding(start = 32.dp)) {
+                ControllerButton("U", Color.DarkGray) { sendInput("UP", it) }
+                Row {
+                    ControllerButton("L", Color.DarkGray) { sendInput("LEFT", it) }
+                    Spacer(Modifier.width(10.dp))
+                    ControllerButton("R", Color.DarkGray) { sendInput("RIGHT", it) }
+                }
+                ControllerButton("D", Color.DarkGray) { sendInput("DOWN", it) }
+            }
+            // Red buttons (NES uses horizontal A/B layout)
+            Row(Modifier.align(Alignment.CenterEnd).padding(end = 32.dp)) {
+                ControllerButton("B", Color(0xFFE60012), circle = true) { sendInput("B", it) }
+                Spacer(Modifier.width(20.dp))
+                ControllerButton("A", Color(0xFFE60012), circle = true) { sendInput("A", it) }
+            }
+        }
+    }
+
+    @Composable
+    fun SNESLayout(color: Color) {
+        // SNES layout (Diamond ABXY)
+        Box(Modifier.fillMaxSize()) {
+            Column(Modifier.align(Alignment.CenterStart).padding(start = 32.dp)) {
+                ControllerButton("U", Color.Gray) { sendInput("UP", it) }
+                Row {
+                    ControllerButton("L", Color.Gray) { sendInput("LEFT", it) }
+                    Spacer(Modifier.width(8.dp))
+                    ControllerButton("R", Color.Gray) { sendInput("RIGHT", it) }
+                }
+                ControllerButton("D", Color.Gray) { sendInput("DOWN", it) }
+            }
+            
+            // SNES Diamond button layout (X top, Y left, B bottom, A right)
+            Box(Modifier.align(Alignment.CenterEnd).padding(end = 40.dp).size(160.dp)) {
+                Box(Modifier.align(Alignment.TopCenter)) { ControllerButton("X", Color(0xFF51268F), circle = true) { sendInput("X", it) } }
+                Box(Modifier.align(Alignment.CenterStart)) { ControllerButton("Y", Color(0xFF8E6EB3), circle = true) { sendInput("Y", it) } }
+                Box(Modifier.align(Alignment.CenterEnd)) { ControllerButton("A", Color(0xFF8E6EB3), circle = true) { sendInput("A", it) } }
+                Box(Modifier.align(Alignment.BottomCenter)) { ControllerButton("B", Color(0xFF51268F), circle = true) { sendInput("B", it) } }
+            }
+        }
+    }
+
+    @Composable
+    fun GBALayout(color: Color) {
+        Box(Modifier.fillMaxSize()) {
+            // D-Pad (Left side)
+            Column(modifier = Modifier.align(Alignment.CenterStart).padding(start = 24.dp)) {
+                ControllerButton("U", color) { state -> sendInput("UP", state) }
+                Row {
+                    ControllerButton("L", color) { state -> sendInput("LEFT", state) }
+                    Spacer(modifier = Modifier.width(8.dp))
+                    ControllerButton("R", color) { state -> sendInput("RIGHT", state) }
+                }
+                ControllerButton("D", color) { state -> sendInput("DOWN", state) }
+            }
+
+            // Action Buttons (Right side)
+            Row(modifier = Modifier.align(Alignment.CenterEnd).padding(end = 24.dp)) {
+                ControllerButton("B", color, circle = true) { state -> sendInput("B", state) }
+                Spacer(modifier = Modifier.width(16.dp))
+                ControllerButton("A", color, circle = true) { state -> sendInput("A", state) }
+            }
+        }
+    }
+
+    @Composable
+    fun ControllerButton(text: String, color: Color, circle: Boolean = false, onStateChange: (Boolean) -> Unit) {
+        val alphaColor = color.copy(alpha = controllerOpacity)
+        Box(
+            modifier = Modifier
+                .padding(4.dp)
+                .size(if (circle) 64.dp else 56.dp)
+                .background(alphaColor, if (circle) CircleShape else RoundedCornerShape(8.dp))
+                .pointerInput(Unit) {
+                    awaitPointerEventScope {
+                        while (true) {
+                            val event = awaitPointerEvent()
+                            when (event.type) {
+                                PointerEventType.Press -> onStateChange(true)
+                                PointerEventType.Release -> onStateChange(false)
+                            }
+                        }
+                    }
+                },
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text, color = Color.White.copy(alpha = controllerOpacity + 0.2f), fontSize = 20.sp)
+        }
+    }
+
+    @Composable
+    fun SettingsScreen(onClose: () -> Unit, onPickFolder: () -> Unit) {
+        var selectedTab by remember { mutableStateOf("Library") }
+        val biosPickerLauncher = rememberLauncherForActivityResult(
+            contract = ActivityResultContracts.OpenDocument(),
+            onResult = { uri -> psxBiosPath = uri?.toString() }
+        )
+
+        Column(Modifier.fillMaxSize().background(Color.Black)) {
+            // Header with Frosted Glass look
+            Box(Modifier.fillMaxWidth().height(64.dp).background(FrostedGlass).padding(horizontal = 8.dp), contentAlignment = Alignment.Center) {
+                Row(Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                    IconButton(onClick = onClose) { Icon(Icons.Default.ArrowBack, null, tint = Color.White) }
+                    Text("Settings", color = Color.White, fontWeight = FontWeight.ExtraBold, fontSize = 18.sp)
+                    Box(Modifier.size(48.dp))
+                }
+            }
+
+            // Tabs with cleaner indicators
+            Row(Modifier.fillMaxWidth().background(Color(0xFF151515)), horizontalArrangement = Arrangement.SpaceEvenly) {
+                listOf("Library", "Cores", "Controls").forEach { tab ->
+                    TextButton(onClick = { selectedTab = tab }, modifier = Modifier.weight(1f)) {
+                        Text(tab, color = if (selectedTab == tab) AppleBlue else Color.Gray, 
+                             fontWeight = if (selectedTab == tab) FontWeight.Bold else FontWeight.Normal,
+                             fontSize = 13.sp)
+                    }
+                }
+            }
+
+            Divider(color = Color.DarkGray, thickness = 0.5.dp)
+
+            Column(Modifier.padding(24.dp).fillMaxSize()) {
+                when (selectedTab) {
+                    "Library" -> {
+                        SettingsHeader("Storage")
+                        Text("ROM Root Folder", color = Color.Gray, fontSize = 12.sp)
+                        Text(rootFolderUri?.path ?: "No folder selected", color = Color.White, fontSize = 14.sp)
+                        Spacer(Modifier.height(12.dp))
+                        Button(onClick = onPickFolder, colors = ButtonDefaults.buttonColors(containerColor = AppleBlue), shape = RoundedCornerShape(8.dp)) {
+                            Text("Select Folder", fontSize = 13.sp)
+                        }
+                    }
+                    "Cores" -> {
+                        SettingsHeader("System Cores")
+                        Text("Active Core for $selectedSystem", color = Color.Gray, fontSize = 12.sp)
+                        Text(selectedCore, color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        
+                        if (selectedSystem == "PlayStation") {
+                            Spacer(Modifier.height(24.dp))
+                            SettingsHeader("BIOS Management")
+                            Text("PlayStation BIOS (scph5501.bin)", color = Color.Gray, fontSize = 12.sp)
+                            Text(psxBiosPath ?: "Missing", color = if (psxBiosPath != null) Color.Green else Color(0xFFE60012), fontSize = 14.sp)
+                            Button(onClick = { biosPickerLauncher.launch(arrayOf("*/*")) }, modifier = Modifier.padding(top = 8.dp)) {
+                                Text("Upload BIOS")
+                            }
+                        }
+                    }
+                    "Controls" -> {
+                        SettingsHeader("Touch HUD")
+                        Text("Button Opacity", color = Color.Gray, fontSize = 12.sp)
+                        Slider(value = controllerOpacity, onValueChange = { controllerOpacity = it }, valueRange = 0.1f..1.0f, colors = SliderDefaults.colors(thumbColor = AppleBlue, activeTrackColor = AppleBlue))
+                        Text("${(controllerOpacity * 100).toInt()}%", color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    }
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun SettingsHeader(title: String) {
+        Text(title, color = AppleBlue, fontSize = 11.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 1.sp, modifier = Modifier.padding(bottom = 8.dp))
+    }
+
+    private fun scanFolder(uri: Uri) {
+        val root = DocumentFile.fromTreeUri(this, uri)
+        val supportedExtensions = RomSystemIdentifier.getAllSupportedExtensions()
+        
+        val foundGames = mutableListOf<String>()
+        root?.listFiles()?.forEach { file ->
+            val ext = file.name?.substringAfterLast(".", "")?.lowercase()
+            if (file.isFile && supportedExtensions.contains(ext)) {
+                file.name?.let { foundGames.add(it) }
+            }
+        }
+        scannedGames = foundGames
+    }
+
+    private fun sendInput(button: String, isPressed: Boolean) {
+        Log.d("OpenEmuCore", "Input: $button ${if (isPressed) "DOWN" else "UP"}")
+        nativeSendInput(button, isPressed)
+    }
+
+    private external fun nativeSendInput(button: String, isPressed: Boolean)
+    private external fun nativeLoadROM(path: String, system: String)
     private external fun nativeSetSurface(surface: Any?)
     private external fun nativeSetSize(width: Int, height: Int)
     private external fun stringFromJNI(): String
 
     companion object {
         init {
-            System.loadLibrary("mgba")
+            // Initial placeholder or core management library if needed
+            // System.loadLibrary("openemu_mgmt") 
         }
     }
 }
@@ -161,9 +713,18 @@ class MainActivity : ComponentActivity() {
 fun OpenEmuTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = darkColorScheme(
-            primary = Color(0xFF6200EE),
-            background = Color.Black,
-            surface = Color(0xFF121212)
+            primary = AppleBlue,
+            secondary = Color(0xFF51268F),
+            tertiary = Color(0xFFE60012),
+            background = Color(0xFF000000), // Pure OLED black
+            surface = Color(0xFF1C1C1E) // Apple-style dark surface
+        ),
+        typography = Typography(
+            bodyLarge = androidx.compose.ui.text.TextStyle(
+                fontFamily = androidx.compose.ui.text.font.FontFamily.SansSerif,
+                fontWeight = FontWeight.Medium,
+                fontSize = 16.sp
+            )
         ),
         content = content
     )

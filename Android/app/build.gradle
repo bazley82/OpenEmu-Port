@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'org.openemu.android'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "org.openemu.android"
-        minSdk 24
-        targetSdk 33
+        minSdk 31
+        targetSdk 34
         versionCode 1
         versionName "1.0.0"
 
@@ -50,6 +50,20 @@ android {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
             version "3.22.1"
+        }
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/DEPENDENCIES'
+            excludes += '/META-INF/LICENSE'
+            excludes += '/META-INF/LICENSE.txt'
+            excludes += '/META-INF/license.txt'
+            excludes += '/META-INF/NOTICE'
+            excludes += '/META-INF/NOTICE.txt'
+            excludes += '/META-INF/notice.txt'
+            excludes += '/META-INF/ASL2.0'
+            excludes += '/META-INF/*.kotlin_module'
         }
     }
 }

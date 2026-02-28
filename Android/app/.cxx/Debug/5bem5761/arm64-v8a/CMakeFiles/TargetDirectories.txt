@@ -1,0 +1,3 @@
+/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/5bem5761/arm64-v8a/CMakeFiles/openemu.dir
+/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/5bem5761/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/5bem5761/arm64-v8a/CMakeFiles/rebuild_cache.dir

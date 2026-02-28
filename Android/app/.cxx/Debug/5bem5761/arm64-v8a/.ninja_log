@@ -1,0 +1,10 @@
+# ninja log v5
+1	439	1772271009844406425	CMakeFiles/openemu.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/SNES9x/src/memmap.cpp.o	df86f2156889bf2b
+1	325	1772271009730541054	CMakeFiles/openemu.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/SNES9x/src/cpuexec.cpp.o	54fce3907cbd31cb
+1	400	1772271009805238123	CMakeFiles/openemu.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/SNES9x/src/snes9x.cpp.o	3e5e77614b289b9c
+0	177	1772271009581782874	CMakeFiles/openemu.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/Nestopia/core/NstCpu.cpp.o	91c71eede3f66bdf
+1	163	1772271009567905066	CMakeFiles/openemu.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/Nestopia/core/NstApu.cpp.o	812b8050dea58a25
+1	154	1772271009558847125	CMakeFiles/openemu.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/Nestopia/core/NstPpu.cpp.o	cf5e61b129bfa944
+0	217	1772271009623458921	CMakeFiles/openemu.dir/mgmt_interface.cpp.o	45a826564085985b
+0	48	1772271009455342193	CMakeFiles/openemu.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/Nestopia/core/NstCore.cpp.o	eae5ef0b4316917b
+0	53	1772271035253561477	/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/5bem5761/obj/arm64-v8a/libopenemu.so	d659c9c1ce230351
