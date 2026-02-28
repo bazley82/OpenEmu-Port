@@ -1,5 +1,7 @@
 package org.openemu.android
 
+import android.content.res.Configuration
+import android.os.Bundle
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import androidx.activity.ComponentActivity
@@ -11,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -21,12 +24,12 @@ import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
-    private var isFolded by mutableStateOf(false)
+    private var isFlexMode by mutableStateOf(false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Monitor folding state
+        // Monitor folding state specifically for Flex Mode
         lifecycleScope.launch {
             WindowInfoTracker.getOrCreate(this@MainActivity)
                 .windowLayoutInfo(this@MainActivity)
@@ -35,51 +38,55 @@ class MainActivity : ComponentActivity() {
                         .filterIsInstance<FoldingFeature>()
                         .firstOrNull()
                     
-                    isFolded = foldingFeature?.state == FoldingFeature.State.HALF_OPENED
+                    // Flex mode is typically when the device is half-opened
+                    isFlexMode = foldingFeature?.state == FoldingFeature.State.HALF_OPENED
                 }
         }
 
         setContent {
             OpenEmuTheme {
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    EmulatorLayout(isFolded)
+                val configuration = LocalConfiguration.current
+                val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+                
+                Surface(modifier = Modifier.fillMaxSize(), color = Color.Black) {
+                    ResponsiveEmulatorLayout(isLandscape, isFlexMode)
                 }
             }
         }
     }
 
     @Composable
-    fun EmulatorLayout(isFolded: Boolean) {
-        if (isFolded) {
-            // Split screen for Foldable (Flex Mode)
+    fun ResponsiveEmulatorLayout(isLandscape: Boolean, isFlexMode: Boolean) {
+        if (isFlexMode && !isLandscape) {
+            // Foldable Flex Mode (Portrait-ish)
             Column(modifier = Modifier.fillMaxSize()) {
-                // Top half: Emulator Video
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .background(Color.Black),
-                    contentAlignment = Alignment.Center
-                ) {
+                Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
                     EmulatorVideoSurface()
                 }
-                
-                // Bottom half: Controls
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .background(Color.DarkGray),
-                    contentAlignment = Alignment.Center
-                ) {
-                    OnScreenController()
+                Box(modifier = Modifier.weight(1f).fillMaxWidth().background(Color(0xFF1A1A1A))) {
+                    OnScreenController(transparent = false)
+                }
+            }
+        } else if (isLandscape) {
+            // Universal Landscape Mode (Full screen with Overlay)
+            Box(modifier = Modifier.fillMaxSize()) {
+                EmulatorVideoSurface()
+                // Controller Overlay
+                Box(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+                    OnScreenController(transparent = true)
                 }
             }
         } else {
-            // Full screen or standard layout
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Standard Layout (Unfolded)")
-                // Standard UI would go here
+            // Universal Portrait Mode (Stacked)
+            Column(modifier = Modifier.fillMaxSize()) {
+                // Video at top, keeping aspect ratio (e.g., 4:3 for GBA implies we might need a fixed height or weight)
+                Box(modifier = Modifier.weight(0.4f).fillMaxWidth()) {
+                    EmulatorVideoSurface()
+                }
+                // Controls at bottom
+                Box(modifier = Modifier.weight(0.6f).fillMaxWidth().background(Color(0xFF1A1A1A))) {
+                    OnScreenController(transparent = false)
+                }
             }
         }
     }
@@ -93,11 +100,9 @@ class MainActivity : ComponentActivity() {
                         override fun surfaceCreated(holder: SurfaceHolder) {
                             nativeSetSurface(holder.surface)
                         }
-
                         override fun surfaceChanged(holder: SurfaceHolder, format: Int, w: Int, h: Int) {
                             nativeSetSize(w, h)
                         }
-
                         override fun surfaceDestroyed(holder: SurfaceHolder) {
                             nativeSetSurface(null)
                         }
@@ -109,34 +114,34 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    fun OnScreenController() {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Row {
-                Button(onClick = { sendInput("UP") }) { Text("UP") }
+    fun OnScreenController(transparent: Boolean) {
+        val alpha = if (transparent) 0.5f else 1.0f
+        val color = if (transparent) Color.White.copy(alpha = 0.3f) else MaterialTheme.colorScheme.primary
+        
+        // Simplified controller layout
+        Box(modifier = Modifier.fillMaxSize()) {
+            // D-Pad (Left side)
+            Column(modifier = Modifier.align(Alignment.CenterStart).padding(start = 24.dp)) {
+                Button(onClick = { sendInput("UP") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("U") }
+                Row {
+                    Button(onClick = { sendInput("LEFT") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("L") }
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Button(onClick = { sendInput("RIGHT") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("R") }
+                }
+                Button(onClick = { sendInput("DOWN") }, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("D") }
             }
-            Row {
-                Button(onClick = { sendInput("LEFT") }) { Text("LEFT") }
+
+            // Action Buttons (Right side)
+            Row(modifier = Modifier.align(Alignment.CenterEnd).padding(end = 24.dp)) {
+                Button(onClick = { sendInput("B") }, shape = androidx.compose.foundation.shape.CircleShape, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("B") }
                 Spacer(modifier = Modifier.width(16.dp))
-                Button(onClick = { sendInput("RIGHT") }) { Text("RIGHT") }
-            }
-            Row {
-                Button(onClick = { sendInput("DOWN") }) { Text("DOWN") }
-            }
-            Spacer(modifier = Modifier.height(32.dp))
-            Row {
-                Button(onClick = { sendInput("B") }) { Text("B") }
-                Spacer(modifier = Modifier.width(16.dp))
-                Button(onClick = { sendInput("A") }) { Text("A") }
+                Button(onClick = { sendInput("A") }, shape = androidx.compose.foundation.shape.CircleShape, colors = ButtonDefaults.buttonColors(containerColor = color)) { Text("A") }
             }
         }
     }
 
     private fun sendInput(button: String) {
         nativeSendInput(button)
-    }
-
-    fun loadROM(path: String) {
-        nativeLoadROM(path)
     }
 
     private external fun nativeSendInput(button: String)
@@ -154,5 +159,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun OpenEmuTheme(content: @Composable () -> Unit) {
-    MaterialTheme(content = content)
+    MaterialTheme(
+        colorScheme = darkColorScheme(
+            primary = Color(0xFF6200EE),
+            background = Color.Black,
+            surface = Color(0xFF121212)
+        ),
+        content = content
+    )
 }
