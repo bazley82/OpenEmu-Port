@@ -55,6 +55,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.documentfile.provider.DocumentFile
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import android.content.Intent
+import android.content.SharedPreferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -95,11 +97,19 @@ fun Modifier.liquidGlass(
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
 
+    companion object {
+        private const val PREFS_NAME   = "prefs_openemu"
+        private const val KEY_ROOT_URI = "root_folder_uri"
+    }
+
+    private lateinit var prefs: SharedPreferences
+
     private var isFlexMode by mutableStateOf(false)
     private var isSettingsOpen by mutableStateOf(false)
     private var controllerOpacity by mutableFloatStateOf(0.7f)
     private var rootFolderUri by mutableStateOf<Uri?>(null)
-    private var scannedGames by mutableStateOf<List<String>>(emptyList())
+    // Beta 9: store full DocumentFile objects so onClick can access the URI
+    private var scannedGames by mutableStateOf<List<DocumentFile>>(emptyList())
     private var selectedSystem by mutableStateOf("Game Boy Advance")
     private var selectedCore by mutableStateOf("mGBA")
     private var psxBiosPath by mutableStateOf<String?>(null)
@@ -107,6 +117,17 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+
+        // ── Auto-rescan saved folder on launch (SAF Amnesia Fix) ────────────
+        prefs.getString(KEY_ROOT_URI, null)?.let { uriStr ->
+            val savedUri = Uri.parse(uriStr)
+            rootFolderUri = savedUri
+            lifecycleScope.launch(Dispatchers.IO) {
+                scanFolder(savedUri)
+            }
+        }
 
         // Monitor folding state specifically for Flex Mode
         lifecycleScope.launch {
@@ -116,7 +137,6 @@ class MainActivity : ComponentActivity() {
                     val foldingFeature = newLayoutInfo.displayFeatures
                         .filterIsInstance<FoldingFeature>()
                         .firstOrNull()
-                    
                     isFlexMode = foldingFeature?.state == FoldingFeature.State.HALF_OPENED
                 }
         }
@@ -136,13 +156,19 @@ class MainActivity : ComponentActivity() {
                     }
                 )
 
-                // SAF Folder Picker Launcher
+                // SAF Folder Picker Launcher (Beta 9: persist URI + take persistable permission)
                 val folderPickerLauncher = rememberLauncherForActivityResult(
                     contract = ActivityResultContracts.OpenDocumentTree(),
                     onResult = { uri ->
-                        uri?.let { 
+                        uri?.let {
+                            // Persist read access across reboots
+                            contentResolver.takePersistableUriPermission(
+                                it, Intent.FLAG_GRANT_READ_URI_PERMISSION
+                            )
+                            // Save to SharedPreferences for auto-rescan on next launch
+                            prefs.edit().putString(KEY_ROOT_URI, it.toString()).apply()
                             rootFolderUri = it
-                            scanFolder(it)
+                            lifecycleScope.launch(Dispatchers.IO) { scanFolder(it) }
                         }
                     }
                 )
@@ -177,7 +203,7 @@ class MainActivity : ComponentActivity() {
                             val scanned = scannedGames
                             val detected = RomSystemIdentifier.getAllSupportedExtensions()
                                 .mapNotNull { ext ->
-                                    val matching = scanned.filter { it.endsWith(".$ext", ignoreCase = true) }
+                                    val matching = scanned.filter { it.name?.endsWith(".$ext", ignoreCase = true) == true }
                                     if (matching.isEmpty()) return@mapNotNull null
                                     RomSystemIdentifier.identify("file.$ext")
                                         ?.let { Triple(it.systemName, ext, matching.size) }
@@ -268,7 +294,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun GameLibraryGrid() {
-        // Filter scanned games to those matching the selected system's extensions
+        // Filter DocumentFile list to those matching the selected system
         val filteredGames = remember(scannedGames, selectedSystem) {
             val systemExtensions = RomSystemIdentifier.getAllSupportedExtensions()
                 .filter { ext ->
@@ -276,10 +302,10 @@ class MainActivity : ComponentActivity() {
                     info?.systemName == selectedSystem
                 }
             if (systemExtensions.isEmpty()) {
-                scannedGames // show all if no system selected
+                scannedGames
             } else {
-                scannedGames.filter { game ->
-                    systemExtensions.any { ext -> game.endsWith(".$ext", ignoreCase = true) }
+                scannedGames.filter { doc ->
+                    systemExtensions.any { ext -> doc.name?.endsWith(".$ext", ignoreCase = true) == true }
                 }
             }
         }
@@ -290,17 +316,8 @@ class MainActivity : ComponentActivity() {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    selectedSystem,
-                    color = Color.White,
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.ExtraBold
-                )
-                Text(
-                    "${filteredGames.size} games",
-                    color = Color.Gray,
-                    fontSize = 13.sp
-                )
+                Text(selectedSystem,  color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.ExtraBold)
+                Text("${filteredGames.size} games", color = Color.Gray, fontSize = 13.sp)
             }
 
             if (filteredGames.isEmpty()) {
@@ -309,7 +326,8 @@ class MainActivity : ComponentActivity() {
                         Icon(Icons.Default.Add, null, tint = Color.Gray, modifier = Modifier.size(48.dp))
                         Spacer(Modifier.height(12.dp))
                         Text("No games found for $selectedSystem", color = Color.Gray)
-                        Text("Tap \"Scan Folder\" in Settings to import ROMs", color = Color.DarkGray, fontSize = 12.sp)
+                        Text("Tap \"Scan Folder\" in Settings to import ROMs",
+                            color = Color.DarkGray, fontSize = 12.sp)
                     }
                 }
             } else {
@@ -319,8 +337,8 @@ class MainActivity : ComponentActivity() {
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    items(filteredGames) { game ->
-                        GameCard(game)
+                    items(filteredGames) { doc ->
+                        GameCard(doc)
                     }
                 }
             }
@@ -328,11 +346,15 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    fun GameCard(name: String) {
+    fun GameCard(doc: DocumentFile) {
+        val name = doc.name ?: "Unknown"
         Column(
             modifier = Modifier
                 .width(120.dp)
-                .clickable { /* Simulate ROM loading */ },
+                .clickable {
+                    // Beta 9: onClick → ROM Cache Copier → JNI boot → UI transition
+                    doc.uri.let { uri -> handleRomSelection(uri) }
+                },
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(
@@ -344,26 +366,33 @@ class MainActivity : ComponentActivity() {
                 contentAlignment = Alignment.Center
             ) {
                 Box(Modifier.fillMaxSize().clip(RoundedCornerShape(11.dp)).background(Color.Black)) {
-                    Text(name.take(1), color = when(selectedSystem) {
-                        "NES" -> Color(0xFFE60012)
-                        "SNES" -> Color(0xFF51268F)
-                        "PlayStation" -> Color(0xFF00ADB5)
-                        else -> AppleBlue
-                    }, fontSize = 52.sp, fontWeight = FontWeight.ExtraBold, modifier = Modifier.align(Alignment.Center))
-                    
+                    Text(
+                        name.take(1).uppercase(),
+                        color = when (selectedSystem) {
+                            "NES"           -> Color(0xFFE60012)
+                            "Super Nintendo" -> Color(0xFF51268F)
+                            "Sony PlayStation" -> Color(0xFF00ADB5)
+                            else            -> AppleBlue
+                        },
+                        fontSize = 52.sp, fontWeight = FontWeight.ExtraBold,
+                        modifier = Modifier.align(Alignment.Center)
+                    )
                     // System Badge
-                    Box(Modifier.align(Alignment.BottomEnd).padding(8.dp).background(Color.Black.copy(alpha = 0.6f), RoundedCornerShape(4.dp)).padding(horizontal = 4.dp, vertical = 2.dp)) {
-                        Text(selectedSystem.take(3).uppercase(), color = Color.Gray, fontSize = 8.sp, fontWeight = FontWeight.Bold)
+                    Box(
+                        Modifier.align(Alignment.BottomEnd).padding(8.dp)
+                            .background(Color.Black.copy(alpha = 0.6f), RoundedCornerShape(4.dp))
+                            .padding(horizontal = 4.dp, vertical = 2.dp)
+                    ) {
+                        Text(selectedSystem.take(3).uppercase(),
+                            color = Color.Gray, fontSize = 8.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
             Spacer(Modifier.height(8.dp))
             Text(
-                name,
-                color = Color.White,
-                fontSize = 14.sp,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
+                name.substringBeforeLast("."),  // strip extension for display
+                color = Color.White, fontSize = 14.sp,
+                maxLines = 1, overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center
             )
         }
@@ -791,17 +820,17 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun scanFolder(uri: Uri) {
-        val root = DocumentFile.fromTreeUri(this, uri)
+        val root = DocumentFile.fromTreeUri(this, uri) ?: return
         val supportedExtensions = RomSystemIdentifier.getAllSupportedExtensions()
-        
-        val foundGames = mutableListOf<String>()
-        root?.listFiles()?.forEach { file ->
+        val foundDocs = mutableListOf<DocumentFile>()
+        root.listFiles().forEach { file ->
             val ext = file.name?.substringAfterLast(".", "")?.lowercase()
             if (file.isFile && supportedExtensions.contains(ext)) {
-                file.name?.let { foundGames.add(it) }
+                foundDocs.add(file)
             }
         }
-        scannedGames = foundGames
+        Log.d("OpenEmuCore", "Scanned ${foundDocs.size} ROMs from $uri")
+        scannedGames = foundDocs
     }
 
     private fun sendInput(button: String, isPressed: Boolean) {
@@ -815,12 +844,6 @@ class MainActivity : ComponentActivity() {
     private external fun nativeSetSize(width: Int, height: Int)
     private external fun stringFromJNI(): String
 
-    companion object {
-        init {
-            // Initial placeholder or core management library if needed
-            // System.loadLibrary("openemu_mgmt") 
-        }
-    }
 }
 
 @Composable
