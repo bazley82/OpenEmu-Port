@@ -52,18 +52,18 @@
       "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libfceu.so",
       "runtimeFiles": []
     },
-    "gambatte::@6890427a1f51a3e7e1df": {
-      "toolchain": "toolchain",
-      "abi": "arm64-v8a",
-      "artifactName": "gambatte",
-      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libgambatte.so",
-      "runtimeFiles": []
-    },
     "genesisplus::@6890427a1f51a3e7e1df": {
       "toolchain": "toolchain",
       "abi": "arm64-v8a",
       "artifactName": "genesisplus",
       "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libgenesisplus.so",
+      "runtimeFiles": []
+    },
+    "libretro_bridge::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "libretro_bridge",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/liblibretro_bridge.so",
       "runtimeFiles": []
     },
     "mednafen::@6890427a1f51a3e7e1df": {
@@ -78,20 +78,6 @@
       "abi": "arm64-v8a",
       "artifactName": "mgba",
       "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libmgba.so",
-      "runtimeFiles": []
-    },
-    "mupen64plus::@6890427a1f51a3e7e1df": {
-      "toolchain": "toolchain",
-      "abi": "arm64-v8a",
-      "artifactName": "mupen64plus",
-      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libmupen64plus.so",
-      "runtimeFiles": []
-    },
-    "nestopia::@6890427a1f51a3e7e1df": {
-      "toolchain": "toolchain",
-      "abi": "arm64-v8a",
-      "artifactName": "nestopia",
-      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libnestopia.so",
       "runtimeFiles": []
     },
     "o2em::@6890427a1f51a3e7e1df": {

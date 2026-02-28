@@ -35,12 +35,6 @@
       "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libfceu.so",
       "runtimeFiles": []
     },
-    "mupen64plus::@6890427a1f51a3e7e1df": {
-      "artifactName": "mupen64plus",
-      "abi": "arm64-v8a",
-      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libmupen64plus.so",
-      "runtimeFiles": []
-    },
     "picodrive::@6890427a1f51a3e7e1df": {
       "artifactName": "picodrive",
       "abi": "arm64-v8a",
@@ -59,12 +53,6 @@
       "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libdesmume.so",
       "runtimeFiles": []
     },
-    "nestopia::@6890427a1f51a3e7e1df": {
-      "artifactName": "nestopia",
-      "abi": "arm64-v8a",
-      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libnestopia.so",
-      "runtimeFiles": []
-    },
     "mgba::@6890427a1f51a3e7e1df": {
       "artifactName": "mgba",
       "abi": "arm64-v8a",
@@ -75,6 +63,12 @@
       "artifactName": "4do",
       "abi": "arm64-v8a",
       "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/lib4do.so",
+      "runtimeFiles": []
+    },
+    "libretro_bridge::@6890427a1f51a3e7e1df": {
+      "artifactName": "libretro_bridge",
+      "abi": "arm64-v8a",
+      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/liblibretro_bridge.so",
       "runtimeFiles": []
     },
     "o2em::@6890427a1f51a3e7e1df": {
@@ -111,12 +105,6 @@
       "artifactName": "snes9x",
       "abi": "arm64-v8a",
       "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libsnes9x.so",
-      "runtimeFiles": []
-    },
-    "gambatte::@6890427a1f51a3e7e1df": {
-      "artifactName": "gambatte",
-      "abi": "arm64-v8a",
-      "output": "/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/libgambatte.so",
       "runtimeFiles": []
     },
     "genesisplus::@6890427a1f51a3e7e1df": {

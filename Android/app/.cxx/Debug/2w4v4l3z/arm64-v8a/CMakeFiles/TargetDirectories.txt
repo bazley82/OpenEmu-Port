@@ -1,6 +1,4 @@
-/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a/CMakeFiles/gambatte.dir
-/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a/CMakeFiles/nestopia.dir
-/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a/CMakeFiles/mupen64plus.dir
+/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a/CMakeFiles/libretro_bridge.dir
 /Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a/CMakeFiles/mgba.dir
 /Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a/CMakeFiles/snes9x.dir
 /Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/.cxx/Debug/2w4v4l3z/arm64-v8a/CMakeFiles/desmume.dir

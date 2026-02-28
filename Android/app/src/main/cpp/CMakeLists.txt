@@ -5,74 +5,19 @@ project("openemu_cores")
 set(SHARED_CORES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../Shared-Cores")
 
 # ─────────────────────────────────────────────────────────────────────────────
-# REAL CORES (Beta 7 — fully linked)
+# BETA 8 — Pre-built Libretro cores shipped as jniLibs; no source compilation.
+#
+# The three real cores (Gambatte, Nestopia, Mupen64Plus-Next) are official
+# arm64-v8a .so files from buildbot.libretro.com and live in:
+#   app/src/main/jniLibs/arm64-v8a/
+#
+# They are loaded at runtime via dlopen() inside libretro_bridge.cpp.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# ── 1. Gambatte (Game Boy / Color) ─────────────────────────────────────────
-set(GAMBATTE_SRC_DIR "${SHARED_CORES_DIR}/Gambatte/src")
-
-file(GLOB_RECURSE GAMBATTE_SOURCES
-    "${GAMBATTE_SRC_DIR}/libgambatte/*.cpp"
-    "${GAMBATTE_SRC_DIR}/resample/*.cpp"
-)
-
-add_library(gambatte SHARED
-    "gambatte_core.cpp"
-    ${GAMBATTE_SOURCES}
-)
-target_include_directories(gambatte PRIVATE
-    "${GAMBATTE_SRC_DIR}"
-    "${GAMBATTE_SRC_DIR}/libgambatte"
-    "${GAMBATTE_SRC_DIR}/resample"
-)
-target_compile_definitions(gambatte PRIVATE HAVE_STDINT_H)
-target_compile_options(gambatte PRIVATE -std=c++11 -O2 -fvisibility=hidden)
-target_link_libraries(gambatte log android)
-
-# ── 2. Nestopia (NES / Famicom) ────────────────────────────────────────────
-set(NESTOPIA_SRC_DIR "${SHARED_CORES_DIR}/Nestopia/core")
-
-file(GLOB_RECURSE NESTOPIA_SOURCES
-    "${NESTOPIA_SRC_DIR}/*.cpp"
-)
-# Exclude macOS-specific ObjC++ files if any exist
-list(FILTER NESTOPIA_SOURCES EXCLUDE REGEX ".*\\.mm$")
-
-add_library(nestopia SHARED
-    "nestopia_core.cpp"
-    ${NESTOPIA_SOURCES}
-)
-target_include_directories(nestopia PRIVATE
-    "${NESTOPIA_SRC_DIR}"
-    "${NESTOPIA_SRC_DIR}/api"
-    "${NESTOPIA_SRC_DIR}/board"
-    "${NESTOPIA_SRC_DIR}/input"
-)
-target_compile_definitions(nestopia PRIVATE
-    NST_NO_ZLIB
-    NDEBUG
-)
-target_compile_options(nestopia PRIVATE -std=c++11 -O2 -fexceptions -frtti -Wno-narrowing)
-target_link_libraries(nestopia log android)
-
-# ── 3. Mupen64Plus (Nintendo 64) ───────────────────────────────────────────
-# NOTE: Mupen64Plus requires its full plugin ecosystem (video, audio, RSP) and
-# external libs (xxhash, md5) that are not in this repository.
-# The mupen64plus_core.cpp bridge is shipped as a structured JNI hook that
-# integrates cleanly when the plugin runtime is available. For Beta 7 we link
-# only the C API headers as a compile-only stub so the .so is present.
-set(M64P_SRC_DIR "${SHARED_CORES_DIR}/Mupen64Plus/mupen64plus-core/src")
-
-add_library(mupen64plus SHARED "mupen64plus_core.cpp")
-target_include_directories(mupen64plus PRIVATE
-    "${M64P_SRC_DIR}"
-    "${M64P_SRC_DIR}/api"
-)
-target_compile_definitions(mupen64plus PRIVATE
-    ANDROID
-    MUPEN64PLUS_VERSION=0x00020000
-)
-target_link_libraries(mupen64plus log android)
+# ── Unified Libretro bridge (dlopen frontend) ─────────────────────────────
+add_library(libretro_bridge SHARED "libretro_bridge.cpp")
+target_compile_options(libretro_bridge PRIVATE -std=c++17 -O2 -fvisibility=hidden)
+target_link_libraries(libretro_bridge log android dl)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # STUB CORES (remaining 15 — JNI dispatch only, to be wired in future betas)

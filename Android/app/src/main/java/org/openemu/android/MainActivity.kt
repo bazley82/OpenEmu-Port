@@ -372,33 +372,52 @@ class MainActivity : ComponentActivity() {
     private fun handleRomSelection(uri: Uri) {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                // Copy selected file to internal cache for NDK access
-                val file = File(cacheDir, "current_rom") // Use a generic name for the cached ROM
+                // ── 1. Identify the system from the original filename ──────────────
+                val originalName =
+                    androidx.documentfile.provider.DocumentFile
+                        .fromSingleUri(this@MainActivity, uri)?.name
+                    ?: uri.lastPathSegment?.substringAfterLast('/') ?: "rom.bin"
+
+                val systemInfo = RomSystemIdentifier.identify(originalName)
+                val coreToUse  = systemInfo?.coreName  ?: selectedCore
+                val sysToUse   = systemInfo?.systemName ?: selectedSystem
+
+                // ── 2. Copy ROM to internal cache, preserving the extension ───────
+                //    The NDK / Libretro cores cannot read content:// URIs directly.
+                val cachedRom = File(cacheDir, originalName)
                 contentResolver.openInputStream(uri)?.use { input ->
-                    file.outputStream().use { output ->
-                        input.copyTo(output)
-                    }
+                    cachedRom.outputStream().use { output -> input.copyTo(output) }
                 }
-                
-                Log.d("OpenEmuCore", "ROM copied to path: ${file.absolutePath}")
-                val systemInfo = RomSystemIdentifier.identify(uri.toString())
-                val coreToUse = systemInfo?.coreName ?: selectedCore
-                val systemToUse = systemInfo?.systemName ?: selectedSystem
-                
+                Log.d("OpenEmuCore", "ROM cached: ${cachedRom.absolutePath} (${cachedRom.length()} bytes)")
+
+                // ── 3. Resolve the absolute .so path ─────────────────────────────
+                //    Pre-built Libretro cores are in nativeLibraryDir; stub cores
+                //    use System.loadLibrary() called later.
+                val nativeLibDir = applicationInfo.nativeLibraryDir
+                val libretroSoPath: String? = systemInfo?.libretroSo
+                    ?.let { File(nativeLibDir, it).takeIf { f -> f.exists() }?.absolutePath }
+
                 withContext(Dispatchers.Main) {
                     try {
-                         System.loadLibrary(coreToUse)
-                         selectedSystem = systemToUse
-                         selectedCore = coreToUse
-                         isGameRunning = true
-                         nativeLoadROM(file.absolutePath, coreToUse)
+                        selectedSystem = sysToUse
+                        selectedCore   = coreToUse
+                        isGameRunning  = true
+
+                        if (libretroSoPath != null) {
+                            // Real Libretro core — bridge already loaded as part of the APK
+                            System.loadLibrary("libretro_bridge")
+                            nativeLoadROM(cachedRom.absolutePath, libretroSoPath)
+                        } else {
+                            // Stub core — load the stub .so and call its JNI entry
+                            System.loadLibrary(coreToUse)
+                            nativeLoadROM(cachedRom.absolutePath, "")
+                        }
                     } catch (e: UnsatisfiedLinkError) {
-                        Log.e("OpenEmuCore", "Failed to load core library: $coreToUse", e)
-                        // Fallback or show error
+                        Log.e("OpenEmuCore", "Failed to load core: $coreToUse", e)
                     }
                 }
             } catch (e: Exception) {
-                Log.e("OpenEmuCore", "Failed to load ROM", e)
+                Log.e("OpenEmuCore", "ROM selection error", e)
             }
         }
     }
