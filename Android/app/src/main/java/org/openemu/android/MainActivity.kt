@@ -36,6 +36,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
@@ -790,16 +792,28 @@ class MainActivity : ComponentActivity() {
                     }
                     "Cores" -> {
                         SettingsHeader("System Cores")
-                        Text("Active Core for $selectedSystem", color = Color.Gray, fontSize = 12.sp)
-                        Text(selectedCore, color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                        val allSystems = RomSystemIdentifier.getAllSystems()
+                        val activeCores = allSystems.filter { it.libretroSo != null }
                         
-                        if (selectedSystem == "PlayStation") {
-                            Spacer(Modifier.height(24.dp))
-                            SettingsHeader("BIOS Management")
-                            Text("PlayStation BIOS (scph5501.bin)", color = Color.Gray, fontSize = 12.sp)
-                            Text(psxBiosPath ?: "Missing", color = if (psxBiosPath != null) Color.Green else Color(0xFFE60012), fontSize = 14.sp)
-                            Button(onClick = { biosPickerLauncher.launch(arrayOf("*/*")) }, modifier = Modifier.padding(top = 8.dp)) {
-                                Text("Upload BIOS")
+                        LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            items(activeCores) { info ->
+                                Column(modifier = Modifier.padding(vertical = 8.dp)) {
+                                    Text(info.systemName, color = Color.Gray, fontSize = 12.sp)
+                                    Text(info.libretroSo ?: "Internal", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                                    Divider(color = Color.DarkGray, thickness = 0.5.dp, modifier = Modifier.padding(top = 8.dp))
+                                }
+                            }
+                            
+                            item {
+                                if (selectedSystem == "Sony PlayStation") {
+                                    Spacer(Modifier.height(24.dp))
+                                    SettingsHeader("BIOS Management")
+                                    Text("PlayStation BIOS (scph5501.bin)", color = Color.Gray, fontSize = 12.sp)
+                                    Text(psxBiosPath ?: "Missing", color = if (psxBiosPath != null) Color.Green else Color(0xFFE60012), fontSize = 14.sp)
+                                    Button(onClick = { biosPickerLauncher.launch(arrayOf("*/*")) }, modifier = Modifier.padding(top = 8.dp)) {
+                                        Text("Upload BIOS")
+                                    }
+                                }
                             }
                         }
                     }

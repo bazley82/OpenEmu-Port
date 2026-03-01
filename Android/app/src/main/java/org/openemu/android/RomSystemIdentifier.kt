@@ -23,9 +23,9 @@ object RomSystemIdentifier {
         SystemInfo("Game Boy Color",  "libretro_bridge", "gambatte_libretro_android.so",             listOf("gbc")),
         SystemInfo("NES",             "libretro_bridge", "nestopia_libretro_android.so",             listOf("nes", "fds", "unf", "unif")),
         SystemInfo("Nintendo 64",     "libretro_bridge", "mupen64plus_next_gles3_libretro_android.so", listOf("n64", "z64", "v64")),
+        SystemInfo("Game Boy Advance", "libretro_bridge", "mgba_libretro_android.so",            listOf("gba")),
         // ── Stub cores (wired in future betas) ──────────────────────────────
         SystemInfo("Super Nintendo",   "snes9x",      null, listOf("sfc", "smc", "fig")),
-        SystemInfo("Game Boy Advance", "mgba",        null, listOf("gba")),
         SystemInfo("Nintendo DS",      "desmume",     null, listOf("nds")),
         SystemInfo("Sega Genesis",     "genesisplus", null, listOf("md", "gen", "smd", "bin")),
         SystemInfo("Sega Master System","genesisplus", null, listOf("sms")),
@@ -47,6 +47,8 @@ object RomSystemIdentifier {
         if (extension.isEmpty()) return null
         return systems.find { it.extensions.contains(extension) }
     }
+
+    fun getAllSystems(): List<SystemInfo> = systems
 
     fun getAllSupportedExtensions(): List<String> =
         systems.flatMap { it.extensions }.distinct()
