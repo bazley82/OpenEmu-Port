@@ -148,6 +148,11 @@ class MainActivity : ComponentActivity() {
                     isFlexMode = foldingFeature?.state == FoldingFeature.State.HALF_OPENED
                 }
         }
+        
+        // Initialize Native Logger (Beta 14)
+        getExternalFilesDir(null)?.let {
+            nativeInitLogger(it.absolutePath)
+        }
 
         setContent {
             OpenEmuTheme {
@@ -874,6 +879,16 @@ class MainActivity : ComponentActivity() {
                         Text("${(controllerOpacity * 100).toInt()}%", color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                     }
                 }
+
+                // Beta 14: Crash Log Path (at the very bottom)
+                Spacer(Modifier.weight(1f))
+                Box(Modifier.fillMaxWidth().padding(top = 16.dp).background(Color.DarkGray.copy(alpha = 0.2f), RoundedCornerShape(4.dp)).padding(8.dp)) {
+                    Column {
+                        Text("DEBUG CRASH LOG", color = AppleBlue, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        Text(getExternalFilesDir(null)?.absolutePath + "/openemu_crash_log.txt", 
+                             color = Color.LightGray, fontSize = 9.sp, lineHeight = 12.sp)
+                    }
+                }
             }
         }
     }
@@ -902,6 +917,7 @@ class MainActivity : ComponentActivity() {
         nativeSendInput(button, isPressed)
     }
 
+    private external fun nativeInitLogger(logDir: String)
     private external fun nativeSendInput(button: String, isPressed: Boolean)
     private external fun nativeLoadROM(path: String, system: String)
     private external fun nativeSetSurface(surface: Any?)

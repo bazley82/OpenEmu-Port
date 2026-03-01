@@ -19,6 +19,8 @@
 #include <android/native_window.h>
 #include <android/native_window_jni.h>
 #include <atomic>
+#include <cstdarg>
+#include <cstdio>
 #include <cstring>
 #include <dlfcn.h>
 #include <jni.h>
@@ -98,6 +100,24 @@ static ANativeWindow *g_window = nullptr;
 static std::mutex g_windowMutex;
 static std::atomic<bool> g_running{false};
 static JavaVM *g_vm = nullptr;
+static std::string g_logFilePath;
+
+static void LogToFile(const char *fmt, ...) {
+  if (g_logFilePath.empty())
+    return;
+  FILE *f = fopen(g_logFilePath.c_str(), "a");
+  if (!f)
+    return;
+
+  va_list args;
+  va_start(args, fmt);
+  vfprintf(f, fmt, args);
+  fprintf(f, "\n");
+  va_end(args);
+
+  fflush(f);
+  fclose(f);
+}
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
   g_vm = vm;
@@ -297,6 +317,20 @@ static void emulationLoop(double targetFps) {
 
 extern "C" {
 
+JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeInitLogger(
+    JNIEnv *env, jobject /*thiz*/, jstring jLogDir) {
+  const char *logDir = env->GetStringUTFChars(jLogDir, nullptr);
+  g_logFilePath = std::string(logDir) + "/openemu_crash_log.txt";
+  env->ReleaseStringUTFChars(jLogDir, logDir);
+
+  // Clear the log for a new session
+  FILE *f = fopen(g_logFilePath.c_str(), "w");
+  if (f) {
+    fprintf(f, "--- OpenEmuARM64 Beta 14 Logger Initialized ---\n");
+    fclose(f);
+  }
+}
+
 /**
  * nativeLoadROM(path, coreSoPath)
  *   path      — absolute path to the cached ROM file (never a content:// URI)
@@ -304,6 +338,8 @@ extern "C" {
  */
 JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
     JNIEnv *env, jobject /*thiz*/, jstring jRomPath, jstring jCoreSoPath) {
+
+  LogToFile("BC: nativeLoadROM entered. Window: %p", (void *)g_window);
 
   // Beta 13: Copy paths to local std::string and release JNI pointers early
   const char *romPathInternal = env->GetStringUTFChars(jRomPath, nullptr);
@@ -313,54 +349,77 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
   env->ReleaseStringUTFChars(jRomPath, romPathInternal);
   env->ReleaseStringUTFChars(jCoreSoPath, soPathInternal);
 
+  LogToFile("BC: Strings copied. ROM: %s, SO: %s", romPath.c_str(),
+            soPath.c_str());
+
   // Stop any running emulation
   g_running = false;
 
   LOGI("Loading core SO: %s", soPath.c_str());
+  LogToFile("BC: Step 1: Loading core SO...");
   if (!loadCoreSO(soPath.c_str())) {
+    LogToFile("BC: Step 1 FAILED.");
     LOGE("Failed to load core SO, aborting.");
     return;
   }
+  LogToFile("BC: Step 1 SUCCESS. Core Handle: %p", g_coreHandle);
 
   // Beta 13: Strict Libretro Boot Sequence (Callbacks -> Init -> Load)
+  LogToFile("BC: Step 2: Setting Environment...");
   if (g_setEnv)
     g_setEnv(&environmentCallback);
+  LogToFile("BC: Step 3: Setting Video...");
   if (g_setVideo)
     g_setVideo(&videoRefreshCallback);
+  LogToFile("BC: Step 4: Setting Audio...");
   if (g_setAudio)
     g_setAudio(&audioSampleCallback);
   if (g_setAudioBatch)
     g_setAudioBatch(&audioSampleBatchCallback);
+  LogToFile("BC: Step 5: Setting Input...");
   if (g_setInputPoll)
     g_setInputPoll(&inputPollCallback);
   if (g_setInputState)
     g_setInputState(&inputStateCallback);
 
+  LogToFile("BC: Step 6: Initializing core (retro_init)... Addr: %p",
+            (void *)g_init);
   LOGI("Initializing core...");
   if (g_init)
     g_init();
+  LogToFile("BC: Step 6 SUCCESS.");
 
   // Load the ROM
   retro_game_info gameInfo{};
   gameInfo.path = romPath.c_str();
   LOGI("Loading ROM: %s", gameInfo.path);
+  LogToFile("BC: Step 7: retro_load_game... Path: %s, Struct Addr: %p",
+            gameInfo.path, (void *)&gameInfo);
 
   if (!g_loadGame || !g_loadGame(&gameInfo)) {
+    LogToFile("BC: Step 7 FAILED.");
     LOGE("retro_load_game() failed for '%s'", gameInfo.path);
     if (g_deinit)
       g_deinit();
     return;
   }
+  LogToFile("BC: Step 7 SUCCESS.");
 
   LOGI("ROM loaded successfully: %s", romPath.c_str());
 
   // Query AV info for frame rate and resolution
+  LogToFile("BC: Step 8: retro_get_system_av_info...");
   retro_system_av_info avInfo{};
   if (g_getAVInfo)
     g_getAVInfo(&avInfo);
+  LogToFile("BC: Step 8 SUCCESS. Geometry: %dx%d, FPS: %.2f",
+            avInfo.geometry.base_width, avInfo.geometry.base_height,
+            avInfo.timing.fps);
+
   double fps = avInfo.timing.fps > 0.0 ? avInfo.timing.fps : 60.0;
 
   // Beta 12 Fix Refined: Set buffer geometry ONCE after loading
+  LogToFile("BC: Step 9: Setting Buffer Geometry...");
   {
     std::lock_guard<std::mutex> lock(g_windowMutex);
     if (g_window) {
@@ -369,12 +428,17 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
           (int)avInfo.geometry.base_height, WINDOW_FORMAT_RGBX_8888);
       LOGI("Native buffer geometry set: %dx%d", (int)avInfo.geometry.base_width,
            (int)avInfo.geometry.base_height);
+    } else {
+      LogToFile("BC: Step 9 WARNING: g_window is NULL");
     }
   }
+  LogToFile("BC: Step 9 SUCCESS.");
 
   // Start emulation loop
+  LogToFile("BC: Step 10: Launching Emulation Thread...");
   g_running = true;
   std::thread(emulationLoop, fps).detach();
+  LogToFile("BC: Step 10 SUCCESS. nativeLoadROM exit.");
 }
 
 JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeSetSurface(
