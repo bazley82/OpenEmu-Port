@@ -458,9 +458,7 @@ class MainActivity : ComponentActivity() {
                 // ── 3. Resolve the absolute .so path ─────────────────────────────
                 //    Pre-built Libretro cores are in nativeLibraryDir; stub cores
                 //    use System.loadLibrary() called later.
-                val nativeLibDir = applicationInfo.nativeLibraryDir
-                val libretroSoPath: String? = systemInfo?.libretroSo
-                    ?.let { File(nativeLibDir, it).takeIf { f -> f.exists() }?.absolutePath }
+                val libretroSoName: String? = systemInfo?.libretroSo
 
                 withContext(Dispatchers.Main) {
                     selectedSystem = sysToUse
@@ -470,7 +468,7 @@ class MainActivity : ComponentActivity() {
                     // Beta 11: Set pending state instead of booting immediately
                     pendingRomPath = cachedRom.absolutePath
                     pendingCoreName = coreToUse
-                    pendingLibretroSo = libretroSoPath
+                    pendingLibretroSo = libretroSoName
                 }
             } catch (e: Exception) {
                 Log.e("OpenEmuCore", "ROM selection error", e)
