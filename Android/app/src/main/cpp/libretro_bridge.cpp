@@ -101,6 +101,36 @@ static std::mutex g_windowMutex;
 static std::atomic<bool> g_running{false};
 static JavaVM *g_vm = nullptr;
 static std::string g_logFilePath;
+static jmethodID g_logDebugMethod = nullptr;
+static jclass g_mainActivityClass = nullptr;
+
+static void LogToHUD(const char *fmt, ...) {
+  if (!g_vm || !g_logDebugMethod || !g_mainActivityClass)
+    return;
+
+  char buf[1024];
+  va_list args;
+  va_start(args, fmt);
+  vsnprintf(buf, sizeof(buf), fmt, args);
+  va_end(args);
+
+  JNIEnv *env = nullptr;
+  bool detached = false;
+  if (g_vm->GetEnv((void **)&env, JNI_VERSION_1_6) == JNI_EDETACHED) {
+    g_vm->AttachCurrentThread(&env, nullptr);
+    detached = true;
+  }
+
+  if (env) {
+    jstring jmsg = env->NewStringUTF(buf);
+    env->CallStaticVoidMethod(g_mainActivityClass, g_logDebugMethod, jmsg);
+    env->DeleteLocalRef(jmsg);
+  }
+
+  if (detached) {
+    g_vm->DetachCurrentThread();
+  }
+}
 
 static void LogToFile(const char *fmt, ...) {
   if (g_logFilePath.empty())
@@ -121,7 +151,18 @@ static void LogToFile(const char *fmt, ...) {
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
   g_vm = vm;
+  JNIEnv *env = nullptr;
+  if (vm->GetEnv((void **)&env, JNI_VERSION_1_6) != JNI_OK)
+    return -1;
+
+  jclass cls = env->FindClass("org/openemu/android/MainActivity");
+  g_mainActivityClass = (jclass)env->NewGlobalRef(cls);
+  g_logDebugMethod = env->GetStaticMethodID(g_mainActivityClass, "logDebug",
+                                            "(Ljava/lang/String;)V");
+
   LogToFile("BC: JNI_OnLoad called. VM: %p", (void *)vm);
+  LogToHUD("JNI Bridge Initialized (Beta 16)");
+
   return JNI_VERSION_1_6;
 }
 
@@ -217,6 +258,11 @@ static void videoRefreshCallback(const void *data, unsigned width,
         // Assume XRGB8888 or similar — blit line by line respecting stride
         std::memcpy(dst8 + y * buf.stride * 4, src8 + y * pitch, width * 4);
       }
+    }
+    static bool firstFrame = true;
+    if (firstFrame) {
+      LogToHUD("First frame blitted to ANativeWindow");
+      firstFrame = false;
     }
     ANativeWindow_unlockAndPost(g_window);
   }
@@ -340,6 +386,7 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeInitLogger(
 JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
     JNIEnv *env, jobject /*thiz*/, jstring jRomPath, jstring jCoreSoPath) {
 
+  LogToHUD("ROM Path Resolved. Initiating boot...");
   LogToFile("BC: nativeLoadROM entered. Window: %p", (void *)g_window);
 
   // Beta 13: Copy paths to local std::string and release JNI pointers early
@@ -358,8 +405,10 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
 
   LOGI("Loading core SO: %s", soPath.c_str());
   LogToFile("BC: Step 1: Loading core SO...");
+  LogToHUD("C++ Engine Loaded: %s", soPath.c_str());
   if (!loadCoreSO(soPath.c_str())) {
     LogToFile("BC: Step 1 FAILED.");
+    LogToHUD("ERROR: Engine Load Failed.");
     LOGE("Failed to load core SO, aborting.");
     return;
   }
@@ -383,6 +432,7 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
   if (g_setInputState)
     g_setInputState(&inputStateCallback);
 
+  LogToHUD("retro_init called");
   LogToFile("BC: Step 6: Initializing core (retro_init)... Addr: %p",
             (void *)g_init);
   LOGI("Initializing core...");
@@ -397,7 +447,10 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
   LogToFile("BC: Step 7: retro_load_game... Path: %s, Struct Addr: %p",
             gameInfo.path, (void *)&gameInfo);
 
-  if (!g_loadGame || !g_loadGame(&gameInfo)) {
+  bool loadOk = g_loadGame && g_loadGame(&gameInfo);
+  LogToHUD("retro_load_game returned %s", loadOk ? "SUCCESS" : "FAILURE");
+
+  if (!loadOk) {
     LogToFile("BC: Step 7 FAILED.");
     LOGE("retro_load_game() failed for '%s'", gameInfo.path);
     if (g_deinit)
@@ -431,12 +484,14 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
            (int)avInfo.geometry.base_height);
     } else {
       LogToFile("BC: Step 9 WARNING: g_window is NULL");
+      LogToHUD("WARNING: Native Window is NULL");
     }
   }
   LogToFile("BC: Step 9 SUCCESS.");
 
   // Start emulation loop
   LogToFile("BC: Step 10: Launching Emulation Thread...");
+  LogToHUD("Emulation Loop Started");
   g_running = true;
   std::thread(emulationLoop, fps).detach();
   LogToFile("BC: Step 10 SUCCESS. nativeLoadROM exit.");
@@ -452,6 +507,7 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeSetSurface(
   if (surface) {
     g_window = ANativeWindow_fromSurface(env, surface);
     LOGI("Surface acquired: %p", (void *)g_window);
+    LogToHUD("SurfaceCreated triggered: %p", (void *)g_window);
   } else {
     LOGI("Surface released.");
   }

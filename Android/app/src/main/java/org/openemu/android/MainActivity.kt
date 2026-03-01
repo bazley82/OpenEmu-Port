@@ -38,6 +38,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
@@ -100,6 +101,15 @@ fun Modifier.liquidGlass(
 class MainActivity : ComponentActivity() {
 
     companion object {
+        val debugLogs = mutableStateListOf<String>()
+
+        @JvmStatic
+        fun logDebug(message: String) {
+            Log.d("OpenEmuHUD", message)
+            debugLogs.add(message)
+            if (debugLogs.size > 100) debugLogs.removeAt(0)
+        }
+
         init {
             try {
                 System.loadLibrary("libretro_bridge")
@@ -483,6 +493,7 @@ class MainActivity : ComponentActivity() {
             Column(modifier = Modifier.fillMaxSize()) {
                 Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
                     EmulatorVideoSurface()
+                    DebugHUD()
                 }
                 Box(modifier = Modifier.weight(1f).fillMaxWidth().background(Color(0xFF1A1A1A))) {
                     OnScreenController(transparent = false)
@@ -492,6 +503,7 @@ class MainActivity : ComponentActivity() {
             // Universal Landscape Mode (Full screen with Overlay)
             Box(modifier = Modifier.fillMaxSize()) {
                 EmulatorVideoSurface()
+                DebugHUD()
                 // Controller Overlay
                 Box(modifier = Modifier.fillMaxSize().padding(16.dp)) {
                     OnScreenController(transparent = true)
@@ -503,6 +515,7 @@ class MainActivity : ComponentActivity() {
                 // Video at top, keeping aspect ratio (e.g., 4:3 for GBA implies we might need a fixed height or weight)
                 Box(modifier = Modifier.weight(0.4f).fillMaxWidth()) {
                     EmulatorVideoSurface()
+                    DebugHUD()
                 }
                 // Controls at bottom
                 Box(modifier = Modifier.weight(0.6f).fillMaxWidth().background(macOS_Library_Dark)) {
@@ -571,6 +584,39 @@ class MainActivity : ComponentActivity() {
                         onValueChange = { controllerOpacity = it },
                         valueRange = 0.0f..1.0f,
                         colors = SliderDefaults.colors(thumbColor = Color.White, activeTrackColor = AppleBlue)
+                    )
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun DebugHUD() {
+        if (debugLogs.isEmpty()) return
+        
+        val listState = rememberLazyListState()
+        
+        LaunchedEffect(debugLogs.size) {
+            if (debugLogs.isNotEmpty()) {
+                listState.animateScrollToItem(debugLogs.size - 1)
+            }
+        }
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.3f)
+                .background(Color.Black.copy(alpha = 0.7f))
+                .padding(8.dp)
+        ) {
+            LazyColumn(state = listState) {
+                items(debugLogs) { log ->
+                    Text(
+                        text = "> $log",
+                        color = Color.Cyan,
+                        fontSize = 10.sp,
+                        fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
+                        lineHeight = 12.sp
                     )
                 }
             }
