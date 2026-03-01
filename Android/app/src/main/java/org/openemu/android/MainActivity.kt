@@ -671,7 +671,15 @@ class MainActivity : ComponentActivity() {
                                 lifecycleScope.launch(Dispatchers.IO) {
                                     try {
                                         if (so != null) {
-                                            nativeLoadROM(rom, so)
+                                            val coreFile = File(applicationInfo.nativeLibraryDir, so)
+                                            logDebug("Resolved Core Path: ${coreFile.absolutePath}")
+                                            
+                                            if (!coreFile.exists()) {
+                                                logDebug("FATAL: Core NOT found at ${coreFile.absolutePath}")
+                                                return@launch
+                                            }
+                                            
+                                            nativeLoadROM(rom, coreFile.absolutePath)
                                         } else {
                                             System.loadLibrary(core)
                                             nativeLoadROM(rom, "")
@@ -682,6 +690,7 @@ class MainActivity : ComponentActivity() {
                                         pendingLibretroSo = null
                                     } catch (e: Exception) {
                                         Log.e("OpenEmuCore", "JNI Boot failed in surfaceCreated", e)
+                                        logDebug("JNI Boot Exception: ${e.message}")
                                     }
                                 }
                             }
