@@ -145,6 +145,7 @@ static std::atomic<bool> g_running{false};
 static std::atomic<bool> g_isPaused{false};
 static JavaVM *g_vm = nullptr;
 static std::string g_logFilePath;
+static std::string g_baseDir;
 static jmethodID g_logDebugMethod = nullptr;
 static jmethodID g_initAudioMethod = nullptr;
 static jmethodID g_writeAudioMethod = nullptr;
@@ -313,6 +314,14 @@ static bool environmentCallback(unsigned cmd, void *data) {
     return true;
   case RETRO_ENVIRONMENT_SET_PERFORMANCE_LEVEL:
     return true;
+  case 9:  // RETRO_ENVIRONMENT_GET_SYSTEM_DIRECTORY
+  case 31: // RETRO_ENVIRONMENT_GET_SAVE_DIRECTORY
+    if (data && !g_baseDir.empty()) {
+      *reinterpret_cast<const char **>(data) = g_baseDir.c_str();
+      LogToFile("BC: Directory requested (ID %u): %s", cmd, g_baseDir.c_str());
+      return true;
+    }
+    return false;
   case RETRO_ENVIRONMENT_SET_HW_RENDER:
     if (data) {
       retro_hw_render_callback *cb =
@@ -443,7 +452,7 @@ static bool loadCoreSO(const char *soPath) {
   }
 
   LogToHUD("Attempting dlopen: %s", soPath);
-  g_coreHandle = dlopen(soPath, RTLD_LAZY | RTLD_LOCAL);
+  g_coreHandle = dlopen(soPath, RTLD_NOW | RTLD_GLOBAL);
   if (!g_coreHandle) {
     const char *err = dlerror();
     LOGE("dlopen failed for '%s': %s", soPath, err ? err : "unknown error");
@@ -708,15 +717,20 @@ static void emulationLoop(double targetFps) {
 extern "C" {
 
 JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeInitLogger(
-    JNIEnv *env, jobject /*thiz*/, jstring jLogDir) {
+    JNIEnv *env, jobject /*thiz*/, jstring jLogDir, jstring jBaseDir) {
   const char *logDir = env->GetStringUTFChars(jLogDir, nullptr);
+  const char *baseDir = env->GetStringUTFChars(jBaseDir, nullptr);
+
   g_logFilePath = std::string(logDir) + "/openemu_crash_log.txt";
+  g_baseDir = std::string(baseDir);
+
   env->ReleaseStringUTFChars(jLogDir, logDir);
+  env->ReleaseStringUTFChars(jBaseDir, baseDir);
 
   // Clear the log for a new session
   FILE *f = fopen(g_logFilePath.c_str(), "w");
   if (f) {
-    fprintf(f, "--- OpenEmuARM64 Beta 32 Public Logger Initialized ---\n");
+    fprintf(f, "--- OpenEmuARM64 Beta 33 Public Logger Initialized ---\n");
     fclose(f);
   }
 }

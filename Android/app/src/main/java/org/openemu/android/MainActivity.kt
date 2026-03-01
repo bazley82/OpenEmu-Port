@@ -192,7 +192,7 @@ class MainActivity : ComponentActivity() {
         private const val KEY_ROOT_URI  = "root_folder_uri"
         private const val KEY_SHOW_HUD  = "show_debug_hud"
 
-        @JvmStatic private external fun nativeInitLogger(logDir: String)
+        @JvmStatic private external fun nativeInitLogger(logDir: String, baseDir: String)
         @JvmStatic private external fun nativeSendInput(button: String, isPressed: Boolean)
         @JvmStatic private external fun nativeLoadROM(path: String, system: String)
         @JvmStatic private external fun nativeSetSurface(surface: Any?)
@@ -272,7 +272,7 @@ class MainActivity : ComponentActivity() {
         // Initialize Native Logger (Beta 23 Public Documents)
         val docDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOCUMENTS)
         if (!docDir.exists()) docDir.mkdirs()
-        nativeInitLogger(docDir.absolutePath)
+        nativeInitLogger(docDir.absolutePath, docDir.absolutePath)
         
         loadButtonOffsets()
 
