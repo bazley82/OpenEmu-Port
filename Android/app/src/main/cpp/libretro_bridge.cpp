@@ -19,6 +19,7 @@
 #include <android/native_window.h>
 #include <android/native_window_jni.h>
 #include <atomic>
+#include <csignal>
 #include <cstdarg>
 #include <cstdio>
 #include <cstring>
@@ -102,7 +103,33 @@ static std::atomic<bool> g_running{false};
 static JavaVM *g_vm = nullptr;
 static std::string g_logFilePath;
 static jmethodID g_logDebugMethod = nullptr;
+static jmethodID g_initAudioMethod = nullptr;
+static jmethodID g_writeAudioMethod = nullptr;
 static jclass g_mainActivityClass = nullptr;
+
+static void crashHandler(int sig) {
+  const char *sig_name = "UNKNOWN";
+  if (sig == SIGSEGV)
+    sig_name = "SIGSEGV";
+  else if (sig == SIGABRT)
+    sig_name = "SIGABRT";
+  else if (sig == SIGILL)
+    sig_name = "SIGILL";
+
+  LOGE("FATAL CRASH: Signal %d (%s)", sig, sig_name);
+
+  // Attempt to write to crash log file
+  if (!g_logFilePath.empty()) {
+    FILE *f = fopen(g_logFilePath.c_str(), "a");
+    if (f) {
+      fprintf(f, "\nFATAL CRASH: Signal %d (%s)\n", sig, sig_name);
+      fclose(f);
+    }
+  }
+
+  // We can't safely call JNI here usually, but we've logged to file.
+  exit(sig);
+}
 
 static void LogToHUD(const char *fmt, ...) {
   if (!g_vm || !g_logDebugMethod || !g_mainActivityClass)
@@ -159,6 +186,18 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
   g_mainActivityClass = (jclass)env->NewGlobalRef(cls);
   g_logDebugMethod = env->GetStaticMethodID(g_mainActivityClass, "logDebug",
                                             "(Ljava/lang/String;)V");
+  g_initAudioMethod =
+      env->GetStaticMethodID(g_mainActivityClass, "initAudio", "(I)V");
+  g_writeAudioMethod =
+      env->GetStaticMethodID(g_mainActivityClass, "writeAudio", "([SI)V");
+
+  // Register signal handlers for crash logging
+  struct sigaction sa;
+  memset(&sa, 0, sizeof(sa));
+  sa.sa_handler = crashHandler;
+  sigaction(SIGSEGV, &sa, nullptr);
+  sigaction(SIGABRT, &sa, nullptr);
+  sigaction(SIGILL, &sa, nullptr);
 
   LOGI("JNI_OnLoad called. VM: %p", (void *)vm);
   LogToFile("BC: JNI_OnLoad called. VM: %p", (void *)vm);
@@ -203,6 +242,10 @@ static std::atomic<uint32_t> g_inputState{0};
 #define JOYPAD_X 9
 #define JOYPAD_L 10
 #define JOYPAD_R 11
+#define JOYPAD_L2 12
+#define JOYPAD_R2 13
+#define JOYPAD_L3 14
+#define JOYPAD_R3 15
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Libretro callback implementations
@@ -269,11 +312,33 @@ static void videoRefreshCallback(const void *data, unsigned width,
   }
 }
 
-static void audioSampleCallback(int16_t /*left*/, int16_t /*right*/) {}
+static size_t audioSampleBatchCallback(const int16_t *data, size_t frames) {
+  if (!g_vm || !g_writeAudioMethod || !g_mainActivityClass)
+    return frames;
 
-static size_t audioSampleBatchCallback(const int16_t * /*data*/,
-                                       size_t frames) {
-  return frames; // discard audio for now — Beta 9 wires AudioTrack
+  JNIEnv *env = nullptr;
+  bool detached = false;
+  if (g_vm->GetEnv((void **)&env, JNI_VERSION_1_6) == JNI_EDETACHED) {
+    g_vm->AttachCurrentThread(&env, nullptr);
+    detached = true;
+  }
+
+  if (env) {
+    jshortArray jbuf = env->NewShortArray(frames * 2);
+    env->SetShortArrayRegion(jbuf, 0, frames * 2, data);
+    env->CallStaticVoidMethod(g_mainActivityClass, g_writeAudioMethod, jbuf,
+                              (jint)frames);
+    env->DeleteLocalRef(jbuf);
+  }
+
+  if (detached)
+    g_vm->DetachCurrentThread();
+  return frames;
+}
+
+static void audioSampleCallback(int16_t left, int16_t right) {
+  int16_t buf[2] = {left, right};
+  audioSampleBatchCallback(buf, 1);
 }
 
 static void inputPollCallback() {}
@@ -507,6 +572,16 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
 
   double fps = avInfo.timing.fps > 0.0 ? avInfo.timing.fps : 60.0;
 
+  // Beta 22: Initialize AudioTrack
+  if (g_vm && g_initAudioMethod && g_mainActivityClass) {
+    JNIEnv *env = nullptr;
+    if (g_vm->GetEnv((void **)&env, JNI_VERSION_1_6) == JNI_OK) {
+      env->CallStaticVoidMethod(g_mainActivityClass, g_initAudioMethod,
+                                (jint)avInfo.timing.sample_rate);
+      LogToHUD("Audio Initialized: %d Hz", (int)avInfo.timing.sample_rate);
+    }
+  }
+
   // Beta 12 Fix Refined: Set buffer geometry ONCE after loading
   LogToFile("BC: Step 9: Setting Buffer Geometry...");
   {
@@ -585,6 +660,14 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeSendInput(
     bit = 1u << JOYPAD_L;
   else if (b == "R")
     bit = 1u << JOYPAD_R;
+  else if (b == "L2" || b == "Z")
+    bit = 1u << JOYPAD_L2;
+  else if (b == "R2")
+    bit = 1u << JOYPAD_R2;
+  else if (b == "L3")
+    bit = 1u << JOYPAD_L3;
+  else if (b == "R3")
+    bit = 1u << JOYPAD_R3;
 
   if (pressed)
     g_inputState |= bit;

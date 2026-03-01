@@ -50,6 +50,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.asComposeRenderEffect
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.ui.draw.alpha
+import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -67,6 +69,14 @@ import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.media.AudioAttributes
+import android.media.AudioFormat
+import android.media.AudioTrack
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import androidx.compose.ui.graphics.asImageBitmap
+import java.io.InputStream
+import java.util.Locale
 import java.io.File
 import java.io.FileOutputStream
 
@@ -121,6 +131,46 @@ class MainActivity : ComponentActivity() {
                 Log.e("OpenEmuCore", "Failed to load libretro_bridge", e)
             }
         }
+        private var audioTrack: AudioTrack? = null
+
+        @JvmStatic
+        fun initAudio(sampleRate: Int) {
+            try {
+                audioTrack?.stop()
+                audioTrack?.release()
+                
+                val minBufferSize = AudioTrack.getMinBufferSize(
+                    sampleRate,
+                    AudioFormat.CHANNEL_OUT_STEREO,
+                    AudioFormat.ENCODING_PCM_16BIT
+                )
+                
+                audioTrack = AudioTrack.Builder()
+                    .setAudioAttributes(AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_GAME)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build())
+                    .setAudioFormat(AudioFormat.Builder()
+                        .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                        .setSampleRate(sampleRate)
+                        .setChannelMask(AudioFormat.CHANNEL_OUT_STEREO)
+                        .build())
+                    .setBufferSizeInBytes(minBufferSize * 2)
+                    .setTransferMode(AudioTrack.MODE_STREAM)
+                    .build()
+                
+                audioTrack?.play()
+                logDebug("AudioTrack Inited: $sampleRate Hz")
+            } catch (e: Exception) {
+                Log.e("OpenEmuAudio", "AudioTrack init failed", e)
+            }
+        }
+
+        @JvmStatic
+        fun writeAudio(data: ShortArray, frames: Int) {
+            audioTrack?.write(data, 0, frames * 2)
+        }
+
         private const val PREFS_NAME    = "prefs_openemu"
         private const val KEY_ROOT_URI  = "root_folder_uri"
         private const val KEY_SHOW_HUD  = "show_debug_hud"
@@ -730,10 +780,29 @@ class MainActivity : ComponentActivity() {
                 "Sony PlayStation" -> "controller_psx.png"
                 "Nintendo 64" -> "controller_n64.png"
                 "Genesis" -> "controller_genesis.png"
+                "Game Boy", "Game Boy Color" -> "controller_gb.png"
                 else -> "controller_gba.png"
+            }
+
+            // Render the High-Fidelity Asset
+            getAssetBitmap(assetName)?.let { bitmap ->
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize().alpha(0.4f),
+                    contentScale = ContentScale.Fit
+                )
             }
             
             DynamicControllerLayout(assetName, color)
+        }
+    }
+
+    private fun getAssetBitmap(name: String): Bitmap? {
+        return try {
+            assets.open("controllers/$name").use { BitmapFactory.decodeStream(it) }
+        } catch (e: Exception) {
+            null
         }
     }
 
@@ -745,6 +814,8 @@ class MainActivity : ComponentActivity() {
             "NES" -> NESLayout(tint)
             "Super Nintendo" -> SNESLayout(tint)
             "Sony PlayStation" -> PlayStationLayout(tint)
+            "Nintendo 64" -> N64Layout(tint)
+            "Game Boy", "Game Boy Color" -> GBLayout(assetName, tint)
             else -> GBALayout(tint)
         }
         
@@ -817,6 +888,13 @@ class MainActivity : ComponentActivity() {
                 Spacer(Modifier.width(20.dp))
                 ControllerButton("A", Color(0xFFE60012), circle = true) { sendInput("A", it) }
             }
+            
+            // Start/Select (Center bottom)
+            Row(Modifier.align(Alignment.BottomCenter).padding(bottom = 60.dp)) {
+                ControllerButton("SEL", Color.DarkGray) { sendInput("SELECT", it) }
+                Spacer(Modifier.width(16.dp))
+                ControllerButton("START", Color.DarkGray) { sendInput("START", it) }
+            }
         }
     }
 
@@ -840,6 +918,13 @@ class MainActivity : ComponentActivity() {
                 Box(Modifier.align(Alignment.CenterStart)) { ControllerButton("Y", Color(0xFF8E6EB3), circle = true) { sendInput("Y", it) } }
                 Box(Modifier.align(Alignment.CenterEnd)) { ControllerButton("A", Color(0xFF8E6EB3), circle = true) { sendInput("A", it) } }
                 Box(Modifier.align(Alignment.BottomCenter)) { ControllerButton("B", Color(0xFF51268F), circle = true) { sendInput("B", it) } }
+            }
+
+            // Start/Select
+            Row(Modifier.align(Alignment.BottomCenter).padding(bottom = 60.dp)) {
+                ControllerButton("SEL", Color.DarkGray) { sendInput("SELECT", it) }
+                Spacer(Modifier.width(20.dp))
+                ControllerButton("START", Color.DarkGray) { sendInput("START", it) }
             }
         }
     }
@@ -868,27 +953,112 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
+    fun N64Layout(color: Color) {
+        Box(Modifier.fillMaxSize()) {
+            // Analog Stick (Center-ish bottom)
+            Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 80.dp).size(120.dp).background(Color.Gray.copy(0.2f), CircleShape)) {
+                ControllerButton("S", Color.DarkGray, circle = true) { /* Analog emulation */ }
+            }
+            
+            // D-Pad (Left)
+            Box(Modifier.align(Alignment.CenterStart).padding(start = 24.dp).size(140.dp)) {
+                Box(Modifier.align(Alignment.TopCenter)) { ControllerButton("U", Color.Black) { sendInput("UP", it) } }
+                Box(Modifier.align(Alignment.CenterStart)) { ControllerButton("L", Color.Black) { sendInput("LEFT", it) } }
+                Box(Modifier.align(Alignment.CenterEnd)) { ControllerButton("R", Color.Black) { sendInput("RIGHT", it) } }
+                Box(Modifier.align(Alignment.BottomCenter)) { ControllerButton("D", Color.Black) { sendInput("DOWN", it) } }
+            }
+
+            // Buttons (Right)
+            Box(Modifier.align(Alignment.CenterEnd).padding(end = 24.dp).size(200.dp)) {
+                // A/B
+                Box(Modifier.align(Alignment.BottomStart)) { ControllerButton("B", Color(0xFF1B75BC), circle = true) { sendInput("B", it) } }
+                Box(Modifier.align(Alignment.BottomCenter).padding(start = 40.dp)) { ControllerButton("A", Color(0xFF39B54A), circle = true) { sendInput("A", it) } }
+                
+                // C-Buttons (Mapped to X, Y, L3, R2 for now)
+                Box(Modifier.align(Alignment.TopEnd).size(100.dp)) {
+                    Box(Modifier.align(Alignment.TopCenter)) { ControllerButton("CU", Color(0xFFFBB03B), circle = true) { sendInput("Y", it) } }
+                    Box(Modifier.align(Alignment.CenterStart)) { ControllerButton("CL", Color(0xFFFBB03B), circle = true) { sendInput("X", it) } }
+                    Box(Modifier.align(Alignment.CenterEnd)) { ControllerButton("CR", Color(0xFFFBB03B), circle = true) { sendInput("L3", it) } }
+                    Box(Modifier.align(Alignment.BottomCenter)) { ControllerButton("CD", Color(0xFFFBB03B), circle = true) { sendInput("R2", it) } }
+                }
+            }
+            
+            // Start (Center)
+            Box(Modifier.align(Alignment.Center).padding(top = 80.dp)) {
+                ControllerButton("START", Color(0xFFE60012)) { sendInput("START", it) }
+            }
+            
+            // Z Trigger (Bottom Center or Left)
+            Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 20.dp)) {
+                ControllerButton("Z", Color.DarkGray) { sendInput("Z", it) }
+            }
+            
+            // Shoulders
+            Row(Modifier.align(Alignment.TopCenter).padding(top = 40.dp)) {
+                ControllerButton("L", color) { sendInput("L", it) }
+                Spacer(Modifier.width(160.dp))
+                ControllerButton("R", color) { sendInput("R", it) }
+            }
+        }
+    }
+
+    @Composable
+    fun GBLayout(assetName: String, color: Color) {
+        Box(Modifier.fillMaxSize()) {
+            // D-Pad
+            Column(Modifier.align(Alignment.CenterStart).padding(start = 32.dp)) {
+                ControllerButton("U", Color.DarkGray) { sendInput("UP", it) }
+                Row {
+                    ControllerButton("L", Color.DarkGray) { sendInput("LEFT", it) }
+                    Spacer(Modifier.width(12.dp))
+                    ControllerButton("R", Color.DarkGray) { sendInput("RIGHT", it) }
+                }
+                ControllerButton("D", Color.DarkGray) { sendInput("DOWN", it) }
+            }
+            
+            // A/B
+            Row(Modifier.align(Alignment.CenterEnd).padding(end = 32.dp, bottom = 40.dp)) {
+                ControllerButton("B", Color(0xFF8C1B79), circle = true) { sendInput("B", it) }
+                Spacer(Modifier.width(16.dp))
+                ControllerButton("A", Color(0xFF8C1B79), circle = true) { sendInput("A", it) }
+            }
+            
+            // Start/Select
+            Row(Modifier.align(Alignment.BottomCenter).padding(bottom = 60.dp)) {
+                ControllerButton("SEL", Color.DarkGray) { sendInput("SELECT", it) }
+                Spacer(Modifier.width(20.dp))
+                ControllerButton("START", Color.DarkGray) { sendInput("START", it) }
+            }
+        }
+    }
+
+    @Composable
     fun ControllerButton(text: String, color: Color, circle: Boolean = false, onStateChange: (Boolean) -> Unit) {
-        val alphaColor = color.copy(alpha = controllerOpacity)
+        val alphaColor = color.copy(alpha = if (controllerOpacity < 0.3f) 0.3f else controllerOpacity)
+        
         Box(
             modifier = Modifier
                 .padding(4.dp)
-                .size(if (circle) 64.dp else 56.dp)
-                .background(alphaColor, if (circle) CircleShape else RoundedCornerShape(8.dp))
+                .size(if (circle) 72.dp else 64.dp)
+                .background(alphaColor, if (circle) CircleShape else RoundedCornerShape(12.dp))
                 .pointerInput(Unit) {
                     awaitPointerEventScope {
                         while (true) {
                             val event = awaitPointerEvent()
                             when (event.type) {
-                                PointerEventType.Press -> onStateChange(true)
-                                PointerEventType.Release -> onStateChange(false)
+                                PointerEventType.Press -> {
+                                    onStateChange(true)
+                                }
+                                PointerEventType.Release -> {
+                                    onStateChange(false)
+                                }
                             }
                         }
                     }
                 },
             contentAlignment = Alignment.Center
         ) {
-            Text(text, color = Color.White.copy(alpha = controllerOpacity + 0.2f), fontSize = 20.sp)
+            Text(text, color = Color.White.copy(alpha = 0.9f), fontSize = 16.sp, fontWeight = FontWeight.Bold)
         }
     }
 
