@@ -15,6 +15,8 @@
  *   nativeSetSurface() / nativeSetSize().
  */
 
+#include <EGL/egl.h>
+#include <GLES3/gl3.h>
 #include <android/log.h>
 #include <android/native_window.h>
 #include <android/native_window_jni.h>
@@ -38,6 +40,35 @@
 #define RETRO_ENVIRONMENT_GET_CAN_DUPE 3
 #define RETRO_ENVIRONMENT_SET_PIXEL_FORMAT 10
 #define RETRO_ENVIRONMENT_SET_PERFORMANCE_LEVEL 8
+#define RETRO_ENVIRONMENT_SET_HW_RENDER 14
+
+enum retro_hw_context_type {
+  RETRO_HW_CONTEXT_NONE = 0,
+  RETRO_HW_CONTEXT_OPENGL = 1,
+  RETRO_HW_CONTEXT_OPENGLES2 = 2,
+  RETRO_HW_CONTEXT_OPENGL_CORE = 3,
+  RETRO_HW_CONTEXT_OPENGLES3 = 4,
+  RETRO_HW_CONTEXT_OPENGLES_CUSTOM = 5,
+  RETRO_HW_CONTEXT_VULKAN = 6,
+  RETRO_HW_CONTEXT_DUMMY = 255
+};
+
+typedef void *(*retro_hw_get_proc_address_t)(const char *);
+
+struct retro_hw_render_callback {
+  retro_hw_context_type context_type;
+  void (*context_reset)();
+  uintptr_t (*get_current_framebuffer)();
+  void *(*get_proc_address)(const char *);
+  bool depth;
+  bool stencil;
+  bool bottom_left_origin;
+  unsigned version_major;
+  unsigned version_minor;
+  bool cache_context;
+  void (*context_destroy)();
+  bool debug_context;
+};
 
 enum retro_pixel_format {
   RETRO_PIXEL_FORMAT_0RGB1555 = 0,
@@ -99,7 +130,19 @@ typedef void (*retro_reset_t)();
 static void *g_coreHandle = nullptr;
 static ANativeWindow *g_window = nullptr;
 static std::mutex g_windowMutex;
+
+// EGL Globals
+static EGLDisplay g_eglDisplay = EGL_NO_DISPLAY;
+static EGLContext g_eglContext = EGL_NO_CONTEXT;
+static EGLSurface g_eglSurface = EGL_NO_SURFACE;
+static bool g_hwRenderEnabled = false;
+static retro_hw_render_callback g_hwRenderCallback = {RETRO_HW_CONTEXT_NONE};
+
+// Beta 27: EGL context and surface are now managed exclusively in the
+// emulation background thread to ensure strict thread isolation.
+// All initEGL() calls from JNI threads have been removed.
 static std::atomic<bool> g_running{false};
+static std::atomic<bool> g_isPaused{false};
 static JavaVM *g_vm = nullptr;
 static std::string g_logFilePath;
 static jmethodID g_logDebugMethod = nullptr;
@@ -209,6 +252,7 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 // Resolved core function pointers
 static retro_init_t g_init = nullptr;
 static retro_deinit_t g_deinit = nullptr;
+static retro_get_system_info_t g_getSystemInfo = nullptr;
 static retro_load_game_t g_loadGame = nullptr;
 static retro_unload_game_t g_unloadGame = nullptr;
 static retro_run_t g_run = nullptr;
@@ -226,6 +270,12 @@ static unsigned g_frameWidth = 0;
 static unsigned g_frameHeight = 0;
 static size_t g_framePitch = 0;
 static retro_pixel_format g_pixelFmt = RETRO_PIXEL_FORMAT_XRGB8888;
+
+// Deferred ROM loading globals
+static std::string g_pendingRomPath;
+static std::vector<uint8_t> g_pendingRomData;
+static bool g_pendingRomNeedFullpath = false;
+static std::atomic<bool> g_loadGamePending{false};
 
 // Input state (joypad port 0)
 static std::atomic<uint32_t> g_inputState{0};
@@ -263,6 +313,34 @@ static bool environmentCallback(unsigned cmd, void *data) {
     return true;
   case RETRO_ENVIRONMENT_SET_PERFORMANCE_LEVEL:
     return true;
+  case RETRO_ENVIRONMENT_SET_HW_RENDER:
+    if (data) {
+      retro_hw_render_callback *cb =
+          reinterpret_cast<retro_hw_render_callback *>(data);
+      cb->context_type = RETRO_HW_CONTEXT_OPENGLES3;
+
+      // Beta 31/32: Robust get_proc_address with dlsym fallback for Android
+      cb->get_proc_address = [](const char *sym) -> void * {
+        void *p = (void *)eglGetProcAddress(sym);
+        if (!p) {
+          // Fallback to libGLESv3.so for core functions
+          static void *glesHandle = dlopen("libGLESv3.so", RTLD_LAZY);
+          if (glesHandle) {
+            p = dlsym(glesHandle, sym);
+          }
+        }
+        return p;
+      };
+
+      cb->get_current_framebuffer = []() -> uintptr_t { return 0; };
+
+      // Save a copy for our own context_reset calls later
+      g_hwRenderCallback = *cb;
+      g_hwRenderEnabled = true;
+      LogToFile("BC: HW Rendering requested (direct population)");
+      return true;
+    }
+    return false;
   default:
     return false;
   }
@@ -270,6 +348,9 @@ static bool environmentCallback(unsigned cmd, void *data) {
 
 static void videoRefreshCallback(const void *data, unsigned width,
                                  unsigned height, size_t pitch) {
+  if (g_hwRenderEnabled)
+    return; // Core handles rendering to FBO/Screen via GLES
+
   if (!data)
     return; // duplicate frame signal
 
@@ -381,6 +462,7 @@ static bool loadCoreSO(const char *soPath) {
 
   RESOLVE(g_init, "retro_init", retro_init_t)
   RESOLVE(g_deinit, "retro_deinit", retro_deinit_t)
+  RESOLVE(g_getSystemInfo, "retro_get_system_info", retro_get_system_info_t)
   RESOLVE(g_loadGame, "retro_load_game", retro_load_game_t)
   RESOLVE(g_unloadGame, "retro_unload_game", retro_unload_game_t)
   RESOLVE(g_run, "retro_run", retro_run_t)
@@ -408,25 +490,215 @@ static void emulationLoop(double targetFps) {
     return;
   }
 
+  EGLConfig eglConfig = nullptr;
+  LOGI("Thread: Pre-initializing EGL context...");
+  g_eglDisplay = eglGetDisplay(EGL_DEFAULT_DISPLAY);
+  if (eglInitialize(g_eglDisplay, nullptr, nullptr)) {
+    LogToFile("BC: Thread: eglInitialize SUCCESS");
+  } else {
+    LogToFile("BC: Thread: eglInitialize FAILED");
+  }
+
+  const EGLint attribs[] = {EGL_RENDERABLE_TYPE,
+                            EGL_OPENGL_ES3_BIT,
+                            EGL_BLUE_SIZE,
+                            8,
+                            EGL_GREEN_SIZE,
+                            8,
+                            EGL_RED_SIZE,
+                            8,
+                            EGL_DEPTH_SIZE,
+                            24,
+                            EGL_SURFACE_TYPE,
+                            EGL_WINDOW_BIT,
+                            EGL_NONE};
+  EGLint numConfigs;
+  eglChooseConfig(g_eglDisplay, attribs, &eglConfig, 1, &numConfigs);
+
+  const EGLint contextAttribs[] = {EGL_CONTEXT_CLIENT_VERSION, 3, EGL_NONE};
+  g_eglContext =
+      eglCreateContext(g_eglDisplay, eglConfig, EGL_NO_CONTEXT, contextAttribs);
+  if (g_eglContext != EGL_NO_CONTEXT) {
+    LogToFile("BC: Thread: eglCreateContext SUCCESS");
+  }
+
+  {
+    std::lock_guard<std::mutex> lock(g_windowMutex);
+    if (g_window) {
+      g_eglSurface =
+          eglCreateWindowSurface(g_eglDisplay, eglConfig, g_window, nullptr);
+    }
+  }
+
+  if (g_eglSurface != EGL_NO_SURFACE) {
+    if (eglMakeCurrent(g_eglDisplay, g_eglSurface, g_eglSurface,
+                       g_eglContext)) {
+      LOGI("Thread: EGL Context Current");
+      LogToFile("BC: Thread: EGL Context Current");
+    } else {
+      LOGE("Thread: eglMakeCurrent FAILED: 0x%x", eglGetError());
+      LogToFile("BC: Thread: eglMakeCurrent FAILED");
+    }
+  }
+
+  // Beta 25: Deferred initialization and game loading on the emulation thread
+  if (g_loadGamePending.load()) {
+    // Beta 31: Total Thread Migration
+    // All setup calls MUST happen on the thread that owns the EGL context.
+    LogToFile("BC: Thread: Step 2: Setting Environment...");
+    if (g_setEnv)
+      g_setEnv(&environmentCallback);
+
+    LogToFile("BC: Thread: Step 3: Setting Video...");
+    if (g_setVideo)
+      g_setVideo(&videoRefreshCallback);
+
+    LogToFile("BC: Thread: Step 4: Setting Audio...");
+    if (g_setAudio)
+      g_setAudio(&audioSampleCallback);
+    if (g_setAudioBatch)
+      g_setAudioBatch(&audioSampleBatchCallback);
+
+    LogToFile("BC: Thread: Step 5: Setting Input...");
+    if (g_setInputPoll)
+      g_setInputPoll(&inputPollCallback);
+    if (g_setInputState)
+      g_setInputState(&inputStateCallback);
+
+    // 2. Core initialization (Init requires context for some cores)
+    if (g_init) {
+      LOGI("Thread: retro_init called");
+      LogToFile("BC: Thread: retro_init called");
+      g_init();
+    }
+
+    // 3. Load Game
+    if (g_loadGame && !g_pendingRomPath.empty()) {
+      retro_game_info info = {0};
+      info.path = g_pendingRomPath.c_str();
+
+      if (g_pendingRomNeedFullpath) {
+        info.data = nullptr;
+        info.size = 0;
+      } else {
+        info.data = g_pendingRomData.data();
+        info.size = g_pendingRomData.size();
+      }
+
+      LOGI("Thread: retro_load_game called");
+      LogToFile("BC: Thread: retro_load_game called");
+      if (!g_loadGame(&info)) {
+        LOGE("retro_load_game failed");
+        LogToHUD("ERROR: retro_load_game failed");
+        g_running = false;
+      } else {
+        LogToHUD("retro_load_game SUCCESS");
+
+        // 4. Context Reset (If core requested HW render during load)
+        if (g_hwRenderEnabled && g_hwRenderCallback.context_reset) {
+          LOGI("Thread: hw_context_reset called");
+          LogToFile("BC: Thread: hw_context_reset called");
+          g_hwRenderCallback.context_reset();
+        }
+
+        // Beta 22: Initialize AudioTrack with actual rate after load
+        retro_system_av_info avInfo = {0};
+        if (g_getAVInfo) {
+          g_getAVInfo(&avInfo);
+          env->CallStaticVoidMethod(g_mainActivityClass, g_initAudioMethod,
+                                    (jint)avInfo.timing.sample_rate);
+
+          std::lock_guard<std::mutex> lock(g_windowMutex);
+          if (g_window) {
+            ANativeWindow_setBuffersGeometry(
+                g_window, (int)avInfo.geometry.base_width,
+                (int)avInfo.geometry.base_height, WINDOW_FORMAT_RGBX_8888);
+          }
+        }
+      }
+    }
+    g_loadGamePending.store(false);
+  }
+
+  ANativeWindow *lastWindow = nullptr;
+  {
+    std::lock_guard<std::mutex> lock(g_windowMutex);
+    lastWindow = g_window;
+  }
+
   while (g_running) {
     struct timespec ts_start, ts_end;
     clock_gettime(CLOCK_MONOTONIC, &ts_start);
 
-    if (g_run)
+    if (g_run && !g_isPaused) {
+      if (g_hwRenderEnabled) {
+        std::lock_guard<std::mutex> lock(g_windowMutex);
+        if (g_window != lastWindow) {
+          LOGI("Window changed, updating EGL surface...");
+          if (g_eglSurface != EGL_NO_SURFACE) {
+            eglMakeCurrent(g_eglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE,
+                           EGL_NO_CONTEXT);
+            eglDestroySurface(g_eglDisplay, g_eglSurface);
+            g_eglSurface = EGL_NO_SURFACE;
+          }
+          if (g_window) {
+            g_eglSurface = eglCreateWindowSurface(g_eglDisplay, eglConfig,
+                                                  g_window, nullptr);
+          }
+          lastWindow = g_window;
+        }
+
+        if (g_eglSurface != EGL_NO_SURFACE) {
+          if (!eglMakeCurrent(g_eglDisplay, g_eglSurface, g_eglSurface,
+                              g_eglContext)) {
+            LOGE("eglMakeCurrent failed during Run: 0x%x", eglGetError());
+          }
+        }
+      }
+
       g_run();
+
+      if (g_hwRenderEnabled && !g_isPaused && g_eglSurface != EGL_NO_SURFACE)
+        eglSwapBuffers(g_eglDisplay, g_eglSurface);
+    }
 
     clock_gettime(CLOCK_MONOTONIC, &ts_end);
     long elapsed = (ts_end.tv_sec - ts_start.tv_sec) * 1000000000L +
                    (ts_end.tv_nsec - ts_start.tv_nsec);
     long remaining = frameNs - elapsed;
+
+    // Use a shorter sleep when paused to keep the thread alive but responsive
+    if (g_isPaused) {
+      remaining = 20000000L; // 20ms
+    }
+
     if (remaining > 0) {
       struct timespec sleep_ts = {0, remaining};
       nanosleep(&sleep_ts, nullptr);
     }
   }
 
+  // Cleanup on exit
+  if (g_unloadGame)
+    g_unloadGame();
+  if (g_deinit)
+    g_deinit();
+
+  if (g_hwRenderEnabled) {
+    eglMakeCurrent(g_eglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE,
+                   EGL_NO_CONTEXT);
+    if (g_eglSurface != EGL_NO_SURFACE)
+      eglDestroySurface(g_eglDisplay, g_eglSurface);
+    if (g_eglContext != EGL_NO_CONTEXT)
+      eglDestroyContext(g_eglDisplay, g_eglContext);
+    eglTerminate(g_eglDisplay);
+    g_eglSurface = EGL_NO_SURFACE;
+    g_eglContext = EGL_NO_CONTEXT;
+    g_eglDisplay = EGL_NO_DISPLAY;
+  }
+
   g_vm->DetachCurrentThread();
-  LOGI("Emulation loop stopped.");
+  LOGI("Emulation loop stopped and core deinitialized.");
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -444,9 +716,28 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeInitLogger(
   // Clear the log for a new session
   FILE *f = fopen(g_logFilePath.c_str(), "w");
   if (f) {
-    fprintf(f, "--- OpenEmuARM64 Beta 14 Logger Initialized ---\n");
+    fprintf(f, "--- OpenEmuARM64 Beta 32 Public Logger Initialized ---\n");
     fclose(f);
   }
+}
+
+JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativePause(
+    JNIEnv *env, jobject /*thiz*/) {
+  g_isPaused = true;
+  LOGI("Native Emulation Paused");
+}
+
+JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeResume(
+    JNIEnv *env, jobject /*thiz*/) {
+  g_isPaused = false;
+  LOGI("Native Emulation Resumed");
+}
+
+JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeStop(
+    JNIEnv *env, jobject /*thiz*/) {
+  g_running = false;
+  g_isPaused = false;
+  LOGI("Native Emulation Termination Requested");
 }
 
 /**
@@ -485,123 +776,50 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
   }
   LogToFile("BC: Step 1 SUCCESS. Core Handle: %p", g_coreHandle);
 
-  // Beta 13: Strict Libretro Boot Sequence (Callbacks -> Init -> Load)
-  LogToFile("BC: Step 2: Setting Environment...");
-  if (g_setEnv)
-    g_setEnv(&environmentCallback);
-  LogToFile("BC: Step 3: Setting Video...");
-  if (g_setVideo)
-    g_setVideo(&videoRefreshCallback);
-  LogToFile("BC: Step 4: Setting Audio...");
-  if (g_setAudio)
-    g_setAudio(&audioSampleCallback);
-  if (g_setAudioBatch)
-    g_setAudioBatch(&audioSampleBatchCallback);
-  LogToFile("BC: Step 5: Setting Input...");
-  if (g_setInputPoll)
-    g_setInputPoll(&inputPollCallback);
-  if (g_setInputState)
-    g_setInputState(&inputStateCallback);
+  // Beta 31: Callback registration moved to emulation thread.
+  LogToFile("BC: Step 2: Paths resolved. Proceeding to background thread.");
 
-  LogToHUD("retro_init called");
-  LogToFile("BC: Step 6: Initializing core (retro_init)... Addr: %p",
-            (void *)g_init);
-  LOGI("Initializing core...");
-  if (g_init)
-    g_init();
-  LogToFile("BC: Step 6 SUCCESS.");
-
-  // Beta 21: Load the ROM into memory before calling retro_load_game
-  static std::vector<uint8_t> g_romData; // Persistent while core is running
-  g_romData.clear();
-
-  LogToHUD("ROM Path: %s", romPath.c_str());
-  FILE *f = fopen(romPath.c_str(), "rb");
-  if (!f) {
-    LOGE("ERROR: Could not open ROM file at %s", romPath.c_str());
-    LogToHUD("ERROR: C++ could not read ROM file (Missing)");
-    return;
+  // Beta 25: Respect need_fullpath and defer loading to emulation thread
+  retro_system_info sysInfo = {0};
+  if (g_getSystemInfo) {
+    g_getSystemInfo(&sysInfo);
+    g_pendingRomNeedFullpath = sysInfo.need_fullpath;
+    LogToHUD("Core Info: need_fullpath = %s",
+             g_pendingRomNeedFullpath ? "true" : "false");
+    LOGI("Core Info: library_name=%s, version=%s, need_fullpath=%d",
+         sysInfo.library_name, sysInfo.library_version, sysInfo.need_fullpath);
   }
 
-  fseek(f, 0, SEEK_END);
-  size_t fileSize = ftell(f);
-  fseek(f, 0, SEEK_SET);
+  g_pendingRomPath = romPath;
+  g_pendingRomData.clear();
 
-  if (fileSize == 0) {
-    LOGE("ERROR: ROM file is empty (size 0)");
-    LogToHUD("ERROR: C++ could not read ROM file (Size 0)");
-    fclose(f);
-    return;
+  if (!g_pendingRomNeedFullpath) {
+    LogToHUD("Reading ROM into memory...");
+    FILE *f = fopen(romPath.c_str(), "rb");
+    if (f) {
+      fseek(f, 0, SEEK_END);
+      size_t fileSize = ftell(f);
+      fseek(f, 0, SEEK_SET);
+      g_pendingRomData.resize(fileSize);
+      fread(g_pendingRomData.data(), 1, fileSize, f);
+      fclose(f);
+      LogToHUD("ROM Loaded: %zu bytes", g_pendingRomData.size());
+    } else {
+      LogToHUD("ERROR: Failed to open ROM");
+      return;
+    }
   }
 
-  LogToHUD("ROM File Size: %zu bytes", fileSize);
-  g_romData.resize(fileSize);
-  size_t readCount = fread(g_romData.data(), 1, fileSize, f);
-  fclose(f);
-
-  if (readCount != fileSize) {
-    LOGE("ERROR: ROM read mismatch. Expected %zu, got %zu", fileSize,
-         readCount);
-    LogToHUD("ERROR: ROM partial read fail");
-    return;
-  }
-
-  // Load the ROM
-  retro_game_info gameInfo{};
-  gameInfo.path = romPath.c_str();
-  gameInfo.data = g_romData.data();
-  gameInfo.size = g_romData.size();
-
-  LOGI("Loading ROM: %s (%zu bytes)", gameInfo.path, gameInfo.size);
-  LogToFile("BC: Step 7: retro_load_game... Path: %s, Data: %p, Size: %zu",
-            gameInfo.path, gameInfo.data, gameInfo.size);
-
-  bool loadOk = g_loadGame && g_loadGame(&gameInfo);
-  LogToHUD("retro_load_game returned %s", loadOk ? "SUCCESS" : "FAILURE");
-
-  LOGI("ROM loaded successfully: %s", romPath.c_str());
-
-  // Query AV info for frame rate and resolution
-  LogToFile("BC: Step 8: retro_get_system_av_info...");
+  // Query AV info for target FPS
   retro_system_av_info avInfo{};
   if (g_getAVInfo)
     g_getAVInfo(&avInfo);
-  LogToFile("BC: Step 8 SUCCESS. Geometry: %dx%d, FPS: %.2f",
-            avInfo.geometry.base_width, avInfo.geometry.base_height,
-            avInfo.timing.fps);
-
   double fps = avInfo.timing.fps > 0.0 ? avInfo.timing.fps : 60.0;
-
-  // Beta 22: Initialize AudioTrack
-  if (g_vm && g_initAudioMethod && g_mainActivityClass) {
-    JNIEnv *env = nullptr;
-    if (g_vm->GetEnv((void **)&env, JNI_VERSION_1_6) == JNI_OK) {
-      env->CallStaticVoidMethod(g_mainActivityClass, g_initAudioMethod,
-                                (jint)avInfo.timing.sample_rate);
-      LogToHUD("Audio Initialized: %d Hz", (int)avInfo.timing.sample_rate);
-    }
-  }
-
-  // Beta 12 Fix Refined: Set buffer geometry ONCE after loading
-  LogToFile("BC: Step 9: Setting Buffer Geometry...");
-  {
-    std::lock_guard<std::mutex> lock(g_windowMutex);
-    if (g_window) {
-      ANativeWindow_setBuffersGeometry(
-          g_window, (int)avInfo.geometry.base_width,
-          (int)avInfo.geometry.base_height, WINDOW_FORMAT_RGBX_8888);
-      LOGI("Native buffer geometry set: %dx%d", (int)avInfo.geometry.base_width,
-           (int)avInfo.geometry.base_height);
-    } else {
-      LogToFile("BC: Step 9 WARNING: g_window is NULL");
-      LogToHUD("WARNING: Native Window is NULL");
-    }
-  }
-  LogToFile("BC: Step 9 SUCCESS.");
 
   // Start emulation loop
   LogToFile("BC: Step 10: Launching Emulation Thread...");
   LogToHUD("Emulation Loop Started");
+  g_loadGamePending.store(true);
   g_running = true;
   std::thread(emulationLoop, fps).detach();
   LogToFile("BC: Step 10 SUCCESS. nativeLoadROM exit.");
@@ -616,8 +834,9 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeSetSurface(
   }
   if (surface) {
     g_window = ANativeWindow_fromSurface(env, surface);
-    LOGI("Surface acquired: %p", (void *)g_window);
-    LogToHUD("SurfaceCreated triggered: %p", (void *)g_window);
+    LOGI("ANativeWindow initialized: %p", g_window);
+    // Beta 27: EGL Surface recreation is now handled in the emulationLoop
+    // thread by comparing current g_window with lastWindow.
   } else {
     LOGI("Surface released.");
   }

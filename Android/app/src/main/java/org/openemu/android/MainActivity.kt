@@ -17,6 +17,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -79,6 +81,9 @@ import java.io.InputStream
 import java.util.Locale
 import java.io.File
 import java.io.FileOutputStream
+import androidx.compose.ui.input.pointer.PointerInputChange
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.foundation.gestures.detectDragGestures
 
 // Design Tokens (macOS Parity)
 // macOS Palette (Beta 6)
@@ -166,6 +171,18 @@ class MainActivity : ComponentActivity() {
             }
         }
 
+        private fun stopEmulation() {
+            nativeStop()
+            audioTrack?.apply {
+                try {
+                    stop()
+                    release()
+                } catch (e: Exception) {}
+            }
+            audioTrack = null
+            logDebug("Emulation Stopped & Audio Released")
+        }
+
         @JvmStatic
         fun writeAudio(data: ShortArray, frames: Int) {
             audioTrack?.write(data, 0, frames * 2)
@@ -174,6 +191,16 @@ class MainActivity : ComponentActivity() {
         private const val PREFS_NAME    = "prefs_openemu"
         private const val KEY_ROOT_URI  = "root_folder_uri"
         private const val KEY_SHOW_HUD  = "show_debug_hud"
+
+        @JvmStatic private external fun nativeInitLogger(logDir: String)
+        @JvmStatic private external fun nativeSendInput(button: String, isPressed: Boolean)
+        @JvmStatic private external fun nativeLoadROM(path: String, system: String)
+        @JvmStatic private external fun nativeSetSurface(surface: Any?)
+        @JvmStatic private external fun nativeSetSize(width: Int, height: Int)
+        @JvmStatic private external fun nativePause()
+        @JvmStatic private external fun nativeResume()
+        @JvmStatic private external fun nativeStop()
+        @JvmStatic private external fun stringFromJNI(): String
     }
 
     private lateinit var prefs: SharedPreferences
@@ -188,8 +215,27 @@ class MainActivity : ComponentActivity() {
     private var selectedSystem by mutableStateOf("Game Boy Advance")
     private var selectedCore by mutableStateOf("mGBA")
     private var psxBiosPath by mutableStateOf<String?>(null)
-    private var isPaused by mutableStateOf(false)
-    private var isGameRunning by mutableStateOf(false)
+    private var _isPaused by mutableStateOf(false)
+    private var isPaused: Boolean
+        get() = _isPaused
+        set(value) {
+            if (_isPaused != value) {
+                _isPaused = value
+                if (value) nativePause() else nativeResume()
+            }
+        }
+
+    private var _isGameRunning by mutableStateOf(false)
+    private var isGameRunning: Boolean
+        get() = _isGameRunning
+        set(value) {
+            if (_isGameRunning != value) {
+                _isGameRunning = value
+                if (!value) stopEmulation()
+            }
+        }
+    private var isEditingLayout by mutableStateOf(false)
+    private var buttonOffsets = mutableStateMapOf<String, androidx.compose.ui.geometry.Offset>()
 
     // Beta 11: Synchronization state to delay JNI boot until surface is ready
     private var pendingRomPath by mutableStateOf<String?>(null)
@@ -223,10 +269,12 @@ class MainActivity : ComponentActivity() {
                 }
         }
         
-        // Initialize Native Logger (Beta 14)
-        getExternalFilesDir(null)?.let {
-            nativeInitLogger(it.absolutePath)
-        }
+        // Initialize Native Logger (Beta 23 Public Documents)
+        val docDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOCUMENTS)
+        if (!docDir.exists()) docDir.mkdirs()
+        nativeInitLogger(docDir.absolutePath)
+        
+        loadButtonOffsets()
 
         setContent {
             OpenEmuTheme {
@@ -363,8 +411,19 @@ class MainActivity : ComponentActivity() {
                                     ResponsiveEmulatorLayout(isLandscape, isFlexMode)
                                     
                                     // Pause Menu Overlay
-                                    if (isPaused) {
-                                        PauseOverlay(onResume = { isPaused = false }, onQuit = { isGameRunning = false; isPaused = false })
+                                    if (isPaused && !isEditingLayout) {
+                                        PauseOverlay(
+                                            onResume = { isPaused = false }, 
+                                            onQuit = { isGameRunning = false; isPaused = false },
+                                            onEditLayout = { isEditingLayout = true }
+                                        )
+                                    }
+                                    
+                                    if (isEditingLayout) {
+                                        LayoutEditorOverlay(onSave = { 
+                                            saveButtonOffsets()
+                                            isEditingLayout = false 
+                                        })
                                     }
                                 }
                             } else {
@@ -377,6 +436,43 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun saveButtonOffsets() {
+        val editor = prefs.edit()
+        buttonOffsets.forEach { (key, offset) ->
+            editor.putFloat("${key}_x", offset.x)
+            editor.putFloat("${key}_y", offset.y)
+        }
+        editor.apply()
+    }
+
+    private fun loadButtonOffsets() {
+        prefs.all.keys.filter { it.endsWith("_x") }.forEach { keyX ->
+            val keyBase = keyX.removeSuffix("_x")
+            val x = prefs.getFloat(keyX, 0f)
+            val y = prefs.getFloat("${keyBase}_y", 0f)
+            buttonOffsets[keyBase] = androidx.compose.ui.geometry.Offset(x, y)
+        }
+    }
+    
+    @Composable
+    fun LayoutEditorOverlay(onSave: () -> Unit) {
+        Box(Modifier.fillMaxSize()) {
+            Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.4f))) // Dim background
+            
+            Column(Modifier.align(Alignment.TopCenter).padding(top = 80.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                Text("LAYOUT EDITOR", color = Color.White, fontWeight = FontWeight.Bold)
+                Text("Drag buttons to move them", color = Color.Gray, fontSize = 12.sp)
+            }
+            
+            Button(
+                onClick = onSave,
+                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 32.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = AppleBlue)
+            ) {
+                Text("Save & Exit")
+            }
+        }
+    }
 
     @Composable
     fun GameLibraryGrid() {
@@ -581,7 +677,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    fun PauseOverlay(onResume: () -> Unit, onQuit: () -> Unit) {
+    fun PauseOverlay(onResume: () -> Unit, onQuit: () -> Unit, onEditLayout: () -> Unit) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -628,6 +724,17 @@ class MainActivity : ComponentActivity() {
                         border = ButtonDefaults.outlinedButtonBorder
                     ) {
                         Text("Quit to Library", color = Color.White)
+                    }
+
+                    Spacer(Modifier.height(8.dp))
+                    
+                    Button(
+                        onClick = onEditLayout,
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color.White.copy(alpha = 0.1f)),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Text("Edit Button Layout", color = AppleBlue)
                     }
                 }
 
@@ -970,12 +1077,12 @@ class MainActivity : ComponentActivity() {
 
             // Buttons (Right)
             Box(Modifier.align(Alignment.CenterEnd).padding(end = 24.dp).size(200.dp)) {
-                // A/B
-                Box(Modifier.align(Alignment.BottomStart)) { ControllerButton("B", Color(0xFF1B75BC), circle = true) { sendInput("B", it) } }
-                Box(Modifier.align(Alignment.BottomCenter).padding(start = 40.dp)) { ControllerButton("A", Color(0xFF39B54A), circle = true) { sendInput("A", it) } }
+                // A/B (Spaced out more)
+                Box(Modifier.align(Alignment.BottomStart).padding(bottom = 20.dp)) { ControllerButton("B", Color(0xFF1B75BC), circle = true) { sendInput("B", it) } }
+                Box(Modifier.align(Alignment.BottomCenter).padding(start = 60.dp, bottom = 40.dp)) { ControllerButton("A", Color(0xFF39B54A), circle = true) { sendInput("A", it) } }
                 
-                // C-Buttons (Mapped to X, Y, L3, R2 for now)
-                Box(Modifier.align(Alignment.TopEnd).size(100.dp)) {
+                // C-Buttons (Larger Spacing)
+                Box(Modifier.align(Alignment.TopEnd).padding(top = 10.dp, end = 10.dp).size(140.dp)) {
                     Box(Modifier.align(Alignment.TopCenter)) { ControllerButton("CU", Color(0xFFFBB03B), circle = true) { sendInput("Y", it) } }
                     Box(Modifier.align(Alignment.CenterStart)) { ControllerButton("CL", Color(0xFFFBB03B), circle = true) { sendInput("X", it) } }
                     Box(Modifier.align(Alignment.CenterEnd)) { ControllerButton("CR", Color(0xFFFBB03B), circle = true) { sendInput("L3", it) } }
@@ -983,20 +1090,20 @@ class MainActivity : ComponentActivity() {
                 }
             }
             
-            // Start (Center)
-            Box(Modifier.align(Alignment.Center).padding(top = 80.dp)) {
+            // Start (Center - Spaced)
+            Box(Modifier.align(Alignment.Center).padding(top = 100.dp)) {
                 ControllerButton("START", Color(0xFFE60012)) { sendInput("START", it) }
             }
             
-            // Z Trigger (Bottom Center or Left)
-            Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 20.dp)) {
+            // Z Trigger
+            Box(Modifier.align(Alignment.BottomCenter).padding(bottom = 40.dp)) {
                 ControllerButton("Z", Color.DarkGray) { sendInput("Z", it) }
             }
             
-            // Shoulders
-            Row(Modifier.align(Alignment.TopCenter).padding(top = 40.dp)) {
+            // Shoulders (Spaced)
+            Row(Modifier.align(Alignment.TopCenter).padding(top = 20.dp)) {
                 ControllerButton("L", color) { sendInput("L", it) }
-                Spacer(Modifier.width(160.dp))
+                Spacer(Modifier.width(200.dp))
                 ControllerButton("R", color) { sendInput("R", it) }
             }
         }
@@ -1005,52 +1112,70 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun GBLayout(assetName: String, color: Color) {
         Box(Modifier.fillMaxSize()) {
-            // D-Pad
-            Column(Modifier.align(Alignment.CenterStart).padding(start = 32.dp)) {
-                ControllerButton("U", Color.DarkGray) { sendInput("UP", it) }
-                Row {
-                    ControllerButton("L", Color.DarkGray) { sendInput("LEFT", it) }
-                    Spacer(Modifier.width(12.dp))
-                    ControllerButton("R", Color.DarkGray) { sendInput("RIGHT", it) }
-                }
-                ControllerButton("D", Color.DarkGray) { sendInput("DOWN", it) }
+            // D-Pad (Cohesive Cross)
+            Box(Modifier.align(Alignment.CenterStart).padding(start = 32.dp).size(120.dp)) {
+                // Background cross shape or asset could go here
+                // For now, overlapping boxes to form a cross
+                Box(Modifier.align(Alignment.TopCenter)) { ControllerButton("", Color.DarkGray) { sendInput("UP", it) } }
+                Box(Modifier.align(Alignment.CenterStart)) { ControllerButton("", Color.DarkGray) { sendInput("LEFT", it) } }
+                Box(Modifier.align(Alignment.CenterEnd)) { ControllerButton("", Color.DarkGray) { sendInput("RIGHT", it) } }
+                Box(Modifier.align(Alignment.BottomCenter)) { ControllerButton("", Color.DarkGray) { sendInput("DOWN", it) } }
             }
             
             // A/B
             Row(Modifier.align(Alignment.CenterEnd).padding(end = 32.dp, bottom = 40.dp)) {
                 ControllerButton("B", Color(0xFF8C1B79), circle = true) { sendInput("B", it) }
-                Spacer(Modifier.width(16.dp))
+                Spacer(Modifier.width(20.dp))
                 ControllerButton("A", Color(0xFF8C1B79), circle = true) { sendInput("A", it) }
             }
             
-            // Start/Select
+            // Start/Select (Smaller Text)
             Row(Modifier.align(Alignment.BottomCenter).padding(bottom = 60.dp)) {
-                ControllerButton("SEL", Color.DarkGray) { sendInput("SELECT", it) }
-                Spacer(Modifier.width(20.dp))
-                ControllerButton("START", Color.DarkGray) { sendInput("START", it) }
+                ControllerButton("SELECT", Color.DarkGray, fontSize = 10.sp) { sendInput("SELECT", it) }
+                Spacer(Modifier.width(24.dp))
+                ControllerButton("START", Color.DarkGray, fontSize = 10.sp) { sendInput("START", it) }
             }
         }
     }
 
     @Composable
-    fun ControllerButton(text: String, color: Color, circle: Boolean = false, onStateChange: (Boolean) -> Unit) {
+    fun ControllerButton(
+        name: String,
+        color: Color,
+        circle: Boolean = false,
+        fontSize: androidx.compose.ui.unit.TextUnit = 16.sp,
+        onStateChange: (Boolean) -> Unit
+    ) {
+        val configuration = LocalConfiguration.current
+        val orientation = if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) "Landscape" else "Portrait"
+        val key = "${selectedSystem}_${orientation}_$name"
+        
+        var offset by remember { mutableStateOf(buttonOffsets[key] ?: androidx.compose.ui.geometry.Offset.Zero) }
+        
         val alphaColor = color.copy(alpha = if (controllerOpacity < 0.3f) 0.3f else controllerOpacity)
         
         Box(
             modifier = Modifier
+                .offset { androidx.compose.ui.unit.IntOffset(offset.x.toInt(), offset.y.toInt()) }
                 .padding(4.dp)
                 .size(if (circle) 72.dp else 64.dp)
                 .background(alphaColor, if (circle) CircleShape else RoundedCornerShape(12.dp))
-                .pointerInput(Unit) {
-                    awaitPointerEventScope {
-                        while (true) {
-                            val event = awaitPointerEvent()
-                            when (event.type) {
-                                PointerEventType.Press -> {
-                                    onStateChange(true)
-                                }
-                                PointerEventType.Release -> {
-                                    onStateChange(false)
+                .pointerInput(key, isEditingLayout) {
+                    if (isEditingLayout) {
+                        detectDragGestures { change: PointerInputChange, dragAmount: Offset ->
+                            change.consume()
+                            val newOffset = offset + dragAmount
+                            offset = newOffset
+                            buttonOffsets[key] = newOffset
+                        }
+                    } else {
+                        awaitPointerEventScope {
+                            while (true) {
+                                val event = awaitPointerEvent()
+                                event.changes.forEach { it.consume() }
+                                when (event.type) {
+                                    PointerEventType.Press -> onStateChange(true)
+                                    PointerEventType.Release -> onStateChange(false)
                                 }
                             }
                         }
@@ -1058,7 +1183,7 @@ class MainActivity : ComponentActivity() {
                 },
             contentAlignment = Alignment.Center
         ) {
-            Text(text, color = Color.White.copy(alpha = 0.9f), fontSize = 16.sp, fontWeight = FontWeight.Bold)
+            Text(name, color = Color.White.copy(alpha = 0.9f), fontSize = fontSize, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
         }
     }
 
@@ -1116,6 +1241,38 @@ class MainActivity : ComponentActivity() {
                                 },
                                 colors = SwitchDefaults.colors(checkedThumbColor = AppleBlue)
                             )
+                        }
+
+                        Spacer(Modifier.height(16.dp))
+                        
+                        Button(
+                            onClick = {
+                                try {
+                                    val docDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOCUMENTS)
+                                    val logFile = File(docDir, "openemu_crash_log.txt")
+                                    if (logFile.exists()) {
+                                        val uri = androidx.core.content.FileProvider.getUriForFile(
+                                            this@MainActivity,
+                                            "$packageName.fileprovider",
+                                            logFile
+                                        )
+                                        val intent = Intent(Intent.ACTION_VIEW).apply {
+                                            setDataAndType(uri, "text/plain")
+                                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                                        }
+                                        startActivity(intent)
+                                    } else {
+                                        Toast.makeText(this@MainActivity, "No crash log found", Toast.LENGTH_SHORT).show()
+                                    }
+                                } catch (e: Exception) {
+                                    Toast.makeText(this@MainActivity, "Failed to open log: ${e.message}", Toast.LENGTH_LONG).show()
+                                }
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color.White.copy(alpha = 0.1f)),
+                            shape = RoundedCornerShape(8.dp)
+                        ) {
+                            Text("Open Crash Log", color = Color.White)
                         }
                     }
                     "Cores" -> {
@@ -1190,12 +1347,6 @@ class MainActivity : ComponentActivity() {
         nativeSendInput(button, isPressed)
     }
 
-    private external fun nativeInitLogger(logDir: String)
-    private external fun nativeSendInput(button: String, isPressed: Boolean)
-    private external fun nativeLoadROM(path: String, system: String)
-    private external fun nativeSetSurface(surface: Any?)
-    private external fun nativeSetSize(width: Int, height: Int)
-    private external fun stringFromJNI(): String
 
 }
 

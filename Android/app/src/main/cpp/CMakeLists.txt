@@ -17,7 +17,7 @@ set(SHARED_CORES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../Shared-Cores")
 # ── Unified Libretro bridge (dlopen frontend) ─────────────────────────────
 add_library(libretro_bridge SHARED "libretro_bridge.cpp")
 target_compile_options(libretro_bridge PRIVATE -std=c++17 -O2 -fvisibility=hidden)
-target_link_libraries(libretro_bridge log android dl)
+target_link_libraries(libretro_bridge log android dl EGL GLESv3)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # STUB CORES (remaining 15 — JNI dispatch only, to be wired in future betas)
