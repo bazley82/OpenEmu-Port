@@ -121,6 +121,7 @@ static void LogToFile(const char *fmt, ...) {
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
   g_vm = vm;
+  LogToFile("BC: JNI_OnLoad called. VM: %p", (void *)vm);
   return JNI_VERSION_1_6;
 }
 

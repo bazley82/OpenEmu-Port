@@ -100,6 +100,13 @@ fun Modifier.liquidGlass(
 class MainActivity : ComponentActivity() {
 
     companion object {
+        init {
+            try {
+                System.loadLibrary("libretro_bridge")
+            } catch (e: UnsatisfiedLinkError) {
+                Log.e("OpenEmuCore", "Failed to load libretro_bridge", e)
+            }
+        }
         private const val PREFS_NAME   = "prefs_openemu"
         private const val KEY_ROOT_URI = "root_folder_uri"
     }
@@ -588,7 +595,6 @@ class MainActivity : ComponentActivity() {
                                 lifecycleScope.launch(Dispatchers.IO) {
                                     try {
                                         if (so != null) {
-                                            System.loadLibrary("libretro_bridge")
                                             nativeLoadROM(rom, so)
                                         } else {
                                             System.loadLibrary(core)
