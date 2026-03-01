@@ -305,62 +305,72 @@ extern "C" {
 JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
     JNIEnv *env, jobject /*thiz*/, jstring jRomPath, jstring jCoreSoPath) {
 
-  const char *romPath = env->GetStringUTFChars(jRomPath, nullptr);
-  const char *soPath = env->GetStringUTFChars(jCoreSoPath, nullptr);
+  // Beta 13: Copy paths to local std::string and release JNI pointers early
+  const char *romPathInternal = env->GetStringUTFChars(jRomPath, nullptr);
+  const char *soPathInternal = env->GetStringUTFChars(jCoreSoPath, nullptr);
+  std::string romPath(romPathInternal);
+  std::string soPath(soPathInternal);
+  env->ReleaseStringUTFChars(jRomPath, romPathInternal);
+  env->ReleaseStringUTFChars(jCoreSoPath, soPathInternal);
 
   // Stop any running emulation
   g_running = false;
 
-  if (!loadCoreSO(soPath)) {
+  LOGI("Loading core SO: %s", soPath.c_str());
+  if (!loadCoreSO(soPath.c_str())) {
     LOGE("Failed to load core SO, aborting.");
-    env->ReleaseStringUTFChars(jRomPath, romPath);
-    env->ReleaseStringUTFChars(jCoreSoPath, soPath);
     return;
   }
 
-  // Register callbacks
-  g_setEnv(&environmentCallback);
-  g_setVideo(&videoRefreshCallback);
-  g_setAudio(&audioSampleCallback);
-  g_setAudioBatch(&audioSampleBatchCallback);
-  g_setInputPoll(&inputPollCallback);
-  g_setInputState(&inputStateCallback);
+  // Beta 13: Strict Libretro Boot Sequence (Callbacks -> Init -> Load)
+  if (g_setEnv)
+    g_setEnv(&environmentCallback);
+  if (g_setVideo)
+    g_setVideo(&videoRefreshCallback);
+  if (g_setAudio)
+    g_setAudio(&audioSampleCallback);
+  if (g_setAudioBatch)
+    g_setAudioBatch(&audioSampleBatchCallback);
+  if (g_setInputPoll)
+    g_setInputPoll(&inputPollCallback);
+  if (g_setInputState)
+    g_setInputState(&inputStateCallback);
 
-  // Initialise the core
-  g_init();
+  LOGI("Initializing core...");
+  if (g_init)
+    g_init();
 
   // Load the ROM
   retro_game_info gameInfo{};
-  gameInfo.path = romPath;
-  if (!g_loadGame(&gameInfo)) {
-    LOGE("retro_load_game() failed for '%s'", romPath);
-    g_deinit();
-    env->ReleaseStringUTFChars(jRomPath, romPath);
-    env->ReleaseStringUTFChars(jCoreSoPath, soPath);
+  gameInfo.path = romPath.c_str();
+  LOGI("Loading ROM: %s", gameInfo.path);
+
+  if (!g_loadGame || !g_loadGame(&gameInfo)) {
+    LOGE("retro_load_game() failed for '%s'", gameInfo.path);
+    if (g_deinit)
+      g_deinit();
     return;
   }
 
-  LOGI("ROM loaded: %s", romPath);
+  LOGI("ROM loaded successfully: %s", romPath.c_str());
 
   // Query AV info for frame rate and resolution
   retro_system_av_info avInfo{};
-  g_getAVInfo(&avInfo);
+  if (g_getAVInfo)
+    g_getAVInfo(&avInfo);
   double fps = avInfo.timing.fps > 0.0 ? avInfo.timing.fps : 60.0;
 
-  // Beta 12 Fix: Set buffer geometry ONCE at initialization, not per-frame
+  // Beta 12 Fix Refined: Set buffer geometry ONCE after loading
   {
     std::lock_guard<std::mutex> lock(g_windowMutex);
     if (g_window) {
       ANativeWindow_setBuffersGeometry(
           g_window, (int)avInfo.geometry.base_width,
           (int)avInfo.geometry.base_height, WINDOW_FORMAT_RGBX_8888);
-      LOGI("Native buffer geometry set to %dx%d", avInfo.geometry.base_width,
-           avInfo.geometry.base_height);
+      LOGI("Native buffer geometry set: %dx%d", (int)avInfo.geometry.base_width,
+           (int)avInfo.geometry.base_height);
     }
   }
-
-  env->ReleaseStringUTFChars(jRomPath, romPath);
-  env->ReleaseStringUTFChars(jCoreSoPath, soPath);
 
   // Start emulation loop
   g_running = true;
