@@ -389,3 +389,5 @@
 6	188	1772286350052637736	CMakeFiles/mupen64plus.dir/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Shared-Cores/Mupen64Plus/mupen64plus-core/src/device/dd/disk.c.o	750c6fec7faab826
 1	534	1772321206858742777	CMakeFiles/libretro_bridge.dir/libretro_bridge.cpp.o	3a8b3b3b3dcb4471
 535	675	1772321206998749339	/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/liblibretro_bridge.so	9abbffd82c33ccd
+1	442	1772325353118843237	CMakeFiles/libretro_bridge.dir/libretro_bridge.cpp.o	3a8b3b3b3dcb4471
+442	495	1772325353172414131	/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/liblibretro_bridge.so	9abbffd82c33ccd

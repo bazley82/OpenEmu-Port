@@ -163,49 +163,38 @@ static void videoRefreshCallback(const void *data, unsigned width,
 
   g_frameWidth = width;
   g_frameHeight = height;
-  g_framePitch = pitch;
-
-  // Copy frame data into staging buffer
-  const size_t rowBytes = width * 4; // we output XRGB8888
-  g_frameBuf.resize(width * height * 4);
-
-  const auto *src8 = reinterpret_cast<const uint8_t *>(data);
-  auto *dst8 = g_frameBuf.data();
-
-  for (unsigned y = 0; y < height; ++y) {
-    if (g_pixelFmt == RETRO_PIXEL_FORMAT_RGB565) {
-      // Convert RGB565 → XRGB8888
-      const auto *row = reinterpret_cast<const uint16_t *>(src8 + y * pitch);
-      auto *dst = reinterpret_cast<uint32_t *>(dst8 + y * rowBytes);
-      for (unsigned x = 0; x < width; ++x) {
-        uint16_t p = row[x];
-        uint8_t r = (p >> 11) & 0x1F;
-        r = (r << 3) | (r >> 2);
-        uint8_t g = (p >> 5) & 0x3F;
-        g = (g << 2) | (g >> 4);
-        uint8_t b = (p >> 0) & 0x1F;
-        b = (b << 3) | (b >> 2);
-        dst[x] = (0xFFu << 24) | (r << 16) | (g << 8) | b;
-      }
-    } else {
-      // XRGB8888 or 0RGB1555 — copy as-is (Android uses RGBX so blit directly)
-      std::memcpy(dst8 + y * rowBytes, src8 + y * pitch, rowBytes);
-    }
-  }
 
   // Blit to ANativeWindow
   std::lock_guard<std::mutex> lock(g_windowMutex);
   if (!g_window)
     return;
 
+  // Beta 11: Explicitly set buffer geometry before locking
   ANativeWindow_setBuffersGeometry(g_window, (int)width, (int)height,
                                    WINDOW_FORMAT_RGBX_8888);
+
   ANativeWindow_Buffer buf;
   if (ANativeWindow_lock(g_window, &buf, nullptr) == 0) {
-    auto *dst = reinterpret_cast<uint8_t *>(buf.bits);
-    for (unsigned y = 0; y < height; ++y)
-      std::memcpy(dst + y * buf.stride * 4, g_frameBuf.data() + y * rowBytes,
-                  rowBytes);
+    const auto *src8 = reinterpret_cast<const uint8_t *>(data);
+    auto *dst8 = reinterpret_cast<uint8_t *>(buf.bits);
+
+    for (unsigned y = 0; y < height; ++y) {
+      if (g_pixelFmt == RETRO_PIXEL_FORMAT_RGB565) {
+        // Convert RGB565 → RGBX8888 (Android format)
+        const auto *row = reinterpret_cast<const uint16_t *>(src8 + y * pitch);
+        auto *dst = reinterpret_cast<uint32_t *>(dst8 + y * buf.stride * 4);
+        for (unsigned x = 0; x < width; ++x) {
+          uint16_t p = row[x];
+          uint8_t r = ((p >> 11) & 0x1F) << 3;
+          uint8_t g = ((p >> 5) & 0x3F) << 2;
+          uint8_t b = (p & 0x1F) << 3;
+          dst[x] = (r << 0) | (g << 8) | (b << 16) | (0xFFu << 24);
+        }
+      } else {
+        // Assume XRGB8888 or similar — blit line by line respecting stride
+        std::memcpy(dst8 + y * buf.stride * 4, src8 + y * pitch, width * 4);
+      }
+    }
     ANativeWindow_unlockAndPost(g_window);
   }
 }

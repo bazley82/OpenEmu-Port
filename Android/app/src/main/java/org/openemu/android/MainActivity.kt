@@ -116,6 +116,12 @@ class MainActivity : ComponentActivity() {
     private var selectedCore by mutableStateOf("mGBA")
     private var psxBiosPath by mutableStateOf<String?>(null)
     private var isPaused by mutableStateOf(false)
+    private var isGameRunning by mutableStateOf(false)
+
+    // Beta 11: Synchronization state to delay JNI boot until surface is ready
+    private var pendingRomPath by mutableStateOf<String?>(null)
+    private var pendingCoreName by mutableStateOf<String?>(null)
+    private var pendingLibretroSo by mutableStateOf<String?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -292,7 +298,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private var isGameRunning by mutableStateOf(false)
 
     @Composable
     fun GameLibraryGrid() {
@@ -432,20 +437,11 @@ class MainActivity : ComponentActivity() {
                     selectedSystem = sysToUse
                     selectedCore   = coreToUse
                     isGameRunning  = true
-                }
 
-                try {
-                    if (libretroSoPath != null) {
-                        // Real Libretro core — bridge already loaded as part of the APK
-                        System.loadLibrary("libretro_bridge")
-                        nativeLoadROM(cachedRom.absolutePath, libretroSoPath)
-                    } else {
-                        // Stub core — load the stub .so and call its JNI entry
-                        System.loadLibrary(coreToUse)
-                        nativeLoadROM(cachedRom.absolutePath, "")
-                    }
-                } catch (e: UnsatisfiedLinkError) {
-                    Log.e("OpenEmuCore", "Failed to load core: $coreToUse", e)
+                    // Beta 11: Set pending state instead of booting immediately
+                    pendingRomPath = cachedRom.absolutePath
+                    pendingCoreName = coreToUse
+                    pendingLibretroSo = libretroSoPath
                 }
             } catch (e: Exception) {
                 Log.e("OpenEmuCore", "ROM selection error", e)
@@ -577,6 +573,31 @@ class MainActivity : ComponentActivity() {
                     holder.addCallback(object : SurfaceHolder.Callback {
                         override fun surfaceCreated(holder: SurfaceHolder) {
                             nativeSetSurface(holder.surface)
+                            
+                            // Beta 11: Trigger JNI boot now that the surface is definitely ready
+                            val rom = pendingRomPath
+                            val core = pendingCoreName
+                            val so = pendingLibretroSo
+                            
+                            if (rom != null && core != null) {
+                                lifecycleScope.launch(Dispatchers.IO) {
+                                    try {
+                                        if (so != null) {
+                                            System.loadLibrary("libretro_bridge")
+                                            nativeLoadROM(rom, so)
+                                        } else {
+                                            System.loadLibrary(core)
+                                            nativeLoadROM(rom, "")
+                                        }
+                                        // Clear pending state after successful trigger
+                                        pendingRomPath = null
+                                        pendingCoreName = null
+                                        pendingLibretroSo = null
+                                    } catch (e: Exception) {
+                                        Log.e("OpenEmuCore", "JNI Boot failed in surfaceCreated", e)
+                                    }
+                                }
+                            }
                         }
                         override fun surfaceChanged(holder: SurfaceHolder, format: Int, w: Int, h: Int) {
                             nativeSetSize(w, h)
