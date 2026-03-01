@@ -60,6 +60,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.ClipboardManager
+import android.content.ClipData
+import android.content.Context
+import android.widget.Toast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -117,11 +121,13 @@ class MainActivity : ComponentActivity() {
                 Log.e("OpenEmuCore", "Failed to load libretro_bridge", e)
             }
         }
-        private const val PREFS_NAME   = "prefs_openemu"
-        private const val KEY_ROOT_URI = "root_folder_uri"
+        private const val PREFS_NAME    = "prefs_openemu"
+        private const val KEY_ROOT_URI  = "root_folder_uri"
+        private const val KEY_SHOW_HUD  = "show_debug_hud"
     }
 
     private lateinit var prefs: SharedPreferences
+    private var showDebugHud by mutableStateOf(false)
 
     private var isFlexMode by mutableStateOf(false)
     private var isSettingsOpen by mutableStateOf(false)
@@ -144,6 +150,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+        showDebugHud = prefs.getBoolean(KEY_SHOW_HUD, false)
 
         // ── Auto-rescan saved folder on launch (SAF Amnesia Fix) ────────────
         prefs.getString(KEY_ROOT_URI, null)?.let { uriStr ->
@@ -493,7 +500,7 @@ class MainActivity : ComponentActivity() {
             Column(modifier = Modifier.fillMaxSize()) {
                 Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
                     EmulatorVideoSurface()
-                    DebugHUD()
+                    if (showDebugHud) DebugHUD()
                 }
                 Box(modifier = Modifier.weight(1f).fillMaxWidth().background(Color(0xFF1A1A1A))) {
                     OnScreenController(transparent = false)
@@ -503,7 +510,7 @@ class MainActivity : ComponentActivity() {
             // Universal Landscape Mode (Full screen with Overlay)
             Box(modifier = Modifier.fillMaxSize()) {
                 EmulatorVideoSurface()
-                DebugHUD()
+                if (showDebugHud) DebugHUD()
                 // Controller Overlay
                 Box(modifier = Modifier.fillMaxSize().padding(16.dp)) {
                     OnScreenController(transparent = true)
@@ -515,7 +522,7 @@ class MainActivity : ComponentActivity() {
                 // Video at top, keeping aspect ratio (e.g., 4:3 for GBA implies we might need a fixed height or weight)
                 Box(modifier = Modifier.weight(0.4f).fillMaxWidth()) {
                     EmulatorVideoSurface()
-                    DebugHUD()
+                    if (showDebugHud) DebugHUD()
                 }
                 // Controls at bottom
                 Box(modifier = Modifier.weight(0.6f).fillMaxWidth().background(macOS_Library_Dark)) {
@@ -605,22 +612,45 @@ class MainActivity : ComponentActivity() {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.3f)
+                .fillMaxHeight(0.35f)
                 .background(Color.Black.copy(alpha = 0.7f))
                 .padding(8.dp)
         ) {
-            LazyColumn(state = listState) {
-                items(debugLogs) { log ->
-                    Text(
-                        text = "> $log",
-                        color = Color.Cyan,
-                        fontSize = 10.sp,
-                        fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
-                        lineHeight = 12.sp
-                    )
+            Column {
+                Row(
+                    Modifier.fillMaxWidth().padding(bottom = 4.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text("DEBUG CONSOLE", color = Color.Gray, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    TextButton(
+                        onClick = { copyLogsToClipboard() },
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
+                    ) {
+                        Text("COPY LOGS", color = AppleBlue, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    }
+                }
+                LazyColumn(state = listState, modifier = Modifier.weight(1f)) {
+                    items(debugLogs) { log ->
+                        Text(
+                            text = "> $log",
+                            color = Color.Cyan,
+                            fontSize = 10.sp,
+                            fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
+                            lineHeight = 12.sp
+                        )
+                    }
                 }
             }
         }
+    }
+
+    private fun copyLogsToClipboard() {
+        val allLogs = debugLogs.joinToString("\n")
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("OpenEmu Debug Logs", allLogs)
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(this, "Logs copied to clipboard", Toast.LENGTH_SHORT).show()
     }
 
     @Composable
@@ -895,6 +925,20 @@ class MainActivity : ComponentActivity() {
                         Spacer(Modifier.height(12.dp))
                         Button(onClick = onPickFolder, colors = ButtonDefaults.buttonColors(containerColor = AppleBlue), shape = RoundedCornerShape(8.dp)) {
                             Text("Select Folder", fontSize = 13.sp)
+                        }
+                        
+                        Spacer(Modifier.height(32.dp))
+                        SettingsHeader("Debug")
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("Show Debug HUD", color = Color.White, modifier = Modifier.weight(1f))
+                            Switch(
+                                checked = showDebugHud,
+                                onCheckedChange = { 
+                                    showDebugHud = it
+                                    getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit().putBoolean(KEY_SHOW_HUD, it).apply()
+                                },
+                                colors = SwitchDefaults.colors(checkedThumbColor = AppleBlue)
+                            )
                         }
                     }
                     "Cores" -> {
