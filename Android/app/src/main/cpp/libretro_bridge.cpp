@@ -97,6 +97,12 @@ static void *g_coreHandle = nullptr;
 static ANativeWindow *g_window = nullptr;
 static std::mutex g_windowMutex;
 static std::atomic<bool> g_running{false};
+static JavaVM *g_vm = nullptr;
+
+jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+  g_vm = vm;
+  return JNI_VERSION_1_6;
+}
 
 // Resolved core function pointers
 static retro_init_t g_init = nullptr;
@@ -168,10 +174,6 @@ static void videoRefreshCallback(const void *data, unsigned width,
   std::lock_guard<std::mutex> lock(g_windowMutex);
   if (!g_window)
     return;
-
-  // Beta 11: Explicitly set buffer geometry before locking
-  ANativeWindow_setBuffersGeometry(g_window, (int)width, (int)height,
-                                   WINDOW_FORMAT_RGBX_8888);
 
   ANativeWindow_Buffer buf;
   if (ANativeWindow_lock(g_window, &buf, nullptr) == 0) {
@@ -262,11 +264,18 @@ static void emulationLoop(double targetFps) {
   LOGI("Emulation loop started at %.2f fps", targetFps);
   const long frameNs = (long)(1e9 / targetFps);
 
+  JNIEnv *env = nullptr;
+  if (g_vm->AttachCurrentThread(&env, nullptr) != JNI_OK) {
+    LOGE("Failed to attach emulation thread to JVM");
+    return;
+  }
+
   while (g_running) {
     struct timespec ts_start, ts_end;
     clock_gettime(CLOCK_MONOTONIC, &ts_start);
 
-    g_run();
+    if (g_run)
+      g_run();
 
     clock_gettime(CLOCK_MONOTONIC, &ts_end);
     long elapsed = (ts_end.tv_sec - ts_start.tv_sec) * 1000000000L +
@@ -277,6 +286,8 @@ static void emulationLoop(double targetFps) {
       nanosleep(&sleep_ts, nullptr);
     }
   }
+
+  g_vm->DetachCurrentThread();
   LOGI("Emulation loop stopped.");
 }
 
@@ -331,10 +342,22 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
 
   LOGI("ROM loaded: %s", romPath);
 
-  // Query AV info for frame rate
+  // Query AV info for frame rate and resolution
   retro_system_av_info avInfo{};
   g_getAVInfo(&avInfo);
   double fps = avInfo.timing.fps > 0.0 ? avInfo.timing.fps : 60.0;
+
+  // Beta 12 Fix: Set buffer geometry ONCE at initialization, not per-frame
+  {
+    std::lock_guard<std::mutex> lock(g_windowMutex);
+    if (g_window) {
+      ANativeWindow_setBuffersGeometry(
+          g_window, (int)avInfo.geometry.base_width,
+          (int)avInfo.geometry.base_height, WINDOW_FORMAT_RGBX_8888);
+      LOGI("Native buffer geometry set to %dx%d", avInfo.geometry.base_width,
+           avInfo.geometry.base_height);
+    }
+  }
 
   env->ReleaseStringUTFChars(jRomPath, romPath);
   env->ReleaseStringUTFChars(jCoreSoPath, soPath);
