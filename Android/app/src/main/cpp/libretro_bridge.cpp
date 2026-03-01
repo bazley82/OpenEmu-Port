@@ -160,8 +160,9 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
   g_logDebugMethod = env->GetStaticMethodID(g_mainActivityClass, "logDebug",
                                             "(Ljava/lang/String;)V");
 
+  LOGI("JNI_OnLoad called. VM: %p", (void *)vm);
   LogToFile("BC: JNI_OnLoad called. VM: %p", (void *)vm);
-  LogToHUD("JNI Bridge Initialized (Beta 16)");
+  LogToHUD("JNI Bridge Initialized (Beta 16/19)");
 
   return JNI_VERSION_1_6;
 }
@@ -295,16 +296,21 @@ static bool loadCoreSO(const char *soPath) {
     g_coreHandle = nullptr;
   }
 
+  LogToHUD("Attempting dlopen: %s", soPath);
   g_coreHandle = dlopen(soPath, RTLD_LAZY | RTLD_LOCAL);
   if (!g_coreHandle) {
-    LOGE("dlopen failed for '%s': %s", soPath, dlerror());
+    const char *err = dlerror();
+    LOGE("dlopen failed for '%s': %s", soPath, err ? err : "unknown error");
+    LogToHUD("ERROR: dlopen failed: %s", err ? err : "unknown error");
     return false;
   }
+  LogToHUD("dlopen SUCCESS");
 
 #define RESOLVE(var, sym, type)                                                \
   var = (type)dlsym(g_coreHandle, sym);                                        \
   if (!var) {                                                                  \
     LOGE("missing symbol: %s", sym);                                           \
+    LogToHUD("ERROR: Missing symbol: %s", sym);                                \
     return false;                                                              \
   }
 
