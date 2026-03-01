@@ -328,17 +328,37 @@ static bool environmentCallback(unsigned cmd, void *data) {
           reinterpret_cast<retro_hw_render_callback *>(data);
       cb->context_type = RETRO_HW_CONTEXT_OPENGLES3;
 
-      // Beta 31/32: Robust get_proc_address with dlsym fallback for Android
+      // Beta 34: Bulletproof get_proc_address cascading fallback
       cb->get_proc_address = [](const char *sym) -> void * {
         void *p = (void *)eglGetProcAddress(sym);
-        if (!p) {
-          // Fallback to libGLESv3.so for core functions
-          static void *glesHandle = dlopen("libGLESv3.so", RTLD_LAZY);
-          if (glesHandle) {
-            p = dlsym(glesHandle, sym);
-          }
+        if (p)
+          return p;
+
+        static void *gles3 = dlopen("libGLESv3.so", RTLD_LAZY);
+        if (gles3) {
+          p = dlsym(gles3, sym);
+          if (p)
+            return p;
         }
-        return p;
+
+        static void *gles2 = dlopen("libGLESv2.so", RTLD_LAZY);
+        if (gles2) {
+          p = dlsym(gles2, sym);
+          if (p)
+            return p;
+        }
+
+        static void *egl = dlopen("libEGL.so", RTLD_LAZY);
+        if (egl) {
+          p = dlsym(egl, sym);
+          if (p)
+            return p;
+        }
+
+        // If all fail, log the exact symbol that the core is missing
+        __android_log_print(ANDROID_LOG_ERROR, "LibretroBridge",
+                            "FATAL: Failed to resolve GL symbol: %s", sym);
+        return nullptr;
       };
 
       cb->get_current_framebuffer = []() -> uintptr_t { return 0; };
@@ -730,7 +750,7 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeInitLogger(
   // Clear the log for a new session
   FILE *f = fopen(g_logFilePath.c_str(), "w");
   if (f) {
-    fprintf(f, "--- OpenEmuARM64 Beta 33 Public Logger Initialized ---\n");
+    fprintf(f, "--- OpenEmuARM64 Beta 34 Public Logger Initialized ---\n");
     fclose(f);
   }
 }
