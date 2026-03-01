@@ -429,23 +429,23 @@ class MainActivity : ComponentActivity() {
                     ?.let { File(nativeLibDir, it).takeIf { f -> f.exists() }?.absolutePath }
 
                 withContext(Dispatchers.Main) {
-                    try {
-                        selectedSystem = sysToUse
-                        selectedCore   = coreToUse
-                        isGameRunning  = true
+                    selectedSystem = sysToUse
+                    selectedCore   = coreToUse
+                    isGameRunning  = true
+                }
 
-                        if (libretroSoPath != null) {
-                            // Real Libretro core — bridge already loaded as part of the APK
-                            System.loadLibrary("libretro_bridge")
-                            nativeLoadROM(cachedRom.absolutePath, libretroSoPath)
-                        } else {
-                            // Stub core — load the stub .so and call its JNI entry
-                            System.loadLibrary(coreToUse)
-                            nativeLoadROM(cachedRom.absolutePath, "")
-                        }
-                    } catch (e: UnsatisfiedLinkError) {
-                        Log.e("OpenEmuCore", "Failed to load core: $coreToUse", e)
+                try {
+                    if (libretroSoPath != null) {
+                        // Real Libretro core — bridge already loaded as part of the APK
+                        System.loadLibrary("libretro_bridge")
+                        nativeLoadROM(cachedRom.absolutePath, libretroSoPath)
+                    } else {
+                        // Stub core — load the stub .so and call its JNI entry
+                        System.loadLibrary(coreToUse)
+                        nativeLoadROM(cachedRom.absolutePath, "")
                     }
+                } catch (e: UnsatisfiedLinkError) {
+                    Log.e("OpenEmuCore", "Failed to load core: $coreToUse", e)
                 }
             } catch (e: Exception) {
                 Log.e("OpenEmuCore", "ROM selection error", e)
@@ -507,25 +507,54 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun PauseOverlay(onResume: () -> Unit, onQuit: () -> Unit) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .liquidGlass(50f, 50f)
-                .background(Color.Black.copy(alpha = 0.4f))
-                .pointerInput(Unit) { detectTapGestures { /* Block underlying clicks */ } },
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(24.dp)) {
-                Text("PAUSED", color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 4.sp)
-                
+            // ── Background Scrim & Blur (Z-Layer 0) ─────────────────────────
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .liquidGlass(50f, 50f)
+                    .background(Color.Black.copy(alpha = 0.6f))
+                    .clickable(
+                        interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() },
+                        indication = null,
+                        onClick = onResume // Beta 10 Fix: Tapping background RESUMES game
+                    )
+            )
+
+            // ── Foreground Menu (Z-Layer 1) ─────────────────────────────────
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(24.dp),
+                modifier = Modifier.pointerInput(Unit) { detectTapGestures { /* Block underlying clicks */ } }
+            ) {
+                Text(
+                    "PAUSED",
+                    color = Color.White,
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.ExtraBold,
+                    letterSpacing = 4.sp
+                )
+
                 Column(Modifier.width(280.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Button(onClick = onResume, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = AppleBlue)) {
+                    Button(
+                        onClick = onResume,
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(containerColor = AppleBlue)
+                    ) {
                         Text("Resume")
                     }
-                    Button(onClick = onQuit, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent), border = ButtonDefaults.outlinedButtonBorder) {
+                    Button(
+                        onClick = onQuit,
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+                        border = ButtonDefaults.outlinedButtonBorder
+                    ) {
                         Text("Quit to Library", color = Color.White)
                     }
                 }
-                
+
                 // Opacity Slider inside Pause Menu
                 Column(Modifier.width(280.dp).padding(top = 32.dp)) {
                     Text("CONTROL OPACITY", color = Color.Gray, fontSize = 10.sp, fontWeight = FontWeight.Bold)
