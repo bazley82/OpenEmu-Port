@@ -446,24 +446,53 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeLoadROM(
     g_init();
   LogToFile("BC: Step 6 SUCCESS.");
 
+  // Beta 21: Load the ROM into memory before calling retro_load_game
+  static std::vector<uint8_t> g_romData; // Persistent while core is running
+  g_romData.clear();
+
+  LogToHUD("ROM Path: %s", romPath.c_str());
+  FILE *f = fopen(romPath.c_str(), "rb");
+  if (!f) {
+    LOGE("ERROR: Could not open ROM file at %s", romPath.c_str());
+    LogToHUD("ERROR: C++ could not read ROM file (Missing)");
+    return;
+  }
+
+  fseek(f, 0, SEEK_END);
+  size_t fileSize = ftell(f);
+  fseek(f, 0, SEEK_SET);
+
+  if (fileSize == 0) {
+    LOGE("ERROR: ROM file is empty (size 0)");
+    LogToHUD("ERROR: C++ could not read ROM file (Size 0)");
+    fclose(f);
+    return;
+  }
+
+  LogToHUD("ROM File Size: %zu bytes", fileSize);
+  g_romData.resize(fileSize);
+  size_t readCount = fread(g_romData.data(), 1, fileSize, f);
+  fclose(f);
+
+  if (readCount != fileSize) {
+    LOGE("ERROR: ROM read mismatch. Expected %zu, got %zu", fileSize,
+         readCount);
+    LogToHUD("ERROR: ROM partial read fail");
+    return;
+  }
+
   // Load the ROM
   retro_game_info gameInfo{};
   gameInfo.path = romPath.c_str();
-  LOGI("Loading ROM: %s", gameInfo.path);
-  LogToFile("BC: Step 7: retro_load_game... Path: %s, Struct Addr: %p",
-            gameInfo.path, (void *)&gameInfo);
+  gameInfo.data = g_romData.data();
+  gameInfo.size = g_romData.size();
+
+  LOGI("Loading ROM: %s (%zu bytes)", gameInfo.path, gameInfo.size);
+  LogToFile("BC: Step 7: retro_load_game... Path: %s, Data: %p, Size: %zu",
+            gameInfo.path, gameInfo.data, gameInfo.size);
 
   bool loadOk = g_loadGame && g_loadGame(&gameInfo);
   LogToHUD("retro_load_game returned %s", loadOk ? "SUCCESS" : "FAILURE");
-
-  if (!loadOk) {
-    LogToFile("BC: Step 7 FAILED.");
-    LOGE("retro_load_game() failed for '%s'", gameInfo.path);
-    if (g_deinit)
-      g_deinit();
-    return;
-  }
-  LogToFile("BC: Step 7 SUCCESS.");
 
   LOGI("ROM loaded successfully: %s", romPath.c_str());
 
