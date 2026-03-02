@@ -356,8 +356,7 @@ static bool environmentCallback(unsigned cmd, void *data) {
         }
 
         // If all fail, log the exact symbol that the core is missing
-        __android_log_print(ANDROID_LOG_ERROR, "LibretroBridge",
-                            "FATAL: Failed to resolve GL symbol: %s", sym);
+        LogToFile("FATAL: Failed to resolve GL symbol: %s", sym);
         return nullptr;
       };
 
@@ -530,16 +529,12 @@ static void emulationLoop(double targetFps) {
 
   const EGLint attribs[] = {EGL_RENDERABLE_TYPE,
                             EGL_OPENGL_ES3_BIT,
-                            EGL_BLUE_SIZE,
-                            8,
-                            EGL_GREEN_SIZE,
-                            8,
-                            EGL_RED_SIZE,
-                            8,
-                            EGL_DEPTH_SIZE,
-                            24,
                             EGL_SURFACE_TYPE,
                             EGL_WINDOW_BIT,
+                            EGL_DEPTH_SIZE,
+                            24,
+                            EGL_STENCIL_SIZE,
+                            8,
                             EGL_NONE};
   EGLint numConfigs;
   eglChooseConfig(g_eglDisplay, attribs, &eglConfig, 1, &numConfigs);
@@ -750,7 +745,7 @@ JNIEXPORT void JNICALL Java_org_openemu_android_MainActivity_nativeInitLogger(
   // Clear the log for a new session
   FILE *f = fopen(g_logFilePath.c_str(), "w");
   if (f) {
-    fprintf(f, "--- OpenEmuARM64 Beta 34 Public Logger Initialized ---\n");
+    fprintf(f, "--- OpenEmuARM64 Beta 35 Public Logger Initialized ---\n");
     fclose(f);
   }
 }

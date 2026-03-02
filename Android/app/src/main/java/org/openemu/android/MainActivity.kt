@@ -810,57 +810,62 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun EmulatorVideoSurface() {
-        AndroidView(
-            factory = { context ->
-                SurfaceView(context).apply {
-                    holder.addCallback(object : SurfaceHolder.Callback {
-                        override fun surfaceCreated(holder: SurfaceHolder) {
-                            nativeSetSurface(holder.surface)
-                            
-                            // Beta 11: Trigger JNI boot now that the surface is definitely ready
-                            val rom = pendingRomPath
-                            val core = pendingCoreName
-                            val so = pendingLibretroSo
-                            
-                            if (rom != null && core != null) {
-                                lifecycleScope.launch(Dispatchers.IO) {
-                                    try {
-                                        if (so != null) {
-                                            val coreFile = File(applicationInfo.nativeLibraryDir, so)
-                                            logDebug("Resolved Core Path: ${coreFile.absolutePath}")
-                                            
-                                            if (!coreFile.exists()) {
-                                                logDebug("FATAL: Core NOT found at ${coreFile.absolutePath}")
-                                                return@launch
+        Box(Modifier.fillMaxSize()) {
+            AndroidView(
+                factory = { context ->
+                    SurfaceView(context).apply {
+                        holder.addCallback(object : SurfaceHolder.Callback {
+                            override fun surfaceCreated(holder: SurfaceHolder) {
+                                nativeSetSurface(holder.surface)
+                                
+                                // Beta 11: Trigger JNI boot now that the surface is definitely ready
+                                val rom = pendingRomPath
+                                val core = pendingCoreName
+                                val so = pendingLibretroSo
+                                
+                                if (rom != null && core != null) {
+                                    lifecycleScope.launch(Dispatchers.IO) {
+                                        try {
+                                            if (so != null) {
+                                                val coreFile = File(applicationInfo.nativeLibraryDir, so)
+                                                logDebug("Resolved Core Path: ${coreFile.absolutePath}")
+                                                
+                                                if (!coreFile.exists()) {
+                                                    logDebug("FATAL: Core NOT found at ${coreFile.absolutePath}")
+                                                    return@launch
+                                                }
+                                                
+                                                nativeLoadROM(rom, coreFile.absolutePath)
+                                            } else {
+                                                System.loadLibrary(core)
+                                                nativeLoadROM(rom, "")
                                             }
-                                            
-                                            nativeLoadROM(rom, coreFile.absolutePath)
-                                        } else {
-                                            System.loadLibrary(core)
-                                            nativeLoadROM(rom, "")
+                                            // Clear pending state after successful trigger
+                                            pendingRomPath = null
+                                            pendingCoreName = null
+                                            pendingLibretroSo = null
+                                        } catch (e: Exception) {
+                                            Log.e("OpenEmuCore", "JNI Boot failed in surfaceCreated", e)
+                                            logDebug("JNI Boot Exception: ${e.message}")
                                         }
-                                        // Clear pending state after successful trigger
-                                        pendingRomPath = null
-                                        pendingCoreName = null
-                                        pendingLibretroSo = null
-                                    } catch (e: Exception) {
-                                        Log.e("OpenEmuCore", "JNI Boot failed in surfaceCreated", e)
-                                        logDebug("JNI Boot Exception: ${e.message}")
                                     }
                                 }
                             }
-                        }
-                        override fun surfaceChanged(holder: SurfaceHolder, format: Int, w: Int, h: Int) {
-                            nativeSetSize(w, h)
-                        }
-                        override fun surfaceDestroyed(holder: SurfaceHolder) {
-                            nativeSetSurface(null)
-                        }
-                    })
-                }
-            },
-            modifier = Modifier.fillMaxSize()
-        )
+                            override fun surfaceChanged(holder: SurfaceHolder, format: Int, w: Int, h: Int) {
+                                nativeSetSize(w, h)
+                            }
+                            override fun surfaceDestroyed(holder: SurfaceHolder) {
+                                nativeSetSurface(null)
+                            }
+                        })
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(4f / 3f)
+                    .align(Alignment.TopCenter)
+            )
+        }
     }
 
     @Composable

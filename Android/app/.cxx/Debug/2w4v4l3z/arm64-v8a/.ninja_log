@@ -411,3 +411,5 @@
 391	445	1772369675457218662	/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/liblibretro_bridge.so	c04e6458a898b00e
 10	544	1772371991135539921	CMakeFiles/libretro_bridge.dir/libretro_bridge.cpp.o	3a8b3b3b3dcb4471
 544	653	1772371991244664406	/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/liblibretro_bridge.so	c04e6458a898b00e
+9	583	1772412005565677637	CMakeFiles/libretro_bridge.dir/libretro_bridge.cpp.o	3a8b3b3b3dcb4471
+583	702	1772412005684881563	/Users/barriesanders/.gemini/antigravity/scratch/OpenEmu_Port/Android/app/build/intermediates/cxx/Debug/2w4v4l3z/obj/arm64-v8a/liblibretro_bridge.so	c04e6458a898b00e
