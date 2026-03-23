@@ -6,6 +6,12 @@
 #import <OpenEmuBase/OEGeometry.h>
 #import <OpenEmuBase/OEGameCore.h>
 #import <OpenEmuBase/OEAudioBuffer.h>
+#import <OpenEmuBase/OERingBuffer.h>
+#import <pthread.h>
+
+#if defined(__arm64__) || defined(__aarch64__)
+#include <arm_neon.h>
+#endif
 #import <OpenEmuBase/OEGameCoreController.h>
 #import <OpenEmuSystem/OEBindingMap.h>
 #import <OpenEmuBase/OESystemResponderClient.h>
@@ -720,7 +726,50 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
             const uint16_t *src_row = (const uint16_t *)data;
             uint32_t *dst_row = (uint32_t *)dest;
             for (int y = 0; y < copyH; y++) {
-                for (int x = 0; x < copyW; x++) {
+                int x = 0;
+#if defined(__arm64__) || defined(__aarch64__)
+                for (; x <= (int)copyW - 8; x += 8) {
+                    uint16x8_t pixels = vld1q_u16(&src_row[x]);
+                    
+                    // RGB565: RRRRRGGGGGGBBBBB
+                    // R: (pix >> 11) & 0x1F  -> 5 bits
+                    // G: (pix >> 5) & 0x3F   -> 6 bits
+                    // B: (pix) & 0x1F        -> 5 bits
+                    
+                    uint16x8_t r16 = vshrq_n_u16(pixels, 11);
+                    uint16x8_t g16 = vshrq_n_u16(vandq_u16(pixels, vdupq_n_u16(0x07E0)), 5);
+                    uint16x8_t b16 = vandq_u16(pixels, vdupq_n_u16(0x001F));
+                    
+                    // Expand 5/6 bits to 8 bits: (v << (8-bits)) | (v >> (2*bits-8))
+                    // R(5->8): (r << 3) | (r >> 2)
+                    // G(6->8): (g << 2) | (g >> 4)
+                    // B(5->8): (b << 3) | (b >> 2)
+                    
+                    uint16x8_t r8 = vorrq_u16(vshlq_n_u16(r16, 3), vshrq_n_u16(r16, 2));
+                    uint16x8_t g8 = vorrq_u16(vshlq_n_u16(g16, 2), vshrq_n_u16(g16, 4));
+                    uint16x8_t b8 = vorrq_u16(vshlq_n_u16(b16, 3), vshrq_n_u16(b16, 2));
+                    
+                    // Pack into 32-bit: 0xFF000000 | (r8 << 16) | (g8 << 8) | b8
+                    // We need to split into two uint32x4_t
+                    uint8x16_t a8_v = vdupq_n_u8(0xFF);
+                    
+                    // Extract low and high halves
+                    uint8x8_t rL = vmovn_u16(r8);
+                    uint8x8_t gL = vmovn_u16(g8);
+                    uint8x8_t b8L = vmovn_u16(b8);
+                    
+                    // (unrolled for stability)
+                    dst_row[x+0] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 0)) << 16) | (((uint32_t)vget_lane_u8(gL, 0)) << 8) | ((uint32_t)vget_lane_u8(b8L, 0));
+                    dst_row[x+1] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 1)) << 16) | (((uint32_t)vget_lane_u8(gL, 1)) << 8) | ((uint32_t)vget_lane_u8(b8L, 1));
+                    dst_row[x+2] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 2)) << 16) | (((uint32_t)vget_lane_u8(gL, 2)) << 8) | ((uint32_t)vget_lane_u8(b8L, 2));
+                    dst_row[x+3] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 3)) << 16) | (((uint32_t)vget_lane_u8(gL, 3)) << 8) | ((uint32_t)vget_lane_u8(b8L, 3));
+                    dst_row[x+4] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 4)) << 16) | (((uint32_t)vget_lane_u8(gL, 4)) << 8) | ((uint32_t)vget_lane_u8(b8L, 4));
+                    dst_row[x+5] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 5)) << 16) | (((uint32_t)vget_lane_u8(gL, 5)) << 8) | ((uint32_t)vget_lane_u8(b8L, 5));
+                    dst_row[x+6] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 6)) << 16) | (((uint32_t)vget_lane_u8(gL, 6)) << 8) | ((uint32_t)vget_lane_u8(b8L, 6));
+                    dst_row[x+7] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 7)) << 16) | (((uint32_t)vget_lane_u8(gL, 7)) << 8) | ((uint32_t)vget_lane_u8(b8L, 7));
+                }
+#endif
+                for (; x < (int)copyW; x++) {
                     uint16_t pix = src_row[x];
                     uint32_t r = (pix >> 11) & 0x1F;
                     uint32_t g = (pix >> 5) & 0x3F;
@@ -734,7 +783,39 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
             const uint16_t *src_row = (const uint16_t *)data;
             uint32_t *dst_row = (uint32_t *)dest;
             for (int y = 0; y < copyH; y++) {
-                for (int x = 0; x < copyW; x++) {
+                int x = 0;
+#if defined(__arm64__) || defined(__aarch64__)
+                for (; x <= (int)copyW - 8; x += 8) {
+                    uint16x8_t pixels = vld1q_u16(&src_row[x]);
+                    
+                    // 0RGB1555: 0RRRRRGGGGGBBBBB
+                    // R: (pix >> 10) & 0x1F
+                    // G: (pix >> 5) & 0x1F
+                    // B: (pix) & 0x1F
+                    
+                    uint16x8_t r16 = vshrq_n_u16(vandq_u16(pixels, vdupq_n_u16(0x7C00)), 10);
+                    uint16x8_t g16 = vshrq_n_u16(vandq_u16(pixels, vdupq_n_u16(0x03E0)), 5);
+                    uint16x8_t b16 = vandq_u16(pixels, vdupq_n_u16(0x001F));
+                    
+                    uint16x8_t r8 = vorrq_u16(vshlq_n_u16(r16, 3), vshrq_n_u16(r16, 2));
+                    uint16x8_t g8 = vorrq_u16(vshlq_n_u16(g16, 3), vshrq_n_u16(g16, 2));
+                    uint16x8_t b8 = vorrq_u16(vshlq_n_u16(b16, 3), vshrq_n_u16(b16, 2));
+                    
+                    uint8x8_t rL = vmovn_u16(r8);
+                    uint8x8_t gL = vmovn_u16(g8);
+                    uint8x8_t b8L = vmovn_u16(b8);
+                    
+                    dst_row[x+0] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 0)) << 16) | (((uint32_t)vget_lane_u8(gL, 0)) << 8) | ((uint32_t)vget_lane_u8(b8L, 0));
+                    dst_row[x+1] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 1)) << 16) | (((uint32_t)vget_lane_u8(gL, 1)) << 8) | ((uint32_t)vget_lane_u8(b8L, 1));
+                    dst_row[x+2] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 2)) << 16) | (((uint32_t)vget_lane_u8(gL, 2)) << 8) | ((uint32_t)vget_lane_u8(b8L, 2));
+                    dst_row[x+3] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 3)) << 16) | (((uint32_t)vget_lane_u8(gL, 3)) << 8) | ((uint32_t)vget_lane_u8(b8L, 3));
+                    dst_row[x+4] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 4)) << 16) | (((uint32_t)vget_lane_u8(gL, 4)) << 8) | ((uint32_t)vget_lane_u8(b8L, 4));
+                    dst_row[x+5] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 5)) << 16) | (((uint32_t)vget_lane_u8(gL, 5)) << 8) | ((uint32_t)vget_lane_u8(b8L, 5));
+                    dst_row[x+6] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 6)) << 16) | (((uint32_t)vget_lane_u8(gL, 6)) << 8) | ((uint32_t)vget_lane_u8(b8L, 6));
+                    dst_row[x+7] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 7)) << 16) | (((uint32_t)vget_lane_u8(gL, 7)) << 8) | ((uint32_t)vget_lane_u8(b8L, 7));
+                }
+#endif
+                for (; x < (int)copyW; x++) {
                     uint16_t pix = src_row[x];
                     uint32_t r = (pix >> 10) & 0x1F;
                     uint32_t g = (pix >> 5) & 0x1F;
