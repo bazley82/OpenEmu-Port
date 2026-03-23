@@ -6,9 +6,12 @@ FRAMEWORKS = -framework Foundation -framework Metal -framework AppKit -F../build
 OPTS = -O3 -arch arm64 -DNDEBUG -ffast-math -flto -fmodules -fobjc-arc -I./Core -I./libretro-common/include -I../OpenEmu-SDK
 
 PLUGIN_DIR = ./Plugins
-SYSTEMS = Genesis PSX PSP DS N64
+SYSTEMS = Genesis PSX PSP DS N64 SNES SNES9x
 
 all: bridge plugins
+
+release: OPTS += -DNDEBUG -O3 -flto
+release: bridge plugins
 
 bridge:
 	$(CXX) $(OPTS) -dynamiclib Core/OELibretroGameCore.mm -o OELibretroGameCore.dylib $(FRAMEWORKS)

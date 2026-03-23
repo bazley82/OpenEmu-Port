@@ -35,9 +35,29 @@ struct retro_hw_render_interface_metal
 };
 #endif
 
+#if DEBUG
 static void OELogToFile(NSString *format, ...) {
-    // No-op for release
+    va_list args;
+    va_start(args, format);
+    NSString *msg = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    NSString *logLine = [NSString stringWithFormat:@"%@\n", msg];
+    NSData *data = [logLine dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *logPath = @"/tmp/oe_libretro.log";
+    NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:logPath];
+    if (!handle) {
+        [data writeToFile:logPath atomically:YES];
+    } else {
+        [handle seekToEndOfFile];
+        [handle writeData:data];
+        [handle closeFile];
+    }
 }
+#else
+#define OELogToFile(format, ...) do {} while (0)
+#endif
 
 static __unsafe_unretained OELibretroGameCore *_current;
 
@@ -213,11 +233,14 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
 - (BOOL)loadCore:(NSString *)corePath
 {
+    OELogToFile(@"[Libretro] Internal dlopen calling for %@", corePath);
     _coreHandle = dlopen([corePath UTF8String], RTLD_LAZY | RTLD_GLOBAL);
     if (!_coreHandle) {
         OELogToFile(@"[Libretro] Failed to load core at %@: %s", corePath, dlerror());
+        NSLog(@"[Libretro] Failed to load core at %@: %s", corePath, dlerror());
         return NO;
     }
+    OELogToFile(@"[Libretro] dlopen SUCCESS for core handle: %p", _coreHandle);
     
     #define LOAD_SYM(name) \
         _##name = (typeof(_##name))dlsym(_coreHandle, #name); \
@@ -603,12 +626,15 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
                     OELogToFile(@"[Libretro] PPSSPP Internal resolution requested (scale %f): returning %s", self.resolutionScale, var->value);
                     return true;
                 }
-                if (strcmp(var->key, "swanstation_GPU_Renderer") == 0) {
+                if (strcmp(var->key, "swanstation_GPU_Renderer") == 0 || 
+                    strcmp(var->key, "swanstation.Renderer") == 0 ||
+                    strcmp(var->key, "renderer_selection") == 0) {
                     var->value = "Software";
-                    OELogToFile(@"[Libretro] Forced SwanStation to Software Renderer");
+                    OELogToFile(@"[Libretro] Forced SwanStation to Software Renderer (Key: %s)", var->key);
                     return true;
                 }
-                if (strcmp(var->key, "swanstation_GPU_ResolutionScale") == 0) {
+                if (strcmp(var->key, "swanstation_GPU_ResolutionScale") == 0 ||
+                    strcmp(var->key, "swanstation.ResolutionScale") == 0) {
                     var->value = "1";
                     return true;
                 }
@@ -645,12 +671,12 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         return OEGameCoreRenderingBitmap;
     }
     
-    if (_hwRenderCallback.context_type == RETRO_HW_CONTEXT_METAL) {
-        return OEGameCoreRenderingMetal2;
+    if (_hwRenderCallback.context_type == 1 /* RETRO_HW_CONTEXT_OPENGL */) {
+        return (OEGameCoreRendering)1; // OEGameCoreRenderingOpenGL2
     } else if (_hwRenderCallback.context_type == 3 /* RETRO_HW_CONTEXT_OPENGL_CORE */) {
-        return OEGameCoreRenderingOpenGL3;
+        return (OEGameCoreRendering)2; // OEGameCoreRenderingOpenGL3
     }
-    return OEGameCoreRenderingOpenGL3; 
+    return (OEGameCoreRendering)2; // Default to 2 (OpenGL3) as in verified stable commit 8fa7993
 }
 
 - (void)videoRefreshCallback:(const void *)data width:(unsigned)width height:(unsigned)height pitch:(size_t)pitch
@@ -672,18 +698,9 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     
     void *dest = (void *)[self videoBuffer];
     if (dest && data != dest) {
-        // Clear the destination buffer to opaque black every frame to 
-        // prevent "hot pink" bars (OpenEmu background) from showing through.
-        // We MUST use opaque black (0xFF000000) instead of transparent (0).
-        uint32_t *p = (uint32_t *)dest;
-        size_t count = _videoBufferSize / 4;
-        for (size_t i = 0; i < count; i++) p[i] = 0xFF000000;
-        
         OEIntSize maxSize = [self bufferSize];
-        unsigned copyW = width;
-        unsigned copyH = height;
-        if (copyW > maxSize.width) copyW = maxSize.width;
-        if (copyH > maxSize.height) copyH = maxSize.height;
+        unsigned copyW = MIN(width, (unsigned)maxSize.width);
+        unsigned copyH = MIN(height, (unsigned)maxSize.height);
         
         size_t outPitch = [self bytesPerRow];
         size_t inPitch = pitch;
@@ -692,15 +709,12 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         if (inPitch == 0) inPitch = width * bytesPerPixel;
         
         if (_pixelFormat == RETRO_PIXEL_FORMAT_XRGB8888) {
-            const uint32_t *src_row = (const uint32_t *)data;
-            uint32_t *dst_row = (uint32_t *)dest;
-            for (int y = 0; y < copyH; y++) {
-                for (int x = 0; x < copyW; x++) {
-                    // Force Alpha to 0xFF (Opaque) to fix black/invisible screens
-                    dst_row[x] = src_row[x] | (0xFF << 24);
+            if (inPitch == outPitch && inPitch == width * 4) {
+                memcpy(dest, data, inPitch * copyH);
+            } else {
+                for (int y = 0; y < copyH; y++) {
+                    memcpy((uint8_t *)dest + y * outPitch, (uint8_t *)data + y * inPitch, copyW * 4);
                 }
-                src_row = (const uint32_t *)((const uint8_t *)src_row + inPitch);
-                dst_row = (uint32_t *)((uint8_t *)dst_row + outPitch);
             }
         } else if (_pixelFormat == RETRO_PIXEL_FORMAT_RGB565) {
             const uint16_t *src_row = (const uint16_t *)data;
@@ -716,8 +730,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
                 src_row = (const uint16_t *)((const uint8_t *)src_row + inPitch);
                 dst_row = (uint32_t *)((uint8_t *)dst_row + outPitch);
             }
-        }
- else if (_pixelFormat == RETRO_PIXEL_FORMAT_0RGB1555) {
+        } else if (_pixelFormat == RETRO_PIXEL_FORMAT_0RGB1555) {
             const uint16_t *src_row = (const uint16_t *)data;
             uint32_t *dst_row = (uint32_t *)dest;
             for (int y = 0; y < copyH; y++) {
