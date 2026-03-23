@@ -1061,6 +1061,14 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 - (OEIntSize)aspectSize
 {
     float ratio = _avInfo.geometry.aspect_ratio;
+    
+    // Sega Genesis / Mega Drive (openemu.system.sg)
+    // Force 4:3 display aspect ratio to match original OpenEmu behavior 
+    // and eliminate horizontal letterboxing bars (Genesis 320x224 is natively ~1.43).
+    if ([self.systemIdentifier isEqualToString:@"openemu.system.sg"]) {
+        ratio = 4.0 / 3.0;
+    }
+    
     if (ratio <= 0) {
         OEIntRect rect = [self screenRect];
         ratio = (float)rect.size.width / (float)rect.size.height;
