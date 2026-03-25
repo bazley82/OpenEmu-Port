@@ -63,7 +63,6 @@
 		94790D9614C0C46900B30798 /* fxinst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94790D1514C0C46900B30798 /* fxinst.cpp */; };
 		94790D9714C0C46900B30798 /* gfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94790D1814C0C46900B30798 /* gfx.cpp */; };
 		94790D9814C0C46900B30798 /* globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94790D1A14C0C46900B30798 /* globals.cpp */; };
-		94790DA414C0C46900B30798 /* logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94790D3A14C0C46900B30798 /* logger.cpp */; };
 		94790DA514C0C46900B30798 /* memmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94790D3C14C0C46900B30798 /* memmap.cpp */; };
 		94790DA614C0C46900B30798 /* movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94790D4014C0C46900B30798 /* movie.cpp */; };
 		94790DA714C0C46900B30798 /* netplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94790D4214C0C46900B30798 /* netplay.cpp */; };
@@ -209,8 +208,6 @@
 		94790D1914C0C46900B30798 /* gfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gfx.h; path = src/gfx.h; sourceTree = "<group>"; };
 		94790D1A14C0C46900B30798 /* globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = globals.cpp; path = src/globals.cpp; sourceTree = "<group>"; };
 		94790D3814C0C46900B30798 /* language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = language.h; path = src/language.h; sourceTree = "<group>"; };
-		94790D3A14C0C46900B30798 /* logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = logger.cpp; path = src/logger.cpp; sourceTree = "<group>"; };
-		94790D3B14C0C46900B30798 /* logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = logger.h; path = src/logger.h; sourceTree = "<group>"; };
 		94790D3C14C0C46900B30798 /* memmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = memmap.cpp; path = src/memmap.cpp; sourceTree = "<group>"; };
 		94790D3D14C0C46900B30798 /* memmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = memmap.h; path = src/memmap.h; sourceTree = "<group>"; };
 		94790D3E14C0C46900B30798 /* messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = messages.h; path = src/messages.h; sourceTree = "<group>"; };
@@ -410,8 +407,6 @@
 				94790D1A14C0C46900B30798 /* globals.cpp */,
 				94790D3814C0C46900B30798 /* language.h */,
 				87431C071B0309F700F82158 /* loadzip.cpp */,
-				94790D3A14C0C46900B30798 /* logger.cpp */,
-				94790D3B14C0C46900B30798 /* logger.h */,
 				94790D3C14C0C46900B30798 /* memmap.cpp */,
 				94790D3D14C0C46900B30798 /* memmap.h */,
 				94790D3E14C0C46900B30798 /* messages.h */,
@@ -666,7 +661,6 @@
 				94790D9614C0C46900B30798 /* fxinst.cpp in Sources */,
 				94790D9714C0C46900B30798 /* gfx.cpp in Sources */,
 				94790D9814C0C46900B30798 /* globals.cpp in Sources */,
-				94790DA414C0C46900B30798 /* logger.cpp in Sources */,
 				94790DA514C0C46900B30798 /* memmap.cpp in Sources */,
 				94790DA614C0C46900B30798 /* movie.cpp in Sources */,
 				8741B3AC1FC9361100A95A00 /* msu1.cpp in Sources */,
