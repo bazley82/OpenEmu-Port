@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>Acerca de OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Siempre ocultar HUD</string>
+	<key>Back Up…</key>
+	<string>Copia de seguridad…</string>
+	<key>Bring All to Front</key>
+	<string>Traer todo al frente</string>
+	<key>Check for Updates…</key>
+	<string>Buscar actualizaciones…</string>
+	<key>Close Window</key>
+	<string>Cerrar ventana</string>
+	<key>Controls</key>
+	<string>Controles</string>
+	<key>Copy</key>
+	<string>Copiar</string>
+	<key>Cut</key>
+	<string>Cortar</string>
+	<key>Delete</key>
+	<string>Eliminar</string>
+	<key>Display Duplicates</key>
+	<string>Mostrar duplicados</string>
+	<key>Display Exact Duplicates</key>
+	<string>Mostrar duplicados exactos</string>
+	<key>Edit</key>
+	<string>Edición</string>
+	<key>Edit Smart Collection</key>
+	<string>Editar colección inteligente</string>
+	<key>Export Collection</key>
+	<string>Exportar colección</string>
+	<key>Export Library…</key>
+	<string>Exportar biblioteca…</string>
+	<key>File</key>
+	<string>Archivo</string>
+	<key>Find</key>
+	<string>Buscar</string>
+	<key>Find Next</key>
+	<string>Buscar siguiente</string>
+	<key>Find Previous</key>
+	<string>Buscar anterior</string>
+	<key>Find…</key>
+	<string>Buscar…</string>
+	<key>Float on Top</key>
+	<string>Colocar en primer plano</string>
+	<key>Fullscreen</key>
+	<string>Pantalla completa</string>
+	<key>Get Info</key>
+	<string>Obtener información</string>
+	<key>Help</key>
+	<string>Ayuda</string>
+	<key>Hide OpenEmu</key>
+	<string>Ocultar OpenEmu</string>
+	<key>Hide Others</key>
+	<string>Ocultar otros</string>
+	<key>Import Collection</key>
+	<string>Importar colección</string>
+	<key>Jump to Selection</key>
+	<string>Ir a la selección</string>
+	<key>Last Display Mode</key>
+	<string>Modo de visualización anterior</string>
+	<key>Last Played</key>
+	<string>Último jugado</string>
+	<key>Launch Game…</key>
+	<string>Iniciar juego…</string>
+	<key>Load State</key>
+	<string>Cargar estado</string>
+	<key>Log Responder Chain</key>
+	<string>Registro de cadena de respuesta</string>
+	<key>Minimize</key>
+	<string>Minimizar</string>
+	<key>New Collection Folder</key>
+	<string>Nueva carpeta de colección</string>
+	<key>New Smart Collection…</key>
+	<string>Nueva colección inteligente…</string>
+	<key>Next Display Mode</key>
+	<string>Modo de visualización siguiente</string>
+	<key>OpenEmu Web Site</key>
+	<string>Página web de OpenEmu</string>
+	<key>Organize Library…</key>
+	<string>Organizar biblioteca…</string>
+	<key>Page Setup…</key>
+	<string>Configurar página…</string>
+	<key>Paste</key>
+	<string>Pegar</string>
+	<key>Preferences…</key>
+	<string>Preferencias…</string>
+	<key>Print…</key>
+	<string>Imprimir…</string>
+	<key>Quit OpenEmu</key>
+	<string>Salir de OpenEmu</string>
+	<key>Redo</key>
+	<string>Rehacer</string>
+	<key>Release Notes</key>
+	<string>Notas de la versión</string>
+	<key>Save State</key>
+	<string>Guardar estado</string>
+	<key>Select All</key>
+	<string>Seleccionar todo</string>
+	<key>Send a Donation…</key>
+	<string>Enviar una donación…</string>
+	<key>Services</key>
+	<string>Servicios</string>
+	<key>Show All</key>
+	<string>Mostrar todo</string>
+	<key>Show Library</key>
+	<string>Mostrar biblioteca</string>
+	<key>Show ROM Names</key>
+	<string>Mostrar nombres de ROMS</string>
+	<key>Start Game</key>
+	<string>Comenzar partida</string>
+	<key>Submit Feedback</key>
+	<string>Enviar comentarios</string>
+	<key>Take Screenshot</key>
+	<string>Hacer captura de pantalla</string>
+	<key>Undo</key>
+	<string>Deshacer</string>
+	<key>Undock Game Window</key>
+	<string>Desacoplar ventana de juego</string>
+	<key>Use Selection for Find</key>
+	<string>Usar selección para buscar</string>
+	<key>User Guide</key>
+	<string>Guía de usuario</string>
+	<key>View</key>
+	<string>Visualización</string>
+	<key>Volume Down</key>
+	<string>Bajar volumen</string>
+	<key>Volume Up</key>
+	<string>Subir volumen</string>
+	<key>Window</key>
+	<string>Ventana</string>
+	<key>Zoom</key>
+	<string>Zoom</string>
+	<key>as Grid</key>
+	<string>Como cuadrícula</string>
+	<key>as List</key>
+	<string>Como lista</string>
+</dict>
+</plist>

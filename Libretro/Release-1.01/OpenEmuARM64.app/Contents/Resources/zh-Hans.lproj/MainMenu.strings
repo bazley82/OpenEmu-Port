@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>关于 OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>总是隐藏 HUD</string>
+	<key>Back Up…</key>
+	<string>备份…</string>
+	<key>Bring All to Front</key>
+	<string>前置全部窗口</string>
+	<key>Check for Updates…</key>
+	<string>检查更新…</string>
+	<key>Close Window</key>
+	<string>关闭窗口</string>
+	<key>Controls</key>
+	<string>控制</string>
+	<key>Copy</key>
+	<string>复制</string>
+	<key>Cut</key>
+	<string>剪切</string>
+	<key>Delete</key>
+	<string>删除</string>
+	<key>Display Duplicates</key>
+	<string>显示副本</string>
+	<key>Display Exact Duplicates</key>
+	<string>显示精确副本</string>
+	<key>Edit</key>
+	<string>编辑</string>
+	<key>Edit Smart Collection</key>
+	<string>编辑智能收藏</string>
+	<key>Export Collection</key>
+	<string>导出收藏</string>
+	<key>Export Library…</key>
+	<string>导出库…</string>
+	<key>File</key>
+	<string>文件</string>
+	<key>Find</key>
+	<string>查找</string>
+	<key>Find Next</key>
+	<string>查找下一个</string>
+	<key>Find Previous</key>
+	<string>查找上一个</string>
+	<key>Find…</key>
+	<string>查找…</string>
+	<key>Float on Top</key>
+	<string>浮动在最前面</string>
+	<key>Fullscreen</key>
+	<string>全屏</string>
+	<key>Get Info</key>
+	<string>获取信息</string>
+	<key>Help</key>
+	<string>帮助</string>
+	<key>Hide OpenEmu</key>
+	<string>隐藏 OpenEmu</string>
+	<key>Hide Others</key>
+	<string>隐藏其他</string>
+	<key>Import Collection</key>
+	<string>导入收藏</string>
+	<key>Jump to Selection</key>
+	<string>跳转到选择</string>
+	<key>Last Display Mode</key>
+	<string>上一个显示模式</string>
+	<key>Last Played</key>
+	<string>最近运行</string>
+	<key>Launch Game…</key>
+	<string>运行游戏…</string>
+	<key>Load State</key>
+	<string>读取状态</string>
+	<key>Log Responder Chain</key>
+	<string>记录响应链</string>
+	<key>Minimize</key>
+	<string>最小化</string>
+	<key>New Collection Folder</key>
+	<string>新建收藏文件夹</string>
+	<key>New Smart Collection…</key>
+	<string>新建智能收藏…</string>
+	<key>Next Display Mode</key>
+	<string>下一个显示模式</string>
+	<key>OpenEmu Web Site</key>
+	<string>OpenEmu 网站</string>
+	<key>Organize Library…</key>
+	<string>整理库…</string>
+	<key>Page Setup…</key>
+	<string>页面设置…</string>
+	<key>Paste</key>
+	<string>粘贴</string>
+	<key>Preferences…</key>
+	<string>偏好设置…</string>
+	<key>Print…</key>
+	<string>打印…</string>
+	<key>Quit OpenEmu</key>
+	<string>退出 OpenEmu</string>
+	<key>Redo</key>
+	<string>重做</string>
+	<key>Release Notes</key>
+	<string>版本说明</string>
+	<key>Save State</key>
+	<string>保存状态</string>
+	<key>Select All</key>
+	<string>全选</string>
+	<key>Send a Donation…</key>
+	<string>发送捐款…</string>
+	<key>Services</key>
+	<string>服务</string>
+	<key>Show All</key>
+	<string>全部显示</string>
+	<key>Show Library</key>
+	<string>显示库</string>
+	<key>Show ROM Names</key>
+	<string>显示 ROM 名称</string>
+	<key>Start Game</key>
+	<string>开始游戏</string>
+	<key>Submit Feedback</key>
+	<string>提交反馈</string>
+	<key>Take Screenshot</key>
+	<string>截图</string>
+	<key>Undo</key>
+	<string>撤销</string>
+	<key>Undock Game Window</key>
+	<string>取消固定窗口</string>
+	<key>Use Selection for Find</key>
+	<string>使用选择来查找</string>
+	<key>User Guide</key>
+	<string>用户指南</string>
+	<key>View</key>
+	<string>视图</string>
+	<key>Volume Down</key>
+	<string>降低音量</string>
+	<key>Volume Up</key>
+	<string>提高音量</string>
+	<key>Window</key>
+	<string>窗口</string>
+	<key>Zoom</key>
+	<string>缩放</string>
+	<key>as Grid</key>
+	<string>以网格显示</string>
+	<key>as List</key>
+	<string>以列表显示</string>
+</dict>
+</plist>

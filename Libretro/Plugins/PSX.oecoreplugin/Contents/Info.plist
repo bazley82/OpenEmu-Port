@@ -23,7 +23,7 @@
 	<key>OEGameCoreClass</key>
 	<string>OELibretroGameCore</string>
 	<key>OEGameCorePlayerCount</key>
-	<string>8</string>
+	<string>4</string>
 	<key>OESystemIdentifiers</key>
 	<array>
 		<string>openemu.system.psx</string>

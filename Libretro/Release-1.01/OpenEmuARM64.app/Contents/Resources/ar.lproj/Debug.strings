@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>المظهر:</string>
+	<key>Auto (region)</key>
+	<string>تلقائية</string>
+	<key>Background Thread</key>
+	<string>Background Thread</string>
+	<key>Cancel cover sync for all games</key>
+	<string>إلغاء مزامنة الأغلة لجميع الألعاب</string>
+	<key>Checked</key>
+	<string>محدد</string>
+	<key>Cleanup Save States</key>
+	<string>تنظيف حالات الحفظ</string>
+	<key>Cleanup autosave state</key>
+	<string>تنظيف حالات الحفظ التلقائي</string>
+	<key>Cleanup rom hashes</key>
+	<string>Cleanup rom hashes</string>
+	<key>Clear shader cache</key>
+	<string>Clear shader cache</string>
+	<key>Controls Setup</key>
+	<string>تهيئة التحكم</string>
+	<key>Dark (default)</key>
+	<string>داكن (افتراضي)</string>
+	<key>Database Actions</key>
+	<string>إجراءات قاعدة البيانات</string>
+	<key>Debug Mode</key>
+	<string>وضع تصحيح الأخطاء</string>
+	<key>Default Value: %@</key>
+	<string>القيمة الافتراضية: %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>احذف الغلاف الذي يمكن تنزيله</string>
+	<key>Delete useless image objects</key>
+	<string>Delete useless image objects</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>تعطيل تصحيح التحجيم في لقطات الشاشة</string>
+	<key>Download missing artwork…</key>
+	<string>تنزيل الأغلفة المفقودة…</string>
+	<key>Draw button mask above image</key>
+	<string>Draw button mask above image</string>
+	<key>Europe</key>
+	<string>أوروبا</string>
+	<key>Game View Background color:</key>
+	<string>لون الخلفية أثناء عرض اللعبة: </string>
+	<key>General</key>
+	<string>عام</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>شريط التحكم / أثناء اللعب</string>
+	<key>Japan</key>
+	<string>اليابان</string>
+	<key>Library Window</key>
+	<string>نافذة المكتبة</string>
+	<key>Light</key>
+	<string>فاتح</string>
+	<key>Log HID Events</key>
+	<string>Log HID Events</string>
+	<key>Log Keyboard Events</key>
+	<string>Log Keyboard Events</string>
+	<key>Manually choose system on import</key>
+	<string>اختيار النظام يدويًا عند الاستيراد</string>
+	<key>North America</key>
+	<string>أمريكا الشمالية</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>أخرى</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>Perform Sanity Check on Database</string>
+	<key>Range: %@ to %@</key>
+	<string>Range: %@ to %@</string>
+	<key>Region:</key>
+	<string>المنطقة:</string>
+	<key>Remove duplicated roms</key>
+	<string>إزالة ملفات الـROM المكررة</string>
+	<key>Remove untracked artwork files</key>
+	<string>Remove untracked artwork files</string>
+	<key>Reset main window size</key>
+	<string>إعادة تعيين حجم النافذة الرئيسية</string>
+	<key>Reveal user shader folder</key>
+	<string>Reveal user shader folder</string>
+	<key>Run games using:</key>
+	<string>تشغيل اللعبة باستخدام:</string>
+	<key>Select first field after setting the last</key>
+	<string>Select first field after setting the last</string>
+	<key>Set default save states directory</key>
+	<string>تعيين المجلد الافتراضي لحالات الحفظ</string>
+	<key>Setup Assistant has finished</key>
+	<string>تم الإنتهاء من مساعد التنصيب</string>
+	<key>Shaders</key>
+	<string>Shaders</string>
+	<key>Show all special keys</key>
+	<string>إظهار جميع المفاتيح الخاصة</string>
+	<key>Show audio output device in menu</key>
+	<string>إظهار جهاز خرج الصوت في القائمة</string>
+	<key>Show autosave in menu</key>
+	<string>إظهار الحفظ التلقائي في القائمة</string>
+	<key>Show autosave states in save state category</key>
+	<string>إظهار حالات الحفظ التلقائي في قسم حالات الحفظ</string>
+	<key>Show game titles instead of rom names</key>
+	<string>أظهر اسم اللعبة بدل اسم الـROM</string>
+	<key>Show notifications during gameplay</key>
+	<string>عرض الإشعارات أثناء اللعب</string>
+	<key>Show quicksave in menu</key>
+	<string>إظهار الحفظ السريع في القائمة</string>
+	<key>Show quicksave states in save state category</key>
+	<string>اظهار الحفظ السريع التلقائي في قسم حالات الحفظ</string>
+	<key>Sync games without artwork</key>
+	<string>مزامنة الألعاب بدون الأغلفة</string>
+	<key>System</key>
+	<string>النظام</string>
+	<key>Take screenshots in native size</key>
+	<string>أخذ لقظات الشاشة بالحجم الأصلي</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>Threshold for analog controls
+bound to buttons:</string>
+	<key>Toggle game scanner view</key>
+	<string>إخفاء/إظهار  ماسح الألعاب</string>
+	<key>Unchecked</key>
+	<string>غير محدد</string>
+	<key>Update OpenVGDB</key>
+	<string>تحديث OpenVGDB</string>
+	<key>Use quicksave slots</key>
+	<string>استخدم فتحات الحفظ السريع</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>While performing this operation OpenEmu will be unresponsive.</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

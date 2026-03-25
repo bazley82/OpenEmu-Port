@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>Appearance:</string>
+	<key>Auto (region)</key>
+	<string>Auto</string>
+	<key>Background Thread</key>
+	<string>Background Thread</string>
+	<key>Cancel cover sync for all games</key>
+	<string>Annuleer synchronisatie van omslagafbeeldingen voor alle spellen</string>
+	<key>Checked</key>
+	<string>Checked</string>
+	<key>Cleanup Save States</key>
+	<string>Ruim momentopnames op</string>
+	<key>Cleanup autosave state</key>
+	<string>Ruim staat van momentopnames op</string>
+	<key>Cleanup rom hashes</key>
+	<string>Ruim ROM hashes op</string>
+	<key>Clear shader cache</key>
+	<string>Clear shader cache</string>
+	<key>Controls Setup</key>
+	<string>Bedieningsset-up</string>
+	<key>Dark (default)</key>
+	<string>Dark (default)</string>
+	<key>Database Actions</key>
+	<string>Database acties</string>
+	<key>Debug Mode</key>
+	<string>Debugmodus</string>
+	<key>Default Value: %@</key>
+	<string>Default Value: %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>Verwijder artwork dat kan gedownload worden</string>
+	<key>Delete useless image objects</key>
+	<string>Verwijder nutteloze afbeeldingsobjecten</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>Schakel aspect ratio correctie uit</string>
+	<key>Download missing artwork…</key>
+	<string>Download ontbrekend artwork…</string>
+	<key>Draw button mask above image</key>
+	<string>Teken knopmasker boven afbeelding</string>
+	<key>Europe</key>
+	<string>Europe</string>
+	<key>Game View Background color:</key>
+	<string>Achtergrondkleur van spellenvenster:</string>
+	<key>General</key>
+	<string>Algemeen</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>HUD-balk/Spelen</string>
+	<key>Japan</key>
+	<string>Japan</string>
+	<key>Library Window</key>
+	<string>Bibliotheekvenster</string>
+	<key>Light</key>
+	<string>Light</string>
+	<key>Log HID Events</key>
+	<string>Leg HID events vast</string>
+	<key>Log Keyboard Events</key>
+	<string>Leg toetsenbord events vast</string>
+	<key>Manually choose system on import</key>
+	<string>Kies manueel systeem bij importeren</string>
+	<key>North America</key>
+	<string>North America</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>Other</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>Controleer database op zuiverheid</string>
+	<key>Range: %@ to %@</key>
+	<string>Range: %@ to %@</string>
+	<key>Region:</key>
+	<string>Regio:</string>
+	<key>Remove duplicated roms</key>
+	<string>Verwijder dubbele ROM's</string>
+	<key>Remove untracked artwork files</key>
+	<string>Remove untracked artwork files</string>
+	<key>Reset main window size</key>
+	<string>Herstel grootte van hoofdvenster</string>
+	<key>Reveal user shader folder</key>
+	<string>Reveal user shader folder</string>
+	<key>Run games using:</key>
+	<string>Spellen starten met:</string>
+	<key>Select first field after setting the last</key>
+	<string>Selecteer eerste veld na het laatste ingesteld te hebben</string>
+	<key>Set default save states directory</key>
+	<string>Stel standaardmap voor momentopnames in</string>
+	<key>Setup Assistant has finished</key>
+	<string>Set-upassistent is klaar</string>
+	<key>Shaders</key>
+	<string>Shaders</string>
+	<key>Show all special keys</key>
+	<string>Toon alle speciale knoppen</string>
+	<key>Show audio output device in menu</key>
+	<string>Toon geluidsuitvoerapparaat in menu</string>
+	<key>Show autosave in menu</key>
+	<string>Show autosave in menu</string>
+	<key>Show autosave states in save state category</key>
+	<string>Show autosave states in save state category</string>
+	<key>Show game titles instead of rom names</key>
+	<string>Toon titels van spellen in plaats van namen van ROM's</string>
+	<key>Show notifications during gameplay</key>
+	<string>Toon meldingen tijdens het spelen</string>
+	<key>Show quicksave in menu</key>
+	<string>Show quicksave in menu</string>
+	<key>Show quicksave states in save state category</key>
+	<string>Show quicksave states in save state category</string>
+	<key>Sync games without artwork</key>
+	<string>Synchroniseer spellen zonder omslagafbeelding</string>
+	<key>System</key>
+	<string>System</string>
+	<key>Take screenshots in native size</key>
+	<string>Neem schermafbeeldingen in native grootte</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>Threshold for analog controls
+bound to buttons:</string>
+	<key>Toggle game scanner view</key>
+	<string>Toggle game scanner view</string>
+	<key>Unchecked</key>
+	<string>Unchecked</string>
+	<key>Update OpenVGDB</key>
+	<string>Update OpenVGDB</string>
+	<key>Use quicksave slots</key>
+	<string>Use quicksave slots</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>Terwijl OpenEmu deze handeling verricht, reageert het niet.</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

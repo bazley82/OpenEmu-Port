@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>"%@" in %@</key>
+	<string>« %1$@ » dans %2$@</string>
+	<key>%@ copy</key>
+	<string>%@ - copie</string>
+	<key>%@ could not be enabled because its plugin was not found.</key>
+	<string>Impossible d’activer %@ car son plugin n’a pas été trouvé.</string>
+	<key>%@ games will appear here. Check out %@ on how to add disc-based games.</key>
+	<string>Les jeux %@ apparaîtront ici. Lisez %@ pour savoir comment ajouter des jeux à disque.</string>
+	<key>%@ games you add to OpenEmu will appear in this Console Library</key>
+	<string>Les jeux %@ ajoutés à OpenEmu apparaîtront dans la bibliothèque de la console</string>
+	<key>%ux</key>
+	<string>%ux</string>
+	<key>A name is required.</key>
+	<string>A name is required.</string>
+	<key>ALERT_CORE_GLITCHES_FEEDBACK_HTML</key>
+	<string>&lt;b&gt;Si et seulement si ce problème persiste&lt;/b&gt;, rédigez un commentaire en anglais en incluant :&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Le modèle du Mac utilisé &lt;b&gt;et&lt;/b&gt; la version de macOS installée&lt;ul&gt;&lt;li&gt;Ces informations sont dans  &gt; À propos de ce Mac&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Le &lt;b&gt;nom exact&lt;/b&gt; du jeu auquel vous jouiez&lt;/li&gt;&lt;li&gt;Le rapport d'erreur de OpenEmuHelperApp&lt;ul&gt;&lt;li&gt;Ouvrez Console.app, cliquez sur "Rapports d'erreurs" ou "Rapports utilisateur" dans la barre latérale, recherchez ensuite le dernier document comportant dans son nom OpenEmuHelperApp&lt;/ul&gt;&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Recherchez toujours les commentaires similaires précédemment émis par d'autres utilisateurs !&lt;/b&gt;&lt;br&gt;Si une de ces informations est manquante, ou si un commentaire similaire a déjà été émis, votre rapport de problème sera clôturé.</string>
+	<key>ALERT_INPUT_MONITORING_HEADLINE</key>
+	<string>OpenEmu nécessite des autorisations supplémentaires</string>
+	<key>ALERT_INPUT_MONITORING_PART1</key>
+	<string>OpenEmu doit être autorisé dans Surveillance de l’entrée pour pouvoir utiliser le clavier comme périphérique d’entrée.</string>
+	<key>ALERT_INPUT_MONITORING_PART2</key>
+	<string>Basculer l’autorisation peut également résoudre les problèmes de saisie clavier.</string>
+	<key>ALERT_INPUT_MONITORING_PART2_MONTEREY</key>
+	<string>Supprimer et réaccorder l’autorisation peut également résoudre les problèmes de saisie clavier.</string>
+	<key>ALERT_MOVE_LIBRARY_HTML</key>
+	<string>La bibliothèque de jeux OpenEmu contient un fichier de base de données qui peut être corrompu si elle est déplacée aux emplacements suivants :&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Dossiers gérés par un logiciel de synchronisation de cloud (tel que &lt;b&gt;iCloud Drive&lt;/b&gt;)&lt;/li&gt;&lt;li&gt;Lecteurs réseau&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;De plus, &lt;b&gt;partager la même bibliothèque avec plusieurs ordinateurs ou utilisateurs&lt;/b&gt; peut également la corrompre. Il en est de même si elle est déplacée sur un lecteur USB.</string>
+	<key>Add</key>
+	<string>Ajouter</string>
+	<key>Add Cheat</key>
+	<string>Ajouter un code</string>
+	<key>Add Cheat…</key>
+	<string>Ajouter un code…</string>
+	<key>Add Cover Art from File…</key>
+	<string>Ajouter une jaquette à partir d’un fichier…</string>
+	<key>Add a Wiimote…</key>
+	<string>Ajouter une Wiimote…</string>
+	<key>Add to Collection</key>
+	<string>Ajouter à la collection</string>
+	<key>Add to Library…</key>
+	<string>Ajouter à la bibliothèque…</string>
+	<key>All Games</key>
+	<string>Tous les jeux</string>
+	<key>All Homebrew</key>
+	<string>Tous les jeux homebrew</string>
+	<key>Already in library, but manually deleted or unreachable:</key>
+	<string>Déjà dans la bibliothèque, mais supprimé manuellement ou inaccessible :</string>
+	<key>Already in library:</key>
+	<string>Déjà dans la bibliothèque :</string>
+	<key>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</key>
+	<string>Une erreur est survenue lors de la préparation de l’assistant d’installation. (%@) Assurez-vous d’être connecté à Internet et réessayez.</string>
+	<key>An issue was detected with one of your controllers.</key>
+	<string>Un problème a été détecté avec l’une de vos manettes.</string>
+	<key>Are you sure you want to delete %ld save states from your OpenEmu library?</key>
+	<string>Voulez-vous vraiment supprimer %ld parties sauvegardées de votre bibliothèque OpenEmu ?</string>
+	<key>Are you sure you want to delete %ld screenshots from your OpenEmu library?</key>
+	<string>Voulez-vous vraiment supprimer %ld captures d’écran de votre bibliothèque OpenEmu ?</string>
+	<key>Are you sure you want to delete the save state called '%@' from your OpenEmu library?</key>
+	<string>Voulez-vous vraiment supprimer le jeu « %@ » de votre bibliothèque OpenEmu ?</string>
+	<key>Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?</key>
+	<string>Voulez-vous vraiment supprimer la capture d’écran « %@ » de votre bibliothèque OpenEmu ?</string>
+	<key>Are you sure you want to delete the selected game from your OpenEmu library?</key>
+	<string>Voulez-vous vraiment supprimer le jeu sélectionné de votre bibliothèque OpenEmu ?</string>
+	<key>Are you sure you want to delete the selected games from your OpenEmu library?</key>
+	<string>Voulez-vous vraiment supprimer les jeux sélectionnés de votre bibliothèque OpenEmu ?</string>
+	<key>Are you sure you want to delete the shader preset called '%@'?</key>
+	<string>Are you sure you want to delete the shader preset called '%@'?</string>
+	<key>Are you sure you want to quit the application?</key>
+	<string>Voulez-vous vraiment quitter l’application ?</string>
+	<key>Are you sure you want to quit the game?</key>
+	<string>Voulez-vous vraiment arrêter le jeu ?</string>
+	<key>Are you sure you want to remove the collection '%@'?</key>
+	<string>Voulez-vous vraiment supprimer la collection « %@ » ?</string>
+	<key>Are you sure you want to remove the selected game from the collection?</key>
+	<string>Voulez-vous vraiment supprimer le jeu sélectionné de votre collection ?</string>
+	<key>Are you sure you want to remove the selected games from the collection?</key>
+	<string>Voulez-vous vraiment supprimer les jeux sélectionnés de votre collection ?</string>
+	<key>Are you sure you want to restart the game?</key>
+	<string>Voulez-vous vraiment redémarrer le jeu ?</string>
+	<key>At least one System must be enabled</key>
+	<string>Au moins un système doit être activé</string>
+	<key>Auto Save State</key>
+	<string>Sauvegarde automatique</string>
+	<key>Bluetooth Not Enabled</key>
+	<string>Bluetooth désactivé</string>
+	<key>Bluetooth must be enabled to pair a Wii controller.</key>
+	<string>Bluetooth doit être activé pour associer une manette Wii.</string>
+	<key>Cancel</key>
+	<string>Annuler</string>
+	<key>Cancel Cover Art Download</key>
+	<string>Annuler le téléchargement de la jaquette</string>
+	<key>Category</key>
+	<string>Catégorie</string>
+	<key>Change Core</key>
+	<string>Changer le cœur</string>
+	<key>Change Volume</key>
+	<string>Changer le volume</string>
+	<key>Changed button for %1$@ to %2$@.</key>
+	<string>Bouton %1$@ modifié avec %2$@.</string>
+	<key>Cheat Description</key>
+	<string>Description du code</string>
+	<key>Check out some excellent homebrew games.</key>
+	<string>Découvrez d’excellents jeux homebrew.</string>
+	<key>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</key>
+	<string>Choisissez le menu Pomme  &gt; Préférences Système, cliquez sur Sécurité et confidentialité et sélectionnez ensuite l’onglet Confidentialité. Supprimez l’autorisation existante dans Fichiers et dossiers pour OpenEmu, si elle existe, et ajoutez-la dans Accès complet au disque.</string>
+	<key>Choose Library…</key>
+	<string>Sélectionner une bibliothèque…</string>
+	<key>Choose Location…</key>
+	<string>Choose Location…</string>
+	<key>Choose OpenEmu Library</key>
+	<string>Sélectionner une bibliothèque OpenEmu</string>
+	<key>Choose a valid file.</key>
+	<string>Sélectionner un fichier valide.</string>
+	<key>Code:</key>
+	<string>Code :</string>
+	<key>Collections</key>
+	<string>Collections</string>
+	<key>Configure Shader…</key>
+	<string>Configurer le shader…</string>
+	<key>Console</key>
+	<string>Console</string>
+	<key>Consoles</key>
+	<string>Consoles</string>
+	<key>Consolidate</key>
+	<string>Consolider</string>
+	<key>Consolidate Files…</key>
+	<string>Consolider les fichiers…</string>
+	<key>Consolidating files failed.</key>
+	<string>La consolidation des fichiers a échoué.</string>
+	<key>Consolidating will copy all of the selected games into the OpenEmu Library folder.</key>
+	<string>Réunir les fichiers copiera tous les jeux sélectionnés dans le dossier de la bibliothèque OpenEmu.</string>
+	<key>Contains no data:</key>
+	<string>Ne contient pas de données :</string>
+	<key>Continue</key>
+	<string>Continuer</string>
+	<key>Controls</key>
+	<string>Contrôles</string>
+	<key>Copying Artwork Files…</key>
+	<string>Copie des jaquettes…</string>
+	<key>Copying Game Files…</key>
+	<string>Copie des fichiers de jeu…</string>
+	<key>Copying ROM Files…</key>
+	<string>Copie des ROM…</string>
+	<key>Copying ROM files failed!</key>
+	<string>La copie des fichiers ROM a échoué !</string>
+	<key>Copying artwork failed!</key>
+	<string>La copie des jaquettes a échoué !</string>
+	<key>Core</key>
+	<string>Cœur</string>
+	<key>Core Provided By…</key>
+	<string>Cœur fourni par…</string>
+	<key>Cores</key>
+	<string>Cœurs</string>
+	<key>Could not move library data!</key>
+	<string>Impossible de déplacer les données de la bibliothèque !</string>
+	<key>Couldn't load %@ plugin</key>
+	<string>Impossible de charger le plugin %@</string>
+	<key>Create Library…</key>
+	<string>Créer une bibiothèque…</string>
+	<key>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</key>
+	<string>Créer une sélection de jeux personnelle. Pour ajouter un jeu à une collection, sélectionnez-le dans votre bibliothèque de consoles et glissez-le vers « %@ » dans la barre latérale.</string>
+	<key>Create or Load Save State</key>
+	<string>Créer ou charger une partie sauvegardée</string>
+	<key>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</key>
+	<string>Créer votre collection personnelle de captures d’écran. Pour prendre une capture d’écran, utilisez le raccourci clavier ⌘ + T pendant une partie.</string>
+	<key>Decrease Grid Size</key>
+	<string>Augmenter la taille de la grille</string>
+	<key>Default %@ preset for %@</key>
+	<string>Default %@ preset for %@</string>
+	<key>Default Core</key>
+	<string>Cœur par défaut</string>
+	<key>Delete</key>
+	<string>Supprimer</string>
+	<key>Delete Collection</key>
+	<string>Supprimer la collection</string>
+	<key>Delete Game</key>
+	<string>Supprimer le jeu</string>
+	<key>Delete Games</key>
+	<string>Supprimer les jeux</string>
+	<key>Delete Save</key>
+	<string>Supprimer la sauvegarde</string>
+	<key>Delete Save State</key>
+	<string>Supprimer la partie sauvegardée</string>
+	<key>Delete Save States</key>
+	<string>Supprimer les parties sauvegardées</string>
+	<key>Delete Saves</key>
+	<string>Supprimer les sauvegardes</string>
+	<key>Delete Screenshot</key>
+	<string>Supprimer la capture d’écran</string>
+	<key>Delete Screenshots</key>
+	<string>Supprimer les captures d’écran</string>
+	<key>Delete Shader Preset</key>
+	<string>Delete Shader Preset</string>
+	<key>Description</key>
+	<string>Description</string>
+	<key>Deselect All</key>
+	<string>Tout désélectionner</string>
+	<key>Device Disconnected</key>
+	<string>Périphérique déconnecté</string>
+	<key>Device number %lu, %@, has disconnected.</key>
+	<string>Le périphérique numéro %lu, %@, a été déconnecté.</string>
+	<key>Disc %u</key>
+	<string>Disque %u</string>
+	<key>Disc-based games have special requirements. Please read the disc importing guide.</key>
+	<string>Les jeux sur disque ont des exigences particulières. Lisez le guide d’importation de disques.</string>
+	<key>Dismiss</key>
+	<string>Ignorer</string>
+	<key>Do not ask me again</key>
+	<string>Ne plus me demander</string>
+	<key>Do not show me again</key>
+	<string>Ne plus afficher</string>
+	<key>Do you really want to cancel importation?</key>
+	<string>Voules-vous vraiment annuler l’importation ?</string>
+	<key>Do you want to continue playing where you left off?</key>
+	<string>Voulez-vous continuer la partie là où vous l’avez quittée ?</string>
+	<key>Don't Import Selected</key>
+	<string>Ne pas importer la sélection</string>
+	<key>Done</key>
+	<string>Terminé</string>
+	<key>Download</key>
+	<string>Télécharger</string>
+	<key>Download Cover Art</key>
+	<string>Télécharger la jaquette</string>
+	<key>Downloading %@…</key>
+	<string>Téléchargement de %@…</string>
+	<key>Downloading Game DB</key>
+	<string>Téléchargement de la base de données de jeux</string>
+	<key>Downloading and Installing Core…</key>
+	<string>Téléchargement et installation du cœur…</string>
+	<key>Downloading core list...</key>
+	<string>Téléchargement de la liste des cœurs…</string>
+	<key>Drag &amp; Drop Games Here</key>
+	<string>Glissez et déposez des jeux ici</string>
+	<key>Drag &amp; Drop Save States Here</key>
+	<string>Glissez et déposez des sauvegardes ici</string>
+	<key>Duplicate Collection</key>
+	<string>Dupliquer la collection</string>
+	<key>ECM compressed binaries cannot be imported. Please read the disc importing guide.</key>
+	<string>Les fichiers binaires ECM compressés ne peuvent pas être importés. Veuillez lire le guide d’importation de disque.</string>
+	<key>ECM compressed binary detected.</key>
+	<string>Fichier binaire ECM compressé détecté.</string>
+	<key>ERROR_PLUGIN_IMPORT_ALREADYLOADED</key>
+	<string>Une version de ce plugin est déjà chargée</string>
+	<key>ERROR_PLUGIN_IMPORT_OUTOFSUPPORT</key>
+	<string>Ce plugin n’est pas actuellement supporté</string>
+	<key>Edit Game Controls…</key>
+	<string>Modifier les contrôles de jeu…</string>
+	<key>Enable now</key>
+	<string>Activer maintenant</string>
+	<key>Error!</key>
+	<string>Erreur !</string>
+	<key>Everything</key>
+	<string>Tout</string>
+	<key>Featured Games</key>
+	<string>Jeux en vedette</string>
+	<key>Fetching Games…</key>
+	<string>Récupération des jeux…</string>
+	<key>Files failed to import.</key>
+	<string>Échec de l’importation des fichiers.</string>
+	<key>Fill Screen</key>
+	<string>Remplir l’écran</string>
+	<key>Filter by:</key>
+	<string>Filtrer par :</string>
+	<key>Game %ld of %ld</key>
+	<string>Jeu %ld sur %ld</string>
+	<key>Game Name</key>
+	<string>Nom du jeu</string>
+	<key>Game Scanner</key>
+	<string>Analyse des jeux</string>
+	<key>Game requires download</key>
+	<string>Le jeu nécessite un téléchargement</string>
+	<key>Gameplay</key>
+	<string>Jeu</string>
+	<key>Grid Size</key>
+	<string>Taille de la grille</string>
+	<key>Have you read the guide?</key>
+	<string>Avez-vous lu le guide ?</string>
+	<key>Hide "%@"</key>
+	<string>Masquer « %@ »</string>
+	<key>Homebrew Games</key>
+	<string>Jeux homebrew</string>
+	<key>I understand the risks</key>
+	<string>Je comprends les risques</string>
+	<key>If there is a red button on the back battery cover, press it.
+If not, hold down buttons ①+②.</key>
+	<string>Si un bouton rouge est présent sur le couvercle des piles, appuyez dessus.
+Sinon, maintenez enfoncés les boutons ①+②.</string>
+	<key>If you change the core you current progress will be lost and save states will not work anymore.</key>
+	<string>Si vous changez de cœur, votre progression en cours sera perdue et les parties sauvegardées ne fonctionneront plus.</string>
+	<key>Ignore</key>
+	<string>Ignorer</string>
+	<key>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</key>
+	<string>Dans quelques jours, ce plugin de cœur sera automatiquement supprimé. Une fois supprimé, les sauvegardes créées avec ce dernier cesseront de fonctionner.</string>
+	<key>In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information.</key>
+	<string>Pour émuler certains systèmes, des fichiers BIOS sont nécessaires du fait de la complexité croissante des matériels et logiciels des consoles de jeux modernes. Lisez notre %@ pour plus d’informations.</string>
+	<key>In order to play the game it must be downloaded.</key>
+	<string>Pour lancer le jeu, il doit être téléchargé.</string>
+	<key>Increase Grid Size</key>
+	<string>Diminuer la taille de la grille</string>
+	<key>Insert Cart/Disk/Tape…</key>
+	<string>Insérer Cartouche / Disque / Cassette…</string>
+	<key>Install</key>
+	<string>Installer</string>
+	<key>Install %@</key>
+	<string>Installer %@</string>
+	<key>Install %@ and Set as Default</key>
+	<string>Installer %@ et définir par défaut</string>
+	<key>Installing Core</key>
+	<string>Installation du cœur</string>
+	<key>Invalid cue sheet format:</key>
+	<string>Format cue sheet invalide :</string>
+	<key>Invalid gdi format:</key>
+	<string>Format gdi invalide :</string>
+	<key>Join multi-line cheats with '+' e.g. 000-000+111-111</key>
+	<string>Joindre les codes multilignes avec « + » ex. 000-000+111-111</string>
+	<key>Keyboard</key>
+	<string>Clavier</string>
+	<key>Keycode 0x%lX</key>
+	<string>Code de touche 0x%lX</string>
+	<key>Last Played</key>
+	<string>Dernière partie</string>
+	<key>Learn More</key>
+	<string>En savoir plus</string>
+	<key>Library</key>
+	<string>Bibliothèque</string>
+	<key>Load</key>
+	<string>Charger</string>
+	<key>Locate '%@'</key>
+	<string>Localiser « %@ »</string>
+	<key>Locate…</key>
+	<string>Localiser…</string>
+	<key>Low Controller Battery</key>
+	<string>Piles de la manette déchargées</string>
+	<key>MOVE_ALERT_INFO_TEXT</key>
+	<string>OpenEmu must move to your Applications folder in order to work properly.</string>
+	<key>MOVE_ALERT_MOVE_BUTTON</key>
+	<string>Move to Applications folder</string>
+	<key>MOVE_ALERT_NEEDS_AUTH</key>
+	<string>You need to authenticate with an administrator name and password to complete this step. Alternatively, you can choose a different location or quit the App and move it manually.</string>
+	<key>MOVE_ALERT_TITLE</key>
+	<string>Move to Applications folder</string>
+	<key>Make sure your internet connection is active and download a suitable core.</key>
+	<string>Assurez-vous que votre connexion internet est active et téléchargez un cœur adapté.</string>
+	<key>Make your Wiimote discoverable</key>
+	<string>Rendre votre Wiimote détectable</string>
+	<key>Missing Core</key>
+	<string>Cœur manquant</string>
+	<key>Missing referenced file:</key>
+	<string>Fichier référencé manquant :</string>
+	<key>Move to Trash</key>
+	<string>Dans la corbeille</string>
+	<key>Moving Library…</key>
+	<string>Déplacement de la bibliothèque…</string>
+	<key>Moving the Game Library is not recommended</key>
+	<string>Il n’est pas recommandé de déplacer des bibliothèques de jeux</string>
+	<key>Must not be compressed:</key>
+	<string>Ne doit pas être compressé :</string>
+	<key>Mute Audio</key>
+	<string>Couper le son</string>
+	<key>NOT FOUND: "%@"</key>
+	<string>INTROUVABLE : « %@ »</string>
+	<key>Name</key>
+	<string>Nom</string>
+	<key>Name must not contain “%@.”</key>
+	<string>Name must not contain “%@.”</string>
+	<key>New Collection</key>
+	<string>Nouvelle collection</string>
+	<key>New Collection from Selection</key>
+	<string>Nouvelle collection à partir de la sélection</string>
+	<key>New Folder</key>
+	<string>Nouveau dossier</string>
+	<key>New Shader Preset</key>
+	<string>New Shader Preset</string>
+	<key>New Smart Collection</key>
+	<string>Nouvelle collection intelligente</string>
+	<key>No</key>
+	<string>Non</string>
+	<key>No Internet Connection</key>
+	<string>Aucune connexion Internet</string>
+	<key>No Save States available</key>
+	<string>Aucune sauvegarde disponible</string>
+	<key>No Screenshots Found</key>
+	<string>Aucune capture d’écran trouvée</string>
+	<key>No available controllers</key>
+	<string>Aucune manette disponible</string>
+	<key>No game played yet!</key>
+	<string>Aucun jeu lancé !</string>
+	<key>No parameters available.</key>
+	<string>No parameters available.</string>
+	<key>No permission to open:</key>
+	<string>Aucune autorisation pour ouvrir :</string>
+	<key>No valid system detected:</key>
+	<string>Aucun système valide détecté :</string>
+	<key>None</key>
+	<string>Aucune</string>
+	<key>Not assigned</key>
+	<string>Non attribué</string>
+	<key>Not plain text:</key>
+	<string>Le texte n’est pas en clair :</string>
+	<key>OK</key>
+	<string>OK</string>
+	<key>Only files in the OpenEmu Library folder will be moved to the Trash.</key>
+	<string>Seulement les fichiers du dossier de la bibliothèque OpenEmu seront placés sans la corbeille.</string>
+	<key>Open Collection</key>
+	<string>Ouvrir la collection</string>
+	<key>Open Library</key>
+	<string>Ouvrir la bibliothèque</string>
+	<key>Open System Preferences</key>
+	<string>Ouvrir Préférences Système</string>
+	<key>OpenEmu could not download required data from the internet</key>
+	<string>OpenEmu n’a pas pu télécharger sur Internet les données requises</string>
+	<key>OpenEmu could not find a Core to launch the game</key>
+	<string>OpenEmu n’a pas pu trouver de cœur pour lancer le jeu</string>
+	<key>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</key>
+	<string>OpenEmu inclut une fonctionnalité de sauvegarde qui vous permet de continuer votre partie exactement là où vous l’avez quitée.</string>
+	<key>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</key>
+	<string>OpenEmu nécessite une bibliothèque pour continuer. Vous devez sélectionner une bibliothèque OpenEmu existante ou en créer une nouvelle</string>
+	<key>OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@</key>
+	<string>OpenEmu utilise des « cœurs » pour émuler les jeux. Vous avez besoin du cœur %@ pour jouer à %@</string>
+	<key>OpenEmu will save and quit all games that are currently running.</key>
+	<string>OpenEmu sauvegardera et quittera tous les jeux en cours d’exécution.</string>
+	<key>Options</key>
+	<string>Options</string>
+	<key>Parameters</key>
+	<string>Parameters</string>
+	<key>Paste parameters</key>
+	<string>Paste parameters</string>
+	<key>Pause Game</key>
+	<string>Mettre en pause le jeu</string>
+	<key>Pause/Restart</key>
+	<string>Mettre en pause/Redémarrer</string>
+	<key>Play</key>
+	<string>Jouer</string>
+	<key>Play Count</key>
+	<string>Parties jouées</string>
+	<key>Play Game</key>
+	<string>Jouer</string>
+	<key>Play Games (Caution)</key>
+	<string>Jouer (attention)</string>
+	<key>Play Save Games</key>
+	<string>Parties sauvegardées</string>
+	<key>Play Save State</key>
+	<string>Lancer une partie sauvegardée</string>
+	<key>Play Time</key>
+	<string>Temps de jeu</string>
+	<key>Player %ld</key>
+	<string>Joueur %ld</string>
+	<key>Please close all games and wait for the importer to finish.</key>
+	<string>Veuillez fermer tous les jeux et patienter jusqu’à la fin de l’importation.</string>
+	<key>Quick Load</key>
+	<string>Chargement rapide</string>
+	<key>Quick Save</key>
+	<string>Sauvegarde rapide</string>
+	<key>Quick Save State</key>
+	<string>Sauvegarde rapide</string>
+	<key>Quick Save, Slot %@</key>
+	<string>Sauvegarde rapide, emplacement %@</string>
+	<key>Quit</key>
+	<string>Quitter</string>
+	<key>Quit Game</key>
+	<string>Arrêter le jeu</string>
+	<key>Quit OpenEmu</key>
+	<string>Quitter OpenEmu</string>
+	<key>Rating</key>
+	<string>Note</string>
+	<key>Recently Added</key>
+	<string>Ajoutés récemment</string>
+	<key>Recovered Auto Save</key>
+	<string>Sauvegarde auto récupérée</string>
+	<key>Remove Collection</key>
+	<string>Supprimer la collection</string>
+	<key>Remove Game</key>
+	<string>Supprimer le jeu</string>
+	<key>Remove Games</key>
+	<string>Supprimer les jeux</string>
+	<key>Rename</key>
+	<string>Renommer</string>
+	<key>Rename "%@"</key>
+	<string>Renommer « %@ »</string>
+	<key>Rename Game</key>
+	<string>Renommer le jeu</string>
+	<key>Rename Shader Preset</key>
+	<string>Rename Shader Preset</string>
+	<key>Rename Special Save State or something?</key>
+	<string>Renommer la sauvegarde spéciale ou quelque chose ?</string>
+	<key>Reopen without loading state</key>
+	<string>Rouvrir sans charger la partie</string>
+	<key>Required files are missing.</key>
+	<string>Des fichiers requis sont manquants.</string>
+	<key>Reset parameters</key>
+	<string>Reset parameters</string>
+	<key>Resolve %ld Issue</key>
+	<string>Résoudre %ld problème</string>
+	<key>Resolve %ld Issues</key>
+	<string>Résoudre %ld problèmes</string>
+	<key>Restart</key>
+	<string>Redémarrer</string>
+	<key>Restart Game</key>
+	<string>Redémarrer le jeu</string>
+	<key>Resume</key>
+	<string>Reprendre</string>
+	<key>Resume Game</key>
+	<string>Reprendre le jeu</string>
+	<key>Retry</key>
+	<string>Réessayer</string>
+	<key>SHARE_STANDARD_MENU_ITEM_TITLE</key>
+	<string>Partager…</string>
+	<key>Save As:</key>
+	<string>Nom :</string>
+	<key>Save Current Game…</key>
+	<string>Sauvegarder la partie en cours…</string>
+	<key>Save Game</key>
+	<string>Sauvegarder la partie</string>
+	<key>Save Games</key>
+	<string>Parties sauvées</string>
+	<key>Save States</key>
+	<string>Sauvegarder les parties</string>
+	<key>Save-Game-%ld %@</key>
+	<string>Sauvegarde-%ld %@</string>
+	<key>Scanner Paused</key>
+	<string>Analyse en pause</string>
+	<key>Scanning Directory</key>
+	<string>Analyse du répertoire</string>
+	<key>Screenshots</key>
+	<string>Captures d’écran</string>
+	<key>Search</key>
+	<string>Rechercher</string>
+	<key>Secrets</key>
+	<string>Secrets</string>
+	<key>Select All</key>
+	<string>Tout sélectionner</string>
+	<key>Select Audio Output Device</key>
+	<string>Périphérique de sortie audio</string>
+	<key>Select Cheat</key>
+	<string>Codes de triche</string>
+	<key>Select Core</key>
+	<string>Cœurs</string>
+	<key>Select Disc</key>
+	<string>Disque</string>
+	<key>Select Display Mode</key>
+	<string>Modes d’affichage</string>
+	<key>Select Scale</key>
+	<string>Échelle</string>
+	<key>Select Shader</key>
+	<string>Shaders</string>
+	<key>Shader Parameters</key>
+	<string>Paramètres du shader</string>
+	<key>Share</key>
+	<string>Partager</string>
+	<key>Show in Finder</key>
+	<string>Afficher dans le Finder</string>
+	<key>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</key>
+	<string>Depuis la version 2.1, OpenEmu nécessite un GPU supportant Metal. Metal est disponible sur tous les Mac supportant macOS 10.14 ou supérieur.
+
+OpenEmu ne fonctionne pas avec votre configuration matérielle/logicielle actuelle et va donc être fermé.</string>
+	<key>Slot %ld</key>
+	<string>Emplacement %ld</string>
+	<key>Some migrations failed to complete properly</key>
+	<string>Certaines migrations ne se sont pas terminées correctement</string>
+	<key>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</key>
+	<string>Parfois, un plantage peut se produire lors du chargement d’une sauvegarde causé par des incompatibilités entre les différentes versions d’un même cœur. Voulez-vous ouvrir le jeu sans charger la sauvegarde ?</string>
+	<key>Special thanks to everyone that made
+OpenEmu possible. To find out more
+about our contributors, emulator cores,
+documentation, licenses and to issue
+bugs please visit us on our GitHub.</key>
+	<string>Merci à celles et ceux sans qui OpenEmu n’aurait été possible. Pour en savoir plus sur nos contributeurs, cœurs, doc, licences et signalement des bugs, visitez notre GitHub.</string>
+	<key>Start Scanning</key>
+	<string>Démarrer l’analyse</string>
+	<key>Stop</key>
+	<string>Arrêter</string>
+	<key>Switch To Grid View</key>
+	<string>Présentation par grille</string>
+	<key>Switch To List View</key>
+	<string>Présentation par liste</string>
+	<key>System</key>
+	<string>Système</string>
+	<key>System Default</key>
+	<string>Par défaut du système</string>
+	<key>System Files</key>
+	<string>Fichiers système</string>
+	<key>Takes you to the %@ project website</key>
+	<string>Aller au site web du projet %@</string>
+	<key>The %@ core has compatibility issues and some games may contain glitches or not play at all.
+
+Please do not report problems as we are not responsible for the development of %@.</key>
+	<string>Le cœur %@ a des problèmes de compatibilité et certains jeux peuvent poser problème ou ne pas fonctionner du tout.
+
+Veuillez ne pas nous signaler ces problèmes car nous ne sommes pas responsables du développement de %@.</string>
+	<key>The %@ core has quit unexpectedly</key>
+	<string>Le cœur %@ a quitté de manière imprévue</string>
+	<key>The %@ core has quit unexpectedly after loading a save state</key>
+	<string>Le cœur %@ a quitté de manière imprévue après le chargement d’une partie</string>
+	<key>The %@ core plugin is deprecated</key>
+	<string>Le plugin de cœur %@ est obsolète</string>
+	<key>The %@ core plugin is deprecated, and will be removed soon</key>
+	<string>Le plugin de cœur %@ est obsolète, et sera bientôt supprimé</string>
+	<key>The OpenEmu Library could not be found.</key>
+	<string>Impossible de trouver la bibliothèque OpenEmu.</string>
+	<key>The System plugin could not be found!</key>
+	<string>Impossible de trouver le plugin du système !</string>
+	<key>The battery in device number %lu, %@, is low. Please charge or replace the battery.</key>
+	<string>Les piles du périphérique numéro %lu, %@, sont déchargées. Rechargez ou remplacez les piles.</string>
+	<key>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</key>
+	<string>Le profil des boutons de l’une de vos manettes ne correspond pas au profil détecté la dernière fois qu’elle a été connectée à OpenEmu. Certains contrôles associés à la manette affectée ont été réinitialisés.
+
+Vous pouvez aller dans les préférences Contrôles pour vérifier les associations affectées.</string>
+	<key>The core could not be downloaded. Try installing it from the Cores preferences.</key>
+	<string>Impossible de télécharger le cœur. Essayez de l’installer à partir des préférences des cœurs.</string>
+	<key>The emulator could not load ROM.</key>
+	<string>L’émulateur n’a pas pu charger la ROM.</string>
+	<key>The file you selected doesn't exist</key>
+	<string>Le fichier sélectionné n’existe pas</string>
+	<key>The game '%@' could not be started because a rom file could not be found. Do you want to locate it?</key>
+	<string>Impossible de démarrer la partie « %@ » car un fichier ROM n’a pas pu être trouvé. Voulez-vous rechercher son emplacement ?</string>
+	<key>The game '%@' was imported.</key>
+	<string>Le jeu « %@ » a été importé.</string>
+	<key>This System has no corresponding core installed.</key>
+	<string>Ce système n’a pas de cœur correspondant installé.</string>
+	<key>This cannot be undone.</key>
+	<string>Cette opération est irréversible.</string>
+	<key>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</key>
+	<string>Ce plugin de cœur ne sera plus disponible à l’avenir. Une fois supprimé, les sauvegardes créées avec ce dernier cesseront de fonctionner.</string>
+	<key>This save state was created with a different core. Do you want to switch to that core now?</key>
+	<string>Cette partie sauvegardée a été créée avec un cœur différent. Voulez-vous changer le cœur maintenant ?</string>
+	<key>This will remove all items from the queue. Items that finished importing will be preserved in your library.</key>
+	<string>Ceci supprimera tous les éléments de la file d’attente. Les éléments déjà importés seront conservés dans votre bibliothèque.</string>
+	<key>Title:</key>
+	<string>Titre :</string>
+	<key>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</key>
+	<string>Pour attribuer une nouvelle touche ou bouton à %@, appuyez sur ce bouton, ensuite appuyez sur la touche ou bouton souhaité sur votre clavier ou manette de jeu.</string>
+	<key>To launch the save state %@ you will need to install the '%@' Core</key>
+	<string>Pour lancer la partie sauvegardée %@, vous devez installer le cœur « %@ »</string>
+	<key>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</key>
+	<string>Pour exécuter ce cœur, vous devez :
+
+%@Glisser et déposer le(s) fichier(s) requis dans la fenêtre de la bibliothèque de jeu et réessayer.</string>
+	<key>Toggle Fullscreen</key>
+	<string>Basculer en mode plein écran</string>
+	<key>Toolbar: Homebrew</key>
+	<string>Homebrew</string>
+	<key>Toolbar: Library</key>
+	<string>Bibliothèque</string>
+	<key>Toolbar: Save States</key>
+	<string>Sauvegardes</string>
+	<key>Toolbar: Screenshots</key>
+	<string>Captures</string>
+	<key>Trash downloaded Files</key>
+	<string>Placer les fichiers téléchargés dans la corbeille</string>
+	<key>Unexpected error:</key>
+	<string>Erreur inattendue :</string>
+	<key>Unmute Audio</key>
+	<string>Réactiver le son</string>
+	<key>Update</key>
+	<string>Mettre à jour</string>
+	<key>Updating Library</key>
+	<string>Mise à jour de la bibliothèque</string>
+	<key>User guide on BIOS files</key>
+	<string>Guide de l’utilisateur des fichiers BIOS</string>
+	<key>Version</key>
+	<string>Version</string>
+	<key>View Guide in Browser</key>
+	<string>Afficher le guide</string>
+	<key>View Mode</key>
+	<string>Mode d’affichage</string>
+	<key>Volume</key>
+	<string>Volume</string>
+	<key>Warning</key>
+	<string>Avertissement</string>
+	<key>We suggest you switch to the %@ core plugin as soon as possible.</key>
+	<string>Nous vous suggérons de passer au plugin de cœur %@ dès que possible.</string>
+	<key>With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves.</key>
+	<string>Enregistrez votre progression à tout moment en utilisant les sauvegardes. Elles sont effectuées automatiquement lorsque vous quitter un jeu. Revenez ici pour obtenir un aperçu de toutes vos sauvegardes.</string>
+	<key>Won't be able to recognize it as special save state…</key>
+	<string>Cette sauvegarde ne sera pas reconnue comme une sauvegarde spéciale…</string>
+	<key>Would you like to continue your last game?</key>
+	<string>Voulez-vous continuer votre dernière partie ?</string>
+	<key>Would you like to save your game before you quit?</key>
+	<string>Voulez-vous sauvegarder votre partie avant de quitter ?</string>
+	<key>Yes</key>
+	<string>Oui</string>
+	<key>You can't move your library into one of its subfolders.</key>
+	<string>Vous ne pouvez pas déplacer votre bibliothèque dans un de ses sous-dossiers.</string>
+	<key>You need to restart the application to commit the change</key>
+	<string>Vous devez redémarrer l’application pour valider la modification</string>
+	<key>Your Mac is too old for this version of OpenEmu</key>
+	<string>Votre Mac est trop ancien pour cette version d’OpenEmu</string>
+	<key>Your game finished importing, do you want to play it now?</key>
+	<string>L’importation de votre jeu est terminée, voulez-vous y jouer maintenant ?</string>
+	<key>Your library was moved sucessfully.</key>
+	<string>Votre bibliothèque a été déplacée avec succès.</string>
+	<key>this guide</key>
+	<string>ce guide</string>
+</dict>
+</plist>

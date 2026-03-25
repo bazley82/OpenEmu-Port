@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>"%@" in %@</key>
+	<string>"%1$@" in %2$@</string>
+	<key>%@ copy</key>
+	<string>%@ kopie</string>
+	<key>%@ could not be enabled because its plugin was not found.</key>
+	<string>%@ kon niet worden ingeschakeld omdat zijn plug-in niet werd gevonden.</string>
+	<key>%@ games will appear here. Check out %@ on how to add disc-based games.</key>
+	<string>%@-spellen zullen hier verschijnen. Bekijk %@ over hoe u op schijven gebaseerde spellen toevoegt.</string>
+	<key>%@ games you add to OpenEmu will appear in this Console Library</key>
+	<string>%@-spellen die u toevoegt aan OpenEmu zullen in deze consolebibliotheek verschijnen</string>
+	<key>%ux</key>
+	<string>%ux</string>
+	<key>A name is required.</key>
+	<string>A name is required.</string>
+	<key>ALERT_CORE_GLITCHES_FEEDBACK_HTML</key>
+	<string>&lt;b&gt;If and only if this issue persists&lt;/b&gt;, please submit feedback including:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;The model of Mac you are using &lt;b&gt;and&lt;/b&gt; the version of macOS you have installed&lt;ul&gt;&lt;li&gt;This information is found in  &gt; About this Mac&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;The &lt;b&gt;exact name&lt;/b&gt; of the game you were playing&lt;/li&gt;&lt;li&gt;The crash report of OpenEmuHelperApp&lt;ul&gt;&lt;li&gt;Open Console.app, click on "Crash Reports" or "User Reports" in the sidebar, then look for the latest document with OpenEmuHelperApp in the name&lt;/ul&gt;&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Always search for similar feedback previously reported by other users!&lt;/b&gt;&lt;br&gt;If any of this information is omitted, or if similar feedback has already been issued, your issue report may be closed.</string>
+	<key>ALERT_INPUT_MONITORING_HEADLINE</key>
+	<string>OpenEmu requires additional permissions</string>
+	<key>ALERT_INPUT_MONITORING_PART1</key>
+	<string>OpenEmu must be granted the Input Monitoring permission in order to use the keyboard as an input device.</string>
+	<key>ALERT_INPUT_MONITORING_PART2</key>
+	<string>Toggling the permission may also resolve keyboard input issues.</string>
+	<key>ALERT_INPUT_MONITORING_PART2_MONTEREY</key>
+	<string>Removing and re-granting the permission may also resolve keyboard input issues.</string>
+	<key>ALERT_MOVE_LIBRARY_HTML</key>
+	<string>The OpenEmu Game Library contains a database file which could get corrupted if the library is moved to the following locations:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Folders managed by cloud synchronization software (like &lt;b&gt;iCloud Drive&lt;/b&gt;)&lt;/li&gt;&lt;li&gt;Network drives&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;Additionally, &lt;b&gt;sharing the same library between multiple computers or users&lt;/b&gt; may also corrupt it. This also applies to moving the library to external USB drives.</string>
+	<key>Add</key>
+	<string>Toevoegen</string>
+	<key>Add Cheat</key>
+	<string>Voeg cheat toe</string>
+	<key>Add Cheat…</key>
+	<string>Voeg cheat toe…</string>
+	<key>Add Cover Art from File…</key>
+	<string>Voeg omslagafbeelding uit bestand toe…</string>
+	<key>Add a Wiimote…</key>
+	<string>Voeg een Wiimote toe…</string>
+	<key>Add to Collection</key>
+	<string>Voeg toe aan verzameling</string>
+	<key>Add to Library…</key>
+	<string>Voeg toe aan bibliotheek…</string>
+	<key>All Games</key>
+	<string>Alle spellen</string>
+	<key>All Homebrew</key>
+	<string>Alle homebrew</string>
+	<key>Already in library, but manually deleted or unreachable:</key>
+	<string>Already in library, but manually deleted or unreachable:</string>
+	<key>Already in library:</key>
+	<string>Already in library:</string>
+	<key>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</key>
+	<string>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</string>
+	<key>An issue was detected with one of your controllers.</key>
+	<string>An issue was detected with one of your controllers.</string>
+	<key>Are you sure you want to delete %ld save states from your OpenEmu library?</key>
+	<string>Weet u zeker dat u %ld opgeslagen spellen wilt verwijderen uit uw OpenEmu-bibliotheek?</string>
+	<key>Are you sure you want to delete %ld screenshots from your OpenEmu library?</key>
+	<string>Weet u zeker dat u %ld schermafbeeldingen wilt verwijderen uit uw OpenEmu-bibliotheek?</string>
+	<key>Are you sure you want to delete the save state called '%@' from your OpenEmu library?</key>
+	<string>Weet u zeker dat u het opgeslagen spel '%@' wilt verwijderen uit uw OpenEmu-bibliotheek?</string>
+	<key>Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?</key>
+	<string>Weet u zeker dat u de schermafbeelding '%@' wilt verwijderen uit uw OpenEmu-bibliotheek?</string>
+	<key>Are you sure you want to delete the selected game from your OpenEmu library?</key>
+	<string>Weet u zeker dat u het geselecteerde spel wilt verwijderen uit uw OpenEmu-bibliotheek?</string>
+	<key>Are you sure you want to delete the selected games from your OpenEmu library?</key>
+	<string>Weet u zeker dat u de geselecteerde spellen wilt verwijderen uit uw OpenEmu-biblioteek?</string>
+	<key>Are you sure you want to delete the shader preset called '%@'?</key>
+	<string>Are you sure you want to delete the shader preset called '%@'?</string>
+	<key>Are you sure you want to quit the application?</key>
+	<string>Weet u zeker dat u de toepassing wilt stoppen?</string>
+	<key>Are you sure you want to quit the game?</key>
+	<string>Weet u zeker dat u de spel wilt stoppen?</string>
+	<key>Are you sure you want to remove the collection '%@'?</key>
+	<string>Weet u zeker dat u deze verzameling wilt verwijderen?</string>
+	<key>Are you sure you want to remove the selected game from the collection?</key>
+	<string>Weet u zeker dat u het geselecteerde spel wilt verwijderen uit de verzameling?</string>
+	<key>Are you sure you want to remove the selected games from the collection?</key>
+	<string>Weet u zeker dat u de geselecteerde spellen wilt verwijderen uit de verzameling?</string>
+	<key>Are you sure you want to restart the game?</key>
+	<string>Weet u zeker dat u de spel wilt herstarten?</string>
+	<key>At least one System must be enabled</key>
+	<string>Ten minste één systeem moet ingeschakeld zijn</string>
+	<key>Auto Save State</key>
+	<string>Automatische momentopname</string>
+	<key>Bluetooth Not Enabled</key>
+	<string>Bluetooth niet ingeschakeld</string>
+	<key>Bluetooth must be enabled to pair a Wii controller.</key>
+	<string>Bluetooth moet ingeschakeld zijn om een Wii-controller te koppelen.</string>
+	<key>Cancel</key>
+	<string>Annuleer</string>
+	<key>Cancel Cover Art Download</key>
+	<string>Annuleer omslagafbeelding downloaden</string>
+	<key>Category</key>
+	<string>Categorie</string>
+	<key>Change Core</key>
+	<string>Wijzig kern</string>
+	<key>Change Volume</key>
+	<string>Wijzig volume</string>
+	<key>Changed button for %1$@ to %2$@.</key>
+	<string>Changed button for %1$@ to %2$@.</string>
+	<key>Cheat Description</key>
+	<string>Beschrijving van cheat</string>
+	<key>Check out some excellent homebrew games.</key>
+	<string>Check out some excellent homebrew games.</string>
+	<key>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</key>
+	<string>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</string>
+	<key>Choose Library…</key>
+	<string>Kies bibliotheek…</string>
+	<key>Choose Location…</key>
+	<string>Choose Location…</string>
+	<key>Choose OpenEmu Library</key>
+	<string>Kies OpenEmu-bibliotheek</string>
+	<key>Choose a valid file.</key>
+	<string>Kies een geldig bestand.</string>
+	<key>Code:</key>
+	<string>Code:</string>
+	<key>Collections</key>
+	<string>Verzamelingen</string>
+	<key>Configure Shader…</key>
+	<string>Shader configureren…</string>
+	<key>Console</key>
+	<string>Console</string>
+	<key>Consoles</key>
+	<string>Consoles</string>
+	<key>Consolidate</key>
+	<string>Voeg samen</string>
+	<key>Consolidate Files…</key>
+	<string>Voeg bestanden samen…</string>
+	<key>Consolidating files failed.</key>
+	<string>Consolidating files failed.</string>
+	<key>Consolidating will copy all of the selected games into the OpenEmu Library folder.</key>
+	<string>Samenvoegen zal alle geselecteerde spellen kopiëren naar de OpenEmu-bibliotheekmap.</string>
+	<key>Contains no data:</key>
+	<string>Contains no data:</string>
+	<key>Continue</key>
+	<string>Ga door</string>
+	<key>Controls</key>
+	<string>Bediening</string>
+	<key>Copying Artwork Files…</key>
+	<string>Omslagafbeeldingsbestanden kopiëren…</string>
+	<key>Copying Game Files…</key>
+	<string>Spelbestanden kopiëren…</string>
+	<key>Copying ROM Files…</key>
+	<string>ROM-bestanden kopiëren…</string>
+	<key>Copying ROM files failed!</key>
+	<string>Copying ROM files failed!</string>
+	<key>Copying artwork failed!</key>
+	<string>Omslagafbeelding kopiëren mislukt!</string>
+	<key>Core</key>
+	<string>Kern</string>
+	<key>Core Provided By…</key>
+	<string>Kern voorzien door…</string>
+	<key>Cores</key>
+	<string>Kernen</string>
+	<key>Could not move library data!</key>
+	<string>Kon bibliotheekgegevens niet verplaatsen!</string>
+	<key>Couldn't load %@ plugin</key>
+	<string>Kon plug-in %@ niet laden</string>
+	<key>Create Library…</key>
+	<string>Maak bibliotheek aan…</string>
+	<key>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</key>
+	<string>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</string>
+	<key>Create or Load Save State</key>
+	<string>Maak of laad momentopname</string>
+	<key>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</key>
+	<string>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</string>
+	<key>Decrease Grid Size</key>
+	<string>Decrease Grid Size</string>
+	<key>Default %@ preset for %@</key>
+	<string>Default %@ preset for %@</string>
+	<key>Default Core</key>
+	<string>Standaardkern</string>
+	<key>Delete</key>
+	<string>Verwijder</string>
+	<key>Delete Collection</key>
+	<string>Verwijder verzameling</string>
+	<key>Delete Game</key>
+	<string>Verwijder spel</string>
+	<key>Delete Games</key>
+	<string>Verwijder spellen</string>
+	<key>Delete Save</key>
+	<string>Verwijder opgeslagen spel</string>
+	<key>Delete Save State</key>
+	<string>Verwijder momentopname</string>
+	<key>Delete Save States</key>
+	<string>Verwijder momentopnames</string>
+	<key>Delete Saves</key>
+	<string>Verwijder opgeslagen spellen</string>
+	<key>Delete Screenshot</key>
+	<string>Verwijder schermafbeelding</string>
+	<key>Delete Screenshots</key>
+	<string>Verwijder schermafbeeldingen</string>
+	<key>Delete Shader Preset</key>
+	<string>Delete Shader Preset</string>
+	<key>Description</key>
+	<string>Beschrijving</string>
+	<key>Deselect All</key>
+	<string>Deselecteer alles</string>
+	<key>Device Disconnected</key>
+	<string>Apparaat ontkoppeld</string>
+	<key>Device number %lu, %@, has disconnected.</key>
+	<string>Apparaat met nummer %1$lu, %2$@, is ontkoppeld.</string>
+	<key>Disc %u</key>
+	<string>Schijf %u</string>
+	<key>Disc-based games have special requirements. Please read the disc importing guide.</key>
+	<string>Op schijven gebaseerde spellen hebben speciale vereisten. Lees alstublieft de handleiding over schijven importeren.</string>
+	<key>Dismiss</key>
+	<string>Negeer</string>
+	<key>Do not ask me again</key>
+	<string>Vraag me dit niet opnieuw</string>
+	<key>Do not show me again</key>
+	<string>Laat me dit niet opnieuw zien</string>
+	<key>Do you really want to cancel importation?</key>
+	<string>Wilt u het importproces echt annuleren?</string>
+	<key>Do you want to continue playing where you left off?</key>
+	<string>Wilt u verder spelen waar u geëindigd was?</string>
+	<key>Don't Import Selected</key>
+	<string>Importeer geselecteerde niet</string>
+	<key>Done</key>
+	<string>Klaar</string>
+	<key>Download</key>
+	<string>Download</string>
+	<key>Download Cover Art</key>
+	<string>Download omslagafbeelding</string>
+	<key>Downloading %@…</key>
+	<string>%@ downloaden…</string>
+	<key>Downloading Game DB</key>
+	<string>Gamedatabase downloaden</string>
+	<key>Downloading and Installing Core…</key>
+	<string>Kern downloaden en installeren…</string>
+	<key>Downloading core list...</key>
+	<string>Downloading core list...</string>
+	<key>Drag &amp; Drop Games Here</key>
+	<string>Drag &amp; Drop Games Here</string>
+	<key>Drag &amp; Drop Save States Here</key>
+	<string>Drag &amp; Drop Save States Here</string>
+	<key>Duplicate Collection</key>
+	<string>Duplicate Collection</string>
+	<key>ECM compressed binaries cannot be imported. Please read the disc importing guide.</key>
+	<string>Met ECM gecomprimeerde binaire bestanden kunnen niet worden geïmporteerd. Lees alstublieft de gids over het importeren van schijven.</string>
+	<key>ECM compressed binary detected.</key>
+	<string>Met ECM gecomprimeerd binair bestand gedetecteerd.</string>
+	<key>ERROR_PLUGIN_IMPORT_ALREADYLOADED</key>
+	<string>Er is al een versie van deze plug-in geladen</string>
+	<key>ERROR_PLUGIN_IMPORT_OUTOFSUPPORT</key>
+	<string>This plugin is currently unsupported</string>
+	<key>Edit Game Controls…</key>
+	<string>Edit Game Controls…</string>
+	<key>Enable now</key>
+	<string>Schakel nu in</string>
+	<key>Error!</key>
+	<string>Fout!</string>
+	<key>Everything</key>
+	<string>Alles</string>
+	<key>Featured Games</key>
+	<string>Noemenswaardige spellen</string>
+	<key>Fetching Games…</key>
+	<string>Spellen ophalen…</string>
+	<key>Files failed to import.</key>
+	<string>Files failed to import.</string>
+	<key>Fill Screen</key>
+	<string>Fill Screen</string>
+	<key>Filter by:</key>
+	<string>Filter op:</string>
+	<key>Game %ld of %ld</key>
+	<string>Spel %1$ld van %2$ld</string>
+	<key>Game Name</key>
+	<string>Spelnaam</string>
+	<key>Game Scanner</key>
+	<string>Spellenscanner</string>
+	<key>Game requires download</key>
+	<string>Spel vereist download</string>
+	<key>Gameplay</key>
+	<string>Spelen</string>
+	<key>Grid Size</key>
+	<string>Rastergrootte</string>
+	<key>Have you read the guide?</key>
+	<string>Heeft u de handleiding gelezen?</string>
+	<key>Hide "%@"</key>
+	<string>Verberg "%@"</string>
+	<key>Homebrew Games</key>
+	<string>Homebrewspellen</string>
+	<key>I understand the risks</key>
+	<string>I understand the risks</string>
+	<key>If there is a red button on the back battery cover, press it.
+If not, hold down buttons ①+②.</key>
+	<string>Als er een rode knop op de achterste batterijcover is, druk hem dan in.
+Zoniet, hou dan de knoppen ①+② ingedrukt.</string>
+	<key>If you change the core you current progress will be lost and save states will not work anymore.</key>
+	<string>Als u de kern wijzigt verliest u uw huidige voortgang en zullen momentopnames niet langer werken.</string>
+	<key>Ignore</key>
+	<string>Ignore</string>
+	<key>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</key>
+	<string>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</string>
+	<key>In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information.</key>
+	<string>Om sommige systemen te emuleren zijn BIOS-bestanden nodig door de verhoogde complexiteit van de hardware en software van moderne consoles. Lees alstublieft onze %@ voor meer informatie.</string>
+	<key>In order to play the game it must be downloaded.</key>
+	<string>Om het spel te spelen moet het gedownload worden.</string>
+	<key>Increase Grid Size</key>
+	<string>Increase Grid Size</string>
+	<key>Insert Cart/Disk/Tape…</key>
+	<string>Cart/Disk/Tape inwerpen…</string>
+	<key>Install</key>
+	<string>Installeer</string>
+	<key>Install %@</key>
+	<string>Install %@</string>
+	<key>Install %@ and Set as Default</key>
+	<string>Install %@ and Set as Default</string>
+	<key>Installing Core</key>
+	<string>Kern installeren</string>
+	<key>Invalid cue sheet format:</key>
+	<string>Invalid cue sheet format:</string>
+	<key>Invalid gdi format:</key>
+	<string>Invalid gdi format:</string>
+	<key>Join multi-line cheats with '+' e.g. 000-000+111-111</key>
+	<string>Voeg multi-line cheats samen met '+', bijvoorbeeld 000-000+111-111</string>
+	<key>Keyboard</key>
+	<string>Toetsenbord</string>
+	<key>Keycode 0x%lX</key>
+	<string>Keycode 0x%lX</string>
+	<key>Last Played</key>
+	<string>Laatst gespeeld</string>
+	<key>Learn More</key>
+	<string>Meer weten</string>
+	<key>Library</key>
+	<string>Bibliotheek</string>
+	<key>Load</key>
+	<string>Laad</string>
+	<key>Locate '%@'</key>
+	<string>Vind '%@'</string>
+	<key>Locate…</key>
+	<string>Vind…</string>
+	<key>Low Controller Battery</key>
+	<string>Batterij van controller bijna leeg</string>
+	<key>MOVE_ALERT_INFO_TEXT</key>
+	<string>OpenEmu must move to your Applications folder in order to work properly.</string>
+	<key>MOVE_ALERT_MOVE_BUTTON</key>
+	<string>Move to Applications folder</string>
+	<key>MOVE_ALERT_NEEDS_AUTH</key>
+	<string>You need to authenticate with an administrator name and password to complete this step. Alternatively, you can choose a different location or quit the App and move it manually.</string>
+	<key>MOVE_ALERT_TITLE</key>
+	<string>Move to Applications folder</string>
+	<key>Make sure your internet connection is active and download a suitable core.</key>
+	<string>Zorg dat uw internetverbinding actief is en download een geschikte kern.</string>
+	<key>Make your Wiimote discoverable</key>
+	<string>Maak uw Wiimote detecteerbaar</string>
+	<key>Missing Core</key>
+	<string>Kern ontbreekt</string>
+	<key>Missing referenced file:</key>
+	<string>Missing referenced file:</string>
+	<key>Move to Trash</key>
+	<string>Verplaats naar prullenmand</string>
+	<key>Moving Library…</key>
+	<string>Moving Library…</string>
+	<key>Moving the Game Library is not recommended</key>
+	<string>Moving the Game Library is not recommended</string>
+	<key>Must not be compressed:</key>
+	<string>Must not be compressed:</string>
+	<key>Mute Audio</key>
+	<string>Demp geluid</string>
+	<key>NOT FOUND: "%@"</key>
+	<string>NOT FOUND: "%@"</string>
+	<key>Name</key>
+	<string>Naam</string>
+	<key>Name must not contain “%@.”</key>
+	<string>Name must not contain “%@.”</string>
+	<key>New Collection</key>
+	<string>Nieuwe verzameling</string>
+	<key>New Collection from Selection</key>
+	<string>Nieuwe verzameling met selectie</string>
+	<key>New Folder</key>
+	<string>Nieuwe map</string>
+	<key>New Shader Preset</key>
+	<string>New Shader Preset</string>
+	<key>New Smart Collection</key>
+	<string>Nieuwe slimme verzameling</string>
+	<key>No</key>
+	<string>Nee</string>
+	<key>No Internet Connection</key>
+	<string>Geen internetverbinding</string>
+	<key>No Save States available</key>
+	<string>Geen momentopnames beschikbaar</string>
+	<key>No Screenshots Found</key>
+	<string>Geen schermafbeeldingen gevonden</string>
+	<key>No available controllers</key>
+	<string>Geen controllers beschikbaar</string>
+	<key>No game played yet!</key>
+	<string>Nog geen spel gespeeld!</string>
+	<key>No parameters available.</key>
+	<string>No parameters available.</string>
+	<key>No permission to open:</key>
+	<string>No permission to open:</string>
+	<key>No valid system detected:</key>
+	<string>No valid system detected:</string>
+	<key>None</key>
+	<string>Geen</string>
+	<key>Not assigned</key>
+	<string>Not assigned</string>
+	<key>Not plain text:</key>
+	<string>Not plain text:</string>
+	<key>OK</key>
+	<string>OK</string>
+	<key>Only files in the OpenEmu Library folder will be moved to the Trash.</key>
+	<string>Enkel bestanden in de OpenEmu-bibliotheekmap zullen naar de prullenmand verplaatst worden.</string>
+	<key>Open Collection</key>
+	<string>Open verzameling</string>
+	<key>Open Library</key>
+	<string>Open bibliotheek</string>
+	<key>Open System Preferences</key>
+	<string>Open System Preferences</string>
+	<key>OpenEmu could not download required data from the internet</key>
+	<string>OpenEmu could not download required data from the internet</string>
+	<key>OpenEmu could not find a Core to launch the game</key>
+	<string>OpenEmu could not find a Core to launch the game</string>
+	<key>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</key>
+	<string>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</string>
+	<key>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</key>
+	<string>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</string>
+	<key>OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@</key>
+	<string>OpenEmu uses 'Cores' to emulate games. You need the %1$@ Core to play %2$@</string>
+	<key>OpenEmu will save and quit all games that are currently running.</key>
+	<string>OpenEmu will save and quit all games that are currently running.</string>
+	<key>Options</key>
+	<string>Opties</string>
+	<key>Parameters</key>
+	<string>Parameters</string>
+	<key>Paste parameters</key>
+	<string>Paste parameters</string>
+	<key>Pause Game</key>
+	<string>Pauze spel</string>
+	<key>Pause/Restart</key>
+	<string>Pauze/Herstart</string>
+	<key>Play</key>
+	<string>Speel</string>
+	<key>Play Count</key>
+	<string>Aantal keer gespeeld</string>
+	<key>Play Game</key>
+	<string>Speel spel</string>
+	<key>Play Games (Caution)</key>
+	<string>Speel spellen (Opgelet)</string>
+	<key>Play Save Games</key>
+	<string>Speel opgeslagen spellen</string>
+	<key>Play Save State</key>
+	<string>Speel momentopname</string>
+	<key>Play Time</key>
+	<string>Speeltijd</string>
+	<key>Player %ld</key>
+	<string>Speler %ld</string>
+	<key>Please close all games and wait for the importer to finish.</key>
+	<string>Please close all games and wait for the importer to finish.</string>
+	<key>Quick Load</key>
+	<string>Snel laden</string>
+	<key>Quick Save</key>
+	<string>Snel opgeslagen spel</string>
+	<key>Quick Save State</key>
+	<string>Snelle momentopname</string>
+	<key>Quick Save, Slot %@</key>
+	<string>Snel opgeslagen spel, Slot %@</string>
+	<key>Quit</key>
+	<string>Stop</string>
+	<key>Quit Game</key>
+	<string>Stop spel</string>
+	<key>Quit OpenEmu</key>
+	<string>Stop OpenEmu</string>
+	<key>Rating</key>
+	<string>Beoordeling</string>
+	<key>Recently Added</key>
+	<string>Onlangs toegevoegd</string>
+	<key>Recovered Auto Save</key>
+	<string>Recovered Auto Save</string>
+	<key>Remove Collection</key>
+	<string>Verwijder verzameling</string>
+	<key>Remove Game</key>
+	<string>Remove Game</string>
+	<key>Remove Games</key>
+	<string>Remove Games</string>
+	<key>Rename</key>
+	<string>Hernoem</string>
+	<key>Rename "%@"</key>
+	<string>Hernoem "%@"</string>
+	<key>Rename Game</key>
+	<string>Hernoem spel</string>
+	<key>Rename Shader Preset</key>
+	<string>Rename Shader Preset</string>
+	<key>Rename Special Save State or something?</key>
+	<string>Hernoem speciale momentopname of zo?</string>
+	<key>Reopen without loading state</key>
+	<string>Reopen without loading state</string>
+	<key>Required files are missing.</key>
+	<string>Benodigde bestanden ontbreken.</string>
+	<key>Reset parameters</key>
+	<string>Reset parameters</string>
+	<key>Resolve %ld Issue</key>
+	<string>Verhelp %ld probleem</string>
+	<key>Resolve %ld Issues</key>
+	<string>Verhelp %ld problemen</string>
+	<key>Restart</key>
+	<string>Herstart</string>
+	<key>Restart Game</key>
+	<string>Herstart spel</string>
+	<key>Resume</key>
+	<string>Hervat</string>
+	<key>Resume Game</key>
+	<string>Hervat spel</string>
+	<key>Retry</key>
+	<string>Retry</string>
+	<key>SHARE_STANDARD_MENU_ITEM_TITLE</key>
+	<string>Deel…</string>
+	<key>Save As:</key>
+	<string>Sla op als:</string>
+	<key>Save Current Game…</key>
+	<string>Sla huidige spel op…</string>
+	<key>Save Game</key>
+	<string>Sla spel op</string>
+	<key>Save Games</key>
+	<string>Opgeslagen spellen</string>
+	<key>Save States</key>
+	<string>Momentopnames</string>
+	<key>Save-Game-%ld %@</key>
+	<string>Save-Game-%ld %@</string>
+	<key>Scanner Paused</key>
+	<string>Scanner gepauzeerd</string>
+	<key>Scanning Directory</key>
+	<string>Bestandenlijst scannen</string>
+	<key>Screenshots</key>
+	<string>Schermafbeeldingen</string>
+	<key>Search</key>
+	<string>Zoek</string>
+	<key>Secrets</key>
+	<string>Geheimen</string>
+	<key>Select All</key>
+	<string>Selecteer alles</string>
+	<key>Select Audio Output Device</key>
+	<string>Audio-uitvoerapparaat</string>
+	<key>Select Cheat</key>
+	<string>Cheats</string>
+	<key>Select Core</key>
+	<string>Kernen</string>
+	<key>Select Disc</key>
+	<string>Schijven</string>
+	<key>Select Display Mode</key>
+	<string>Weergavemodus</string>
+	<key>Select Scale</key>
+	<string>Schaal</string>
+	<key>Select Shader</key>
+	<string>Shaders</string>
+	<key>Shader Parameters</key>
+	<string>Shader Parameters</string>
+	<key>Share</key>
+	<string>Deel</string>
+	<key>Show in Finder</key>
+	<string>Toon in Finder</string>
+	<key>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</key>
+	<string>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</string>
+	<key>Slot %ld</key>
+	<string>Slot %ld</string>
+	<key>Some migrations failed to complete properly</key>
+	<string>Sommige migraties zijn niet correct afgerond</string>
+	<key>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</key>
+	<string>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</string>
+	<key>Special thanks to everyone that made
+OpenEmu possible. To find out more
+about our contributors, emulator cores,
+documentation, licenses and to issue
+bugs please visit us on our GitHub.</key>
+	<string>Speciale dank aan iedereen die
+OpenEmu mogelijk maakt. Bezoek alstublieft onze GitHub-pagina om meer te weten te komen
+over onze bijdragers, emulator kernen,
+documentatie en licenties en om bugs te melden.</string>
+	<key>Start Scanning</key>
+	<string>Start scannen</string>
+	<key>Stop</key>
+	<string>Stop</string>
+	<key>Switch To Grid View</key>
+	<string>Switch To Grid View</string>
+	<key>Switch To List View</key>
+	<string>Switch To List View</string>
+	<key>System</key>
+	<string>Systeem</string>
+	<key>System Default</key>
+	<string>System Default</string>
+	<key>System Files</key>
+	<string>Systeembestanden</string>
+	<key>Takes you to the %@ project website</key>
+	<string>Stuurt u naar de %@ project website</string>
+	<key>The %@ core has compatibility issues and some games may contain glitches or not play at all.
+
+Please do not report problems as we are not responsible for the development of %@.</key>
+	<string>De %1$@-kern heeft compatibiliteitsproblemen en sommige spellen kunnen storingen ondervinden of gewoon niet werken.
+
+Gelieve deze problemen niet te rapporteren omdat wij niet verantwoordelijk zijn voor de ontwikkeling van %2$@.</string>
+	<key>The %@ core has quit unexpectedly</key>
+	<string>The %@ core has quit unexpectedly</string>
+	<key>The %@ core has quit unexpectedly after loading a save state</key>
+	<string>The %@ core has quit unexpectedly after loading a save state</string>
+	<key>The %@ core plugin is deprecated</key>
+	<string>The %@ core plugin is deprecated</string>
+	<key>The %@ core plugin is deprecated, and will be removed soon</key>
+	<string>The %@ core plugin is deprecated, and will be removed soon</string>
+	<key>The OpenEmu Library could not be found.</key>
+	<string>De OpenEmu-bibliotheek kon niet gevonden worden.</string>
+	<key>The System plugin could not be found!</key>
+	<string>De systeemplug-in kon niet gevonden worden!</string>
+	<key>The battery in device number %lu, %@, is low. Please charge or replace the battery.</key>
+	<string>De batterij in apparaat met nummer %1$lu, %2$@, is bijna leeg. Gelieve deze op te laden of te vervangen.</string>
+	<key>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</key>
+	<string>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</string>
+	<key>The core could not be downloaded. Try installing it from the Cores preferences.</key>
+	<string>De kern kon niet worden gedownload. Probeer ze te installeren vanaf de voorkeuren voor kernen.</string>
+	<key>The emulator could not load ROM.</key>
+	<string>The emulator could not load the ROM.</string>
+	<key>The file you selected doesn't exist</key>
+	<string>The bestand dat u selecteerde bestaat niet</string>
+	<key>The game '%@' could not be started because a rom file could not be found. Do you want to locate it?</key>
+	<string>Het spel '%@' kon niet gestart worden omdat een ROM-bestand niet gevonden kon worden. Wilt u het lokaliseren?</string>
+	<key>The game '%@' was imported.</key>
+	<string>Het spel '%@' werd geïmporteerd.</string>
+	<key>This System has no corresponding core installed.</key>
+	<string>Voor dit systeem is geen overeenkomstige kern geïnstalleerd.</string>
+	<key>This cannot be undone.</key>
+	<string>Dit kan niet ongedaan worden gemaakt.</string>
+	<key>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</key>
+	<string>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</string>
+	<key>This save state was created with a different core. Do you want to switch to that core now?</key>
+	<string>Deze momentopname werd met een andere kern gemaakt. Wilt u nu omschakelen naar deze kern?</string>
+	<key>This will remove all items from the queue. Items that finished importing will be preserved in your library.</key>
+	<string>Kies Ja om alle items uit de wachtrij te verwijderen. Items die al geïmporteerd zijn worden behouden in uw bibliotheek.</string>
+	<key>Title:</key>
+	<string>Titel:</string>
+	<key>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</key>
+	<string>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</string>
+	<key>To launch the save state %@ you will need to install the '%@' Core</key>
+	<string>Om de momentopname %1$@ te starten zal u de kern '%2$@' moeten installeren</string>
+	<key>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</key>
+	<string>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</string>
+	<key>Toggle Fullscreen</key>
+	<string>Schakel schermvullende weergave in/uit</string>
+	<key>Toolbar: Homebrew</key>
+	<string>Homebrew</string>
+	<key>Toolbar: Library</key>
+	<string>Bibliotheek</string>
+	<key>Toolbar: Save States</key>
+	<string>Momentopnames</string>
+	<key>Toolbar: Screenshots</key>
+	<string>Schermafbeeldingen</string>
+	<key>Trash downloaded Files</key>
+	<string>Gooi gedownloade bestanden in de prullenmand</string>
+	<key>Unexpected error:</key>
+	<string>Unexpected error:</string>
+	<key>Unmute Audio</key>
+	<string>Ontdemp geluid</string>
+	<key>Update</key>
+	<string>Update</string>
+	<key>Updating Library</key>
+	<string>Bibliotheek bijwerken</string>
+	<key>User guide on BIOS files</key>
+	<string>Gebruikershandleiding over BIOS-bestanden</string>
+	<key>Version</key>
+	<string>Versie</string>
+	<key>View Guide in Browser</key>
+	<string>Bekijk handleiding in browser</string>
+	<key>View Mode</key>
+	<string>Weergavemodus</string>
+	<key>Volume</key>
+	<string>Volume</string>
+	<key>Warning</key>
+	<string>Waarschuwing</string>
+	<key>We suggest you switch to the %@ core plugin as soon as possible.</key>
+	<string>We suggest you switch to the %@ core plugin as soon as possible.</string>
+	<key>With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves.</key>
+	<string>Met OpenEmu kan u uw voortgang op elk moment opslaan via momentopnames. We zullen zelfs automatische momentopnames maken voor u wanneer u een spel verlaat. Kom hiernaar terug om een overzicht te krijgen van al uw opgeslagen spellen.</string>
+	<key>Won't be able to recognize it as special save state…</key>
+	<string>Zal het niet kunnen herkennen als een speciale momentopname…</string>
+	<key>Would you like to continue your last game?</key>
+	<string>Wilt u uw laatste spel voortzetten?</string>
+	<key>Would you like to save your game before you quit?</key>
+	<string>Wilt u uw spel opslaan voor u stopt?</string>
+	<key>Yes</key>
+	<string>Ja</string>
+	<key>You can't move your library into one of its subfolders.</key>
+	<string>U kan uw bibliotheek niet hiernaar verplaatsen!</string>
+	<key>You need to restart the application to commit the change</key>
+	<string>U moet de toepassing herstarten om de aanpassing door te voeren</string>
+	<key>Your Mac is too old for this version of OpenEmu</key>
+	<string>Your Mac is too old for this version of OpenEmu</string>
+	<key>Your game finished importing, do you want to play it now?</key>
+	<string>Uw spel is geïmporteerd, wilt u het nu spelen?</string>
+	<key>Your library was moved sucessfully.</key>
+	<string>Uw bibliotheek werd succesvol verplaatst.</string>
+	<key>this guide</key>
+	<string>deze handleiding</string>
+</dict>
+</plist>

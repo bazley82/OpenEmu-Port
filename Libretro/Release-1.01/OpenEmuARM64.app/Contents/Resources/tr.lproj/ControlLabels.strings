@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>#</key>
+	<string>#</string>
+	<key>*</key>
+	<string>*</string>
+	<key>-</key>
+	<string>-</string>
+	<key>0</key>
+	<string>0</string>
+	<key>1</key>
+	<string>1</string>
+	<key>2</key>
+	<string>2</string>
+	<key>2/6 Mode</key>
+	<string>2/6 Modu</string>
+	<key>3</key>
+	<string>3</string>
+	<key>3D Control Pad</key>
+	<string>3D Kontrol Paneli</string>
+	<key>4</key>
+	<string>4</string>
+	<key>5</key>
+	<string>5</string>
+	<key>6</key>
+	<string>6</string>
+	<key>7</key>
+	<string>7</string>
+	<key>8</key>
+	<string>8</string>
+	<key>9</key>
+	<string>9</string>
+	<key>A</key>
+	<string>A</string>
+	<key>Action</key>
+	<string>Aksiyon</string>
+	<key>Analog</key>
+	<string>Analog</string>
+	<key>Analog Mode</key>
+	<string>Analog Modu</string>
+	<key>B</key>
+	<string>B</string>
+	<key>Bottom Left Action</key>
+	<string>Sol Alt Aksiyonu</string>
+	<key>Bottom Right Action</key>
+	<string>Sağ Alt Aksiyonu</string>
+	<key>Button 1</key>
+	<string>Buton 1</string>
+	<key>Button 1/Start</key>
+	<string>Bouton 1/Start</string>
+	<key>Button 2</key>
+	<string>Buton 2</string>
+	<key>Button 3</key>
+	<string>Buton 3</string>
+	<key>Button 4</key>
+	<string>Buton 4</string>
+	<key>Button 5</key>
+	<string>Buton 5</string>
+	<key>Button 6</key>
+	<string>Buton 6</string>
+	<key>C</key>
+	<string>C</string>
+	<key>C-Pad</key>
+	<string>C Pad</string>
+	<key>C-Stick</key>
+	<string>C Çubuğu</string>
+	<key>Change Disk Side</key>
+	<string>Diski Değiştir</string>
+	<key>Clear</key>
+	<string>Temizle</string>
+	<key>Configure</key>
+	<string>Yapılandır</string>
+	<key>Console Pause</key>
+	<string>Konsolu Durdur</string>
+	<key>Console Reset</key>
+	<string>Konsolu Resetle</string>
+	<key>D-Pad</key>
+	<string>D Pad</string>
+	<key>Display Mode</key>
+	<string>Ekran Modu</string>
+	<key>Down</key>
+	<string>Aşağı</string>
+	<key>Enter</key>
+	<string>Enter</string>
+	<key>Fast Forward</key>
+	<string>İleri Sarma</string>
+	<key>Fire</key>
+	<string>Ateş</string>
+	<key>Fire 1</key>
+	<string>Ateş 1</string>
+	<key>Fire 2</key>
+	<string>Ateş 2</string>
+	<key>Fullscreen</key>
+	<string>Tam Ekran</string>
+	<key>Gameplay Buttons</key>
+	<string>Oyun Butonları</string>
+	<key>Insert Coin</key>
+	<string>Jeton At</string>
+	<key>Jump</key>
+	<string>Zıpla</string>
+	<key>Keypad</key>
+	<string>Tuş Takımı</string>
+	<key>L</key>
+	<string>L</string>
+	<key>L Diff</key>
+	<string>L Diff</string>
+	<key>L Diff A</key>
+	<string>L Diff A</string>
+	<key>L Diff B</key>
+	<string>L Diff B</string>
+	<key>L1</key>
+	<string>L1</string>
+	<key>L2</key>
+	<string>L2</string>
+	<key>L3</key>
+	<string>L3</string>
+	<key>Last Display Mode</key>
+	<string>Son Ekran Modu</string>
+	<key>Left</key>
+	<string>Sol</string>
+	<key>Left Action</key>
+	<string>Sol Aksiyon</string>
+	<key>Left Analog</key>
+	<string>Sol Analog</string>
+	<key>Left D-Pad</key>
+	<string>Sol D-Pad</string>
+	<key>Left Trigger</key>
+	<string>Sol Trigger</string>
+	<key>Lid</key>
+	<string>Kapak</string>
+	<key>Load</key>
+	<string>Yükleme</string>
+	<key>Menu</key>
+	<string>Menü</string>
+	<key>Mic</key>
+	<string>Mikrofon</string>
+	<key>Mode</key>
+	<string>Mod</string>
+	<key>Mode Switch</key>
+	<string>Mod Değiştir</string>
+	<key>Mute</key>
+	<string>Sessiz</string>
+	<key>Next Display Mode</key>
+	<string>Sonraki Ekran Modu</string>
+	<key>Option</key>
+	<string>Ayarlar</string>
+	<key>Option 1</key>
+	<string>Ayarlar 1</string>
+	<key>Option 2</key>
+	<string>Ayarlar 2</string>
+	<key>P</key>
+	<string>P</string>
+	<key>Pause/Resume</key>
+	<string>Durdur/Devam Et</string>
+	<key>Player Start</key>
+	<string>Oyuncu Başla</string>
+	<key>Power</key>
+	<string>Güç</string>
+	<key>Quick Load</key>
+	<string>Hızlı Yükleme</string>
+	<key>Quick Save</key>
+	<string>Hızlı Kaydetme</string>
+	<key>R</key>
+	<string>R</string>
+	<key>R Diff</key>
+	<string>R Diff</string>
+	<key>R Diff A</key>
+	<string>R Diff A</string>
+	<key>R Diff B</key>
+	<string>R Diff B</string>
+	<key>R1</key>
+	<string>R1</string>
+	<key>R2</key>
+	<string>R2</string>
+	<key>R3</key>
+	<string>R3</string>
+	<key>Rapid Fire Clear</key>
+	<string>Hızlı Ateş Temizleme</string>
+	<key>Rapid Fire Reset</key>
+	<string>Hızlı Ateş Reset</string>
+	<key>Rapid Fire Toggle</key>
+	<string>Hızlı Ateş Açık</string>
+	<key>Reset</key>
+	<string>Reset</string>
+	<key>Rewind</key>
+	<string>Geri Sar</string>
+	<key>Right</key>
+	<string>Sağ</string>
+	<key>Right Action</key>
+	<string>Sağ Aksiyon</string>
+	<key>Right Analog</key>
+	<string>Sağ Analog</string>
+	<key>Right D-Pad</key>
+	<string>Sağ D-Pad</string>
+	<key>Right Trigger</key>
+	<string>Sağ Trigger</string>
+	<key>Run</key>
+	<string>Koş</string>
+	<key>Save</key>
+	<string>Kaydet</string>
+	<key>Screenshot</key>
+	<string>Ekran Resmi</string>
+	<key>Select</key>
+	<string>Seçme</string>
+	<key>Service</key>
+	<string>Servis</string>
+	<key>Shake</key>
+	<string>Sallanma</string>
+	<key>Sound</key>
+	<string>Ses</string>
+	<key>Special Keys</key>
+	<string>Özel Tuşlar</string>
+	<key>Start</key>
+	<string>Başla</string>
+	<key>Step Backward</key>
+	<string>Geri Alma</string>
+	<key>Step Forward</key>
+	<string>İleri Alma</string>
+	<key>Swap Joysticks</key>
+	<string>Joystiklerin yerini değiştir</string>
+	<key>Switches</key>
+	<string>Switchler</string>
+	<key>TV Black &amp; White</key>
+	<string>Siyah &amp; Beyaz TV</string>
+	<key>TV Color</key>
+	<string>TV Rengi</string>
+	<key>Top Action</key>
+	<string>Üst Aksiyon</string>
+	<key>Trigger L</key>
+	<string>L Triggeri</string>
+	<key>Trigger R</key>
+	<string>R Triggeri</string>
+	<key>Up</key>
+	<string>Yukarı</string>
+	<key>Volume Down</key>
+	<string>Ses azalt</string>
+	<key>Volume Up</key>
+	<string>Ses arttır</string>
+	<key>X</key>
+	<string>X</string>
+	<key>X1 Up</key>
+	<string>X1 Yukarı</string>
+	<key>X2 Right</key>
+	<string>X2 Sağ</string>
+	<key>X3 Down</key>
+	<string>X3 Aşağı</string>
+	<key>X4 Left</key>
+	<string>X4 Sol</string>
+	<key>Y</key>
+	<string>Y</string>
+	<key>Y1 Up</key>
+	<string>Y1 Yukarı</string>
+	<key>Y2 Right</key>
+	<string>Y2 Sağ</string>
+	<key>Y3 Down</key>
+	<string>Y3 Aşağı</string>
+	<key>Y4 Left</key>
+	<string>Y4 Sol</string>
+	<key>Z</key>
+	<string>Z</string>
+	<key>▢</key>
+	<string>▢</string>
+	<key>△</key>
+	<string>△</string>
+	<key>◯</key>
+	<string>◯</string>
+	<key>✕</key>
+	<string>✕</string>
+</dict>
+</plist>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Allow playing with controllers when in background</key>
+	<string>Permitir jugar con mandos en segundo plano</string>
+	<key>Always float popout gameplay window on top</key>
+	<string>Flotar siempre ventana emergente de juego en primer plano</string>
+	<key>Always launch games fullscreen</key>
+	<string>Iniciar siempre juegos a pantalla completa</string>
+	<key>Always pause gameplay when in background</key>
+	<string>Pausar siempre en segundo plano</string>
+	<key>Always snap popout gameplay window to integer scale</key>
+	<string>Ajustar siempre ventana emergente de juego a escala de enteros</string>
+	<key>Always use popout gameplay window</key>
+	<string>Usar siempre ventana emergente de juego</string>
+	<key>An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</key>
+	<string>El emocionante mundo de los videojuegos está a su alcance. Para ayudarle a empezar, nos gustaría hacerle unas rápidas preguntas que le guiarán a continuación…
+
+• Asegúrese que está ejecutando los complementos de los sistemas adecuados (núcleos).</string>
+	<key>Apply</key>
+	<string>Aplicar</string>
+	<key>Automatically lookup game information &amp; artwork</key>
+	<string>Buscar información y carátulas de juegos automáticamente</string>
+	<key>Available Libraries:</key>
+	<string>Bibliotecas disponibles:</string>
+	<key>Back</key>
+	<string>Atrás</string>
+	<key>Cancel</key>
+	<string>Cancelar</string>
+	<key>Click on the ‘Next’ button to begin!</key>
+	<string>¡Haga clic en el botón ‘Siguiente’ para comenzar!</string>
+	<key>Click the ‘Go’ button to begin your adventure.</key>
+	<string>Haga clic en el botón ‘Continuar’ para comenzar su aventura.</string>
+	<key>Copy files to Game Library folder when adding to library</key>
+	<string>Copiar en biblioteca de juegos los archivos añadidos a la biblioteca</string>
+	<key>Downloading Data…</key>
+	<string>Descargando datos…</string>
+	<key>Edit</key>
+	<string>Editar</string>
+	<key>Game Library Folder Location:</key>
+	<string>Ubicación de la biblioteca de juegos:</string>
+	<key>Go</key>
+	<string>Continuar</string>
+	<key>Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</key>
+	<string>¡Excelente! ¡Ahora está todo configurado y listo para los juegos!
+
+Recuerde que puede modificar tanto su teclado y los controles de los mandos como los de otros jugadores a través de las preferencias en cualquier momento.</string>
+	<key>Import Into:</key>
+	<string>Importar en:</string>
+	<key>Input:</key>
+	<string>Entrada:</string>
+	<key>Let’s Go!</key>
+	<string>¡Vamos!</string>
+	<key>Move to Default Location</key>
+	<string>Mover a ubicación por defecto</string>
+	<key>Move...</key>
+	<string>Mover...</string>
+	<key>New Preset</key>
+	<string>New Preset</string>
+	<key>Next</key>
+	<string>Siguiente</string>
+	<key>OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</key>
+	<string>OpenEmu es modular, y gracias al trabajo de otros grandes proyectos de código abierto, puede emular una amplia variedad de sistemas de videojuegos (‘núcleos’). Algunos requieren que los marque y confirme que desea instalarlos y usarlos. Sus juegos y sistemas de juego favoritos no pueden funcionar sin estos núcleos.</string>
+	<key>Organization Methods:</key>
+	<string>Métodos de organización:</string>
+	<key>Reset All</key>
+	<string>Restablecer todo</string>
+	<key>Reset Warnings</key>
+	<string>Restaurar advertencias</string>
+	<key>Reset all dialog warnings:</key>
+	<string>Restaurar todos los diálogos de advertencia:</string>
+	<key>Resolve Issues:</key>
+	<string>Corregir errores de importación:</string>
+	<key>Save Preset</key>
+	<string>Guardar</string>
+	<key>Shader:</key>
+	<string>Sombreado:</string>
+	<key>System Cores Installation</key>
+	<string>Instalación de núcleos de sistemas</string>
+	<key>Welcome to OpenEmu!</key>
+	<string>¡Bienvenido a OpenEmu!</string>
+	<key>Window Management:</key>
+	<string>Gestión de ventanas:</string>
+</dict>
+</plist>

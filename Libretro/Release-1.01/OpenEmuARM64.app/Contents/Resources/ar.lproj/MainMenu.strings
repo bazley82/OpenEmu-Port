@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>عن OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>دائمًا اخفي شريط التحكم داخل نافذة اللعبة</string>
+	<key>Back Up…</key>
+	<string>Back Up…</string>
+	<key>Bring All to Front</key>
+	<string>تقديم الجميع للأمام</string>
+	<key>Check for Updates…</key>
+	<string>تحقق من التحديثات…</string>
+	<key>Close Window</key>
+	<string>إغلاق النافذة</string>
+	<key>Controls</key>
+	<string>التحكم</string>
+	<key>Copy</key>
+	<string>نسخ</string>
+	<key>Cut</key>
+	<string>قص</string>
+	<key>Delete</key>
+	<string>حذف</string>
+	<key>Display Duplicates</key>
+	<string>Display Duplicates</string>
+	<key>Display Exact Duplicates</key>
+	<string>Display Exact Duplicates</string>
+	<key>Edit</key>
+	<string>تعديل</string>
+	<key>Edit Smart Collection</key>
+	<string>تعديل المجموعة الذكية</string>
+	<key>Export Collection</key>
+	<string>تصدير مجموعة</string>
+	<key>Export Library…</key>
+	<string>تصدير المكتبة…</string>
+	<key>File</key>
+	<string>ملف</string>
+	<key>Find</key>
+	<string>بحث</string>
+	<key>Find Next</key>
+	<string>البحث عن التالي</string>
+	<key>Find Previous</key>
+	<string>البحث عن السابق</string>
+	<key>Find…</key>
+	<string>بحث…</string>
+	<key>Float on Top</key>
+	<string>عائم على السطح</string>
+	<key>Fullscreen</key>
+	<string>ملء الشاشة</string>
+	<key>Get Info</key>
+	<string>إحضار المعلومات</string>
+	<key>Help</key>
+	<string>مساعدة</string>
+	<key>Hide OpenEmu</key>
+	<string>إخفاء OpenEmu</string>
+	<key>Hide Others</key>
+	<string>إخفاء نوافذ البرامج الأخرى</string>
+	<key>Import Collection</key>
+	<string>استيراد مجموعة</string>
+	<key>Jump to Selection</key>
+	<string>الذهاب إلى التحديد</string>
+	<key>Last Display Mode</key>
+	<string>آخر وضع عرض</string>
+	<key>Last Played</key>
+	<string>آخر ما لُعِب</string>
+	<key>Launch Game…</key>
+	<string>تشغيل لعبة ...</string>
+	<key>Load State</key>
+	<string>تحميل الحالة</string>
+	<key>Log Responder Chain</key>
+	<string>Log Responder Chain</string>
+	<key>Minimize</key>
+	<string>تصغير في شريط الأيقونات</string>
+	<key>New Collection Folder</key>
+	<string>مجلد مجموعة جديد</string>
+	<key>New Smart Collection…</key>
+	<string>مجموعة ذكية جديدة…</string>
+	<key>Next Display Mode</key>
+	<string>وضع العرض التالي</string>
+	<key>OpenEmu Web Site</key>
+	<string>موقع OpenEmu</string>
+	<key>Organize Library…</key>
+	<string>ترتيب المكتبة…</string>
+	<key>Page Setup…</key>
+	<string>تهيئه الصفحة…</string>
+	<key>Paste</key>
+	<string>لصق</string>
+	<key>Preferences…</key>
+	<string>التفضيلات…</string>
+	<key>Print…</key>
+	<string>طباعة…</string>
+	<key>Quit OpenEmu</key>
+	<string>الخروج من OpenEmu</string>
+	<key>Redo</key>
+	<string>عدم التراجع</string>
+	<key>Release Notes</key>
+	<string>معلومات عن الاصدار</string>
+	<key>Save State</key>
+	<string>حفظ الحالة</string>
+	<key>Select All</key>
+	<string>تحديد الكل</string>
+	<key>Send a Donation…</key>
+	<string>تبرع…</string>
+	<key>Services</key>
+	<string>الخدمات</string>
+	<key>Show All</key>
+	<string>إظهار الجميع</string>
+	<key>Show Library</key>
+	<string>عرض المكتبة</string>
+	<key>Show ROM Names</key>
+	<string>اظهار أسماء الـROM</string>
+	<key>Start Game</key>
+	<string>بدأ اللعبة</string>
+	<key>Submit Feedback</key>
+	<string>إرسال ملاحظات</string>
+	<key>Take Native Screenshot</key>
+	<string>خذ لقطة الشاشة الأصلية</string>
+	<key>Take Screenshot</key>
+	<string>خذ لقطة شاشة</string>
+	<key>Undo</key>
+	<string>تراجع</string>
+	<key>Undock Game Window</key>
+	<string>لا تضع اللعبة في شريط الأيقونات</string>
+	<key>Use Selection for Find</key>
+	<string>استخدم التحديد للبحث</string>
+	<key>User Guide</key>
+	<string>دليل الاستخدام</string>
+	<key>View</key>
+	<string>عرض</string>
+	<key>Volume Down</key>
+	<string>خفض الصوت</string>
+	<key>Volume Up</key>
+	<string>رفع الصوت</string>
+	<key>Window</key>
+	<string>نافذة</string>
+	<key>Zoom</key>
+	<string>تكبير/تصغير</string>
+	<key>as Grid</key>
+	<string>كشبكة</string>
+	<key>as List</key>
+	<string>كقائمة</string>
+</dict>
+</plist>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>Appearance:</string>
+	<key>Auto (region)</key>
+	<string>Auto</string>
+	<key>Background Thread</key>
+	<string>Background Thread</string>
+	<key>Cancel cover sync for all games</key>
+	<string>全てのゲームのカバー同期をキャンセル</string>
+	<key>Checked</key>
+	<string>チェックあり</string>
+	<key>Cleanup Save States</key>
+	<string>セーブステートをクリーンアップ</string>
+	<key>Cleanup autosave state</key>
+	<string>オートセーブステートをクリーンアップ</string>
+	<key>Cleanup rom hashes</key>
+	<string>ROMのハッシュをクリーンアップ</string>
+	<key>Clear shader cache</key>
+	<string>Clear shader cache</string>
+	<key>Controls Setup</key>
+	<string>コントローラー設定</string>
+	<key>Dark (default)</key>
+	<string>Dark (default)</string>
+	<key>Database Actions</key>
+	<string>データベース操作</string>
+	<key>Debug Mode</key>
+	<string>デバッグモード</string>
+	<key>Default Value: %@</key>
+	<string>デフォルト値: %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>ダウンロード可能な写真を削除</string>
+	<key>Delete useless image objects</key>
+	<string>Delete useless image objects</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>スクリーンショットのアスペクト比調整を無効にする</string>
+	<key>Download missing artwork…</key>
+	<string>写真をダウンロード…</string>
+	<key>Draw button mask above image</key>
+	<string>画像の上に重なるボタンマスクを作成</string>
+	<key>Europe</key>
+	<string>Europe</string>
+	<key>Game View Background color:</key>
+	<string>ゲーム画面の背景色:</string>
+	<key>General</key>
+	<string>一般</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>HUDバー / ゲームプレイ</string>
+	<key>Japan</key>
+	<string>Japan</string>
+	<key>Library Window</key>
+	<string>ライブラリ ウィンドウ</string>
+	<key>Light</key>
+	<string>Light</string>
+	<key>Log HID Events</key>
+	<string>HID イベントを記録</string>
+	<key>Log Keyboard Events</key>
+	<string>Keyboard イベントを記録</string>
+	<key>Manually choose system on import</key>
+	<string>インポート時にシステムを自分で選択</string>
+	<key>North America</key>
+	<string>North America</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>Other</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>データベース上のSanity Checkを開始</string>
+	<key>Range: %@ to %@</key>
+	<string>範囲: %@ から %@</string>
+	<key>Region:</key>
+	<string>地域:</string>
+	<key>Remove duplicated roms</key>
+	<string>重複しているROMを削除</string>
+	<key>Remove untracked artwork files</key>
+	<string>追跡不可能な写真を削除</string>
+	<key>Reset main window size</key>
+	<string>メインウィンドウのサイズをリセット</string>
+	<key>Reveal user shader folder</key>
+	<string>Reveal user shader folder</string>
+	<key>Run games using:</key>
+	<string>以下を用いてゲームを起動:</string>
+	<key>Select first field after setting the last</key>
+	<string>設定後に最初のフィールドを選択</string>
+	<key>Set default save states directory</key>
+	<string>デフォルトのオートセーブステートディレクトリを設定</string>
+	<key>Setup Assistant has finished</key>
+	<string>セットアップ・アシスタントが完了しました。</string>
+	<key>Shaders</key>
+	<string>Shaders</string>
+	<key>Show all special keys</key>
+	<string>グローバルキーを全て表示する</string>
+	<key>Show audio output device in menu</key>
+	<string>オーディオ出力デバイスをメニューに表示</string>
+	<key>Show autosave in menu</key>
+	<string>オートセーブをメニューに表示</string>
+	<key>Show autosave states in save state category</key>
+	<string>セーブステートカテゴリのオートセーブを表示</string>
+	<key>Show game titles instead of rom names</key>
+	<string>ROMの名前の代わりにゲームタイトルを表示する</string>
+	<key>Show notifications during gameplay</key>
+	<string>ゲームプレイ中に通知を表示</string>
+	<key>Show quicksave in menu</key>
+	<string>クイックセーブをメニューに表示</string>
+	<key>Show quicksave states in save state category</key>
+	<string>セーブステートカテゴリのクイックセーブを表示</string>
+	<key>Sync games without artwork</key>
+	<string>Sync games without artwork</string>
+	<key>System</key>
+	<string>System</string>
+	<key>Take screenshots in native size</key>
+	<string>スクリーンショットをネイティブサイズで表示</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>ボタンによるアナログ操作のしきい値:</string>
+	<key>Toggle game scanner view</key>
+	<string>Toggle game scanner view</string>
+	<key>Unchecked</key>
+	<string>チェックなし</string>
+	<key>Update OpenVGDB</key>
+	<string>OpenVGDBをアップデート</string>
+	<key>Use quicksave slots</key>
+	<string>クイックセーブスロットを使用</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>これをしている間、OpenEmu は責任を負いかねます。</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

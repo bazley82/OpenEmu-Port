@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Allow playing with controllers when in background</key>
+	<string>No deshabilitis els controladors quan la finestra estigui en segon pla</string>
+	<key>Always float popout gameplay window on top</key>
+	<string>Manté sempre la finestra de joc emergent a la part superior</string>
+	<key>Always launch games fullscreen</key>
+	<string>Executa els jocs en pantalla completa</string>
+	<key>Always pause gameplay when in background</key>
+	<string>Pausa la partida quan estigui en segon pla</string>
+	<key>Always snap popout gameplay window to integer scale</key>
+	<string>Ajusta sempre la finestra de joc emergent a escala d'enters</string>
+	<key>Always use popout gameplay window</key>
+	<string>Fes servir una finestra pel joc</string>
+	<key>An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</key>
+	<string>Un món de videojocs està al teu abast. Per ajudar-vos a començar, ens agradaria fer-vos algunes preguntes ràpides que us guiaran a través del següent…
+
+• Assegureu-vos que esteu fent servir els connectors del sistema correctes (nuclis).</string>
+	<key>Apply</key>
+	<string>Aplica</string>
+	<key>Automatically lookup game information &amp; artwork</key>
+	<string>Cerca informació i imatges dels jocs automàticament</string>
+	<key>Available Libraries:</key>
+	<string>Biblioteques disponibles:</string>
+	<key>Back</key>
+	<string>Enrere</string>
+	<key>Cancel</key>
+	<string>Cancel·la</string>
+	<key>Click on the ‘Next’ button to begin!</key>
+	<string>Feu clic al botó 'Següent' per començar.</string>
+	<key>Click the ‘Go’ button to begin your adventure.</key>
+	<string>Feu clic al botó 'Ves-hi' per començar.</string>
+	<key>Copy files to Game Library folder when adding to library</key>
+	<string>En afegir els jocs, copia els fitxers a la carpeta de la biblioteca</string>
+	<key>Downloading Data…</key>
+	<string>S'està baixant les dades…</string>
+	<key>Edit</key>
+	<string>Edita</string>
+	<key>Game Library Folder Location:</key>
+	<string>Ubicació de la carpeta de la biblioteca dels jocs:</string>
+	<key>Go</key>
+	<string>Ves-hi</string>
+	<key>Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</key>
+	<string>Genial! Ja està tot a punt per jugar.
+
+Recordeu que podeu canviar la configuració del teclat i dels controladors a les Preferències en qualsevol moment.</string>
+	<key>Import Into:</key>
+	<string>Importa a:</string>
+	<key>Input:</key>
+	<string>Entrada:</string>
+	<key>Let’s Go!</key>
+	<string>Som-hi!</string>
+	<key>Move to Default Location</key>
+	<string>Mou a la ubicació per defecte</string>
+	<key>Move...</key>
+	<string>Mou...</string>
+	<key>New Preset</key>
+	<string>New Preset</string>
+	<key>Next</key>
+	<string>Següent</string>
+	<key>OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</key>
+	<string>L'OpenEmu és modular, i gràcies a la feina feta per altres projectes de codi obert pot emular una àmplia varietat de sistemes de videojocs (‘nuclis’). Alguns nuclis requereixen que marqueu i confirmeu la seva instal·lació. Potser els vostres sistemes i jocs preferits no funcionaran sense aquests nuclis.</string>
+	<key>Organization Methods:</key>
+	<string>Mètodes d'organització:</string>
+	<key>Reset All</key>
+	<string>Restableix tot</string>
+	<key>Reset Warnings</key>
+	<string>Restableix els avisos</string>
+	<key>Reset all dialog warnings:</key>
+	<string>Restableix tots els diàlegs d'avís:</string>
+	<key>Resolve Issues:</key>
+	<string>Corregeix les incidències d'importació:</string>
+	<key>Save Preset</key>
+	<string>Desa</string>
+	<key>Shader:</key>
+	<string>Shader:</string>
+	<key>System Cores Installation</key>
+	<string>Instal·lació dels nuclis del sistema</string>
+	<key>Welcome to OpenEmu!</key>
+	<string>Us donem la benvinguda a l'OpenEmu</string>
+	<key>Window Management:</key>
+	<string>Gestió de les finestres:</string>
+</dict>
+</plist>

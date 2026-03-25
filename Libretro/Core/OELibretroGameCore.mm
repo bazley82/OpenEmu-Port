@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>
 #import <dlfcn.h>
+#import <OpenGL/OpenGL.h>
+#import <OpenGL/gl3.h>
 
 // OpenEmu SDK Headers
 #import <OpenEmuBase/OEGeometry.h>
@@ -19,6 +21,10 @@
 // Libretro
 #import "libretro.h"
 #import "OELibretroGameCore.h"
+
+static bool g_isPSP = false;
+static bool g_isN64 = false;
+static bool g_isPSX = false;
 
 @interface OEGameCore (Internal)
 - (void *)videoBufferAtIndex:(NSUInteger)index;
@@ -41,28 +47,10 @@ struct retro_hw_render_interface_metal
 };
 #endif
 
-#if DEBUG
-static void OELogToFile(NSString *format, ...) {
-    va_list args;
-    va_start(args, format);
-    NSString *msg = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-    
-    NSString *logLine = [NSString stringWithFormat:@"%@\n", msg];
-    NSData *data = [logLine dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSString *logPath = @"/tmp/oe_libretro.log";
-    NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:logPath];
-    if (!handle) {
-        [data writeToFile:logPath atomically:YES];
-    } else {
-        [handle seekToEndOfFile];
-        [handle writeData:data];
-        [handle closeFile];
-    }
-}
+#if 0
+#define NSLog(format, ...) fprintf(stderr, "%s\n", [[NSString stringWithFormat:format, ##__VA_ARGS__] UTF8String])
 #else
-#define OELogToFile(format, ...) do {} while (0)
+#define NSLog(...)
 #endif
 
 static __unsafe_unretained OELibretroGameCore *_current;
@@ -82,6 +70,24 @@ static __unsafe_unretained OELibretroGameCore *_current;
 
 #pragma mark - Libretro Callbacks (C bridge)
 
+static uintptr_t retro_hw_get_current_framebuffer_cb(void)
+{
+    if (_current) {
+        id renderDelegate = [_current valueForKey:@"renderDelegate"];
+        if (renderDelegate) {
+            id fbo = [renderDelegate valueForKey:@"presentationFramebuffer"];
+            if (fbo) {
+                uintptr_t fboID = (uintptr_t)[fbo unsignedIntegerValue];
+                return (uintptr_t)[fbo unsignedIntegerValue];
+            }
+        }
+    }
+    return 0;
+}
+
+
+static void (APIENTRYP real_glShaderSource)(GLuint shader, GLsizei count, const GLchar *const*string, const GLint *length) = NULL;
+
 static retro_proc_address_t retro_get_proc_address_cb(const char *sym)
 {
     retro_proc_address_t addr = (retro_proc_address_t)dlsym(RTLD_DEFAULT, sym);
@@ -94,23 +100,36 @@ static retro_proc_address_t retro_get_proc_address_cb(const char *sym)
             addr = (retro_proc_address_t)dlsym(gl_handle, sym);
         }
     }
-    if (!addr) {
-        OELogToFile(@"[Libretro] Failed to find symbol: %s", sym);
-    }
     return addr;
+}
+
+static void retro_hw_context_reset_cb(void)
+{
+    if (_current && _current->_hwRenderCallback.context_reset) {
+        _current->_hwRenderCallback.context_reset();
+    }
+}
+
+static void retro_hw_context_destroy_cb(void)
+{
+    if (_current && _current->_hwRenderCallback.context_destroy) {
+        _current->_hwRenderCallback.context_destroy();
+    }
 }
 
 static void retro_log_cb(enum retro_log_level level, const char *fmt, ...)
 {
+    // Silenced for release
 }
 
 static bool retro_environment_cb(unsigned cmd, void *data)
 {
     return [_current environmentCallback:cmd data:data];
 }
-
 static void retro_video_refresh_cb(const void *data, unsigned width, unsigned height, size_t pitch)
 {
+    if (!_current) return;
+    
     [_current videoRefreshCallback:data width:width height:height pitch:pitch];
 }
 
@@ -219,13 +238,13 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     _mouseY = point.y;
     _mousePressed = YES;
     
-    OELogToFile(@"[Libretro] didTouchScreenPoint: (%d, %d)", _mouseX, _mouseY);
+    NSLog(@"[Libretro] didTouchScreenPoint: (%d, %d)", _mouseX, _mouseY);
 }
 
 - (void)didReleaseTouch
 {
     _mousePressed = NO;
-    OELogToFile(@"[Libretro] didReleaseTouch");
+    NSLog(@"[Libretro] didReleaseTouch");
 }
 
 - (void)dealloc
@@ -239,14 +258,13 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
 - (BOOL)loadCore:(NSString *)corePath
 {
-    OELogToFile(@"[Libretro] Internal dlopen calling for %@", corePath);
+    NSLog(@"[Libretro] Calling loadCore with path: %@", corePath);
     _coreHandle = dlopen([corePath UTF8String], RTLD_LAZY | RTLD_GLOBAL);
     if (!_coreHandle) {
-        OELogToFile(@"[Libretro] Failed to load core at %@: %s", corePath, dlerror());
-        NSLog(@"[Libretro] Failed to load core at %@: %s", corePath, dlerror());
+        NSLog(@"[Libretro] dlopen FAILED: %s", dlerror());
         return NO;
     }
-    OELogToFile(@"[Libretro] dlopen SUCCESS for core handle: %p", _coreHandle);
+    NSLog(@"[Libretro] dlopen SUCCESS");
     
     #define LOAD_SYM(name) \
         _##name = (typeof(_##name))dlsym(_coreHandle, #name); \
@@ -299,9 +317,51 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 - (BOOL)loadFileAtPath:(NSString *)path error:(NSError **)error
 {
     [[NSFileManager defaultManager] removeItemAtPath:@"/tmp/oe_libretro.log" error:nil];
-    OELogToFile(@"[Libretro] loadFileAtPath: %@", path);
+    NSLog(@"[Libretro] loadFileAtPath: %@", path);
+    // Reset and detect systems reliably via systemIdentifier
+    _isPSP = NO;
+    _isN64 = NO;
+    _isPSX = NO;
+    _isSNES = NO;
+    _isGenesis = NO;
+    _isNDS = NO;
+    
+    NSString *systemID = [self systemIdentifier];
+    if ([systemID isEqualToString:@"openemu.system.psp"]) {
+        _isPSP = YES;
+    } else if ([systemID isEqualToString:@"openemu.system.n64"]) {
+        _isN64 = YES;
+    } else if ([systemID isEqualToString:@"openemu.system.psx"]) {
+        _isPSX = YES;
+    } else if ([systemID isEqualToString:@"openemu.system.snes"]) {
+        _isSNES = YES;
+    } else if ([systemID isEqualToString:@"openemu.system.sg"]) {
+        _isGenesis = YES;
+    } else if ([systemID isEqualToString:@"openemu.system.nds"]) {
+        _isNDS = YES;
+    } else {
+        // Fallback to extension check if systemID is unavailable or generic
+        NSString *ext = [path.pathExtension lowercaseString];
+        _isPSP = [ext isEqualToString:@"iso"] || [ext isEqualToString:@"cso"] || [ext isEqualToString:@"pbp"] || [ext isEqualToString:@"prx"];
+        _isN64 = [ext isEqualToString:@"n64"] || [ext isEqualToString:@"v64"] || [ext isEqualToString:@"z64"];
+        _isPSX = ([ext isEqualToString:@"cue"] || [ext isEqualToString:@"chd"]) && !_isPSP;
+        _isSNES = [ext isEqualToString:@"sfc"] || [ext isEqualToString:@"smc"] || [ext isEqualToString:@"snes"];
+        _isGenesis = [ext isEqualToString:@"gen"] || [ext isEqualToString:@"md"] || [ext isEqualToString:@"smd"] || [ext isEqualToString:@"bin"];
+        _isNDS = [ext isEqualToString:@"nds"];
+    }
+    
+    // Sync globals for static callbacks if needed (legacy)
+    g_isPSP = _isPSP;
+    g_isN64 = _isN64;
+    g_isPSX = _isPSX;
+    
+    NSLog(@"[Libretro] Detected Core Type: PSP=%d, N64=%d, PSX=%d, SNES=%d, Genesis=%d, NDS=%d", _isPSP, _isN64, _isPSX, _isSNES, _isGenesis, _isNDS);
+    if (_isPSP) {
+        NSLog(@"[Libretro] PSP ROM detected (Safe Mode)");
+    }
+
     NSString *bundlePath = [[NSBundle bundleForClass:[self class]] resourcePath];
-    OELogToFile(@"[Libretro] bundlePath: %@", bundlePath);
+    NSLog(@"[Libretro] bundlePath: %@", bundlePath);
     NSString *corePath = [bundlePath stringByAppendingPathComponent:@"libretro_core.dylib"];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:corePath]) {
@@ -314,33 +374,24 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         }
     }
     
-    OELogToFile(@"[Libretro] using corePath: %@", corePath);
     if (![self loadCore:corePath]) {
-        OELogToFile(@"[Libretro] loadCore failed!");
-        if (error) {
-            *error = [NSError errorWithDomain:OEGameCoreErrorDomain code:OEGameCoreCouldNotStartCoreError userInfo:nil];
-        }
         return NO;
     }
     
     _retro_init();
-    OELogToFile(@"[Libretro] retro_init done.");
     
     struct retro_game_info game = {0};
     game.path = [path UTF8String];
-    OELogToFile(@"[Libretro] game.path = %s", game.path);
+    NSLog(@"[Libretro] game.path = %s", game.path);
     
     _retro_get_system_info(&_systemInfo);
-    OELogToFile(@"[Libretro] System info: need_fullpath=%d", _systemInfo.need_fullpath);
-    
     if (!_systemInfo.need_fullpath) {
         _gameData = [NSData dataWithContentsOfFile:path];
         if (_gameData) {
             game.data = [_gameData bytes];
             game.size = [_gameData length];
-            OELogToFile(@"[Libretro] ROM loaded to memory, size: %zu bytes", game.size);
         } else {
-            OELogToFile(@"[Libretro] Failed to load ROM data into memory for: %@", path);
+            NSLog(@"[Libretro] Failed to load ROM data into memory for: %@", path);
             if (error) {
                 *error = [NSError errorWithDomain:OEGameCoreErrorDomain code:OEGameCoreCouldNotLoadROMError userInfo:nil];
             }
@@ -348,32 +399,19 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         }
     }
     
-    OELogToFile(@"[Libretro] Calling retro_load_game...");
-    FILE *f_test = fopen([path UTF8String], "rb");
-    if (f_test) {
-        OELogToFile(@"[Libretro] fopen test SUCCESS");
-        fclose(f_test);
-    } else {
-        OELogToFile(@"[Libretro] fopen test FAILED! errno = %d", errno);
+    // Only force HW context for PSP since it's hardware-only. 
+    // N64 and PSX can be software or hardware depending on settings.
+    if (_isPSP) {
+        _isHWContextActive = YES;
     }
-    
-    if (!_retro_load_game(&game)) {
+
+        if (!_retro_load_game(&game)) {
         return NO;
     }
     
-    if (_isHWContextActive && _hwRenderCallback.context_reset) {
-        _hwRenderCallback.context_reset();
-    }
-    
-    // Explicitly enable pointer device for DS touch support
     _retro_set_controller_port_device(0, RETRO_DEVICE_POINTER);
-    OELogToFile(@"[Libretro] Port 0 set to RETRO_DEVICE_POINTER");
+    NSLog(@"[Libretro] Port 0 set to RETRO_DEVICE_POINTER");
     
-    _retro_get_system_av_info(&_avInfo);
-    
-    // Check if we should use 2x software scaling to fill the screen better 
-    // and avoid "hot pink" bars on low-res cores like Genesis.
-    // Reverting as requested by user.
     _retro_get_system_av_info(&_avInfo);
     
     // Fix for cores that don't report geometry immediately
@@ -383,13 +421,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         _avInfo.geometry.max_width = 1024;
         _avInfo.geometry.max_height = 1024;
         _avInfo.geometry.aspect_ratio = 4.0 / 3.0;
-        OELogToFile(@"[Libretro] Warning: Core reported 0x0 geometry. Using default fallback.");
     }
-
-    OELogToFile(@"[Libretro] Core loaded. Geometry: base=%dx%d, max=%dx%d, aspect=%f", 
-          _avInfo.geometry.base_width, _avInfo.geometry.base_height,
-          _avInfo.geometry.max_width, _avInfo.geometry.max_height,
-          _avInfo.geometry.aspect_ratio);
     
     return YES;
 }
@@ -397,36 +429,30 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 - (void)executeFrame
 {
     if (_firstFrame) {
-        _firstFrame = NO;
         if (_isHWContextActive && _hwRenderCallback.context_reset) {
             _hwRenderCallback.context_reset();
         }
+        _firstFrame = NO;
     }
     _retro_run();
 }
 
 - (void)stopEmulation
 {
-    OELogToFile(@"[Libretro] stopEmulation called");
     if (_hwRenderCallback.context_destroy) {
-        OELogToFile(@"[Libretro] Destroying hardware context");
         _hwRenderCallback.context_destroy();
     }
     
-    OELogToFile(@"[Libretro] Calling _retro_unload_game");
     _retro_unload_game();
-    OELogToFile(@"[Libretro] Calling _retro_deinit");
     _retro_deinit();
     
     _metalTexture = nil;
     
     if (_coreHandle) {
-        OELogToFile(@"[Libretro] Closing core handle");
         dlclose(_coreHandle);
         _coreHandle = NULL;
     }
     
-    OELogToFile(@"[Libretro] stopEmulation finished");
     [super stopEmulation];
 }
 
@@ -446,7 +472,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
     switch (cmd) {
         case 35: // RETRO_ENVIRONMENT_SET_CONTROLLER_INFO
-            OELogToFile(@"[Libretro] SET_CONTROLLER_INFO called");
+            NSLog(@"[Libretro] SET_CONTROLLER_INFO called");
             return true;
         case RETRO_ENVIRONMENT_GET_CAN_DUPE:
             *(bool*)data = true;
@@ -464,14 +490,14 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
             struct retro_hw_render_callback *cb = (struct retro_hw_render_callback *)data;
             if (cb) {
                 _hwRenderCallback = *cb;
-                _hwRenderCallback.get_proc_address = retro_get_proc_address_cb;
+                cb->context_reset = retro_hw_context_reset_cb;
+                cb->context_destroy = retro_hw_context_destroy_cb;
+                cb->get_proc_address = retro_get_proc_address_cb;
+                if (!cb->get_current_framebuffer) {
+                    cb->get_current_framebuffer = retro_hw_get_current_framebuffer_cb;
+                }
                 _isHWContextActive = YES;
                 _interfaceLoopCount = 0; 
-                
-                // For cores that expect an OpenGL context (like SwanStation)
-                // but we only provide Metal, they might fail. 
-                // We'll return true to try, but for now, we'll log it.
-                OELogToFile(@"[Libretro] SET_HW_RENDER type: %d", cb->context_type);
                 return true;
             }
             return false;
@@ -501,11 +527,14 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         }
 
         case 55: { // RETRO_ENVIRONMENT_GET_HW_RENDER_INTERFACE
+            // Disable Metal interface for PSP to force it to use OpenGL and avoid confusion
+            if (_isPSP) return false;
+            
             if (++_interfaceLoopCount > 10) {
                 return false;
             }
             const struct retro_hw_render_interface **iface = (const struct retro_hw_render_interface **)data;
-            id<MTLDevice> device = self.metalDevice;
+            id<MTLDevice> device = [self valueForKey:@"metalDevice"];
             if (!device) return false;
             
             static struct retro_hw_render_interface_metal metal_iface;
@@ -524,13 +553,13 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
         case RETRO_ENVIRONMENT_SET_PIXEL_FORMAT: {
             _pixelFormat = *(const enum retro_pixel_format *)data;
-            OELogToFile(@"[Libretro] SET_PIXEL_FORMAT: %d", _pixelFormat);
+            NSLog(@"[Libretro] SET_PIXEL_FORMAT: %d", _pixelFormat);
             return true;
         }
 
         case RETRO_ENVIRONMENT_GET_PREFERRED_HW_RENDER: {
             unsigned *type = (unsigned *)data;
-            *type = 3; // RETRO_HW_CONTEXT_OPENGL_CORE
+            *type = 1; // RETRO_HW_CONTEXT_OPENGL
             return true;
         }
         case RETRO_ENVIRONMENT_GET_CORE_OPTIONS_VERSION: {
@@ -543,7 +572,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         case RETRO_ENVIRONMENT_SET_GEOMETRY: {
             const struct retro_game_geometry *geometry = (const struct retro_game_geometry *)data;
             _avInfo.geometry = *geometry;
-            OELogToFile(@"[Libretro] SET_GEOMETRY: %dx%d", _avInfo.geometry.base_width, _avInfo.geometry.base_height);
+            NSLog(@"[Libretro] SET_GEOMETRY: %dx%d", _avInfo.geometry.base_width, _avInfo.geometry.base_height);
             return true;
         }
         case RETRO_ENVIRONMENT_GET_LANGUAGE: {
@@ -571,38 +600,38 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         case RETRO_ENVIRONMENT_GET_VARIABLE: {
             struct retro_variable *var = (struct retro_variable *)data;
             if (var && var->key) {
-                OELogToFile(@"[Libretro] GET_VARIABLE: %s", var->key);
+                NSLog(@"[Libretro] GET_VARIABLE: %s", var->key);
                 
                 if (strcmp(var->key, "desmume_pointer_type") == 0) {
                     var->value = "pointer";
-                    OELogToFile(@"[Libretro] Returning 'pointer' for desmume_pointer_type");
+                    NSLog(@"[Libretro] Returning 'pointer' for desmume_pointer_type");
                     return true;
                 }
                 if (strcmp(var->key, "desmume_pointer_mouse") == 0) {
                     var->value = "disabled";
-                    OELogToFile(@"[Libretro] Returning 'disabled' for desmume_pointer_mouse");
+                    NSLog(@"[Libretro] Returning 'disabled' for desmume_pointer_mouse");
                     return true;
                 }
                 if (strcmp(var->key, "desmume_pointer_device_l") == 0) {
                     var->value = "none";
-                    OELogToFile(@"[Libretro] Returning 'none' for desmume_pointer_device_l");
+                    NSLog(@"[Libretro] Returning 'none' for desmume_pointer_device_l");
                     return true;
                 }
                 if (strcmp(var->key, "desmume_pointer_device_r") == 0) {
                     var->value = "none";
-                    OELogToFile(@"[Libretro] Returning 'none' for desmume_pointer_device_r");
+                    NSLog(@"[Libretro] Returning 'none' for desmume_pointer_device_r");
                     return true;
                 }
                 
-                // N64 Software Rendering Fallback
+                // N64 Hardware Rendering (Experimental for Debug Build)
                 if (strcmp(var->key, "mupen64plus-rdp-plugin") == 0) {
                     var->value = "angrylion";
-                    OELogToFile(@"[Libretro] Returning 'angrylion' for mupen64plus-rdp-plugin");
+                    NSLog(@"[Libretro] Returning 'angrylion' (software) for mupen64plus-rdp-plugin");
                     return true;
                 }
                 if (strcmp(var->key, "mupen64plus-rsp-plugin") == 0) {
                     var->value = "hle";
-                    OELogToFile(@"[Libretro] Returning 'hle' for mupen64plus-rsp-plugin");
+                    NSLog(@"[Libretro] Returning 'hle' for mupen64plus-rsp-plugin");
                     return true;
                 }
                 
@@ -611,17 +640,31 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
                     else if (self.resolutionScale < 0.375) var->value = "640x480";
                     else if (self.resolutionScale < 0.625) var->value = "960x720";
                     else var->value = "1280x960";
-                    OELogToFile(@"[Libretro] Internal resolution requested: returning %s for scale %f", var->value, self.resolutionScale);
+                    NSLog(@"[Libretro] Internal resolution requested: returning %s for scale %f", var->value, self.resolutionScale);
                     return true;
                 }
-                if (strcmp(var->key, "ppsspp_backend") == 0) {
-                    var->value = "opengl";
-                    OELogToFile(@"[Libretro] Forced ppsspp_backend to %s", var->value);
+                if (strcmp(var->key, "ppsspp_rendering_mode") == 0) {
+                    var->value = "0"; // Non-buffered (simplest)
+                    return true;
+                }
+                if (strcmp(var->key, "ppsspp_cpu_core") == 0) {
+                    var->value = "Interpreter";
+                    return true;
+                }
+                if (strcmp(var->key, "ppsspp_fast_memory") == 0) {
+                    var->value = "disabled";
+                    return true;
+                }
+                if (strcmp(var->key, "ppsspp_gpu_hardware_transform") == 0) {
+                    var->value = "disabled";
+                    return true;
+                }
+                if (strcmp(var->key, "ppsspp_vertex_cache") == 0) {
+                    var->value = "disabled";
                     return true;
                 }
                 if (strcmp(var->key, "ppsspp_software_rendering") == 0) {
-                    var->value = "disabled";
-                    OELogToFile(@"[Libretro] PPSSPP software rendering requested: returning %s", var->value);
+                    var->value = "enabled";
                     return true;
                 }
                 if (strcmp(var->key, "ppsspp_internal_resolution") == 0) {
@@ -629,14 +672,15 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
                     else if (self.resolutionScale < 0.375) var->value = "960x544";
                     else if (self.resolutionScale < 0.625) var->value = "1440x816";
                     else var->value = "1920x1088";
-                    OELogToFile(@"[Libretro] PPSSPP Internal resolution requested (scale %f): returning %s", self.resolutionScale, var->value);
+                    NSLog(@"[Libretro] PPSSPP Internal resolution requested (scale %f): returning %s", self.resolutionScale, var->value);
                     return true;
                 }
+                // SwanStation Hardware Rendering (Experimental for Debug Build)
                 if (strcmp(var->key, "swanstation_GPU_Renderer") == 0 || 
                     strcmp(var->key, "swanstation.Renderer") == 0 ||
                     strcmp(var->key, "renderer_selection") == 0) {
                     var->value = "Software";
-                    OELogToFile(@"[Libretro] Forced SwanStation to Software Renderer (Key: %s)", var->key);
+                    NSLog(@"[Libretro] Forced SwanStation to Software Renderer (Key: %s)", var->key);
                     return true;
                 }
                 if (strcmp(var->key, "swanstation_GPU_ResolutionScale") == 0 ||
@@ -649,7 +693,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
                 }
                 if (strcmp(var->key, "mupen64plus-ThreadedRenderer") == 0) {
                     var->value = "enabled";
-                    OELogToFile(@"[Libretro] Returning 'enabled' for mupen64plus-ThreadedRenderer");
+                    NSLog(@"[Libretro] Returning 'enabled' for mupen64plus-ThreadedRenderer");
                     return true;
                 }
             }
@@ -673,6 +717,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
 - (OEGameCoreRendering)gameCoreRendering
 {
+    
     if (!_isHWContextActive) {
         return OEGameCoreRenderingBitmap;
     }
@@ -680,17 +725,35 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     if (_hwRenderCallback.context_type == 1 /* RETRO_HW_CONTEXT_OPENGL */) {
         return (OEGameCoreRendering)1; // OEGameCoreRenderingOpenGL2
     } else if (_hwRenderCallback.context_type == 3 /* RETRO_HW_CONTEXT_OPENGL_CORE */) {
-        return (OEGameCoreRendering)2; // OEGameCoreRenderingOpenGL3
+        return (OEGameCoreRendering)1; // Switch to OpenGL2 even for CORE to ensure compatibility if requested
     }
-    return (OEGameCoreRendering)2; // Default to 2 (OpenGL3) as in verified stable commit 8fa7993
+    return (OEGameCoreRendering)1; 
 }
 
 - (void)videoRefreshCallback:(const void *)data width:(unsigned)width height:(unsigned)height pitch:(size_t)pitch
 {
+
     if (data == RETRO_HW_FRAME_BUFFER_VALID) {
-        id renderDelegate = [self valueForKey:@"renderDelegate"];
-        if ([renderDelegate respondsToSelector:@selector(didRenderFrameOnAlternateThread)]) {
-            [renderDelegate performSelector:@selector(didRenderFrameOnAlternateThread)];
+        // Core rendered to OpenEmu's FBO on the execute thread.
+        // glFlushRenderAPPLE syncs the IOSurface so Metal can read it.
+        typedef void (*FlushRenderAPPLEFunc)(void);
+        static FlushRenderAPPLEFunc flushRenderAPPLE = NULL;
+        static bool looked_up = false;
+        if (!looked_up) {
+            flushRenderAPPLE = (FlushRenderAPPLEFunc)dlsym(RTLD_DEFAULT, "glFlushRenderAPPLE");
+            looked_up = true;
+        }
+
+            // ALPHA FORCE: Ensure alpha is 1.0 so Metal doesn't blend with black
+            glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_TRUE);
+            glClearColor(0.0, 0.0, 0.0, 1.0);
+            glClear(GL_COLOR_BUFFER_BIT);
+            glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+
+        if (flushRenderAPPLE) {
+            flushRenderAPPLE();
+        } else {
+            glFinish();
         }
         return;
     }
@@ -703,6 +766,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     }
     
     void *dest = (void *)[self videoBuffer];
+    
     if (dest && data != dest) {
         OEIntSize maxSize = [self bufferSize];
         unsigned copyW = MIN(width, (unsigned)maxSize.width);
@@ -714,13 +778,24 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         uint32_t bytesPerPixel = (_pixelFormat == RETRO_PIXEL_FORMAT_XRGB8888) ? 4 : 2;
         if (inPitch == 0) inPitch = width * bytesPerPixel;
         
+        
         if (_pixelFormat == RETRO_PIXEL_FORMAT_XRGB8888) {
-            if (inPitch == outPitch && inPitch == width * 4) {
-                memcpy(dest, data, inPitch * copyH);
-            } else {
-                for (int y = 0; y < copyH; y++) {
-                    memcpy((uint8_t *)dest + y * outPitch, (uint8_t *)data + y * inPitch, copyW * 4);
+            const uint32_t *src_row = (const uint32_t *)data;
+            uint32_t *dst_row = (uint32_t *)dest;
+            for (int y = 0; y < copyH; y++) {
+                int x = 0;
+#if defined(__arm64__) || defined(__aarch64__)
+                uint32x4_t alpha_mask = vdupq_n_u32(0xFF000000);
+                for (; x <= (int)copyW - 4; x += 4) {
+                    uint32x4_t pixels = vld1q_u32(&src_row[x]);
+                    vst1q_u32(&dst_row[x], vorrq_u32(pixels, alpha_mask));
                 }
+#endif
+                for (; x < (int)copyW; x++) {
+                    dst_row[x] = src_row[x] | 0xFF000000;
+                }
+                src_row = (const uint32_t *)((const uint8_t *)src_row + inPitch);
+                dst_row = (uint32_t *)((uint8_t *)dst_row + outPitch);
             }
         } else if (_pixelFormat == RETRO_PIXEL_FORMAT_RGB565) {
             const uint16_t *src_row = (const uint16_t *)data;
@@ -730,35 +805,15 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 #if defined(__arm64__) || defined(__aarch64__)
                 for (; x <= (int)copyW - 8; x += 8) {
                     uint16x8_t pixels = vld1q_u16(&src_row[x]);
-                    
-                    // RGB565: RRRRRGGGGGGBBBBB
-                    // R: (pix >> 11) & 0x1F  -> 5 bits
-                    // G: (pix >> 5) & 0x3F   -> 6 bits
-                    // B: (pix) & 0x1F        -> 5 bits
-                    
                     uint16x8_t r16 = vshrq_n_u16(pixels, 11);
                     uint16x8_t g16 = vshrq_n_u16(vandq_u16(pixels, vdupq_n_u16(0x07E0)), 5);
                     uint16x8_t b16 = vandq_u16(pixels, vdupq_n_u16(0x001F));
-                    
-                    // Expand 5/6 bits to 8 bits: (v << (8-bits)) | (v >> (2*bits-8))
-                    // R(5->8): (r << 3) | (r >> 2)
-                    // G(6->8): (g << 2) | (g >> 4)
-                    // B(5->8): (b << 3) | (b >> 2)
-                    
                     uint16x8_t r8 = vorrq_u16(vshlq_n_u16(r16, 3), vshrq_n_u16(r16, 2));
                     uint16x8_t g8 = vorrq_u16(vshlq_n_u16(g16, 2), vshrq_n_u16(g16, 4));
                     uint16x8_t b8 = vorrq_u16(vshlq_n_u16(b16, 3), vshrq_n_u16(b16, 2));
-                    
-                    // Pack into 32-bit: 0xFF000000 | (r8 << 16) | (g8 << 8) | b8
-                    // We need to split into two uint32x4_t
-                    uint8x16_t a8_v = vdupq_n_u8(0xFF);
-                    
-                    // Extract low and high halves
                     uint8x8_t rL = vmovn_u16(r8);
                     uint8x8_t gL = vmovn_u16(g8);
                     uint8x8_t b8L = vmovn_u16(b8);
-                    
-                    // (unrolled for stability)
                     dst_row[x+0] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 0)) << 16) | (((uint32_t)vget_lane_u8(gL, 0)) << 8) | ((uint32_t)vget_lane_u8(b8L, 0));
                     dst_row[x+1] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 1)) << 16) | (((uint32_t)vget_lane_u8(gL, 1)) << 8) | ((uint32_t)vget_lane_u8(b8L, 1));
                     dst_row[x+2] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 2)) << 16) | (((uint32_t)vget_lane_u8(gL, 2)) << 8) | ((uint32_t)vget_lane_u8(b8L, 2));
@@ -787,24 +842,15 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 #if defined(__arm64__) || defined(__aarch64__)
                 for (; x <= (int)copyW - 8; x += 8) {
                     uint16x8_t pixels = vld1q_u16(&src_row[x]);
-                    
-                    // 0RGB1555: 0RRRRRGGGGGBBBBB
-                    // R: (pix >> 10) & 0x1F
-                    // G: (pix >> 5) & 0x1F
-                    // B: (pix) & 0x1F
-                    
                     uint16x8_t r16 = vshrq_n_u16(vandq_u16(pixels, vdupq_n_u16(0x7C00)), 10);
                     uint16x8_t g16 = vshrq_n_u16(vandq_u16(pixels, vdupq_n_u16(0x03E0)), 5);
                     uint16x8_t b16 = vandq_u16(pixels, vdupq_n_u16(0x001F));
-                    
                     uint16x8_t r8 = vorrq_u16(vshlq_n_u16(r16, 3), vshrq_n_u16(r16, 2));
                     uint16x8_t g8 = vorrq_u16(vshlq_n_u16(g16, 3), vshrq_n_u16(g16, 2));
                     uint16x8_t b8 = vorrq_u16(vshlq_n_u16(b16, 3), vshrq_n_u16(b16, 2));
-                    
                     uint8x8_t rL = vmovn_u16(r8);
                     uint8x8_t gL = vmovn_u16(g8);
                     uint8x8_t b8L = vmovn_u16(b8);
-                    
                     dst_row[x+0] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 0)) << 16) | (((uint32_t)vget_lane_u8(gL, 0)) << 8) | ((uint32_t)vget_lane_u8(b8L, 0));
                     dst_row[x+1] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 1)) << 16) | (((uint32_t)vget_lane_u8(gL, 1)) << 8) | ((uint32_t)vget_lane_u8(b8L, 1));
                     dst_row[x+2] = (0xFF << 24) | (((uint32_t)vget_lane_u8(rL, 2)) << 16) | (((uint32_t)vget_lane_u8(gL, 2)) << 8) | ((uint32_t)vget_lane_u8(b8L, 2));
@@ -823,24 +869,34 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
                     dst_row[x] = (0xFF << 24) | ((r << 3 | r >> 2) << 16) | ((g << 3 | g >> 2) << 8) | (b << 3 | b >> 2);
                 }
                 src_row = (const uint16_t *)((const uint8_t *)src_row + inPitch);
+            }
+        }
+        
+        // Clear padding on the right if current width is smaller than buffer width
+        // and on the bottom if current height is smaller than buffer height.
+        // This eliminates pink bars/garbage from previous higher-resolution frames or uninitialized memory.
+        if (copyW < maxSize.width) {
+            uint32_t *dst_row = (uint32_t *)dest;
+            size_t padPixels = maxSize.width - copyW;
+            for (int y = 0; y < copyH; y++) {
+                uint32_t *pad_ptr = dst_row + copyW;
+                for (int x = 0; x < padPixels; x++) pad_ptr[x] = 0xFF000000;
                 dst_row = (uint32_t *)((uint8_t *)dst_row + outPitch);
             }
         }
     }
 }
-
 - (void)audioSampleCallback:(int16_t)left right:(int16_t)right
 {
+    // PSP audio is handled by audioSampleBatchCallback
     int16_t samples[2] = {left, right};
     [[self audioBufferAtIndex:0] write:(const uint8_t *)samples maxLength:4];
 }
 
 - (size_t)audioSampleBatchCallback:(const int16_t *)data frames:(size_t)frames
 {
-    // OERingBuffer write: returns 1 (true) on success, 0 on failure.
-    // Libretro expects the number of frames written.
-    NSUInteger result = [[self audioBufferAtIndex:0] write:(const uint8_t *)data maxLength:frames * 4];
-    return result ? frames : 0;
+    [[self audioBufferAtIndex:0] write:(const uint8_t *)data maxLength:frames * 4];
+    return frames;
 }
 
 - (void)inputPollCallback
@@ -1038,19 +1094,37 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
 - (OEIntSize)bufferSize
 {
-    int width = _avInfo.geometry.max_width ?: _avInfo.geometry.base_width;
-    int height = _avInfo.geometry.max_height ?: _avInfo.geometry.base_height;
+    // Use max dimensions to ensure enough backing storage for dynamic resolution changes (e.g. Genesis/SNES high res)
+    int width = _avInfo.geometry.max_width;
+    int height = _avInfo.geometry.max_height;
     
-    if (width <= 0) width = 640;
-    if (height <= 0) height = 480;
+    // Fallback if max is not set (should be at least base)
+    if (width <= 0) width = _avInfo.geometry.base_width;
+    if (height <= 0) height = _avInfo.geometry.base_height;
+
+    // PSP native override
+    if (_isPSP) {
+        if (width < 480) width = 480;
+        if (height < 272) height = 272;
+    }
+    
+    // Minimal fallbacks for stability (avoid zero-sized buffers)
+    if (width <= 0) width = 320;
+    if (height <= 0) height = 240;
     
     return (OEIntSize){(int32_t)width, (int32_t)height};
 }
 
 - (OEIntRect)screenRect
 {
+    // Return the EXACT current visible dimensions to eliminate pink bars and letterboxing.
     int width = _currentWidth > 0 ? _currentWidth : _avInfo.geometry.base_width;
     int height = _currentHeight > 0 ? _currentHeight : _avInfo.geometry.base_height;
+    
+    // PSP native height override (always force 272 if we detect 270-ish)
+    if (_isPSP && height >= 270 && height <= 272) {
+        height = 272;
+    }
     
     if (width <= 0) width = 640;
     if (height <= 0) height = 480;
@@ -1062,17 +1136,27 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 {
     float ratio = _avInfo.geometry.aspect_ratio;
     
-    // Sega Genesis / Mega Drive (openemu.system.sg)
-    // Force 4:3 display aspect ratio to match original OpenEmu behavior 
-    // and eliminate horizontal letterboxing bars (Genesis 320x224 is natively ~1.43).
-    if ([self.systemIdentifier isEqualToString:@"openemu.system.sg"]) {
+    // Force 4:3 display aspect ratio for standard retro systems to eliminate incorrect core reporting 
+    // and horizontal pink/letterbox bars.
+    NSString *systemID = self.systemIdentifier;
+    if (_isSNES || _isGenesis || _isN64 || _isPSX ||
+        [systemID isEqualToString:@"openemu.system.sg"] || // Genesis
+        [systemID isEqualToString:@"openemu.system.snes"] || // SNES
+        [systemID isEqualToString:@"openemu.system.n64"] || // N64
+        [systemID isEqualToString:@"openemu.system.psx"]) { // PSX
         ratio = 4.0 / 3.0;
     }
     
     if (ratio <= 0) {
         OEIntRect rect = [self screenRect];
-        ratio = (float)rect.size.width / (float)rect.size.height;
+        if (rect.size.height > 0) {
+            ratio = (float)rect.size.width / (float)rect.size.height;
+        } else {
+            ratio = 4.0 / 3.0;
+        }
     }
+    
+    NSLog(@"[Libretro] aspectSize for system %@ (Internal Flags: SNES=%d, Gen=%d, N64=%d, PSX=%d): ratio=%f", systemID, _isSNES, _isGenesis, _isN64, _isPSX, ratio);
     return (OEIntSize){(int32_t)(ratio * 1000), (int32_t)1000};
 }
 
@@ -1120,16 +1204,16 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         size_t needed = size.height * [self bytesPerRow];
         if (needed > _videoBufferSize || !_videoBuffer) {
             if (_videoBuffer) free(_videoBuffer);
-            _videoBuffer = malloc(needed > 0 ? needed : 1024*1024 * 4);
             _videoBufferSize = needed > 0 ? needed : 1024*1024 * 4;
+            _videoBuffer = malloc(_videoBufferSize);
             
             // Clear to opaque black (0xFF000000 in LE is 0x00, 0x00, 0x00, 0xFF)
-            // We can use a 32-bit loop for this.
+            // We use 0xFF000000 because OpenEmu's BGRA format expects Alpha in the high byte.
             uint32_t *p = (uint32_t *)_videoBuffer;
             size_t count = _videoBufferSize / 4;
             for (size_t i = 0; i < count; i++) p[i] = 0xFF000000;
             
-            OELogToFile(@"[Libretro] Allocated and cleared video buffer: %zu bytes", _videoBufferSize);
+            NSLog(@"[Libretro] Allocated and cleared video buffer: %zu bytes", _videoBufferSize);
         }
         _rendererBuffer = _videoBuffer;
         return _videoBuffer;
@@ -1214,17 +1298,17 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
 - (void)setResolutionScale:(CGFloat)resolutionScale {
     _resolutionScale = resolutionScale;
-    OELogToFile(@"[Libretro] Resolution scale set to: %f", resolutionScale);
+    NSLog(@"[Libretro] Resolution scale set to: %f", resolutionScale);
 }
 
 - (void)setGamma:(CGFloat)gamma {
     _gamma = gamma;
-    OELogToFile(@"[Libretro] Gamma set to: %f", gamma);
+    NSLog(@"[Libretro] Gamma set to: %f", gamma);
 }
 
 - (void)setSaturation:(CGFloat)saturation {
     _saturation = saturation;
-    OELogToFile(@"[Libretro] Saturation set to: %f", saturation);
+    NSLog(@"[Libretro] Saturation set to: %f", saturation);
 }
 
 @end

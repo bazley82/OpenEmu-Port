@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>显示：</string>
+	<key>Auto (region)</key>
+	<string>自动</string>
+	<key>Background Thread</key>
+	<string>后台线程</string>
+	<key>Cancel cover sync for all games</key>
+	<string>为所有游戏取消封面同步</string>
+	<key>Checked</key>
+	<string>已勾选</string>
+	<key>Cleanup Save States</key>
+	<string>清除保存状态</string>
+	<key>Cleanup autosave state</key>
+	<string>清除自动保存状态</string>
+	<key>Cleanup rom hashes</key>
+	<string>清除 ROM 散列值</string>
+	<key>Clear shader cache</key>
+	<string>清除着色器缓存</string>
+	<key>Controls Setup</key>
+	<string>控制键设置</string>
+	<key>Dark (default)</key>
+	<string>深色（默认）</string>
+	<key>Database Actions</key>
+	<string>数据库操作</string>
+	<key>Debug Mode</key>
+	<string>调试模式</string>
+	<key>Default Value: %@</key>
+	<string>默认值：%@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>删除可下载的插图</string>
+	<key>Delete useless image objects</key>
+	<string>删除无用的图片对象</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>禁用宽高比修正</string>
+	<key>Download missing artwork…</key>
+	<string>下载缺少的插图…</string>
+	<key>Draw button mask above image</key>
+	<string>在图像上绘制按钮蒙版</string>
+	<key>Europe</key>
+	<string>欧洲</string>
+	<key>Game View Background color:</key>
+	<string>游戏视图背景颜色：</string>
+	<key>General</key>
+	<string>通用</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>HUD 条 / 游戏</string>
+	<key>Japan</key>
+	<string>日本</string>
+	<key>Library Window</key>
+	<string>游戏库窗口</string>
+	<key>Light</key>
+	<string>浅色</string>
+	<key>Log HID Events</key>
+	<string>记录 HID 事件</string>
+	<key>Log Keyboard Events</key>
+	<string>记录键盘事件</string>
+	<key>Manually choose system on import</key>
+	<string>导入时手动选择系统</string>
+	<key>North America</key>
+	<string>北美</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>其他</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>对数据库执行完整性检查</string>
+	<key>Range: %@ to %@</key>
+	<string>范围：%@ 到 %@</string>
+	<key>Region:</key>
+	<string>地区：</string>
+	<key>Remove duplicated roms</key>
+	<string>移除重复的 ROM</string>
+	<key>Remove untracked artwork files</key>
+	<string>移除未使用的插图文件</string>
+	<key>Reset main window size</key>
+	<string>重置主窗口大小</string>
+	<key>Reveal user shader folder</key>
+	<string>显示用户着色器文件夹</string>
+	<key>Run games using:</key>
+	<string>运行游戏，使用：</string>
+	<key>Select first field after setting the last</key>
+	<string>设置完最后一项后选择第一项</string>
+	<key>Set default save states directory</key>
+	<string>设置默认保存状态目录</string>
+	<key>Setup Assistant has finished</key>
+	<string>设置助理已完成</string>
+	<key>Shaders</key>
+	<string>着色器</string>
+	<key>Show all special keys</key>
+	<string>显示所有全局按键</string>
+	<key>Show audio output device in menu</key>
+	<string>在菜单显示音频输出设备</string>
+	<key>Show autosave in menu</key>
+	<string>在菜单显示自动保存</string>
+	<key>Show autosave states in save state category</key>
+	<string>在保存状态分类中显示自动保存状态</string>
+	<key>Show game titles instead of rom names</key>
+	<string>显示游戏标题而不是 ROM 名</string>
+	<key>Show notifications during gameplay</key>
+	<string>在游戏过程中显示通知</string>
+	<key>Show quicksave in menu</key>
+	<string>在菜单显示快速保存</string>
+	<key>Show quicksave states in save state category</key>
+	<string>在保存状态分类中显示快速保存状态</string>
+	<key>Sync games without artwork</key>
+	<string>同步没有插图的游戏</string>
+	<key>System</key>
+	<string>系统</string>
+	<key>Take screenshots in native size</key>
+	<string>以原始尺寸截图</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>模拟控件绑定到按钮的阈值：</string>
+	<key>Toggle game scanner view</key>
+	<string>切换游戏扫描器视图</string>
+	<key>Unchecked</key>
+	<string>未勾选</string>
+	<key>Update OpenVGDB</key>
+	<string>更新 OpenVGDB</string>
+	<key>Use quicksave slots</key>
+	<string>使用快速保存位置</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>执行此操作时 OpenEmu 将无响应。</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

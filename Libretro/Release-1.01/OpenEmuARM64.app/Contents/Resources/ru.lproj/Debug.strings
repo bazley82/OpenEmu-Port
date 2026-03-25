@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>Оформление:</string>
+	<key>Auto (region)</key>
+	<string>Автоматически</string>
+	<key>Background Thread</key>
+	<string>Фоновый поток</string>
+	<key>Cancel cover sync for all games</key>
+	<string>Прекратить синхронизацию обложек для всех игр</string>
+	<key>Checked</key>
+	<string>Включено</string>
+	<key>Cleanup Save States</key>
+	<string>Очистить сохраненные состояния</string>
+	<key>Cleanup autosave state</key>
+	<string>Очистить автоматически сохраненное состояние</string>
+	<key>Cleanup rom hashes</key>
+	<string>Очистить хэши ромов</string>
+	<key>Clear shader cache</key>
+	<string>Очистить кэш шейдеров</string>
+	<key>Controls Setup</key>
+	<string>Настроить управление</string>
+	<key>Dark (default)</key>
+	<string>Тёмное (по умолчанию)</string>
+	<key>Database Actions</key>
+	<string>Действия с базой данных</string>
+	<key>Debug Mode</key>
+	<string>Режим отладки</string>
+	<key>Default Value: %@</key>
+	<string>Значение по умолчанию: %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>Удалить обложку, которая может быть загружена</string>
+	<key>Delete useless image objects</key>
+	<string>Удалять бесполезные объекты изображений</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>Отключить коррекцию соотношения сторон в снимках экрана</string>
+	<key>Download missing artwork…</key>
+	<string>Загрузить отсутствующую обложку…</string>
+	<key>Draw button mask above image</key>
+	<string>Нарисуйте маску кнопки на изображении</string>
+	<key>Europe</key>
+	<string>Европа</string>
+	<key>Game View Background color:</key>
+	<string>Цвет фона окна игры:</string>
+	<key>General</key>
+	<string>Основное</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>HUD-полоса / Геймплей</string>
+	<key>Japan</key>
+	<string>Япония</string>
+	<key>Library Window</key>
+	<string>Окно библиотеки</string>
+	<key>Light</key>
+	<string>Светлое</string>
+	<key>Log HID Events</key>
+	<string>Логировать события HID</string>
+	<key>Log Keyboard Events</key>
+	<string>Логировать события клавиатуры</string>
+	<key>Manually choose system on import</key>
+	<string>Определить систему вручную в процессе импорта</string>
+	<key>North America</key>
+	<string>Северная Америка</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>Другой</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>Выполните проверку исправности базы данных</string>
+	<key>Range: %@ to %@</key>
+	<string>Диапазон: от %@ до %@</string>
+	<key>Region:</key>
+	<string>Регион:</string>
+	<key>Remove duplicated roms</key>
+	<string>Удалить дубликаты ромов</string>
+	<key>Remove untracked artwork files</key>
+	<string>Удалить неотслеживаемые файлы обложек</string>
+	<key>Reset main window size</key>
+	<string>Сбросить размер главного окна</string>
+	<key>Reveal user shader folder</key>
+	<string>Показать папку пользовательских шейдеров</string>
+	<key>Run games using:</key>
+	<string>Запустить игры используя:</string>
+	<key>Select first field after setting the last</key>
+	<string>Выберите первое поле после установки последнего</string>
+	<key>Set default save states directory</key>
+	<string>Установить директорию по-умолчанию для сохранения состояний</string>
+	<key>Setup Assistant has finished</key>
+	<string>Ассистент установки закончил свою работу</string>
+	<key>Shaders</key>
+	<string>Шейдеры</string>
+	<key>Show all special keys</key>
+	<string>Показать все особые кнопки</string>
+	<key>Show audio output device in menu</key>
+	<string>Показать звуковыводящее устройство в меню</string>
+	<key>Show autosave in menu</key>
+	<string>Показать автоматическое сохранение в меню</string>
+	<key>Show autosave states in save state category</key>
+	<string>Показывать автосохранения в категории сохранений</string>
+	<key>Show game titles instead of rom names</key>
+	<string>Показывать название игры вместо названия рома</string>
+	<key>Show notifications during gameplay</key>
+	<string>Показать уведомления в процессе игры</string>
+	<key>Show quicksave in menu</key>
+	<string>Показать быстрое сохранение в меню</string>
+	<key>Show quicksave states in save state category</key>
+	<string>Показывать быстрые сохранения в категории сохранений</string>
+	<key>Sync games without artwork</key>
+	<string>Синхронизировать игры без обложки</string>
+	<key>System</key>
+	<string>Системное</string>
+	<key>Take screenshots in native size</key>
+	<string>Делать снимки экрана в реальном размере</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>Порог для аналоговых элементов
+назначенных на кнопки:</string>
+	<key>Toggle game scanner view</key>
+	<string>Показать/Скрыть сканер игр</string>
+	<key>Unchecked</key>
+	<string>Выключено</string>
+	<key>Update OpenVGDB</key>
+	<string>Обновить OpenVGDB</string>
+	<key>Use quicksave slots</key>
+	<string>Использовать слоты быстрых сохранений</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>Во время выполнения данной операции OpenEmu может не отвечать.</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

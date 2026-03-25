@@ -1,0 +1,66 @@
+
+"%@ Game" = "Gioco %@";
+
+"Archived Game" = "Gioco archiviato";
+
+"Atari 2600 Game" = "Gioco Atari 2600";
+
+"Atari 5200 Game" = "Gioco Atari 5200";
+
+"Atari 7800 Game" = "Gioco Atari 7800";
+
+"Atari Lynx Game" = "Gioco Atari Lynx";
+
+"ColecoVision Game" = "Gioco ColecoVision";
+
+"Famicom Disk System Game" = "Gioco Famicom Disk System";
+
+"Game Boy Advance Game" = "Gioco Game Boy Advance";
+
+"Game Boy Game" = "Gioco Game Boy";
+
+"Game Gear Game" = "Gioco Game Gear";
+
+"GameCube Game" = "Gioco GameCube";
+
+"Intellivision Game" = "Gioco Intellivision";
+
+"NeoGeo Pocket Game" = "Gioco NeoGeo Pocket";
+
+"Nintendo (NES) Game" = "Gioco Nintendo (NES)";
+
+"Nintendo 64 Game" = "Gioco Nintendo 64";
+
+"Nintendo DS Game" = "Gioco Nintendo DS";
+
+"OpenEmu Core Plugin" = "Plugin core";
+
+"OpenEmu Game" = "Gioco OpenEmu";
+
+"OpenEmu Save State" = "Salvataggio emulazione OpenEmu";
+
+"OpenEmu Shader" = "Plugin filtro video";
+
+"OpenEmu System Plugin" = "Plugin di sistema";
+
+"SG-1000 Game" = "Gioco SG-1000";
+
+"Sega 32X Game" = "Gioco Sega Mega Drive 32X";
+
+"Sega Master System Game" = "Gioco Sega Master System";
+
+"Sega Mega Drive Game" = "Gioco Sega Mega Drive";
+
+"Sony PSP Game" = "Gioco Sony PSP";
+
+"Sony PlayStation Game" = "Gioco Sony PlayStation";
+
+"Super Nintendo (SNES) Game" = "Gioco Super Nintendo (SNES)";
+
+"TurboGrafx-16 Game" = "Gioco TurboGrafx-16";
+
+"Vectrex Game" = "Gioco Vectrex";
+
+"Virtual Boy Game" = "Gioco Virtual Boy";
+
+"WonderSwan Game" = "Gioco WonderSwan";

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>外觀:</string>
+	<key>Auto (region)</key>
+	<string>自動</string>
+	<key>Background Thread</key>
+	<string>背景執行緒</string>
+	<key>Cancel cover sync for all games</key>
+	<string>為所有遊戲取消封面同步</string>
+	<key>Checked</key>
+	<string>已勾選</string>
+	<key>Cleanup Save States</key>
+	<string>清除保存狀態</string>
+	<key>Cleanup autosave state</key>
+	<string>清除自動保存狀態</string>
+	<key>Cleanup rom hashes</key>
+	<string>清除 ROM 散列值</string>
+	<key>Clear shader cache</key>
+	<string>清除著色器快取</string>
+	<key>Controls Setup</key>
+	<string>控制鍵設置</string>
+	<key>Dark (default)</key>
+	<string>Dark (預設)</string>
+	<key>Database Actions</key>
+	<string>資料庫操作</string>
+	<key>Debug Mode</key>
+	<string>Debug 模式</string>
+	<key>Default Value: %@</key>
+	<string>預設值: %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>刪除可下載的插圖</string>
+	<key>Delete useless image objects</key>
+	<string>刪除無用的圖像物件</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>螢幕截圖時停用長寬比修正</string>
+	<key>Download missing artwork…</key>
+	<string>下載缺少的插圖…</string>
+	<key>Draw button mask above image</key>
+	<string>在圖像上繪製按鈕蒙版</string>
+	<key>Europe</key>
+	<string>歐洲</string>
+	<key>Game View Background color:</key>
+	<string>遊戲視圖背景顏色:</string>
+	<key>General</key>
+	<string>通用</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>HUD 條 / 遊戲</string>
+	<key>Japan</key>
+	<string>日本</string>
+	<key>Library Window</key>
+	<string>遊戲庫視窗</string>
+	<key>Light</key>
+	<string>Light</string>
+	<key>Log HID Events</key>
+	<string>記錄 HID 事件</string>
+	<key>Log Keyboard Events</key>
+	<string>記錄鍵盤事件</string>
+	<key>Manually choose system on import</key>
+	<string>匯入時手動選擇系統</string>
+	<key>North America</key>
+	<string>北美</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>其他</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>對資料庫執行完整性檢查</string>
+	<key>Range: %@ to %@</key>
+	<string>範圍: %@ 到 %@</string>
+	<key>Region:</key>
+	<string>地區:</string>
+	<key>Remove duplicated roms</key>
+	<string>移除重複的 ROM</string>
+	<key>Remove untracked artwork files</key>
+	<string>移除未使用的插圖檔案</string>
+	<key>Reset main window size</key>
+	<string>重設主視窗大小</string>
+	<key>Reveal user shader folder</key>
+	<string>顯示使用者著色器檔案夾</string>
+	<key>Run games using:</key>
+	<string>運行遊戲，使用:</string>
+	<key>Select first field after setting the last</key>
+	<string>設置完最後一項後選擇第一項</string>
+	<key>Set default save states directory</key>
+	<string>設置預設保存狀態目錄</string>
+	<key>Setup Assistant has finished</key>
+	<string>設置助理已完成</string>
+	<key>Shaders</key>
+	<string>著色器</string>
+	<key>Show all special keys</key>
+	<string>顯示所有功能按鍵</string>
+	<key>Show audio output device in menu</key>
+	<string>在功能表顯示音訊輸出設備</string>
+	<key>Show autosave in menu</key>
+	<string>在功能表顯示自動保存</string>
+	<key>Show autosave states in save state category</key>
+	<string>在保存狀態分類中顯示自動保存狀態</string>
+	<key>Show game titles instead of rom names</key>
+	<string>顯示遊戲標題而不是 ROM 名</string>
+	<key>Show notifications during gameplay</key>
+	<string>在遊戲過程中顯示通知</string>
+	<key>Show quicksave in menu</key>
+	<string>在功能表顯示快速保存</string>
+	<key>Show quicksave states in save state category</key>
+	<string>在保存狀態分類中顯示快速保存狀態</string>
+	<key>Sync games without artwork</key>
+	<string>Sync games without artwork</string>
+	<key>System</key>
+	<string>系統</string>
+	<key>Take screenshots in native size</key>
+	<string>以原始尺寸拍攝螢幕快照</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>類比搖桿控制器
+綁定到按鈕的閾值:</string>
+	<key>Toggle game scanner view</key>
+	<string>切換遊戲掃描器檢視</string>
+	<key>Unchecked</key>
+	<string>未勾選</string>
+	<key>Update OpenVGDB</key>
+	<string>更新 OpenVGDB</string>
+	<key>Use quicksave slots</key>
+	<string>使用快速保存位置</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>執行此操作時 OpenEmu 將無響應。</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

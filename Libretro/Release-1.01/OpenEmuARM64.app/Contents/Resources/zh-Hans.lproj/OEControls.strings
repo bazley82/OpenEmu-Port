@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Allow playing with controllers when in background</key>
+	<string>在后台时允许使用控制器游玩</string>
+	<key>Always float popout gameplay window on top</key>
+	<string>总是在顶部浮动弹出游戏窗口</string>
+	<key>Always launch games fullscreen</key>
+	<string>总是全屏启动游戏</string>
+	<key>Always pause gameplay when in background</key>
+	<string>总是在后台时暂停游戏</string>
+	<key>Always snap popout gameplay window to integer scale</key>
+	<string>总是将弹出的游戏窗口对齐到整数比例</string>
+	<key>Always use popout gameplay window</key>
+	<string>总是使用弹出式游戏窗口</string>
+	<key>An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</key>
+	<string>激动人心的电视游戏世界尽在你手。为帮助你入门，我们想问你以下几个问题以为引导…
+
+• 确保你已运行正确的系统插件 (核心)。</string>
+	<key>Apply</key>
+	<string>应用</string>
+	<key>Automatically lookup game information &amp; artwork</key>
+	<string>自动查找游戏信息和插图</string>
+	<key>Available Libraries:</key>
+	<string>可用游戏库：</string>
+	<key>Back</key>
+	<string>后退</string>
+	<key>Cancel</key>
+	<string>取消</string>
+	<key>Click on the ‘Next’ button to begin!</key>
+	<string>点击“下一步”按钮开始！</string>
+	<key>Click the ‘Go’ button to begin your adventure.</key>
+	<string>点击“走起”按钮开始你的旅程。</string>
+	<key>Copy files to Game Library folder when adding to library</key>
+	<string>添加到游戏库时将文件复制到游戏库文件夹</string>
+	<key>Downloading Data…</key>
+	<string>正在下载数据…</string>
+	<key>Edit</key>
+	<string>编辑</string>
+	<key>Game Library Folder Location:</key>
+	<string>游戏库文件夹路径：</string>
+	<key>Go</key>
+	<string>走起</string>
+	<key>Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</key>
+	<string>非常好！你已经全部设置完毕，可以开始游戏了！
+
+记住，你可以随时在偏好设置里为自己或其他玩家更改键盘和手柄控制设置。</string>
+	<key>Import Into:</key>
+	<string>导入到：</string>
+	<key>Input:</key>
+	<string>输入：</string>
+	<key>Let’s Go!</key>
+	<string>走起！</string>
+	<key>Move to Default Location</key>
+	<string>移动到默认位置</string>
+	<key>Move...</key>
+	<string>移动…</string>
+	<key>New Preset</key>
+	<string>新增预设</string>
+	<key>Next</key>
+	<string>下一个</string>
+	<key>OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</key>
+	<string>OpenEmu 是整合而成的，感谢其他伟大的开源项目的工作，使其可以模拟大部分电视游戏系统 (‘核心’)。 有几个选项需要你勾选并确认你要安装并使用这些核心。没有这些核心，你喜欢的系统和游戏可能无法运行。</string>
+	<key>Organization Methods:</key>
+	<string>整理方式：</string>
+	<key>Reset All</key>
+	<string>全部重置</string>
+	<key>Reset Warnings</key>
+	<string>重置警告</string>
+	<key>Reset all dialog warnings:</key>
+	<string>重置所有对话框警告：</string>
+	<key>Resolve Issues:</key>
+	<string>修复导入问题：</string>
+	<key>Save Preset</key>
+	<string>保存预设</string>
+	<key>Shader:</key>
+	<string>着色器：</string>
+	<key>System Cores Installation</key>
+	<string>系统核心安装</string>
+	<key>Welcome to OpenEmu!</key>
+	<string>欢迎使用 OpenEmu!</string>
+	<key>Window Management:</key>
+	<string>窗口管理：</string>
+</dict>
+</plist>

@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>"%@" in %@</key>
+	<string>"%1$@" 于 %2$@</string>
+	<key>%@ copy</key>
+	<string>%@ 拷贝</string>
+	<key>%@ could not be enabled because its plugin was not found.</key>
+	<string>因为找不到插件，%@ 无法启用。</string>
+	<key>%@ games will appear here. Check out %@ on how to add disc-based games.</key>
+	<string>%@ 游戏会出现在这里。查询 %@ 获知如何添加磁盘游戏。</string>
+	<key>%@ games you add to OpenEmu will appear in this Console Library</key>
+	<string>添加到 OpenEmu 的 %@ 游戏会出现在这个主机游戏库中</string>
+	<key>%ux</key>
+	<string>%ux</string>
+	<key>A name is required.</key>
+	<string>名称为必填。</string>
+	<key>ALERT_CORE_GLITCHES_FEEDBACK_HTML</key>
+	<string>&lt;b&gt;如果问题仍然存在&lt;/b&gt;，请提交反馈，包括：&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;你使用的 Mac 型号 &lt;b&gt;和&lt;/b&gt; 安装的 macOS 版本&lt;ul&gt;&lt;li&gt;此信息可在  &gt; 关于本机中找到&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;您正在玩的游戏的&lt;b&gt;确切名称&lt;/b&gt;&lt;/li&gt;&lt;li&gt;OpenEmuHelperApp 的崩溃报告&lt;ul&gt;&lt;li&gt;打开 Console.app，点击侧边栏中的“崩溃报告”或“用户报告”，然后查找名称中带有 OpenEmuHelperApp 的最新文档&lt;/ul&gt;&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;始终搜索其他用户先前报告的类似反馈！&lt;/b&gt;&lt;br&gt;如果省略了任何此信息，或者已经发布了类似的反馈，您的问题报告可能会被关闭。</string>
+	<key>ALERT_INPUT_MONITORING_HEADLINE</key>
+	<string>OpenEmu 需要额外的权限</string>
+	<key>ALERT_INPUT_MONITORING_PART1</key>
+	<string>为了将键盘用作输入设备，必须授予 OpenEmu 输入监控权限。</string>
+	<key>ALERT_INPUT_MONITORING_PART2</key>
+	<string>切换权限也可能解决键盘输入问题。</string>
+	<key>ALERT_INPUT_MONITORING_PART2_MONTEREY</key>
+	<string>移除并重新授予权限也可能解决键盘输入问题。</string>
+	<key>ALERT_MOVE_LIBRARY_HTML</key>
+	<string>OpenEmu 游戏库包含一个数据库文件，如果将库移动到以下位置，该文件可能会损坏：&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;由云同步软件（如 &lt;b&gt;iCloud Drive&lt;/b&gt;）管理的文件夹&lt;/li&gt;&lt;li&gt;网络驱动器&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;此外，&lt;b&gt;在多台计算机或用户之间共享同一个库&lt;/b&gt;也可能导致损坏。这同样适用于将库移动到外部 USB 驱动器。</string>
+	<key>Add</key>
+	<string>添加</string>
+	<key>Add Cheat</key>
+	<string>添加金手指</string>
+	<key>Add Cheat…</key>
+	<string>添加金手指…</string>
+	<key>Add Cover Art from File…</key>
+	<string>从文件添加封面插图…</string>
+	<key>Add a Wiimote…</key>
+	<string>添加一个 Wiimote…</string>
+	<key>Add to Collection</key>
+	<string>添加到收藏</string>
+	<key>Add to Library…</key>
+	<string>添加到游戏库…</string>
+	<key>All Games</key>
+	<string>所有游戏</string>
+	<key>All Homebrew</key>
+	<string>所有自制作品</string>
+	<key>Already in library, but manually deleted or unreachable:</key>
+	<string>已在游戏库中，但被手动删除或无法访问</string>
+	<key>Already in library:</key>
+	<string>已在游戏库中：</string>
+	<key>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</key>
+	<string>准备设置助手时发生错误。(%@) 确保你已连接到互联网并重试。</string>
+	<key>An issue was detected with one of your controllers.</key>
+	<string>检测到某个控制器出现问题。</string>
+	<key>Are you sure you want to delete %ld save states from your OpenEmu library?</key>
+	<string>你确定要从 OpenEmu 游戏库删除 %ld 个已保存游戏？</string>
+	<key>Are you sure you want to delete %ld screenshots from your OpenEmu library?</key>
+	<string>你确定要从 OpenEmu 游戏库删除 %ld 个截图？</string>
+	<key>Are you sure you want to delete the save state called '%@' from your OpenEmu library?</key>
+	<string>你确定要从 OpenEmu 游戏库删除名为“%@”的游戏？</string>
+	<key>Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?</key>
+	<string>你确定要从 OpenEmu 游戏库删除名为“%@”的截图？</string>
+	<key>Are you sure you want to delete the selected game from your OpenEmu library?</key>
+	<string>你确定要从 OpenEmu 游戏库删除所选游戏？</string>
+	<key>Are you sure you want to delete the selected games from your OpenEmu library?</key>
+	<string>你确定要从 OpenEmu 游戏库删除所选游戏？</string>
+	<key>Are you sure you want to delete the shader preset called '%@'?</key>
+	<string>你确定要删除名为 '%@' 的着色器预设吗？</string>
+	<key>Are you sure you want to quit the application?</key>
+	<string>你确定要退出应用？</string>
+	<key>Are you sure you want to quit the game?</key>
+	<string>你确定要停止模拟？</string>
+	<key>Are you sure you want to remove the collection '%@'?</key>
+	<string>你确定要移除这个收藏？</string>
+	<key>Are you sure you want to remove the selected game from the collection?</key>
+	<string>你确定要从收藏移除所选游戏？</string>
+	<key>Are you sure you want to remove the selected games from the collection?</key>
+	<string>你确定要从收藏移除所选游戏？</string>
+	<key>Are you sure you want to restart the game?</key>
+	<string>你确定要重置该平台？</string>
+	<key>At least one System must be enabled</key>
+	<string>至少要启用一个系统</string>
+	<key>Auto Save State</key>
+	<string>自动保存状态</string>
+	<key>Bluetooth Not Enabled</key>
+	<string>蓝牙未启用</string>
+	<key>Bluetooth must be enabled to pair a Wii controller.</key>
+	<string>必须启用蓝牙以配对 Wii 控制器。</string>
+	<key>Cancel</key>
+	<string>取消</string>
+	<key>Cancel Cover Art Download</key>
+	<string>取消封面插图下载</string>
+	<key>Category</key>
+	<string>分类</string>
+	<key>Change Core</key>
+	<string>更改核心</string>
+	<key>Change Volume</key>
+	<string>更改音量</string>
+	<key>Changed button for %1$@ to %2$@.</key>
+	<string>将 %1$@ 的按钮更改为 %2$@。</string>
+	<key>Cheat Description</key>
+	<string>金手指描述</string>
+	<key>Check out some excellent homebrew games.</key>
+	<string>试试一些优秀的自制游戏。</string>
+	<key>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</key>
+	<string>选择苹果菜单  &gt; 系统偏好设置，点击安全性与隐私，然后选择隐私选项卡。如果存在，请移除 OpenEmu 的现有文件和文件夹权限，并授予完全磁盘访问权限。</string>
+	<key>Choose Library…</key>
+	<string>选择游戏库…</string>
+	<key>Choose Location…</key>
+	<string>选择位置…</string>
+	<key>Choose OpenEmu Library</key>
+	<string>选择 OpenEmu 游戏库</string>
+	<key>Choose a valid file.</key>
+	<string>选择一个有效的文件。</string>
+	<key>Code:</key>
+	<string>密码：</string>
+	<key>Collections</key>
+	<string>收藏</string>
+	<key>Configure Shader…</key>
+	<string>配置着色器…</string>
+	<key>Console</key>
+	<string>主机</string>
+	<key>Consoles</key>
+	<string>主机</string>
+	<key>Consolidate</key>
+	<string>整合</string>
+	<key>Consolidate Files…</key>
+	<string>整合文件…</string>
+	<key>Consolidating files failed.</key>
+	<string>整合文件失败。</string>
+	<key>Consolidating will copy all of the selected games into the OpenEmu Library folder.</key>
+	<string>整合会复制所有选择的游戏到 OpenEmu 游戏库文件夹。</string>
+	<key>Contains no data:</key>
+	<string>不包含任何数据：</string>
+	<key>Continue</key>
+	<string>继续</string>
+	<key>Controls</key>
+	<string>控制器</string>
+	<key>Copying Artwork Files…</key>
+	<string>正在复制插图文件…</string>
+	<key>Copying Game Files…</key>
+	<string>正在复制游戏文件…</string>
+	<key>Copying ROM Files…</key>
+	<string>正在复制 ROM 文件…</string>
+	<key>Copying ROM files failed!</key>
+	<string>复制 ROM 文件失败！</string>
+	<key>Copying artwork failed!</key>
+	<string>复制插图失败！</string>
+	<key>Core</key>
+	<string>核心</string>
+	<key>Core Provided By…</key>
+	<string>核心提供…</string>
+	<key>Cores</key>
+	<string>核心</string>
+	<key>Could not move library data!</key>
+	<string>无法移动游戏库数据！</string>
+	<key>Couldn't load %@ plugin</key>
+	<string>无法加载 %@ 插件</string>
+	<key>Create Library…</key>
+	<string>创建游戏库…</string>
+	<key>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</key>
+	<string>创建一个个人游戏收藏。要添加到收藏，从你的主机游戏库选择一个游戏然后拖到左边的“%@”。</string>
+	<key>Create or Load Save State</key>
+	<string>创建或加载保存状态</string>
+	<key>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</key>
+	<string>创建你个人的截图集合。要截图，可以在游戏当中使用键盘快捷键 ⌘ + T。</string>
+	<key>Decrease Grid Size</key>
+	<string>减小网格大小</string>
+	<key>Default %@ preset for %@</key>
+	<string>%@ 的默认预设，用于 %@</string>
+	<key>Default Core</key>
+	<string>默认核心</string>
+	<key>Delete</key>
+	<string>删除</string>
+	<key>Delete Collection</key>
+	<string>删除收藏</string>
+	<key>Delete Game</key>
+	<string>删除游戏</string>
+	<key>Delete Games</key>
+	<string>删除游戏</string>
+	<key>Delete Save</key>
+	<string>删除存档</string>
+	<key>Delete Save State</key>
+	<string>删除保存状态</string>
+	<key>Delete Save States</key>
+	<string>删除保存状态</string>
+	<key>Delete Saves</key>
+	<string>删除存档</string>
+	<key>Delete Screenshot</key>
+	<string>删除截图</string>
+	<key>Delete Screenshots</key>
+	<string>删除截图</string>
+	<key>Delete Shader Preset</key>
+	<string>删除着色器预设</string>
+	<key>Description</key>
+	<string>描述</string>
+	<key>Deselect All</key>
+	<string>取消全选</string>
+	<key>Device Disconnected</key>
+	<string>设备已断开连接</string>
+	<key>Device number %lu, %@, has disconnected.</key>
+	<string>设备号 %1$lu, %2$@, 已断开连接</string>
+	<key>Disc %u</key>
+	<string>磁盘 %u</string>
+	<key>Disc-based games have special requirements. Please read the disc importing guide.</key>
+	<string>磁盘游戏有特殊要求。请阅读磁盘导入指南。</string>
+	<key>Dismiss</key>
+	<string>忽略</string>
+	<key>Do not ask me again</key>
+	<string>不再询问</string>
+	<key>Do not show me again</key>
+	<string>不再弹出</string>
+	<key>Do you really want to cancel importation?</key>
+	<string>你确定要取消导入吗？</string>
+	<key>Do you want to continue playing where you left off?</key>
+	<string>你要从之前离开的位置继续玩吗？</string>
+	<key>Don't Import Selected</key>
+	<string>不要导入已选项</string>
+	<key>Done</key>
+	<string>完成</string>
+	<key>Download</key>
+	<string>下载</string>
+	<key>Download Cover Art</key>
+	<string>下载封面插图</string>
+	<key>Downloading %@…</key>
+	<string>正在下载 %@…</string>
+	<key>Downloading Game DB</key>
+	<string>正在下载游戏数据库</string>
+	<key>Downloading and Installing Core…</key>
+	<string>正在下载并安装核心…</string>
+	<key>Downloading core list...</key>
+	<string>下载核心列表…</string>
+	<key>Drag &amp; Drop Games Here</key>
+	<string>把游戏拖放到这里</string>
+	<key>Drag &amp; Drop Save States Here</key>
+	<string>拖放已保存状态到这里</string>
+	<key>Duplicate Collection</key>
+	<string>创建收藏副本</string>
+	<key>ECM compressed binaries cannot be imported. Please read the disc importing guide.</key>
+	<string>ECM 压缩二进制文件无法导入。请阅读磁盘导入指南。</string>
+	<key>ECM compressed binary detected.</key>
+	<string>检测到 ECM 压缩二进制。</string>
+	<key>ERROR_PLUGIN_IMPORT_ALREADYLOADED</key>
+	<string>此插件的一个版本已经加载</string>
+	<key>ERROR_PLUGIN_IMPORT_OUTOFSUPPORT</key>
+	<string>目前不支持该插件</string>
+	<key>Edit Game Controls…</key>
+	<string>编辑游戏操控…</string>
+	<key>Enable now</key>
+	<string>现在启用</string>
+	<key>Error!</key>
+	<string>错误！</string>
+	<key>Everything</key>
+	<string>所有</string>
+	<key>Featured Games</key>
+	<string>特色游戏</string>
+	<key>Fetching Games…</key>
+	<string>正在获取游戏…</string>
+	<key>Files failed to import.</key>
+	<string>文件导入失败。</string>
+	<key>Fill Screen</key>
+	<string>填满屏幕</string>
+	<key>Filter by:</key>
+	<string>筛选条件：</string>
+	<key>Game %ld of %ld</key>
+	<string>第 %1$ld 个游戏，共 %2$ld 个</string>
+	<key>Game Name</key>
+	<string>游戏名</string>
+	<key>Game Scanner</key>
+	<string>扫描游戏</string>
+	<key>Game requires download</key>
+	<string>游戏需要下载</string>
+	<key>Gameplay</key>
+	<string>游戏</string>
+	<key>Grid Size</key>
+	<string>网格大小</string>
+	<key>Have you read the guide?</key>
+	<string>你读过指南了吗？</string>
+	<key>Hide "%@"</key>
+	<string>隐藏“%@”</string>
+	<key>Homebrew Games</key>
+	<string>自制游戏</string>
+	<key>I understand the risks</key>
+	<string>我了解风险</string>
+	<key>If there is a red button on the back battery cover, press it.
+If not, hold down buttons ①+②.</key>
+	<string>如果后电池盖有个红色按钮，按这个按钮。
+如果没有，按下按钮 ①+②.</string>
+	<key>If you change the core you current progress will be lost and save states will not work anymore.</key>
+	<string>如果更换核心，当前进度会丢失，同时已保存的状态将失效。</string>
+	<key>Ignore</key>
+	<string>忽略</string>
+	<key>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</key>
+	<string>在几天内，此核心插件将自动删除。一旦删除，使用该插件创建的任何保存状态都将停止工作。</string>
+	<key>In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information.</key>
+	<string>由于现代游戏平台软硬件复杂度的增加，模拟部分系统需要 BIOS 文件。请阅读我们的 %@ 获取更多信息。</string>
+	<key>In order to play the game it must be downloaded.</key>
+	<string>要玩这个游戏首先需要下载。</string>
+	<key>Increase Grid Size</key>
+	<string>增加网格大小</string>
+	<key>Insert Cart/Disk/Tape…</key>
+	<string>插入卡带/磁盘/磁带…</string>
+	<key>Install</key>
+	<string>安装</string>
+	<key>Install %@</key>
+	<string>安装 %@</string>
+	<key>Install %@ and Set as Default</key>
+	<string>安装 %@ 并设置为默认</string>
+	<key>Installing Core</key>
+	<string>正在安装核心</string>
+	<key>Invalid cue sheet format:</key>
+	<string>无效的 Cue Sheet 格式：</string>
+	<key>Invalid gdi format:</key>
+	<string>无效的 GDI 格式：</string>
+	<key>Join multi-line cheats with '+' e.g. 000-000+111-111</key>
+	<string>使用“+”连接多条金手指，如 000-000+111-111</string>
+	<key>Keyboard</key>
+	<string>键盘</string>
+	<key>Keycode 0x%lX</key>
+	<string>Keycode 0x%lX</string>
+	<key>Last Played</key>
+	<string>最近运行</string>
+	<key>Learn More</key>
+	<string>了解更多</string>
+	<key>Library</key>
+	<string>游戏库</string>
+	<key>Load</key>
+	<string>读取</string>
+	<key>Locate '%@'</key>
+	<string>定位“%@”</string>
+	<key>Locate…</key>
+	<string>定位…</string>
+	<key>Low Controller Battery</key>
+	<string>控制器电量低</string>
+	<key>MOVE_ALERT_INFO_TEXT</key>
+	<string>为了正常工作，OpenEmu 必须移动到你的应用程序文件夹。</string>
+	<key>MOVE_ALERT_MOVE_BUTTON</key>
+	<string>移动到应用程序文件夹</string>
+	<key>MOVE_ALERT_NEEDS_AUTH</key>
+	<string>你需要使用管理员名称和密码进行身份验证才能完成此步骤。或者，你可以选择其他位置，或退出应用程序并手动移动它。</string>
+	<key>MOVE_ALERT_TITLE</key>
+	<string>移动到应用程序文件夹</string>
+	<key>Make sure your internet connection is active and download a suitable core.</key>
+	<string>确保你的互联网连接有效，然后下载一个合适的核心。</string>
+	<key>Make your Wiimote discoverable</key>
+	<string>使你的 Wiimote 处于可发现状态</string>
+	<key>Missing Core</key>
+	<string>缺少核心</string>
+	<key>Missing referenced file:</key>
+	<string>缺少引用的文件：</string>
+	<key>Move to Trash</key>
+	<string>移到废纸篓</string>
+	<key>Moving Library…</key>
+	<string>移动游戏库…</string>
+	<key>Moving the Game Library is not recommended</key>
+	<string>不建议移动游戏库</string>
+	<key>Must not be compressed:</key>
+	<string>不能压缩：</string>
+	<key>Mute Audio</key>
+	<string>静音</string>
+	<key>NOT FOUND: "%@"</key>
+	<string>没有找到："%@"</string>
+	<key>Name</key>
+	<string>名称</string>
+	<key>Name must not contain “%@.”</key>
+	<string>名称不能包含 “%@.”</string>
+	<key>New Collection</key>
+	<string>新建收藏</string>
+	<key>New Collection from Selection</key>
+	<string>从选集创建收藏</string>
+	<key>New Folder</key>
+	<string>新建文件夹</string>
+	<key>New Shader Preset</key>
+	<string>新增着色器预设</string>
+	<key>New Smart Collection</key>
+	<string>新建智能收藏</string>
+	<key>No</key>
+	<string>否</string>
+	<key>No Internet Connection</key>
+	<string>无互联网连接</string>
+	<key>No Save States available</key>
+	<string>没有可用的保存状态</string>
+	<key>No Screenshots Found</key>
+	<string>没有找到截图</string>
+	<key>No available controllers</key>
+	<string>没有可用控制器</string>
+	<key>No game played yet!</key>
+	<string>还没玩过游戏！</string>
+	<key>No parameters available.</key>
+	<string>没有可用的参数。</string>
+	<key>No permission to open:</key>
+	<string>没有权限打开：</string>
+	<key>No valid system detected:</key>
+	<string>没有检测到可用的系统：</string>
+	<key>None</key>
+	<string>无</string>
+	<key>Not assigned</key>
+	<string>未分配</string>
+	<key>Not plain text:</key>
+	<string>不是纯文本：</string>
+	<key>OK</key>
+	<string>好</string>
+	<key>Only files in the OpenEmu Library folder will be moved to the Trash.</key>
+	<string>只有 OpenEmu 游戏库文件夹里的文件会被扔到废纸篓里。</string>
+	<key>Open Collection</key>
+	<string>打开收藏</string>
+	<key>Open Library</key>
+	<string>打开游戏库</string>
+	<key>Open System Preferences</key>
+	<string>打开系统偏好设置</string>
+	<key>OpenEmu could not download required data from the internet</key>
+	<string>OpenEmu 无法从网络下载所需数据</string>
+	<key>OpenEmu could not find a Core to launch the game</key>
+	<string>OpenEmu 无法找到核心来启动游戏</string>
+	<key>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</key>
+	<string>OpenEmu 有保存游戏的特性，允许你从之前离开的位置继续玩。</string>
+	<key>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</key>
+	<string>OpenEmu 需要一个游戏库以继续。你可以选择一个已存在的 OpenEmu 游戏库或创建一个新的。</string>
+	<key>OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@</key>
+	<string>OpenEmu使用“核心”来模拟游戏。你需要 %1$@ 核心来玩 %2$@</string>
+	<key>OpenEmu will save and quit all games that are currently running.</key>
+	<string>OpenEmu 会保存并退出当前运行的所有游戏。</string>
+	<key>Options</key>
+	<string>选项</string>
+	<key>Parameters</key>
+	<string>参数</string>
+	<key>Paste parameters</key>
+	<string>粘贴参数</string>
+	<key>Pause Game</key>
+	<string>暂停游戏</string>
+	<key>Pause/Restart</key>
+	<string>暂停/重启</string>
+	<key>Play</key>
+	<string>开始</string>
+	<key>Play Count</key>
+	<string>运行次数</string>
+	<key>Play Game</key>
+	<string>开始游戏</string>
+	<key>Play Games (Caution)</key>
+	<string>开始游戏（警告）</string>
+	<key>Play Save Games</key>
+	<string>开始保存游戏</string>
+	<key>Play Save State</key>
+	<string>从保存状态开始</string>
+	<key>Play Time</key>
+	<string>运行时间</string>
+	<key>Player %ld</key>
+	<string>玩家 %ld</string>
+	<key>Please close all games and wait for the importer to finish.</key>
+	<string>请关闭所有游戏然后等待导入完成。</string>
+	<key>Quick Load</key>
+	<string>快速载入</string>
+	<key>Quick Save</key>
+	<string>快速保存</string>
+	<key>Quick Save State</key>
+	<string>快速保存状态</string>
+	<key>Quick Save, Slot %@</key>
+	<string>快速保存，位置 %@</string>
+	<key>Quit</key>
+	<string>退出</string>
+	<key>Quit Game</key>
+	<string>退出游戏</string>
+	<key>Quit OpenEmu</key>
+	<string>退出 OpenEmu</string>
+	<key>Rating</key>
+	<string>评分</string>
+	<key>Recently Added</key>
+	<string>最近添加</string>
+	<key>Recovered Auto Save</key>
+	<string>恢复的自动存档</string>
+	<key>Remove Collection</key>
+	<string>移除收藏</string>
+	<key>Remove Game</key>
+	<string>移除游戏</string>
+	<key>Remove Games</key>
+	<string>移除游戏</string>
+	<key>Rename</key>
+	<string>重命名</string>
+	<key>Rename "%@"</key>
+	<string>重命名“%@”</string>
+	<key>Rename Game</key>
+	<string>重命名游戏</string>
+	<key>Rename Shader Preset</key>
+	<string>重命名着色器预设</string>
+	<key>Rename Special Save State or something?</key>
+	<string>重命名特殊保存状态还是什么？</string>
+	<key>Reopen without loading state</key>
+	<string>重新打开而不加载状态</string>
+	<key>Required files are missing.</key>
+	<string>所需文件缺失。</string>
+	<key>Reset parameters</key>
+	<string>重置参数</string>
+	<key>Resolve %ld Issue</key>
+	<string>解决 %ld 个问题</string>
+	<key>Resolve %ld Issues</key>
+	<string>解决 %ld 个问题</string>
+	<key>Restart</key>
+	<string>重启</string>
+	<key>Restart Game</key>
+	<string>重启游戏</string>
+	<key>Resume</key>
+	<string>恢复</string>
+	<key>Resume Game</key>
+	<string>暂停游戏</string>
+	<key>Retry</key>
+	<string>重试</string>
+	<key>SHARE_STANDARD_MENU_ITEM_TITLE</key>
+	<string>共享…</string>
+	<key>Save As:</key>
+	<string>另存为：</string>
+	<key>Save Current Game…</key>
+	<string>保存当前游戏…</string>
+	<key>Save Game</key>
+	<string>保存游戏</string>
+	<key>Save Games</key>
+	<string>保存游戏</string>
+	<key>Save States</key>
+	<string>保存状态</string>
+	<key>Save-Game-%ld %@</key>
+	<string>保存游戏-%ld %@</string>
+	<key>Scanner Paused</key>
+	<string>扫描暂停</string>
+	<key>Scanning Directory</key>
+	<string>正在扫描目录</string>
+	<key>Screenshots</key>
+	<string>截图</string>
+	<key>Search</key>
+	<string>搜索</string>
+	<key>Secrets</key>
+	<string>秘密</string>
+	<key>Select All</key>
+	<string>全选</string>
+	<key>Select Audio Output Device</key>
+	<string>选择音频输出设备</string>
+	<key>Select Cheat</key>
+	<string>选择金手指</string>
+	<key>Select Core</key>
+	<string>选择核心</string>
+	<key>Select Disc</key>
+	<string>选择磁盘</string>
+	<key>Select Display Mode</key>
+	<string>显示模式</string>
+	<key>Select Scale</key>
+	<string>选择缩放</string>
+	<key>Select Shader</key>
+	<string>选择着色器</string>
+	<key>Shader Parameters</key>
+	<string>着色器参数</string>
+	<key>Share</key>
+	<string>共享</string>
+	<key>Show in Finder</key>
+	<string>在 Finder 中显示</string>
+	<key>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</key>
+	<string>从 2.1 版本起，OpenEmu 需要支持 Metal 的 GPU。Metal 在所有支持 macOS 10.14 或更高版本的 Mac 上都可用。
+
+由于 OpenEmu 与你当前的软硬件配置不兼容，它将立即关闭。</string>
+	<key>Slot %ld</key>
+	<string>位置 %ld</string>
+	<key>Some migrations failed to complete properly</key>
+	<string>部分转移未能正确完成</string>
+	<key>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</key>
+	<string>有时在加载保存状态时可能会发生崩溃，这是因为不同版本的核心之间存在不兼容性。你是否要在不加载保存状态的情况下打开游戏？</string>
+	<key>Special thanks to everyone that made
+OpenEmu possible. To find out more
+about our contributors, emulator cores,
+documentation, licenses and to issue
+bugs please visit us on our GitHub.</key>
+	<string>特别感谢每个让 OpenEmu 成为可能的
+人。要了解更多有关我们的贡献者、
+模拟核心、文档、许可的信息以及报告
+漏洞，请访问我们的 GitHub。</string>
+	<key>Start Scanning</key>
+	<string>开始扫描</string>
+	<key>Stop</key>
+	<string>停止</string>
+	<key>Switch To Grid View</key>
+	<string>切换到网格视图</string>
+	<key>Switch To List View</key>
+	<string>切换到列表视图</string>
+	<key>System</key>
+	<string>系统</string>
+	<key>System Default</key>
+	<string>系统默认</string>
+	<key>System Files</key>
+	<string>系统文件</string>
+	<key>Takes you to the %@ project website</key>
+	<string>转到 %@ 项目网站</string>
+	<key>The %@ core has compatibility issues and some games may contain glitches or not play at all.
+
+Please do not report problems as we are not responsible for the development of %@.</key>
+	<string>%1$@ 核心有兼容问题，部分游戏可能出现故障或完全无法运行。
+
+请勿向我们报告问题，我们不对 %2$@ 的开发负责。</string>
+	<key>The %@ core has quit unexpectedly</key>
+	<string>%@ 核心意外退出</string>
+	<key>The %@ core has quit unexpectedly after loading a save state</key>
+	<string>%@ 核心在加载保存状态后意外退出</string>
+	<key>The %@ core plugin is deprecated</key>
+	<string>%@ 核心插件已弃用</string>
+	<key>The %@ core plugin is deprecated, and will be removed soon</key>
+	<string>%@ 核心插件已弃用，并即将被删除</string>
+	<key>The OpenEmu Library could not be found.</key>
+	<string>找不到 OpenEmu 游戏库。</string>
+	<key>The System plugin could not be found!</key>
+	<string>找不到系统插件！</string>
+	<key>The battery in device number %lu, %@, is low. Please charge or replace the battery.</key>
+	<string>设备号 %1$lu, %2$@, 电量低。请充电或更换电池。</string>
+	<key>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</key>
+	<string>其中一个控制器的按钮配置文件与上次连接到 OpenEmu 时检测到的配置文件不匹配。与受影响的控制器关联的一些按键已重置。
+
+你可以转到“控制器”首选项以检查哪些关联受到影响。</string>
+	<key>The core could not be downloaded. Try installing it from the Cores preferences.</key>
+	<string>核心无法下载。尝试从核心偏好设置里安装。</string>
+	<key>The emulator could not load ROM.</key>
+	<string>模拟器无法加载这个 ROM。</string>
+	<key>The file you selected doesn't exist</key>
+	<string>所选文件不存在</string>
+	<key>The game '%@' could not be started because a rom file could not be found. Do you want to locate it?</key>
+	<string>由于 ROM 文件无法找到，游戏“%@”无法启动。你要定位它吗？</string>
+	<key>The game '%@' was imported.</key>
+	<string>游戏“%@”已导入。</string>
+	<key>This System has no corresponding core installed.</key>
+	<string>系统没有安装对应的核心。</string>
+	<key>This cannot be undone.</key>
+	<string>该操作无法撤销。</string>
+	<key>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</key>
+	<string>此核心插件将来将不可用。一旦删除，使用它创建的任何保存状态都将停止工作。</string>
+	<key>This save state was created with a different core. Do you want to switch to that core now?</key>
+	<string>此保存状态由不同的核心创建。你要现在切换到该核心吗？</string>
+	<key>This will remove all items from the queue. Items that finished importing will be preserved in your library.</key>
+	<string>选择“是”从队列移除所有项目。已导入的项目会保留在你的游戏库里。</string>
+	<key>Title:</key>
+	<string>标题：</string>
+	<key>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</key>
+	<string>要为 %@ 分配新的按键或按钮，请按下此按钮，然后按下键盘或游戏手柄上的所需按键或按钮。</string>
+	<key>To launch the save state %@ you will need to install the '%@' Core</key>
+	<string>要启动保存状态 %1$@ 你需要安装核心 “%2$@”</string>
+	<key>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</key>
+	<string>要运行此核心你需要进行以下操作:
+
+%@拖放需要的文件到游戏库窗口然后重试。</string>
+	<key>Toggle Fullscreen</key>
+	<string>切换全屏</string>
+	<key>Toolbar: Homebrew</key>
+	<string>自制游戏</string>
+	<key>Toolbar: Library</key>
+	<string>游戏库</string>
+	<key>Toolbar: Save States</key>
+	<string>保存状态</string>
+	<key>Toolbar: Screenshots</key>
+	<string>截图</string>
+	<key>Trash downloaded Files</key>
+	<string>将已下载的文件扔进废纸篓</string>
+	<key>Unexpected error:</key>
+	<string>意外错误：</string>
+	<key>Unmute Audio</key>
+	<string>恢复声音</string>
+	<key>Update</key>
+	<string>更新</string>
+	<key>Updating Library</key>
+	<string>正在更新游戏库</string>
+	<key>User guide on BIOS files</key>
+	<string>BIOS 文件用户指南</string>
+	<key>Version</key>
+	<string>版本</string>
+	<key>View Guide in Browser</key>
+	<string>打开浏览器阅读指南</string>
+	<key>View Mode</key>
+	<string>查看方式</string>
+	<key>Volume</key>
+	<string>音量</string>
+	<key>Warning</key>
+	<string>警告</string>
+	<key>We suggest you switch to the %@ core plugin as soon as possible.</key>
+	<string>我们建议你尽快切换到 %@ 核心插件。</string>
+	<key>With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves.</key>
+	<string>使用 OpenEmu 你可以使用保存状态来随时保存你的进度。在你离开游戏时，我们甚至会帮你自动保存。回到这里来看你所有存档的概览。</string>
+	<key>Won't be able to recognize it as special save state…</key>
+	<string>将无法识别它为特别保存状态…</string>
+	<key>Would you like to continue your last game?</key>
+	<string>你要继续上次的游戏吗？</string>
+	<key>Would you like to save your game before you quit?</key>
+	<string>退出前要保存你的游戏吗？</string>
+	<key>Yes</key>
+	<string>是</string>
+	<key>You can't move your library into one of its subfolders.</key>
+	<string>不能将游戏库移动到它的子文件夹中！</string>
+	<key>You need to restart the application to commit the change</key>
+	<string>你需要重启应用程序以使更改生效。</string>
+	<key>Your Mac is too old for this version of OpenEmu</key>
+	<string>你的 Mac 版本过旧，不支持此版本的 OpenEmu</string>
+	<key>Your game finished importing, do you want to play it now?</key>
+	<string>游戏导入完成，你要现在运行吗？</string>
+	<key>Your library was moved sucessfully.</key>
+	<string>移动游戏库成功。</string>
+	<key>this guide</key>
+	<string>本指南</string>
+</dict>
+</plist>

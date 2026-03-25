@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Allow playing with controllers when in background</key>
+	<string>Arka planda kontrolcü ile oynamaya izin ver</string>
+	<key>Always float popout gameplay window on top</key>
+	<string>Açılır oyun penceresini her zaman üstte tut</string>
+	<key>Always launch games fullscreen</key>
+	<string>Oyunları her zaman tam ekranda başlat</string>
+	<key>Always pause gameplay when in background</key>
+	<string>Oyun arkaplandaysa her zaman durdur</string>
+	<key>Always snap popout gameplay window to integer scale</key>
+	<string>Açılır oyun penceresini her zaman tam sayı ölçeğine getirin</string>
+	<key>Always use popout gameplay window</key>
+	<string>Her zaman popup oyun penceresini kullan</string>
+	<key>An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</key>
+	<string>Video oyunlarının heyecan verici dünyası elinizin altında. Başlamanıza yardımcı olmak için, size aşağıdaki konularda yol gösterecek birkaç hızlı soru sormak istiyoruz.
+
+• Doğru sistem eklentilerini (çekirdekleri) çalıştırdığınızdan emin olun.</string>
+	<key>Apply</key>
+	<string>Kabül</string>
+	<key>Automatically lookup game information &amp; artwork</key>
+	<string>Oyun bilgi ve sanat çalışmalarını otomatik olarak kontrol et</string>
+	<key>Available Libraries:</key>
+	<string>Kullanılabilir Kütüphaneler:</string>
+	<key>Back</key>
+	<string>Geri</string>
+	<key>Cancel</key>
+	<string>İptal</string>
+	<key>Click on the ‘Next’ button to begin!</key>
+	<string>Başlamak için 'ileri' butonuna bas!</string>
+	<key>Click the ‘Go’ button to begin your adventure.</key>
+	<string>Macerana başlamak için 'İleri' butonuna tıkla.</string>
+	<key>Copy files to Game Library folder when adding to library</key>
+	<string>Kütüphaneye oyun eklendiğinde dosyaları oyun kütüphanesine kopyala</string>
+	<key>Downloading Data…</key>
+	<string>Veriler indiriliyor…</string>
+	<key>Edit</key>
+	<string>Düzenle</string>
+	<key>Game Library Folder Location:</key>
+	<string>Oyun Kütüphane Klasör Konumu:</string>
+	<key>Go</key>
+	<string>İleri</string>
+	<key>Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</key>
+	<string>Güzel! Bütün ayarların oyuna hazır!
+
+ Unutma klavye ve kontolcü ayarlarını kendin ve diğer oyuncular için ayarlar kısmından istediğin zaman değiştirebilirsin.</string>
+	<key>Import Into:</key>
+	<string>İçe Aktarma:</string>
+	<key>Input:</key>
+	<string>Giriş:</string>
+	<key>Let’s Go!</key>
+	<string>Haydi Başla!</string>
+	<key>Move to Default Location</key>
+	<string>Varsayılan Konuma Gönder</string>
+	<key>Move...</key>
+	<string>Hareket…</string>
+	<key>New Preset</key>
+	<string>Yeni Ön Ayar</string>
+	<key>Next</key>
+	<string>İleri</string>
+	<key>OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</key>
+	<string>OpenEmu modülerdir ve diğer harika açık kaynak projelerinin çalışmaları sayesinde çok çeşitli video oyun sistemlerini ('çekirdeklerini') taklit edebilir. Bazı oyunlar, çekirdekleri yüklemek ve kullanmak istediğinizi işaretlemenizi ve onaylamanızı isteyebilir. Favori oyun sistemleriniz ve oyunlarınız bu çekirdekler olmadan çalışmayabilir.</string>
+	<key>Organization Methods:</key>
+	<string>Method Organizasyonu:</string>
+	<key>Reset All</key>
+	<string>Hepsini sıfırla</string>
+	<key>Reset Warnings</key>
+	<string>Ufarıları Sıfırla</string>
+	<key>Reset all dialog warnings:</key>
+	<string>Bütün diyalog uyarılarını sıfırla:</string>
+	<key>Resolve Issues:</key>
+	<string>Hata Çözümleme:</string>
+	<key>Save Preset</key>
+	<string>Ön Ayarı Kaydet</string>
+	<key>Shader:</key>
+	<string>Gölgeler:</string>
+	<key>System Cores Installation</key>
+	<string>Sistem çekirdek indirmesi</string>
+	<key>Welcome to OpenEmu!</key>
+	<string>OpenEmu'ya hoş geldiniz !</string>
+	<key>Window Management:</key>
+	<string>Pencere Yöneticisi:</string>
+</dict>
+</plist>

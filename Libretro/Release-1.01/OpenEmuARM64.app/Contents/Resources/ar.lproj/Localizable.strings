@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>"%@" in %@</key>
+	<string>ملف "%1$@" موجود في جهاز %2$@</string>
+	<key>%@ copy</key>
+	<string>%@ نسخ</string>
+	<key>%@ could not be enabled because its plugin was not found.</key>
+	<string>%@ لايمكن تفعيله لأن إضافته غير موجودة.</string>
+	<key>%@ games will appear here. Check out %@ on how to add disc-based games.</key>
+	<string>ألعاب %@ ستظهر هنا. تحقق من %@ لكيفيية إضافة الألعاب المعتمدة على الأقراص</string>
+	<key>%@ games you add to OpenEmu will appear in this Console Library</key>
+	<string>ألعاب %@ التي تضيفها إلى OpenEmu ستظهر في مكتبة ألعاب الجهاز هذه</string>
+	<key>%ux</key>
+	<string>%ux</string>
+	<key>ALERT_CORE_GLITCHES_FEEDBACK_HTML</key>
+	<string>        &lt;b&gt;إذا وفقط إذا وُجدت المشكلة&lt;/b&gt;، الرجاء إرسال البلاغ &lt;b&gt;(باللغة الإنجليزية)&lt;/b&gt; مع مراعاة تضمين مايلي: &lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;موديل جهاز الماك المستخدَم &lt;b&gt;و&lt;/b&gt; إصدار نظام التشغيل المُثبَت&lt;ul&gt;&lt;li&gt;Macحول هذا الـ &lt;  يمكن العثور على هذه المعلومة من خلال قائمة أبل&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;اسم اللعبة التي كنت تلعبها &lt;b&gt;بالظبط&lt;/b&gt;&lt;/li&gt;&lt;li&gt;OpenEmuHelperApp تقرير أعطال&lt;ul&gt;&lt;li&gt; OpenEmuHelperApp افتح برنامج وحدة التحكم، اضغط على تقارير الأعطال في الشريط الجانبي، ثم ابحث عن آخر مستند باسم&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;! ابحث دائما عن تعليقات وبلاغات مشابهة من مستخديمن آخرين&lt;/b&gt;&lt;br&gt;إذا تم إهمال تضمين أحد المعلومات، أو أن بلاغًا مشابهًا تم إرساله بالفعل سيتم إلغاء بلاغك</string>
+	<key>ALERT_INPUT_MONITORING_HEADLINE</key>
+	<string>يتطلب OpenEmu أُذونات إضافية</string>
+	<key>ALERT_INPUT_MONITORING_PART1</key>
+	<string>يجب منح OpenEmu الإذن لمراقبة الإدخال لاستخدام لوحة المفاتيح كجهاز إدخال.</string>
+	<key>ALERT_INPUT_MONITORING_PART2</key>
+	<string>Toggling the permission may also resolve keyboard input issues.</string>
+	<key>ALERT_INPUT_MONITORING_PART2_MONTEREY</key>
+	<string>إزالة الإذن وإعادة منحه قد تحل مشكلة إدخال لوحة المفاتيح أيضًا</string>
+	<key>ALERT_MOVE_LIBRARY_HTML</key>
+	<string>تحتوي مكتبة البرنامج على ملف قاعدة بيانات والذي قد يتلف إذا نُقلت المكتبة للأماكن التالية: &lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt; المجلدات المُدارة بواسطة برامج المزامنة السحابية (مثل &lt;b&gt;آيكلاود درايف&lt;/b&gt;)&lt;/li&gt;&lt;li&gt;أجهزة الشبكة&lt;/li&gt;&lt;/ul&gt;&lt;br&gt; بالإضافة إلى أن مشاركة نفس المكتبة بين مستخدمين أو أجهزة متعددة قد يتلفها أيضًا. وهذا ينطبق أيًضًا على أجهزة تخزين يو إس بي الخاريجة.</string>
+	<key>Add</key>
+	<string>أضف</string>
+	<key>Add Cheat</key>
+	<string>أضف الغش</string>
+	<key>Add Cheat…</key>
+	<string>إضافة شفرات غش…</string>
+	<key>Add Cover Art from File…</key>
+	<string>أضف غلاف من ملف…</string>
+	<key>Add a Wiimote…</key>
+	<string>أضف Wiimote…</string>
+	<key>Add to Collection</key>
+	<string>أضف إلى مجموعة</string>
+	<key>Add to Library…</key>
+	<string>أضف إلى مكتبة…</string>
+	<key>All Games</key>
+	<string>جميع الألعاب</string>
+	<key>All Homebrew</key>
+	<string>جميع الـ Homebrew</string>
+	<key>Already in library, but manually deleted or unreachable:</key>
+	<string>موجودة بالفعل في المكتبة، لكن تم حذفها يدوياً أو لا يمكن الوصول إليها :</string>
+	<key>Already in library:</key>
+	<string>موجودة بالفعل في المكتبة:</string>
+	<key>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</key>
+	<string>حدث خطأ أثناء القيام بتحضير مساعد التنصيب. (%@) تأكد من كونك متصلًا بالشبكة ثم حاول مجددًا</string>
+	<key>An issue was detected with one of your controllers.</key>
+	<string>تم اكتشاف مشكلة مع أحد وحدات التحكم خاصتك.</string>
+	<key>Are you sure you want to delete %ld save states from your OpenEmu library?</key>
+	<string>هل ترغب حقًا في حذف %ld حالات حفظ من مكتبة OpenEmu خاصتك؟</string>
+	<key>Are you sure you want to delete %ld screenshots from your OpenEmu library?</key>
+	<string>هل ترغب حقًا في حذف %ld لقطة شاشة من مكتبة OpenEmu خاصتك؟</string>
+	<key>Are you sure you want to delete the save state called '%@' from your OpenEmu library?</key>
+	<string>هل ترغب حقا في حذف حالة الحفظ المساة “%@” من مكتبة OpenEmu خاصتك؟</string>
+	<key>Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?</key>
+	<string>هل ترغب حقا في حذف لقطة الشاشة المساة “%@” من مكتبة OpenEmu خاضتك؟</string>
+	<key>Are you sure you want to delete the selected game from your OpenEmu library?</key>
+	<string>هل ترغب حقًا في حذف اللعبة المحددة من مكتبة OpenEmu خاصتك؟</string>
+	<key>Are you sure you want to delete the selected games from your OpenEmu library?</key>
+	<string>هل ترغب حقًا في حذف الألعاب المحددة من مكتبة OpenEmu خاصتك؟</string>
+	<key>Are you sure you want to quit the application?</key>
+	<string>هل ترغب حقًا في الخروج من البرنامج؟</string>
+	<key>Are you sure you want to quit the game?</key>
+	<string>هل ترغب حقًا في إغلاق اللعبة؟</string>
+	<key>Are you sure you want to remove the collection '%@'?</key>
+	<string>هل ترغب حقًا في حذف مجموعة “%@”؟</string>
+	<key>Are you sure you want to remove the selected game from the collection?</key>
+	<string>هل ترغب حقًا في حذف اللعبة المحددة من المجموعة؟</string>
+	<key>Are you sure you want to remove the selected games from the collection?</key>
+	<string>هل ترغب حقًا في حذف الألعاب المحددة من المجموعة؟</string>
+	<key>Are you sure you want to restart the game?</key>
+	<string>هل ترغب حقًا في إعادة تشغيل اللعبة؟</string>
+	<key>At least one System must be enabled</key>
+	<string>يجب تفعيل نظام واحد على الأقل</string>
+	<key>Auto Save State</key>
+	<string>حفظ حالة تلقائي</string>
+	<key>Bluetooth Not Enabled</key>
+	<string>البلوتوث غير مفعل</string>
+	<key>Bluetooth must be enabled to pair a Wii controller.</key>
+	<string>يجب تمكين بلوتوث لإقران وحدة تحكم Wii.</string>
+	<key>Cancel</key>
+	<string>إلغاء</string>
+	<key>Cancel Cover Art Download</key>
+	<string>ألغي تنزيل الغلاف</string>
+	<key>Category</key>
+	<string>القسم</string>
+	<key>Change Core</key>
+	<string>تغيير النواة</string>
+	<key>Change Volume</key>
+	<string>تغيير مستوى الصوت</string>
+	<key>Changed button for %1$@ to %2$@.</key>
+	<string>لِتَغْيير زِرِ الـ%1$@ لـ%2$@.</string>
+	<key>Cheat Description</key>
+	<string>وصف الغش</string>
+	<key>Check out some excellent homebrew games.</key>
+	<string>تحقق من بعض ألعاب homebrew الممتازة.</string>
+	<key>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</key>
+	<string>اذهب الى قائمة أبل  &gt; إعدادات النظام، ثم انقر على الأمان و الخصوصية تم حدد تبويب الحماية. قم بإزالة أذونات الوصول إلى الملفات و المجلدات الخاصة بـOpenEmu، إن وجدت، وبدلًا من ذلك امنح الإذن للوصول للقرص بالكامل</string>
+	<key>Choose Library…</key>
+	<string>اختر مكتبة…</string>
+	<key>Choose Location…</key>
+	<string>اختر مكانًا…</string>
+	<key>Choose OpenEmu Library</key>
+	<string>اختر مكتبة OpenEmu</string>
+	<key>Choose a valid file.</key>
+	<string>اختر ملفًا صالحًا.</string>
+	<key>Code:</key>
+	<string>الشفرة:</string>
+	<key>Collections</key>
+	<string>المجموعات</string>
+	<key>Configure Shader…</key>
+	<string>اضبط مرشِح الفيديو…</string>
+	<key>Console</key>
+	<string>جهاز ألعاب</string>
+	<key>Consoles</key>
+	<string>أجهزة اللعب</string>
+	<key>Consolidate</key>
+	<string>توطيد</string>
+	<key>Consolidate Files…</key>
+	<string>توطيد الملفات…</string>
+	<key>Consolidating files failed.</key>
+	<string>فشل توطيد الملفات.</string>
+	<key>Consolidating will copy all of the selected games into the OpenEmu Library folder.</key>
+	<string>التوطيد سوف ينسخ جميع الألعاب المحددة إلى مجلد مكتبة OpenEmu.</string>
+	<key>Contains no data:</key>
+	<string>لا تحتوي على بيانات:</string>
+	<key>Continue</key>
+	<string>أكمل</string>
+	<key>Controls</key>
+	<string>التحكم</string>
+	<key>Copying Artwork Files…</key>
+	<string>نشخ ملفات الأغلفة…</string>
+	<key>Copying Game Files…</key>
+	<string>نسخ ملفات اللعبة…</string>
+	<key>Copying ROM Files…</key>
+	<string>نسخ ملفات الـROM…</string>
+	<key>Copying ROM files failed!</key>
+	<string>فشل نسخ ملفات ROM!</string>
+	<key>Copying artwork failed!</key>
+	<string>فشل نسخ الغلاف!</string>
+	<key>Core</key>
+	<string>النواة</string>
+	<key>Core Provided By…</key>
+	<string>النواة مقدمة من…</string>
+	<key>Cores</key>
+	<string>الأنوية</string>
+	<key>Could not move library data!</key>
+	<string>تعذر نقل بيانات المكتبة!</string>
+	<key>Couldn't load %@ plugin</key>
+	<string>تعذر تحميل إضافة %@</string>
+	<key>Create Library…</key>
+	<string>إنشاء مكتبة…</string>
+	<key>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</key>
+	<string>قم بإنشاء مجموعة ألعابك الشخصية المختارة. للإضافة إلى المجموعة ، حدد لعبة من مكتبة جهاز ألعاب واسحبها إلى ’%@’ في الشريط الجانبي.</string>
+	<key>Create or Load Save State</key>
+	<string>إنشاء أو تحميل حالة حفظ</string>
+	<key>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</key>
+	<string>قم بإنشاء مجموعتك الشخصية من لقطات الشاشة. لأخذ لقطة شاشة ، يمكنك استخدام اختصار لوحة المفاتيح ⌘ + T أثناء اللعب.</string>
+	<key>Decrease Grid Size</key>
+	<string>تقليل حجم الشبكة</string>
+	<key>Default Core</key>
+	<string>النواة الإفتراضية</string>
+	<key>Delete</key>
+	<string>حذف</string>
+	<key>Delete Collection</key>
+	<string>حذف مجموعة</string>
+	<key>Delete Game</key>
+	<string>حذف اللعبة</string>
+	<key>Delete Games</key>
+	<string>حذف الألعاب</string>
+	<key>Delete Save</key>
+	<string>حذف الحفظ</string>
+	<key>Delete Save State</key>
+	<string>حذف حالة الحفظ</string>
+	<key>Delete Save States</key>
+	<string>حذف حالات الحفظ</string>
+	<key>Delete Saves</key>
+	<string>حذف المحفوظات</string>
+	<key>Delete Screenshot</key>
+	<string>حذف لقطة الشاشة</string>
+	<key>Delete Screenshots</key>
+	<string>حذف لقطات الشاشة</string>
+	<key>Description</key>
+	<string>الوصف</string>
+	<key>Deselect All</key>
+	<string>حذف الكل</string>
+	<key>Device Disconnected</key>
+	<string>تم اكتشاف جهاز</string>
+	<key>Device number %lu, %@, has disconnected.</key>
+	<string>جهاز رقم %1$lu, %2$@, تم اكتشافه.</string>
+	<key>Disc %u</key>
+	<string>قرص %u</string>
+	<key>Disc-based games have special requirements. Please read the disc importing guide.</key>
+	<string>الألعاب القائمة على الأقراص لها متطلبات خاصة. يرجى قراءة دليل استيراد القرص.</string>
+	<key>Dismiss</key>
+	<string>تجاهل</string>
+	<key>Do not ask me again</key>
+	<string>لا تسأل مجددًا</string>
+	<key>Do not show me again</key>
+	<string>لا تُظهر مجددًا</string>
+	<key>Do you really want to cancel importation?</key>
+	<string>أتريد حقا إلغاء الإستيراد؟</string>
+	<key>Do you want to continue playing where you left off?</key>
+	<string>هل تريد مواصلة اللعب من حيث توقفت؟</string>
+	<key>Don't Import Selected</key>
+	<string>لا تقم باستيراد ما تم تحديده</string>
+	<key>Done</key>
+	<string>تم</string>
+	<key>Download</key>
+	<string>تحميل</string>
+	<key>Download Cover Art</key>
+	<string>تحميل غلاف</string>
+	<key>Downloading %@…</key>
+	<string>جار التحميل %@…</string>
+	<key>Downloading Game DB</key>
+	<string>تحميل قاعدة بيانات اللعبة</string>
+	<key>Downloading and Installing Core…</key>
+	<string>جار تحميل وتثبيت النواة…</string>
+	<key>Downloading core list...</key>
+	<string>Downloading core list…</string>
+	<key>Drag &amp; Drop Games Here</key>
+	<string>اسحب و أفلت الألعاب هنا</string>
+	<key>Drag &amp; Drop Save States Here</key>
+	<string>اسحب و أفلت حالات الحفظ هنا</string>
+	<key>Duplicate Collection</key>
+	<string>كرر المجموعة</string>
+	<key>ECM compressed binaries cannot be imported. Please read the disc importing guide.</key>
+	<string>ECM compressed binaries cannot be imported. Please read the disc importing guide.</string>
+	<key>ECM compressed binary detected.</key>
+	<string>ECM compressed binary detected.</string>
+	<key>ERROR_PLUGIN_IMPORT_ALREADYLOADED</key>
+	<string>تم تحميل نسخة من هذة الإضافة بالفعل</string>
+	<key>ERROR_PLUGIN_IMPORT_OUTOFSUPPORT</key>
+	<string>هذه الإضافة غير مدعومة حاليًا</string>
+	<key>Edit Game Controls…</key>
+	<string>تغيير تحكم اللعبة…</string>
+	<key>Enable now</key>
+	<string>التفعيل الآن</string>
+	<key>Error!</key>
+	<string>خطأ!</string>
+	<key>Everything</key>
+	<string>كل شيء</string>
+	<key>Featured Games</key>
+	<string>ألعاب مميزة</string>
+	<key>Fetching Games…</key>
+	<string>جار جلب الألعاب…</string>
+	<key>Files failed to import.</key>
+	<string>تعذر استيراد الملفات.</string>
+	<key>Fill Screen</key>
+	<string>يملأ الشاشة</string>
+	<key>Filter by:</key>
+	<string>الترشيح بـ:</string>
+	<key>Game %ld of %ld</key>
+	<string>اللعبة %1$ld من %2$ld</string>
+	<key>Game Name</key>
+	<string>اسم اللعبة</string>
+	<key>Game Scanner</key>
+	<string>ماسح الألعاب</string>
+	<key>Game requires download</key>
+	<string>تحتاج اللعبة إلى التحميل</string>
+	<key>Gameplay</key>
+	<string>أثناء اللعب</string>
+	<key>Grid Size</key>
+	<string>حجم الشبكة</string>
+	<key>Have you read the guide?</key>
+	<string>هل قرأت دليل الاستخدام؟</string>
+	<key>Hide "%@"</key>
+	<string>اخفي “%@”</string>
+	<key>Homebrew Games</key>
+	<string>ألعاب Homebrew</string>
+	<key>I understand the risks</key>
+	<string>أعي المخاطر</string>
+	<key>If there is a red button on the back battery cover, press it.
+If not, hold down buttons ①+②.</key>
+	<string>إذا كان هناك زر أحمر على غطاء البطارية الخلفي ، فاضغط عليه. 
+ وإذا لم يكن كذلك ، اضغط مطولاً على الأزرار ① + ②.</string>
+	<key>If you change the core you current progress will be lost and save states will not work anymore.</key>
+	<string>إذا قمت بتغيير النواة ، فسيتم فقد التقدم الحالي ولن تعمل حالات الحفظ بعد الآن.</string>
+	<key>Ignore</key>
+	<string>تجاهل</string>
+	<key>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</key>
+	<string>خلال بضعة أيام، إضافة النواة هذه سيتم إزالتها تلقائيًا. وبمجرد إزالتها ستتوقف حالات الحفظ التي أُنشئت بواسطتها عن العمل.</string>
+	<key>In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information.</key>
+	<string>لمحاكاة بعض الأنظمة سنحتاج إلى ملفات الـBIOS، نظرًا لزيادة تعقيد برمجيات و عتاد أجهزة الألعاب الحديثة. 	الرجاء قراءة %@ الخاص بنا لمزيدٍ من المعلومات .</string>
+	<key>In order to play the game it must be downloaded.</key>
+	<string>للعب هذه اللعبة لابد من تحميلها.</string>
+	<key>Increase Grid Size</key>
+	<string>زيادة حجم الشبكة</string>
+	<key>Insert Cart/Disk/Tape…</key>
+	<string>Insert Cart/Disk/Tape…</string>
+	<key>Install</key>
+	<string>تثبيت</string>
+	<key>Install %@</key>
+	<string>تثبيت %@</string>
+	<key>Install %@ and Set as Default</key>
+	<string>تثبيت %@ والتعيين كافتراضي</string>
+	<key>Installing Core</key>
+	<string>تثبيت النواة</string>
+	<key>Invalid cue sheet format:</key>
+	<string>تنسيق (cue sheet) غير صالح:</string>
+	<key>Invalid gdi format:</key>
+	<string>تنسسيق gdi غير صالح:</string>
+	<key>Join multi-line cheats with '+' e.g. 000-000+111-111</key>
+	<string>لدمج عدة أسطر استخدم‘+’على سبيل المثال 000-000+111-111</string>
+	<key>Keyboard</key>
+	<string>لوحة المفاتيح</string>
+	<key>Keycode 0x%lX</key>
+	<string>رمز المفتاح 0x%lX</string>
+	<key>Last Played</key>
+	<string>آخر مرة لُعبت</string>
+	<key>Learn More</key>
+	<string>اعرف المزيد</string>
+	<key>Library</key>
+	<string>المكتبة</string>
+	<key>Load</key>
+	<string>تحميل</string>
+	<key>Locate '%@'</key>
+	<string>حدد “%@”</string>
+	<key>Locate…</key>
+	<string>حدد…</string>
+	<key>Low Controller Battery</key>
+	<string>بطارية وحدة التحكم منخفضة</string>
+	<key>MOVE_ALERT_INFO_TEXT</key>
+	<string>يحب نقل OpenEmu إلى مجلد التطبيقات ليعمل بشكل صحيح</string>
+	<key>MOVE_ALERT_MOVE_BUTTON</key>
+	<string>انقله إلى مجلد التطبيقات</string>
+	<key>MOVE_ALERT_NEEDS_AUTH</key>
+	<string>You need to authenticate with an administrator name and password to complete this step. Alternatively, you can choose a different location or quit the App and move it manually.</string>
+	<key>MOVE_ALERT_TITLE</key>
+	<string>انقل OpenEmu إلى مجلد التطبيقات</string>
+	<key>Make sure your internet connection is active and download a suitable core.</key>
+	<string>تأكد من أن اتصالك بالإنترنت نشط وقم بتنزيل نواة مناسبة.</string>
+	<key>Make your Wiimote discoverable</key>
+	<string>اجعل Wiimote الخاص بك قابلاً للاكتشاف</string>
+	<key>Missing Core</key>
+	<string>نواة مفقودة</string>
+	<key>Missing referenced file:</key>
+	<string>ملف مرجعي مفقود:</string>
+	<key>Move to Trash</key>
+	<string>انقل إلى سلة المهملات</string>
+	<key>Moving Library…</key>
+	<string>نقل المكتبة…</string>
+	<key>Moving the Game Library is not recommended</key>
+	<string>لا ينصح بنقل مكان مكتبة الألعاب</string>
+	<key>Must not be compressed:</key>
+	<string>يجب ألا يكون مضغوطًا:</string>
+	<key>Mute Audio</key>
+	<string>كتم الصوت</string>
+	<key>NOT FOUND: "%@"</key>
+	<string>تعذر العثور على: "%@"</string>
+	<key>Name</key>
+	<string>الإسم</string>
+	<key>New Collection</key>
+	<string>مجموعة جديدة</string>
+	<key>New Collection from Selection</key>
+	<string>مجموعة جديدة من التحديد</string>
+	<key>New Folder</key>
+	<string>مجلد جديد</string>
+	<key>New Smart Collection</key>
+	<string>مجموعة ذكية جديدة</string>
+	<key>No</key>
+	<string>لا</string>
+	<key>No Internet Connection</key>
+	<string>غير متصل بالإنترنت</string>
+	<key>No Save States available</key>
+	<string>لا يوجد حالات حفظ متاحة</string>
+	<key>No Screenshots Found</key>
+	<string>لا يوجد لقطات شاشة</string>
+	<key>No available controllers</key>
+	<string>لايوجد وحدات تحكم متوفرة</string>
+	<key>No game played yet!</key>
+	<string>لم يتم لعب لعبة حتى الآن!</string>
+	<key>No permission to open:</key>
+	<string>لا يوجد إذن للفتح:</string>
+	<key>No valid system detected:</key>
+	<string>لم يتم اكتشاف نظام صالح:</string>
+	<key>None</key>
+	<string>بدون</string>
+	<key>Not assigned</key>
+	<string>لَمْ يَتِمْ تَعْيينُه</string>
+	<key>Not plain text:</key>
+	<string>ليس نصًا عاديًا:</string>
+	<key>OK</key>
+	<string>حسنًا</string>
+	<key>Only files in the OpenEmu Library folder will be moved to the Trash.</key>
+	<string>الملفات الموجودة في مكتبة OpenEmu فقط هي ما سيتم نقلها إالى سلة المهملات.</string>
+	<key>Open Collection</key>
+	<string>افتح مجموعة</string>
+	<key>Open Library</key>
+	<string>افتح مكتبة</string>
+	<key>Open System Preferences</key>
+	<string>فتح إعدادات النظام</string>
+	<key>OpenEmu could not download required data from the internet</key>
+	<string>تعذر على OpenEmu تحميل البيانات المطلوبة من الإنترنت</string>
+	<key>OpenEmu could not find a Core to launch the game</key>
+	<string>OpenEmu لم يجد نواة لتشغيل اللعبة</string>
+	<key>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</key>
+	<string>لدى OpenEmu ميزة حفظ الحالة التي تسمح لك بمواصلة اللعب من حيث توقفت بالضبط.</string>
+	<key>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</key>
+	<string>يحتاج OpenEmu إلى مكتبة للمتابعة. يمكنك اختيار مكتبة OpenEmu موجودة بالفعل أو إنشاء مكتبة جديدة</string>
+	<key>OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@</key>
+	<string>OpenEmu يستخدم 'أنوية' لمحاكاة الألعاب. ستحتاج نواة %@ لِلَعِب %@ </string>
+	<key>OpenEmu will save and quit all games that are currently running.</key>
+	<string>سيحفظ OpenEmu جميع الألعاب التي يتم تشغيلها حاليًا ثم يغلقها.</string>
+	<key>Options</key>
+	<string>الخيارات</string>
+	<key>Pause Game</key>
+	<string>إيقاف موقت للعبة</string>
+	<key>Pause/Restart</key>
+	<string>إيقاف مؤقت/إعادة تشغيل</string>
+	<key>Play</key>
+	<string>لعب</string>
+	<key>Play Count</key>
+	<string>مرات اللعب</string>
+	<key>Play Game</key>
+	<string>لعب اللعبة</string>
+	<key>Play Games (Caution)</key>
+	<string>لعب الألعاب (تنبيه)</string>
+	<key>Play Save Games</key>
+	<string>العب حفظ الألعاب</string>
+	<key>Play Save State</key>
+	<string>تشغيل حالة حفظ</string>
+	<key>Play Time</key>
+	<string>وقت اللعب</string>
+	<key>Player %ld</key>
+	<string>اللاعب %ld</string>
+	<key>Please close all games and wait for the importer to finish.</key>
+	<string>الرجاء إغلاق جميع الألعاب وانتظر المستورد حتى ينتهي.</string>
+	<key>Quick Load</key>
+	<string>تحميل سريع</string>
+	<key>Quick Save</key>
+	<string>حفظ سريع</string>
+	<key>Quick Save State</key>
+	<string>حفظ حالة سريع</string>
+	<key>Quick Save, Slot %@</key>
+	<string>حفظ سريع، الفتحة %@</string>
+	<key>Quit</key>
+	<string>خروج</string>
+	<key>Quit Game</key>
+	<string>الخروج من اللعبة</string>
+	<key>Quit OpenEmu</key>
+	<string>الخروج من OpenEmu</string>
+	<key>Rating</key>
+	<string>التقييم</string>
+	<key>Recently Added</key>
+	<string>أضيف مؤخرًا</string>
+	<key>Recovered Auto Save</key>
+	<string>استعادة الحفظ التلقائي</string>
+	<key>Remove Collection</key>
+	<string>إزالة المجموعة</string>
+	<key>Remove Game</key>
+	<string>إزالة اللعبة</string>
+	<key>Remove Games</key>
+	<string>إزالة الألعاب</string>
+	<key>Rename</key>
+	<string>إعادة تسمية</string>
+	<key>Rename "%@"</key>
+	<string>إعادة تسمية “%@”</string>
+	<key>Rename Game</key>
+	<string>إعادة تسمية اللعبة</string>
+	<key>Rename Special Save State or something?</key>
+	<string>إعادة تسمية حالة حفظ خاصة أو شيء من هذا القبيل؟</string>
+	<key>Reopen without loading state</key>
+	<string>أعد الفتح بدون تحميل الحالة</string>
+	<key>Required files are missing.</key>
+	<string>بعض الملفات المطلوبة مفقودة.</string>
+	<key>Resolve %ld Issue</key>
+	<string>حل %ld مشكلة</string>
+	<key>Resolve %ld Issues</key>
+	<string>حل المشكلات %ld</string>
+	<key>Restart</key>
+	<string>إعادة تشغيل</string>
+	<key>Restart Game</key>
+	<string>إعادة تشغيل اللعبة</string>
+	<key>Resume</key>
+	<string>إستئناف</string>
+	<key>Resume Game</key>
+	<string>استئناف اللعبة</string>
+	<key>Retry</key>
+	<string>أعد المحاولة</string>
+	<key>Save As:</key>
+	<string>حفظ كـ:</string>
+	<key>Save Current Game…</key>
+	<string>حفظ اللعبة الحالية…</string>
+	<key>Save Game</key>
+	<string>حفظ اللعبة</string>
+	<key>Save Games</key>
+	<string>حفظ الألعاب</string>
+	<key>Save States</key>
+	<string>حالات الحفظ</string>
+	<key>Save-Game-%ld %@</key>
+	<string>حفظ-لعبة-%ld %@</string>
+	<key>Scanner Paused</key>
+	<string>الماسح متوقف مؤقتًا</string>
+	<key>Scanning Directory</key>
+	<string>مجلد المسح</string>
+	<key>Screenshots</key>
+	<string>لقطات الشاشة</string>
+	<key>Search</key>
+	<string>بحث</string>
+	<key>Secrets</key>
+	<string>أسرار</string>
+	<key>Select All</key>
+	<string>تحديد الكل</string>
+	<key>Select Audio Output Device</key>
+	<string>جهاز خرج الصوت</string>
+	<key>Select Cheat</key>
+	<string>حدد الغش</string>
+	<key>Select Core</key>
+	<string>تحديد النواة</string>
+	<key>Select Disc</key>
+	<string>تحديد القرص</string>
+	<key>Select Display Mode</key>
+	<string>وضع العرض</string>
+	<key>Select Scale</key>
+	<string>حدد المقياس</string>
+	<key>Select Shader</key>
+	<string>مرشِحات الفيديو</string>
+	<key>Shader Parameters</key>
+	<string>معاملات مرشِح الفيديو</string>
+	<key>Share</key>
+	<string>مشاركة</string>
+	<key>Show in Finder</key>
+	<string>إظهار في فايندر</string>
+	<key>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</key>
+	<string>منذ اصدار ٢.١،أصبح OpenEmu يحتاج إلى شريحة رسومات تدعم. Metel متوفرة على جميع أجهزة الـMac التي تعمل بنظام macOS ١٠.١٤</string>
+	<key>Slot %ld</key>
+	<string>فتحة %ld</string>
+	<key>Some migrations failed to complete properly</key>
+	<string>لم تكتمل بعض عمليات الترحيل بشكل صحيح</string>
+	<key>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</key>
+	<string>في بعض الأحيان قد يحدث عطل خلال تحميل حالة حفظ بسبب عدم التوافق بين الإصدارات المختلفة لنفس النواة. هل تريد فتح اللعبة بدون تحميل حالة الحفظ؟</string>
+	<key>Special thanks to everyone that made
+OpenEmu possible. To find out more
+about our contributors, emulator cores,
+documentation, licenses and to issue
+bugs please visit us on our GitHub.</key>
+	<string>شكر خاص لكل من جعل من OpenEmu ممكنًا.
+ لمزيدٍ من المعلومات عن المساهمين، وأنوية المحاكاة، والتراخيص، 
+ وللإبلاغ عن الأخطاء تفضل بزيارتنا على موقع GitHub</string>
+	<key>Start Scanning</key>
+	<string>بدأ المسح</string>
+	<key>Stop</key>
+	<string>توقف</string>
+	<key>Switch To Grid View</key>
+	<string>التبديل إلى العرض كشبكة</string>
+	<key>Switch To List View</key>
+	<string>التبديل إلى العرض كقائمة</string>
+	<key>System</key>
+	<string>النظام</string>
+	<key>System Default</key>
+	<string>System Default</string>
+	<key>System Files</key>
+	<string>ملفات النظام</string>
+	<key>Takes you to the %@ project website</key>
+	<string>%@ سيأخذك إلى موقع مشروع</string>
+	<key>The %@ core has compatibility issues and some games may contain glitches or not play at all.
+
+Please do not report problems as we are not responsible for the development of %@.</key>
+	<string>نواة %1$@ لديها بعض مشاكل التوافقية فبعض الألعاب قد تحتوي على أخطاء (جلتشات) أو تكون غير قابلة للعب تمامًا. الرجاء عدم الإبلاغ عن الأخطاء لأننا غير مسؤولين عن تطوير %2$@</string>
+	<key>The %@ core has quit unexpectedly</key>
+	<string>توقفت نواة %@ عن العمل بشكلٍ مُفاجئ</string>
+	<key>The %@ core has quit unexpectedly after loading a save state</key>
+	<string>توقفت نواة %@ عن العمل بشكل مفاجئ بعد تحميل حالة حفظ</string>
+	<key>The %@ core plugin is deprecated</key>
+	<string>إضافة النواة %@ تم إلغاء دعمها</string>
+	<key>The %@ core plugin is deprecated, and will be removed soon</key>
+	<string>إضافة النواة %@ لم تعد مدعومة، وسيتم إزالتها قريبًا</string>
+	<key>The OpenEmu Library could not be found.</key>
+	<string>تعذر العثور على مكتبة OpenEmu.</string>
+	<key>The System plugin could not be found!</key>
+	<string>تعذر العثور على إضافة النظام!</string>
+	<key>The battery in device number %lu, %@, is low. Please charge or replace the battery.</key>
+	<string>البطارية في الجهاز رقم %lu, %@, منخفضة. الرجاء شحن البطارية أو استبدالها.</string>
+	<key>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</key>
+	<string>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</string>
+	<key>The core could not be downloaded. Try installing it from the Cores preferences.</key>
+	<string>تغذر تحميل النواة. حاول تثبيتها من 'الأنوية' في التفضيلات.</string>
+	<key>The emulator could not load ROM.</key>
+	<string>تعذر على المحاكي تحميل ملف الـROM</string>
+	<key>The file you selected doesn't exist</key>
+	<string>الملف المحدد غير موجود</string>
+	<key>The game '%@' could not be started because a rom file could not be found. Do you want to locate it?</key>
+	<string>تعذر تشغيل لعبة “%@” لأننا لم نستططع العثور على ملف الـROM الخاص بها. هل تود تحديده يدويًا</string>
+	<key>The game '%@' was imported.</key>
+	<string>تم استيراد لعبة “%@”.</string>
+	<key>This System has no corresponding core installed.</key>
+	<string>هذا النظام ليس له نواة مطابقة مثبتة.</string>
+	<key>This cannot be undone.</key>
+	<string>لا يمكن التراجع عن هذا.</string>
+	<key>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</key>
+	<string>بمجرد إزالة إضافة النواة هذه لن تصبح متاحةً في المستقبل، و أي حالات حفظ أُنشئت بواسطتها ستتوقف عن العمل.</string>
+	<key>This save state was created with a different core. Do you want to switch to that core now?</key>
+	<string>أُنشئت حالة الحفظ هذه بواسطة نواة مختلفة. هل تريد التبديل إلى هذه النواة الآن؟</string>
+	<key>This will remove all items from the queue. Items that finished importing will be preserved in your library.</key>
+	<string>سيؤدي هذا إلى إزالة كافة العناصر من قائمة الانتظار. سيتم الاحتفاظ بالعناصر التي انتهى استيرادها في مكتبتك.</string>
+	<key>Title:</key>
+	<string>العنوان:</string>
+	<key>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</key>
+	<string>لِتَعْيينِ مُفْتاحٍ أو زِرٍ جديدٍ لـ%@، اضْغَطْ عَلَى هَذَا الزِر، ثُمَ اضْغَطْ عَلَى المُفْتَاحِ أوِ الزِرِ المَرْغوبِ في وِحْدَةِ التَحَكُمِ أو لَوْحةِ المَفَاتِيحِ خَاصَتُكْ. </string>
+	<key>To launch the save state %@ you will need to install the '%@' Core</key>
+	<string>لتشغيل حالة  المسماة بـ%@ يجب تثبيت نواة '%@'</string>
+	<key>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</key>
+	<string>لتشغيل هذه النواة قم بما يلي:
+
+%@اسحب وأفلت الملف/الملفات المطلوبة في نافذة مكتبة الألعاب ثم حاول مجددًا.</string>
+	<key>Toggle Fullscreen</key>
+	<string>التبديل إلى وضع ملء الشاشة</string>
+	<key>Toolbar: Homebrew</key>
+	<string>Homebrew</string>
+	<key>Toolbar: Library</key>
+	<string>المكتبة</string>
+	<key>Toolbar: Save States</key>
+	<string>حالات الحفظ</string>
+	<key>Toolbar: Screenshots</key>
+	<string>لقطات الشاشة</string>
+	<key>Trash downloaded Files</key>
+	<string>الملفات التي تم تنزيلها من المهملات</string>
+	<key>Unexpected error:</key>
+	<string>خطأ غير متوقع:</string>
+	<key>Unmute Audio</key>
+	<string>إلغاء كتم الصوت</string>
+	<key>Update</key>
+	<string>تحديث</string>
+	<key>Updating Library</key>
+	<string>تحديث المكتبة</string>
+	<key>User guide on BIOS files</key>
+	<string>دليل المستخدم لملفات الـBIOS</string>
+	<key>Version</key>
+	<string>الإصدار</string>
+	<key>View Guide in Browser</key>
+	<string>عرض الدليل في المتصفح</string>
+	<key>View Mode</key>
+	<string>وضع العرض</string>
+	<key>Volume</key>
+	<string>مستوى الصوت</string>
+	<key>Warning</key>
+	<string>تحذير</string>
+	<key>We suggest you switch to the %@ core plugin as soon as possible.</key>
+	<string>نحن نوصيك بالتبديل إلى إضافة النواة %@ في أقرب وقتٍ ممكن.</string>
+	<key>With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves.</key>
+	<string>مع OpenEmu يمكنك حفظ تقدمك في أي وقت باستخدام حفظ الحالة. سنقوم بعمل حالات حفظ تلقائية عند مغادرتك اللعبة. بامكانك استعراض جميع حالات الحفظ هنا.</string>
+	<key>Won't be able to recognize it as special save state…</key>
+	<string>لن تكون قادرًا على التعرف عليها كحالة حفظ خاصة…</string>
+	<key>Would you like to continue your last game?</key>
+	<string>هل تريد الاستمرار من حيث توقفت؟</string>
+	<key>Would you like to save your game before you quit?</key>
+	<string>هل تريد حفظ اللعبة قبل المغادرة؟</string>
+	<key>Yes</key>
+	<string>نعم</string>
+	<key>You can't move your library into one of its subfolders.</key>
+	<string>لا يمكنك نقل المكتبة بداخل أحد مجلداتها.</string>
+	<key>You need to restart the application to commit the change</key>
+	<string>ستحتاج إلى إعادة تشغيل البرامج لتطبيق التغييرات</string>
+	<key>Your Mac is too old for this version of OpenEmu</key>
+	<string>الـmac خاصتك لا يتوافق مع إصدار OpenEmu هذا</string>
+	<key>Your game finished importing, do you want to play it now?</key>
+	<string>تم الانتهاء من استيراد اللعبة، هل تريد لعبها الآن؟</string>
+	<key>Your library was moved sucessfully.</key>
+	<string>تم نقل مكتبتك بنجاح.</string>
+	<key>this guide</key>
+	<string>هذا الدليل</string>
+</dict>
+</plist>

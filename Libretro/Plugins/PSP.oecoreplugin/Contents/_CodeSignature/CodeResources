@@ -4,18 +4,40 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/gl_stub.dylib</key>
+		<data>
+		hTVKBhsqH1RhBuuEalulR1BxugA=
+		</data>
 		<key>Resources/libretro_core.dylib</key>
 		<data>
-		r0KZXiC34hhn63Xdzgm95Q+Sg80=
+		tLG4rMTqI3fFvV/E3+Le291hdp8=
+		</data>
+		<key>Resources/libretro_core.dylib.orig</key>
+		<data>
+		9682sn6JKhQCVBKFGQ+9Y92Y57E=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Resources/gl_stub.dylib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Izs34l/OYBfBHQossKZIOye2CyfnMcNIn4KghDKmP7Q=
+			</data>
+		</dict>
 		<key>Resources/libretro_core.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			45dDCB9PA9Ws+nxOihtP+JrBuB3A2bKeLCk3AeMlf88=
+			3GltNNB9BquNuXXCKi69BHToD8HahWKX9VNsRtOY9CQ=
+			</data>
+		</dict>
+		<key>Resources/libretro_core.dylib.orig</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FiAaLdbBqyQuFXMUf2RWb1kp/YEGbejegXnAOxIGzQI=
 			</data>
 		</dict>
 	</dict>

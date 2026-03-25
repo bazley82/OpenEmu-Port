@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OEControllerImageKey</key>
+	<string>controller_gc</string>
+	<key>OEControllerImageMaskKey</key>
+	<string>controller_gc_mask</string>
+	<key>OEControllerKeyPositionKey</key>
+	<dict>
+		<key>OEGCButtonUp</key>
+		<string>{182, 235}</string>
+		<key>OEGCButtonDown</key>
+		<string>{182, 190}</string>
+		<key>OEGCButtonLeft</key>
+		<string>{160, 212}</string>
+		<key>OEGCButtonRight</key>
+		<string>{205, 212}</string>
+		<key>OEGCAnalogUp</key>
+		<string>{113, 340}</string>
+		<key>OEGCAnalogDown</key>
+		<string>{113, 300}</string>
+		<key>OEGCAnalogLeft</key>
+		<string>{90, 317}</string>
+		<key>OEGCAnalogRight</key>
+		<string>{130, 317}</string>
+		<key>OEGCAnalogCUp</key>
+		<string>{318, 235}</string>
+		<key>OEGCAnalogCDown</key>
+		<string>{318, 190}</string>
+		<key>OEGCAnalogCLeft</key>
+		<string>{300, 212}</string>
+		<key>OEGCAnalogCRight</key>
+		<string>{340, 212}</string>
+		<key>OEGCButtonA</key>
+		<string>{387, 314}</string>
+		<key>OEGCButtonB</key>
+		<string>{338, 287}</string>
+		<key>OEGCButtonX</key>
+		<string>{436, 324}</string>
+		<key>OEGCButtonY</key>
+		<string>{380, 362}</string>
+		<key>OEGCButtonL</key>
+		<string>{95, 400}</string>
+		<key>OEGCButtonR</key>
+		<string>{400, 400}</string>
+		<key>OEGCButtonZ</key>
+		<string>{430, 390}</string>
+		<key>OEGCButtonStart</key>
+		<string>{250, 306}</string>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>About OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Always Hide HUD</string>
+	<key>Back Up…</key>
+	<string>Back Up…</string>
+	<key>Bring All to Front</key>
+	<string>Bring All to Front</string>
+	<key>Check for Updates…</key>
+	<string>Check for Updates…</string>
+	<key>Close Window</key>
+	<string>Close Window</string>
+	<key>Controls</key>
+	<string>Controls</string>
+	<key>Copy</key>
+	<string>Copy</string>
+	<key>Cut</key>
+	<string>Cut</string>
+	<key>Delete</key>
+	<string>Delete</string>
+	<key>Display Duplicates</key>
+	<string>Display Duplicates</string>
+	<key>Display Exact Duplicates</key>
+	<string>Display Exact Duplicates</string>
+	<key>Edit</key>
+	<string>Edit</string>
+	<key>Edit Smart Collection</key>
+	<string>Edit Smart Collection</string>
+	<key>Export Collection</key>
+	<string>Export Collection</string>
+	<key>Export Library…</key>
+	<string>Export Library…</string>
+	<key>File</key>
+	<string>File</string>
+	<key>Find</key>
+	<string>Find</string>
+	<key>Find Next</key>
+	<string>Find Next</string>
+	<key>Find Previous</key>
+	<string>Find Previous</string>
+	<key>Find…</key>
+	<string>Find…</string>
+	<key>Float on Top</key>
+	<string>Float on Top</string>
+	<key>Fullscreen</key>
+	<string>Fullscreen</string>
+	<key>Get Info</key>
+	<string>Get Info</string>
+	<key>Help</key>
+	<string>Help</string>
+	<key>Hide OpenEmu</key>
+	<string>Hide OpenEmu</string>
+	<key>Hide Others</key>
+	<string>Hide Others</string>
+	<key>Import Collection</key>
+	<string>Import Collection</string>
+	<key>Jump to Selection</key>
+	<string>Jump to Selection</string>
+	<key>Last Display Mode</key>
+	<string>Last Display Mode</string>
+	<key>Last Played</key>
+	<string>Last Played</string>
+	<key>Launch Game…</key>
+	<string>Launch Game…</string>
+	<key>Load State</key>
+	<string>Load State</string>
+	<key>Log Responder Chain</key>
+	<string>Log Responder Chain</string>
+	<key>Minimize</key>
+	<string>Minimize</string>
+	<key>New Collection Folder</key>
+	<string>New Collection Folder</string>
+	<key>New Smart Collection…</key>
+	<string>New Smart Collection…</string>
+	<key>Next Display Mode</key>
+	<string>Next Display Mode</string>
+	<key>OpenEmu Web Site</key>
+	<string>OpenEmu Web Site</string>
+	<key>Organize Library…</key>
+	<string>Organize Library…</string>
+	<key>Page Setup…</key>
+	<string>Page Setup…</string>
+	<key>Paste</key>
+	<string>Paste</string>
+	<key>Preferences…</key>
+	<string>Preferences…</string>
+	<key>Print…</key>
+	<string>Print…</string>
+	<key>Quit OpenEmu</key>
+	<string>Quit OpenEmu</string>
+	<key>Redo</key>
+	<string>Redo</string>
+	<key>Release Notes</key>
+	<string>Release Notes</string>
+	<key>Save State</key>
+	<string>Save State</string>
+	<key>Select All</key>
+	<string>Select All</string>
+	<key>Send a Donation…</key>
+	<string>Send a Donation…</string>
+	<key>Services</key>
+	<string>Services</string>
+	<key>Show All</key>
+	<string>Show All</string>
+	<key>Show Library</key>
+	<string>Show Library</string>
+	<key>Show ROM Names</key>
+	<string>Show ROM Names</string>
+	<key>Start Game</key>
+	<string>Start Game</string>
+	<key>Submit Feedback</key>
+	<string>Submit Feedback</string>
+	<key>Take Native Screenshot</key>
+	<string>Take Native Screenshot</string>
+	<key>Take Screenshot</key>
+	<string>Take Screenshot</string>
+	<key>Undo</key>
+	<string>Undo</string>
+	<key>Undock Game Window</key>
+	<string>Undock Game Window</string>
+	<key>Use Selection for Find</key>
+	<string>Use Selection for Find</string>
+	<key>User Guide</key>
+	<string>User Guide</string>
+	<key>View</key>
+	<string>View</string>
+	<key>Volume Down</key>
+	<string>Volume Down</string>
+	<key>Volume Up</key>
+	<string>Volume Up</string>
+	<key>Window</key>
+	<string>Window</string>
+	<key>Zoom</key>
+	<string>Zoom</string>
+	<key>as Grid</key>
+	<string>as Grid</string>
+	<key>as List</key>
+	<string>as List</string>
+</dict>
+</plist>

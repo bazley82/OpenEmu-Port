@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>OpenEmuについて</string>
+	<key>Always Hide HUD</key>
+	<string>HUDを常に隠す</string>
+	<key>Back Up…</key>
+	<string>バックアップ…</string>
+	<key>Bring All to Front</key>
+	<string>全て手前に移動</string>
+	<key>Check for Updates…</key>
+	<string>アップデートを確認する…</string>
+	<key>Close Window</key>
+	<string>ウィンドウを閉じる</string>
+	<key>Controls</key>
+	<string>制御</string>
+	<key>Copy</key>
+	<string>コピー</string>
+	<key>Cut</key>
+	<string>カット</string>
+	<key>Delete</key>
+	<string>削除</string>
+	<key>Display Duplicates</key>
+	<string>重複項目を表示</string>
+	<key>Display Exact Duplicates</key>
+	<string>全く同じファイルを表示</string>
+	<key>Edit</key>
+	<string>編集</string>
+	<key>Edit Smart Collection</key>
+	<string>スマートコレクションを編集</string>
+	<key>Export Collection</key>
+	<string>コレクションをエクスポート</string>
+	<key>Export Library…</key>
+	<string>ライブラリをエクスポート…</string>
+	<key>File</key>
+	<string>ファイル</string>
+	<key>Find</key>
+	<string>検索</string>
+	<key>Find Next</key>
+	<string>次を選択</string>
+	<key>Find Previous</key>
+	<string>前を検索</string>
+	<key>Find…</key>
+	<string>検索…</string>
+	<key>Float on Top</key>
+	<string>常に手前に表示</string>
+	<key>Fullscreen</key>
+	<string>フルスクリーン</string>
+	<key>Get Info</key>
+	<string>情報を見る</string>
+	<key>Help</key>
+	<string>ヘルプ</string>
+	<key>Hide OpenEmu</key>
+	<string>OpenEmuを隠す</string>
+	<key>Hide Others</key>
+	<string>そのほかの項目を隠す</string>
+	<key>Import Collection</key>
+	<string>コレクションをインポート</string>
+	<key>Jump to Selection</key>
+	<string>選択した項目へ移動</string>
+	<key>Last Display Mode</key>
+	<string>前のディスプレイモード</string>
+	<key>Last Played</key>
+	<string>最後に起動したゲーム</string>
+	<key>Launch Game…</key>
+	<string>ゲームを起動…</string>
+	<key>Load State</key>
+	<string>ロードステート</string>
+	<key>Log Responder Chain</key>
+	<string>Log Responder Chain</string>
+	<key>Minimize</key>
+	<string>しまう</string>
+	<key>New Collection Folder</key>
+	<string>新規コレクションフォルダ</string>
+	<key>New Smart Collection…</key>
+	<string>新規スマートコレクション…</string>
+	<key>Next Display Mode</key>
+	<string>次のディスプレイモード</string>
+	<key>OpenEmu Web Site</key>
+	<string>OpenEmuウェブサイト</string>
+	<key>Organize Library…</key>
+	<string>ライブラリを整理する…</string>
+	<key>Page Setup…</key>
+	<string>ページ設定…</string>
+	<key>Paste</key>
+	<string>ペースト</string>
+	<key>Preferences…</key>
+	<string>環境設定…</string>
+	<key>Print…</key>
+	<string>印刷…</string>
+	<key>Quit OpenEmu</key>
+	<string>OpenEmuを終了する</string>
+	<key>Redo</key>
+	<string>繰り返す</string>
+	<key>Release Notes</key>
+	<string>リリースノート</string>
+	<key>Save State</key>
+	<string>セーブステート</string>
+	<key>Select All</key>
+	<string>すべてを選択</string>
+	<key>Send a Donation…</key>
+	<string>寄付…</string>
+	<key>Services</key>
+	<string>サービス</string>
+	<key>Show All</key>
+	<string>全て表示</string>
+	<key>Show Library</key>
+	<string>ライブラリを表示</string>
+	<key>Show ROM Names</key>
+	<string>ROM名を表示</string>
+	<key>Start Game</key>
+	<string>ゲームを開始する</string>
+	<key>Submit Feedback</key>
+	<string>フィードバックを送信</string>
+	<key>Take Screenshot</key>
+	<string>スクリーンショットを撮る</string>
+	<key>Undo</key>
+	<string>取り消す</string>
+	<key>Undock Game Window</key>
+	<string>ゲームウインドウを切り離す</string>
+	<key>Use Selection for Find</key>
+	<string>Use Selection for Find</string>
+	<key>User Guide</key>
+	<string>ユーザーガイド</string>
+	<key>View</key>
+	<string>表示</string>
+	<key>Volume Down</key>
+	<string>音量を下げる</string>
+	<key>Volume Up</key>
+	<string>音量を上げる</string>
+	<key>Window</key>
+	<string>ウィンドウ</string>
+	<key>Zoom</key>
+	<string>拡大</string>
+	<key>as Grid</key>
+	<string>グリッド表示</string>
+	<key>as List</key>
+	<string>リスト表示</string>
+</dict>
+</plist>

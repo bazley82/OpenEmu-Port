@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>"%@" in %@</key>
+	<string>"%1$@" a %2$@</string>
+	<key>%@ copy</key>
+	<string>Còpia de %@</string>
+	<key>%@ could not be enabled because its plugin was not found.</key>
+	<string>No s'ha pogut habilitar %@ perquè no s'ha trobat el seu connector.</string>
+	<key>%@ games will appear here. Check out %@ on how to add disc-based games.</key>
+	<string>Els jocs de %@ apareixaran aquí. Per afegir jocs basats en disc veieu %@.</string>
+	<key>%@ games you add to OpenEmu will appear in this Console Library</key>
+	<string>Els jocs de %@ que afegiu a l'OpenEmu apareixeran en aquesta biblioteca</string>
+	<key>%ux</key>
+	<string>%ux</string>
+	<key>A name is required.</key>
+	<string>A name is required.</string>
+	<key>ALERT_CORE_GLITCHES_FEEDBACK_HTML</key>
+	<string>&lt;b&gt;Si aquest problema persisteix&lt;/b&gt;, si us plau, envieu-nos comentaris en anglès que inclogui:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;El model de Mac que esteu utilitzant &lt;b&gt;i&lt;/b&gt; la versió de macOS que teniu instal·lada&lt;ul&gt;&lt;li&gt;Aquesta informació es troba a  &gt; Sobre aquest Mac&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;El &lt;b&gt;nom exacte&lt;/b&gt; del joc al qual estàveu jugant&lt;/li&gt;&lt;li&gt;L'informe de fallada de l'OpenEmuHelperApp&lt;ul&gt;&lt;li&gt;Obriu Console.app, feu clic a "Informes d'errors" o "Informes d'usuari" a la barra lateral, després busqueu el document més recent amb el nom OpenEmuHelperApp&lt;/ul&gt;&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Busqueu primer els comentaris similars reportats prèviament per altres usuaris&lt;/b&gt;&lt;br&gt;Si s'omet qualsevol d'aquesta informació, o si ja s'ha reportat una incidència semblant, aquest informe es podria tancar.</string>
+	<key>ALERT_INPUT_MONITORING_HEADLINE</key>
+	<string>L'OpenEmu necessita permisos addicionals</string>
+	<key>ALERT_INPUT_MONITORING_PART1</key>
+	<string>L'OpenEmu ha de tenir concedit el permís de monitorització d'entrada per poder utilitzar el teclat com a dispositiu d'entrada.</string>
+	<key>ALERT_INPUT_MONITORING_PART2</key>
+	<string>Commutar el permís també pot resoldre problemes del teclat.</string>
+	<key>ALERT_INPUT_MONITORING_PART2_MONTEREY</key>
+	<string>Eliminar i tornar a concedir el permís també pot resoldre problemes del teclat.</string>
+	<key>ALERT_MOVE_LIBRARY_HTML</key>
+	<string>La biblioteca dels jocs de l'OpenEmu conté un fitxer de base de dades que podria corrompre's si la biblioteca es mou als següents llocs:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Carpetes gestionades per programari de sincronització en el núvol (com ara &lt;b&gt;iCloud Drive&lt;/b&gt;)&lt;/li&gt;&lt;li&gt;Unitats de xarxa&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;A més, &lt;b&gt;compartir la mateixa biblioteca entre diversos ordinadors o usuaris&lt;/b&gt; també pot corrompre-la. Això també s'aplica a moure la biblioteca a unitats USB externes.</string>
+	<key>Add</key>
+	<string>Afegeix</string>
+	<key>Add Cheat</key>
+	<string>Afegeix un truc</string>
+	<key>Add Cheat…</key>
+	<string>Afegeix un truc…</string>
+	<key>Add Cover Art from File…</key>
+	<string>Afegeix la caràtula a partir d'un fitxer…</string>
+	<key>Add a Wiimote…</key>
+	<string>Afegeix un Wiimote…</string>
+	<key>Add to Collection</key>
+	<string>Afegeix a la col·lecció</string>
+	<key>Add to Library…</key>
+	<string>Afegeix a la biblioteca…</string>
+	<key>All Games</key>
+	<string>Tots els jocs</string>
+	<key>All Homebrew</key>
+	<string>Tots els «homebrew»</string>
+	<key>Already in library, but manually deleted or unreachable:</key>
+	<string>Ja és a la biblioteca, però s'ha esborrat o és inaccessible:</string>
+	<key>Already in library:</key>
+	<string>Ja és a la biblioteca:</string>
+	<key>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</key>
+	<string>S'ha produït un error mentre es preparava l'assistent de configuració. (%@) Assegureu-vos que esteu connectat a Internet i torneu-ho a intentar.</string>
+	<key>An issue was detected with one of your controllers.</key>
+	<string>S'ha detectat un problema en un dels controladors.</string>
+	<key>Are you sure you want to delete %ld save states from your OpenEmu library?</key>
+	<string>Esteu segur que voleu esborrar %ld partides desades de la biblioteca de l'OpenEmu?</string>
+	<key>Are you sure you want to delete %ld screenshots from your OpenEmu library?</key>
+	<string>Esteu segur que voleu esborrar %ld captures de pantalla de la biblioteca de l'OpenEmu?</string>
+	<key>Are you sure you want to delete the save state called '%@' from your OpenEmu library?</key>
+	<string>Esteu segur que voleu esborrar la partida desada anomenada '%@' de la biblioteca de l'OpenEmu?</string>
+	<key>Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?</key>
+	<string>Esteu segur que voleu esborrar la captura de pantalla anomenada '%@' de la biblioteca de l'OpenEmu?</string>
+	<key>Are you sure you want to delete the selected game from your OpenEmu library?</key>
+	<string>Esteu segur que voleu esborrar el joc seleccionat de la biblioteca de l'OpenEmu?</string>
+	<key>Are you sure you want to delete the selected games from your OpenEmu library?</key>
+	<string>Esteu segur que voleu esborrar els jocs seleccionats de la biblioteca de l'OpenEmu?</string>
+	<key>Are you sure you want to delete the shader preset called '%@'?</key>
+	<string>Are you sure you want to delete the shader preset called '%@'?</string>
+	<key>Are you sure you want to quit the application?</key>
+	<string>Esteu segur que voleu sortir de l'aplicació?</string>
+	<key>Are you sure you want to quit the game?</key>
+	<string>Esteu segur que voleu aturar la partida?</string>
+	<key>Are you sure you want to remove the collection '%@'?</key>
+	<string>Esteu segur que voleu esborrar la col·lecció '%@'?</string>
+	<key>Are you sure you want to remove the selected game from the collection?</key>
+	<string>Esteu segur que voleu esborrar el joc seleccionat de la col·lecció?</string>
+	<key>Are you sure you want to remove the selected games from the collection?</key>
+	<string>Esteu segur que voleu esborrar els jocs seleccionats de la col·lecció?</string>
+	<key>Are you sure you want to restart the game?</key>
+	<string>Esteu segur que voleu reiniciar la partida?</string>
+	<key>At least one System must be enabled</key>
+	<string>Com a mínim un sistema ha d'estar habilitat</string>
+	<key>Auto Save State</key>
+	<string>Partida desada automàticament</string>
+	<key>Bluetooth Not Enabled</key>
+	<string>El Bluetooth no està habilitat</string>
+	<key>Bluetooth must be enabled to pair a Wii controller.</key>
+	<string>Per a aparellar un controlador de la Wii el Bluetooth ha d'estar habilitat.</string>
+	<key>Cancel</key>
+	<string>Cancel·la</string>
+	<key>Cancel Cover Art Download</key>
+	<string>Cancel·la la baixada de les caràtules</string>
+	<key>Category</key>
+	<string>Categoria</string>
+	<key>Change Core</key>
+	<string>Canvia el nucli</string>
+	<key>Change Volume</key>
+	<string>Canvia el volum</string>
+	<key>Changed button for %1$@ to %2$@.</key>
+	<string>S'ha canviat el botó per a %1$@ a %2$@.</string>
+	<key>Cheat Description</key>
+	<string>Descripció del truc</string>
+	<key>Check out some excellent homebrew games.</key>
+	<string>Proveu alguns jocs homebrew excel·lents.</string>
+	<key>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</key>
+	<string>Tria el menú Apple  &gt; Preferències del Sistema, fes clic en Seguretat i Privadesa, després selecciona la pestanya Privadesa. Elimina el permís existent de Fitxers i Carpetes per a OpenEmu, si existeix, i en el seu lloc concedeix Accés Complet al Disc.</string>
+	<key>Choose Library…</key>
+	<string>Trieu la biblioteca…</string>
+	<key>Choose Location…</key>
+	<string>Choose Location…</string>
+	<key>Choose OpenEmu Library</key>
+	<string>Trieu una biblioteca de l'OpenEmu</string>
+	<key>Choose a valid file.</key>
+	<string>Seleccioneu un fitxer vàlid.</string>
+	<key>Code:</key>
+	<string>Codi:</string>
+	<key>Collections</key>
+	<string>Col·leccions</string>
+	<key>Configure Shader…</key>
+	<string>Configurar el shader…</string>
+	<key>Console</key>
+	<string>Consola</string>
+	<key>Consoles</key>
+	<string>Consoles</string>
+	<key>Consolidate</key>
+	<string>Consolida</string>
+	<key>Consolidate Files…</key>
+	<string>Consolida els fitxers…</string>
+	<key>Consolidating files failed.</key>
+	<string>Ha fallat la consolidació de fitxers.</string>
+	<key>Consolidating will copy all of the selected games into the OpenEmu Library folder.</key>
+	<string>El procés de consolidació copiarà tots els jocs seleccionats a la carpeta de la biblioteca de l'OpenEmu.</string>
+	<key>Contains no data:</key>
+	<string>No conté dades:</string>
+	<key>Continue</key>
+	<string>Continua</string>
+	<key>Controls</key>
+	<string>Controls</string>
+	<key>Copying Artwork Files…</key>
+	<string>S'estan copiant les imatges…</string>
+	<key>Copying Game Files…</key>
+	<string>S'estan copiant els jocs…</string>
+	<key>Copying ROM Files…</key>
+	<string>S'estan copiant els fitxers ROM…</string>
+	<key>Copying ROM files failed!</key>
+	<string>Ha fallat la còpia dels fitxers ROM.</string>
+	<key>Copying artwork failed!</key>
+	<string>La còpia de les imatges ha fallat.</string>
+	<key>Core</key>
+	<string>Nucli</string>
+	<key>Core Provided By…</key>
+	<string>Nucli proveït per…</string>
+	<key>Cores</key>
+	<string>Nuclis</string>
+	<key>Could not move library data!</key>
+	<string>No s'ha pogut moure les dades de la biblioteca.</string>
+	<key>Couldn't load %@ plugin</key>
+	<string>No s'ha pogut carregar el connector %@</string>
+	<key>Create Library…</key>
+	<string>Crea una biblioteca…</string>
+	<key>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</key>
+	<string>Creeu una selecció personal de jocs. Per a afegir un joc a la col·lecció, seleccioneu-lo de la biblioteca i arrossegueu-lo a ’%@’ a la barra lateral.</string>
+	<key>Create or Load Save State</key>
+	<string>Crea o carrega una partida desada</string>
+	<key>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</key>
+	<string>Creeu una col·lecció personal de captures de pantalla. Per a fer una captura de pantalla podeu utilitzar la drecera de teclat ⌘ + T mentre jugueu.</string>
+	<key>Decrease Grid Size</key>
+	<string>Redueix la mida de la graella</string>
+	<key>Default %@ preset for %@</key>
+	<string>Default %@ preset for %@</string>
+	<key>Default Core</key>
+	<string>Nucli per defecte</string>
+	<key>Delete</key>
+	<string>Esborra</string>
+	<key>Delete Collection</key>
+	<string>Esborra la col·lecció</string>
+	<key>Delete Game</key>
+	<string>Esborra el joc</string>
+	<key>Delete Games</key>
+	<string>Esborra els jocs</string>
+	<key>Delete Save</key>
+	<string>Esborra la partida</string>
+	<key>Delete Save State</key>
+	<string>Esborra la partida desada</string>
+	<key>Delete Save States</key>
+	<string>Esborra les partides desades</string>
+	<key>Delete Saves</key>
+	<string>Esborra les partides</string>
+	<key>Delete Screenshot</key>
+	<string>Esborra la captura de pantalla</string>
+	<key>Delete Screenshots</key>
+	<string>Esborra les captures de pantalla</string>
+	<key>Delete Shader Preset</key>
+	<string>Delete Shader Preset</string>
+	<key>Description</key>
+	<string>Descripció</string>
+	<key>Deselect All</key>
+	<string>Desselecciona-ho tot</string>
+	<key>Device Disconnected</key>
+	<string>S'ha desconnectat el dispositiu</string>
+	<key>Device number %lu, %@, has disconnected.</key>
+	<string>S'ha desconnectat el dispositiu número %lu, %@.</string>
+	<key>Disc %u</key>
+	<string>Disc %u</string>
+	<key>Disc-based games have special requirements. Please read the disc importing guide.</key>
+	<string>Els jocs basats en disc tenen requisits especials. Llegiu la guia d'importació de discs.</string>
+	<key>Dismiss</key>
+	<string>Descarta</string>
+	<key>Do not ask me again</key>
+	<string>No m'ho tornis a dir</string>
+	<key>Do not show me again</key>
+	<string>No m'ho tornis a mostrar</string>
+	<key>Do you really want to cancel importation?</key>
+	<string>Segur que voleu cancel·lar el procés d'importació?</string>
+	<key>Do you want to continue playing where you left off?</key>
+	<string>Voleu continuar la partida on la vau deixar?</string>
+	<key>Don't Import Selected</key>
+	<string>No importis els seleccionats</string>
+	<key>Done</key>
+	<string>Fet</string>
+	<key>Download</key>
+	<string>Baixa</string>
+	<key>Download Cover Art</key>
+	<string>Baixa la caràtula</string>
+	<key>Downloading %@…</key>
+	<string>S'està baixant %@…</string>
+	<key>Downloading Game DB</key>
+	<string>S'està baixant la base de dades de jocs</string>
+	<key>Downloading and Installing Core…</key>
+	<string>S'està baixant i instal·lant el nucli…</string>
+	<key>Downloading core list...</key>
+	<string>S'està baixant la llista de nuclis...</string>
+	<key>Drag &amp; Drop Games Here</key>
+	<string>Arrossegueu i deixeu anar aquí els jocs</string>
+	<key>Drag &amp; Drop Save States Here</key>
+	<string>Arrossegueu i deixeu anar les partides</string>
+	<key>Duplicate Collection</key>
+	<string>Duplica la col·lecció</string>
+	<key>ECM compressed binaries cannot be imported. Please read the disc importing guide.</key>
+	<string>No es poden importar binaris comprimits amb ECM. Llegiu la guia d'importació dels discs.</string>
+	<key>ECM compressed binary detected.</key>
+	<string>S'ha detectat un binari comprimit amb ECM.</string>
+	<key>ERROR_PLUGIN_IMPORT_ALREADYLOADED</key>
+	<string>Ja s'ha carregat una versió d'aquest connector</string>
+	<key>ERROR_PLUGIN_IMPORT_OUTOFSUPPORT</key>
+	<string>Aquest connector no està actualment suportat</string>
+	<key>Edit Game Controls…</key>
+	<string>Edita els controls del joc…</string>
+	<key>Enable now</key>
+	<string>Habilita ara</string>
+	<key>Error!</key>
+	<string>S'ha produït un error.</string>
+	<key>Everything</key>
+	<string>Tots</string>
+	<key>Featured Games</key>
+	<string>Jocs destacats</string>
+	<key>Fetching Games…</key>
+	<string>S'estan obtenint els jocs…</string>
+	<key>Files failed to import.</key>
+	<string>Ha fallat la importació dels fitxers.</string>
+	<key>Fill Screen</key>
+	<string>Omple la pantalla</string>
+	<key>Filter by:</key>
+	<string>Filtra per:</string>
+	<key>Game %ld of %ld</key>
+	<string>Joc %1$ld de %2$ld</string>
+	<key>Game Name</key>
+	<string>Nom del joc</string>
+	<key>Game Scanner</key>
+	<string>Escàner de jocs</string>
+	<key>Game requires download</key>
+	<string>S'ha de baixar el joc</string>
+	<key>Gameplay</key>
+	<string>Joc</string>
+	<key>Grid Size</key>
+	<string>Mida de la graella</string>
+	<key>Have you read the guide?</key>
+	<string>Heu llegit la guia?</string>
+	<key>Hide "%@"</key>
+	<string>Amaga "%@"</string>
+	<key>Homebrew Games</key>
+	<string>Jocs «homebrew»</string>
+	<key>I understand the risks</key>
+	<string>Comprenc els riscs</string>
+	<key>If there is a red button on the back battery cover, press it.
+If not, hold down buttons ①+②.</key>
+	<string>Si hi ha un botó vermell al darrere de la tapa de la bateria, premeu-lo.
+Si no, manteniu premuts els botons ①+②.</string>
+	<key>If you change the core you current progress will be lost and save states will not work anymore.</key>
+	<string>Si canvieu el nucli el progrés es perdrà i les partides desades deixaran de funcionar.</string>
+	<key>Ignore</key>
+	<string>Ignora</string>
+	<key>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</key>
+	<string>Aquest connector del nucli se suprimirà automàticament en uns dies. Un cop eliminat, qualsevol estat desat amb ell deixarà de funcionar.</string>
+	<key>In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information.</key>
+	<string>Degut a la gran complexitat del maquinari i programari de les consoles modernes, per poder emular alguns sistemes es necessiten fitxers de la BIOS. Per a més informació, llegiu la %@.</string>
+	<key>In order to play the game it must be downloaded.</key>
+	<string>Per poder jugar al joc primer s'ha de baixar.</string>
+	<key>Increase Grid Size</key>
+	<string>Augmenta la mida de la graella</string>
+	<key>Insert Cart/Disk/Tape…</key>
+	<string>Insereix Cartutx/Disc/Cinta…</string>
+	<key>Install</key>
+	<string>Instal·la</string>
+	<key>Install %@</key>
+	<string>Instal·la %@</string>
+	<key>Install %@ and Set as Default</key>
+	<string>Instal·la %@ i estableix per defecte</string>
+	<key>Installing Core</key>
+	<string>S'està instal·lant el nucli</string>
+	<key>Invalid cue sheet format:</key>
+	<string>El format cue no és vàlid:</string>
+	<key>Invalid gdi format:</key>
+	<string>El format gdi no és vàlid:</string>
+	<key>Join multi-line cheats with '+' e.g. 000-000+111-111</key>
+	<string>Uneix els trucs multilínia amb '+' p. ex. 000-000+111-111</string>
+	<key>Keyboard</key>
+	<string>Teclat</string>
+	<key>Keycode 0x%lX</key>
+	<string>Codi de tecla 0x%lX</string>
+	<key>Last Played</key>
+	<string>Jugat per última vegada</string>
+	<key>Learn More</key>
+	<string>Més informació</string>
+	<key>Library</key>
+	<string>Biblioteca</string>
+	<key>Load</key>
+	<string>Carrega</string>
+	<key>Locate '%@'</key>
+	<string>Troba '%@'</string>
+	<key>Locate…</key>
+	<string>Troba…</string>
+	<key>Low Controller Battery</key>
+	<string>La càrrega de la bateria del controlador és baixa</string>
+	<key>MOVE_ALERT_INFO_TEXT</key>
+	<string>OpenEmu must move to your Applications folder in order to work properly.</string>
+	<key>MOVE_ALERT_MOVE_BUTTON</key>
+	<string>Move to Applications folder</string>
+	<key>MOVE_ALERT_NEEDS_AUTH</key>
+	<string>You need to authenticate with an administrator name and password to complete this step. Alternatively, you can choose a different location or quit the App and move it manually.</string>
+	<key>MOVE_ALERT_TITLE</key>
+	<string>Move to Applications folder</string>
+	<key>Make sure your internet connection is active and download a suitable core.</key>
+	<string>Assegureu-vos que la connexió a Internet està activada i baixeu un nucli adequat.</string>
+	<key>Make your Wiimote discoverable</key>
+	<string>Feu que el Wiimote sigui detectable</string>
+	<key>Missing Core</key>
+	<string>Falta el nucli</string>
+	<key>Missing referenced file:</key>
+	<string>Falta el fitxer referenciat:</string>
+	<key>Move to Trash</key>
+	<string>Mou a la paperera</string>
+	<key>Moving Library…</key>
+	<string>S'està movent la biblioteca…</string>
+	<key>Moving the Game Library is not recommended</key>
+	<string>No es recomana moure la biblioteca dels jocs</string>
+	<key>Must not be compressed:</key>
+	<string>No s'ha de comprimir:</string>
+	<key>Mute Audio</key>
+	<string>Silencia el so</string>
+	<key>NOT FOUND: "%@"</key>
+	<string>No s'ha trobat: "%@"</string>
+	<key>Name</key>
+	<string>Nom</string>
+	<key>Name must not contain “%@.”</key>
+	<string>Name must not contain “%@.”</string>
+	<key>New Collection</key>
+	<string>Nova col·lecció</string>
+	<key>New Collection from Selection</key>
+	<string>Nova col·lecció de la selecció</string>
+	<key>New Folder</key>
+	<string>Nova carpeta</string>
+	<key>New Shader Preset</key>
+	<string>New Shader Preset</string>
+	<key>New Smart Collection</key>
+	<string>Nova col·lecció intel·ligent</string>
+	<key>No</key>
+	<string>No</string>
+	<key>No Internet Connection</key>
+	<string>No hi ha connexió a Internet</string>
+	<key>No Save States available</key>
+	<string>No hi ha cap partida desada disponible</string>
+	<key>No Screenshots Found</key>
+	<string>No s'ha trobat cap captura de pantalla</string>
+	<key>No available controllers</key>
+	<string>No hi ha cap controlador disponible</string>
+	<key>No game played yet!</key>
+	<string>Encara no heu jugat a cap joc</string>
+	<key>No parameters available.</key>
+	<string>No parameters available.</string>
+	<key>No permission to open:</key>
+	<string>No hi ha permisos per obrir:</string>
+	<key>No valid system detected:</key>
+	<string>No s'ha detectat cap sistema vàlid:</string>
+	<key>None</key>
+	<string>Cap</string>
+	<key>Not assigned</key>
+	<string>Sense assignar</string>
+	<key>Not plain text:</key>
+	<string>No és text sense format:</string>
+	<key>OK</key>
+	<string>D'acord</string>
+	<key>Only files in the OpenEmu Library folder will be moved to the Trash.</key>
+	<string>Només es mouran a la paperera els fitxers de la carpeta de la biblioteca de l'OpenEmu.</string>
+	<key>Open Collection</key>
+	<string>Obre la col·lecció</string>
+	<key>Open Library</key>
+	<string>Obre la biblioteca</string>
+	<key>Open System Preferences</key>
+	<string>Obre les preferències del sistema</string>
+	<key>OpenEmu could not download required data from the internet</key>
+	<string>L'OpenEmu no ha pogut baixar les dades necessàries d'Internet</string>
+	<key>OpenEmu could not find a Core to launch the game</key>
+	<string>L'OpenEmu no ha trobat el nucli per executar el joc</string>
+	<key>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</key>
+	<string>L'OpenEmu inclou una funcionalitat que us permet continuar la partida exactament on la vau deixar.</string>
+	<key>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</key>
+	<string>L'OpenEmu necessita una biblioteca per continuar. Podeu triar una biblioteca existent o crear-ne una de nova</string>
+	<key>OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@</key>
+	<string>L'OpenEmu utilitza 'nuclis' per emular els jocs. Necessiteu el nucli %1$@ per jugar a %2$@</string>
+	<key>OpenEmu will save and quit all games that are currently running.</key>
+	<string>L'OpenEmu guardarà i tancarà tots els jocs que s'estan executant.</string>
+	<key>Options</key>
+	<string>Opcions</string>
+	<key>Parameters</key>
+	<string>Parameters</string>
+	<key>Paste parameters</key>
+	<string>Paste parameters</string>
+	<key>Pause Game</key>
+	<string>Pausa la partida</string>
+	<key>Pause/Restart</key>
+	<string>Pausa/Reinicia</string>
+	<key>Play</key>
+	<string>Inicia</string>
+	<key>Play Count</key>
+	<string>Vegades jugat</string>
+	<key>Play Game</key>
+	<string>Inicia el joc</string>
+	<key>Play Games (Caution)</key>
+	<string>Inicia els jocs (Precaució)</string>
+	<key>Play Save Games</key>
+	<string>Continua la partida desada</string>
+	<key>Play Save State</key>
+	<string>Continua la partida desada</string>
+	<key>Play Time</key>
+	<string>Estona jugat</string>
+	<key>Player %ld</key>
+	<string>Jugador %ld</string>
+	<key>Please close all games and wait for the importer to finish.</key>
+	<string>Tanqueu tots els jocs i espereu que l'importador acabi.</string>
+	<key>Quick Load</key>
+	<string>Carrega la partida ràpidament</string>
+	<key>Quick Save</key>
+	<string>Desa la partida ràpidament</string>
+	<key>Quick Save State</key>
+	<string>Desa la partida ràpidament</string>
+	<key>Quick Save, Slot %@</key>
+	<string>Desa ràpidament, espai %@</string>
+	<key>Quit</key>
+	<string>Surt</string>
+	<key>Quit Game</key>
+	<string>Atura la partida</string>
+	<key>Quit OpenEmu</key>
+	<string>Surt de l'OpenEmu</string>
+	<key>Rating</key>
+	<string>Valoració</string>
+	<key>Recently Added</key>
+	<string>Afegits recentment</string>
+	<key>Recovered Auto Save</key>
+	<string>Partida desada automàticament recuperada</string>
+	<key>Remove Collection</key>
+	<string>Suprimeix col·lecció</string>
+	<key>Remove Game</key>
+	<string>Suprimeix el joc</string>
+	<key>Remove Games</key>
+	<string>Suprimeix els jocs</string>
+	<key>Rename</key>
+	<string>Canvia el nom</string>
+	<key>Rename "%@"</key>
+	<string>Canvia el nom de "%@"</string>
+	<key>Rename Game</key>
+	<string>Canvia el nom del joc</string>
+	<key>Rename Shader Preset</key>
+	<string>Rename Shader Preset</string>
+	<key>Rename Special Save State or something?</key>
+	<string>Reanomena la partida desada especial o alguna cosa?</string>
+	<key>Reopen without loading state</key>
+	<string>Torna a obrir sense carregar l'estat</string>
+	<key>Required files are missing.</key>
+	<string>Falten els arxius requerits.</string>
+	<key>Reset parameters</key>
+	<string>Reset parameters</string>
+	<key>Resolve %ld Issue</key>
+	<string>Resoleu %ld problema</string>
+	<key>Resolve %ld Issues</key>
+	<string>Resoleu %ld problemes</string>
+	<key>Restart</key>
+	<string>Reinicia</string>
+	<key>Restart Game</key>
+	<string>Reinicia la partida</string>
+	<key>Resume</key>
+	<string>Continua</string>
+	<key>Resume Game</key>
+	<string>Continua la partida</string>
+	<key>Retry</key>
+	<string>Reintenta</string>
+	<key>SHARE_STANDARD_MENU_ITEM_TITLE</key>
+	<string>Compartir…</string>
+	<key>Save As:</key>
+	<string>Anomena i desa:</string>
+	<key>Save Current Game…</key>
+	<string>Desa el joc actual…</string>
+	<key>Save Game</key>
+	<string>Desa el joc</string>
+	<key>Save Games</key>
+	<string>Partides desades</string>
+	<key>Save States</key>
+	<string>Partides desades</string>
+	<key>Save-Game-%ld %@</key>
+	<string>Save-Game-%ld %@</string>
+	<key>Scanner Paused</key>
+	<string>S'ha pausat l'escàner</string>
+	<key>Scanning Directory</key>
+	<string>S'està escanejant el directori</string>
+	<key>Screenshots</key>
+	<string>Captures de pantalla</string>
+	<key>Search</key>
+	<string>Cerca</string>
+	<key>Secrets</key>
+	<string>Secrets</string>
+	<key>Select All</key>
+	<string>Selecciona-ho tot</string>
+	<key>Select Audio Output Device</key>
+	<string>Selecciona un dispositiu de sortida de so</string>
+	<key>Select Cheat</key>
+	<string>Selecciona un truc</string>
+	<key>Select Core</key>
+	<string>Selecciona el nucli</string>
+	<key>Select Disc</key>
+	<string>Selecciona el disc</string>
+	<key>Select Display Mode</key>
+	<string>Selecciona el mode de visualització</string>
+	<key>Select Scale</key>
+	<string>Selecciona l'escala</string>
+	<key>Select Shader</key>
+	<string>Selecciona el shader</string>
+	<key>Shader Parameters</key>
+	<string>Paràmetres del shader</string>
+	<key>Share</key>
+	<string>Comparteix</string>
+	<key>Show in Finder</key>
+	<string>Obre la carpeta on es troba</string>
+	<key>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</key>
+	<string>Des de la versió 2.1, l'OpenEmu requereix una GPU que suporti Metal. Metal està disponible en tots els Macs que suporten macOS 10.14 o posterior.
+
+Com que l'OpenEmu no funciona amb la teva configuració actual de maquinari/programari, es tancarà.</string>
+	<key>Slot %ld</key>
+	<string>Espai %ld</string>
+	<key>Some migrations failed to complete properly</key>
+	<string>No s'ha completat correctament algunes migracions</string>
+	<key>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</key>
+	<string>A vegades pot ocórrer un accident mentre es carrega un estat desat a causa d'incompatibilitats entre diferents versions del mateix nucli. Vols obrir el joc sense carregar un estat desat?</string>
+	<key>Special thanks to everyone that made
+OpenEmu possible. To find out more
+about our contributors, emulator cores,
+documentation, licenses and to issue
+bugs please visit us on our GitHub.</key>
+	<string>Un agraïment especial a tothom qui ha fet
+ possible l'OpenEmu. Per saber més sobre els
+nostres col·laboradors, nuclis dels emuladors,
+documentació, llicències i per informar sobre
+incidències i/o errors visiteu el nostre GitHub.</string>
+	<key>Start Scanning</key>
+	<string>Escaneja</string>
+	<key>Stop</key>
+	<string>Atura</string>
+	<key>Switch To Grid View</key>
+	<string>Canvia a la visualització de graella</string>
+	<key>Switch To List View</key>
+	<string>Canvia a la visualització de llista</string>
+	<key>System</key>
+	<string>Sistema</string>
+	<key>System Default</key>
+	<string>Predeterminat del sistema</string>
+	<key>System Files</key>
+	<string>Fitxers del sistema</string>
+	<key>Takes you to the %@ project website</key>
+	<string>Us portarà al web del projecte %@</string>
+	<key>The %@ core has compatibility issues and some games may contain glitches or not play at all.
+
+Please do not report problems as we are not responsible for the development of %@.</key>
+	<string>El nucli %1$@ té problemes de compatibilitat i alguns jocs poden tenir defectes o no funcionar.
+
+No ens informeu dels problemes, ja que no som responsables del desenvolupament de %2$@.</string>
+	<key>The %@ core has quit unexpectedly</key>
+	<string>S'ha tancat inesperadament el nucli %@</string>
+	<key>The %@ core has quit unexpectedly after loading a save state</key>
+	<string>El nucli %@ ha tancat inesperadament després de carregar un estat desat</string>
+	<key>The %@ core plugin is deprecated</key>
+	<string>El connector del nucli %@ està obsolet</string>
+	<key>The %@ core plugin is deprecated, and will be removed soon</key>
+	<string>El connector del nucli %@ està obsolet i se suprimirà aviat</string>
+	<key>The OpenEmu Library could not be found.</key>
+	<string>No s'ha pogut trobar la biblioteca de l'OpenEmu.</string>
+	<key>The System plugin could not be found!</key>
+	<string>No s'ha pogut trobar el connector del sistema.</string>
+	<key>The battery in device number %lu, %@, is low. Please charge or replace the battery.</key>
+	<string>La càrrega de la bateria del dispositiu número %1$lu, %2$@, és baixa. Carregueu o substituïu la bateria.</string>
+	<key>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</key>
+	<string>El perfil de botons d'uns dels controladors no concorda amb el darrer perfil usat amb l'OpenEmu. S'ha restablert alguns dels controls associats al controlador.
+
+Podeu anar a les preferències dels controls per comprovar quines associacions s'han vist afectades.</string>
+	<key>The core could not be downloaded. Try installing it from the Cores preferences.</key>
+	<string>No s'ha pogut baixar el nucli. Intenteu instal·lar-lo des de les preferències dels nuclis.</string>
+	<key>The emulator could not load ROM.</key>
+	<string>L'emulador no ha pogut carregar el ROM.</string>
+	<key>The file you selected doesn't exist</key>
+	<string>El fitxer seleccionat no existeix</string>
+	<key>The game '%@' could not be started because a rom file could not be found. Do you want to locate it?</key>
+	<string>No s'ha pogut iniciar el joc '%@' perquè no s'ha trobat un fitxer ROM. El voleu localitzar?</string>
+	<key>The game '%@' was imported.</key>
+	<string>S'ha importat el joc '%@'.</string>
+	<key>This System has no corresponding core installed.</key>
+	<string>El sistema no té el nucli corresponent instal·lat.</string>
+	<key>This cannot be undone.</key>
+	<string>Això no es pot desfer.</string>
+	<key>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</key>
+	<string>Aquest connector del nucli no estarà disponible en el futur. Un cop suprimit, qualsevol estat desat amb ell deixarà de funcionar.</string>
+	<key>This save state was created with a different core. Do you want to switch to that core now?</key>
+	<string>Aquesta partida desada es va crear utilitzant un nucli diferent. Voleu canviar a aquest altre nucli?</string>
+	<key>This will remove all items from the queue. Items that finished importing will be preserved in your library.</key>
+	<string>Això suprimirà tots els elements de la cua. Els elements que ja s'han importat es conservaran a la biblioteca.</string>
+	<key>Title:</key>
+	<string>Títol:</string>
+	<key>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</key>
+	<string>Per assignar una nova tecla o botó a %@, prem aquest botó, després prem la tecla o botó desitjat al teu teclat o gamepad.</string>
+	<key>To launch the save state %@ you will need to install the '%@' Core</key>
+	<string>Per continuar la partida desada %1$@ heu d'instal·lar el nucli '%2$@'</string>
+	<key>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</key>
+	<string>Per executar aquest nucli necessiteu el següent:
+
+%@Arrossegueu i deixeu anar el(s) fitxer(s) requerit(s) sobre la finestra de la biblioteca dels jocs i torneu-ho a provar.</string>
+	<key>Toggle Fullscreen</key>
+	<string>Commuta el mode de pantalla completa</string>
+	<key>Toolbar: Homebrew</key>
+	<string>Homebrew</string>
+	<key>Toolbar: Library</key>
+	<string>Biblioteca</string>
+	<key>Toolbar: Save States</key>
+	<string>Partides</string>
+	<key>Toolbar: Screenshots</key>
+	<string>Captures</string>
+	<key>Trash downloaded Files</key>
+	<string>Esborra els fitxers baixats</string>
+	<key>Unexpected error:</key>
+	<string>Error inesperat:</string>
+	<key>Unmute Audio</key>
+	<string>Activa el so</string>
+	<key>Update</key>
+	<string>Actualitza</string>
+	<key>Updating Library</key>
+	<string>S'està actualitzant la biblioteca</string>
+	<key>User guide on BIOS files</key>
+	<string>Guia d'usuari sobre els arxius de la BIOS</string>
+	<key>Version</key>
+	<string>Versió</string>
+	<key>View Guide in Browser</key>
+	<string>Llegiu la guia en el navegador</string>
+	<key>View Mode</key>
+	<string>Mode de visualització</string>
+	<key>Volume</key>
+	<string>Volum</string>
+	<key>Warning</key>
+	<string>Avís</string>
+	<key>We suggest you switch to the %@ core plugin as soon as possible.</key>
+	<string>Us suggerim que canvieu al connector del nucli %@ el més aviat possible.</string>
+	<key>With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves.</key>
+	<string>Amb l'OpenEmu podeu desar el vostre progrés en qualsevol moment. L'OpenEmu fins i tot desarà la partida automàticament quan sortiu del joc. Torneu aquí per obtenir una visió general de totes les partides desades.</string>
+	<key>Won't be able to recognize it as special save state…</key>
+	<string>No es podrà reconèixer com una partida desada especial…</string>
+	<key>Would you like to continue your last game?</key>
+	<string>Voleu continuar des de l'última partida?</string>
+	<key>Would you like to save your game before you quit?</key>
+	<string>Voleu desar la partida abans de sortir?</string>
+	<key>Yes</key>
+	<string>Sí</string>
+	<key>You can't move your library into one of its subfolders.</key>
+	<string>No es pot moure la biblioteca a una subcarpeta de la mateixa.</string>
+	<key>You need to restart the application to commit the change</key>
+	<string>Heu de reiniciar l'aplicació per aplicar el canvi</string>
+	<key>Your Mac is too old for this version of OpenEmu</key>
+	<string>Aquest Mac és massa antic per a aquesta versió de l'OpenEmu</string>
+	<key>Your game finished importing, do you want to play it now?</key>
+	<string>S'ha finalitzat la importació, voleu jugar-hi ara?</string>
+	<key>Your library was moved sucessfully.</key>
+	<string>S'ha mogut la biblioteca correctament.</string>
+	<key>this guide</key>
+	<string>aquesta guia</string>
+</dict>
+</plist>

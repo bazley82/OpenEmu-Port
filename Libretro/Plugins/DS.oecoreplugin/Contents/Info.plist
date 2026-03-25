@@ -23,7 +23,7 @@
 	<key>OEGameCoreClass</key>
 	<string>OELibretroGameCore</string>
 	<key>OEGameCorePlayerCount</key>
-	<string>1</string>
+	<string>4</string>
 	<key>OESystemIdentifiers</key>
 	<array>
 		<string>openemu.system.nds</string>

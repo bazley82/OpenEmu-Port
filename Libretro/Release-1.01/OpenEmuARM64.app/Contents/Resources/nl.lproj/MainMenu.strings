@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>Over OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Verberg HUD altijd</string>
+	<key>Back Up…</key>
+	<string>Maak reservekopie…</string>
+	<key>Bring All to Front</key>
+	<string>Alles op voorgrond</string>
+	<key>Check for Updates…</key>
+	<string>Zoek naar nieuwe versie…</string>
+	<key>Close Window</key>
+	<string>Sluit venster</string>
+	<key>Controls</key>
+	<string>Bediening</string>
+	<key>Copy</key>
+	<string>Kopieer</string>
+	<key>Cut</key>
+	<string>Knip</string>
+	<key>Delete</key>
+	<string>Verwijder</string>
+	<key>Display Duplicates</key>
+	<string>Toon dubbels</string>
+	<key>Display Exact Duplicates</key>
+	<string>Toon exacte dubbels</string>
+	<key>Edit</key>
+	<string>Wijzig</string>
+	<key>Edit Smart Collection</key>
+	<string>Wijzig slimme verzameling</string>
+	<key>Export Collection</key>
+	<string>Exporteer verzameling</string>
+	<key>Export Library…</key>
+	<string>Exporteer bibliotheek…</string>
+	<key>File</key>
+	<string>Archief</string>
+	<key>Find</key>
+	<string>Zoek</string>
+	<key>Find Next</key>
+	<string>Zoek volgende</string>
+	<key>Find Previous</key>
+	<string>Zoek vorige</string>
+	<key>Find…</key>
+	<string>Zoek…</string>
+	<key>Float on Top</key>
+	<string>Zwevend op voorgrond</string>
+	<key>Fullscreen</key>
+	<string>Schermvullende weergave</string>
+	<key>Get Info</key>
+	<string>Verkrijg info</string>
+	<key>Help</key>
+	<string>Help</string>
+	<key>Hide OpenEmu</key>
+	<string>Verberg OpenEmu</string>
+	<key>Hide Others</key>
+	<string>Verberg andere</string>
+	<key>Import Collection</key>
+	<string>Importeer verzameling</string>
+	<key>Jump to Selection</key>
+	<string>Spring naar selectie</string>
+	<key>Last Display Mode</key>
+	<string>Last Display Mode</string>
+	<key>Last Played</key>
+	<string>Laatst gespeeld</string>
+	<key>Launch Game…</key>
+	<string>Start spel…</string>
+	<key>Load State</key>
+	<string>Laad momentopname</string>
+	<key>Log Responder Chain</key>
+	<string>Log Responder Chain</string>
+	<key>Minimize</key>
+	<string>Minimaliseer</string>
+	<key>New Collection Folder</key>
+	<string>Nieuwe verzamelingenmap</string>
+	<key>New Smart Collection…</key>
+	<string>Nieuwe slimme verzameling…</string>
+	<key>Next Display Mode</key>
+	<string>Next Display Mode</string>
+	<key>OpenEmu Web Site</key>
+	<string>OpenEmu-website</string>
+	<key>Organize Library…</key>
+	<string>Organiseer bibliotheek…</string>
+	<key>Page Setup…</key>
+	<string>Pagina-instelling…</string>
+	<key>Paste</key>
+	<string>Plak</string>
+	<key>Preferences…</key>
+	<string>Voorkeuren…</string>
+	<key>Print…</key>
+	<string>Druk af…</string>
+	<key>Quit OpenEmu</key>
+	<string>Stop OpenEmu</string>
+	<key>Redo</key>
+	<string>Opnieuw</string>
+	<key>Release Notes</key>
+	<string>Releaseopmerkingen</string>
+	<key>Save State</key>
+	<string>Momentopname</string>
+	<key>Select All</key>
+	<string>Selecteer alles</string>
+	<key>Send a Donation…</key>
+	<string>Stuur een donatie…</string>
+	<key>Services</key>
+	<string>Voorzieningen</string>
+	<key>Show All</key>
+	<string>Toon alles</string>
+	<key>Show Library</key>
+	<string>Toon bibliotheek</string>
+	<key>Show ROM Names</key>
+	<string>Toon namen van ROM's</string>
+	<key>Start Game</key>
+	<string>Start spel</string>
+	<key>Submit Feedback</key>
+	<string>Feedback indienen</string>
+	<key>Take Screenshot</key>
+	<string>Neem schermafbeelding</string>
+	<key>Undo</key>
+	<string>Herstel</string>
+	<key>Undock Game Window</key>
+	<string>Koppel spelvenster los</string>
+	<key>Use Selection for Find</key>
+	<string>Gebruik selectie voor zoekactie</string>
+	<key>User Guide</key>
+	<string>Gebruikershandleiding</string>
+	<key>View</key>
+	<string>Weergave</string>
+	<key>Volume Down</key>
+	<string>Verlaag volume</string>
+	<key>Volume Up</key>
+	<string>Verhoog volume</string>
+	<key>Window</key>
+	<string>Venster</string>
+	<key>Zoom</key>
+	<string>Vergroot</string>
+	<key>as Grid</key>
+	<string>Als raster</string>
+	<key>as List</key>
+	<string>Als lijst</string>
+</dict>
+</plist>

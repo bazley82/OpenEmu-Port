@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OEControllerImageKey</key>
+	<string>controller_psp</string>
+	<key>OEControllerImageMaskKey</key>
+	<string>controller_psp_mask</string>
+	<key>OEControllerKeyPositionKey</key>
+	<dict>
+		<key>OEPSPButtonUp</key>
+		<string>{66, 259}</string>
+		<key>OEPSPButtonDown</key>
+		<string>{66, 213}</string>
+		<key>OEPSPButtonLeft</key>
+		<string>{43, 236}</string>
+		<key>OEPSPButtonRight</key>
+		<string>{89, 236}</string>
+		<key>OEPSPAnalogUp</key>
+		<string>{70, 176}</string>
+		<key>OEPSPAnalogDown</key>
+		<string>{70, 167}</string>
+		<key>OEPSPAnalogLeft</key>
+		<string>{65, 171}</string>
+		<key>OEPSPAnalogRight</key>
+		<string>{75, 171}</string>
+		<key>OEPSPButtonTriangle</key>
+		<string>{437, 262}</string>
+		<key>OEPSPButtonCircle</key>
+		<string>{465, 235}</string>
+		<key>OEPSPButtonCross</key>
+		<string>{437, 206}</string>
+		<key>OEPSPButtonSquare</key>
+		<string>{409, 235}</string>
+		<key>OEPSPButtonStart</key>
+		<string>{382, 140}</string>
+		<key>OEPSPButtonSelect</key>
+		<string>{353, 140}</string>
+		<key>OEPSPButtonL1</key>
+		<string>{68, 314}</string>
+		<key>OEPSPButtonR1</key>
+		<string>{437, 314}</string>
+	</dict>
+</dict>
+</plist>

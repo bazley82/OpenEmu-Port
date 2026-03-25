@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>#</key>
+	<string>#</string>
+	<key>*</key>
+	<string>*</string>
+	<key>-</key>
+	<string>-</string>
+	<key>0</key>
+	<string>0</string>
+	<key>1</key>
+	<string>1</string>
+	<key>2</key>
+	<string>2</string>
+	<key>2/6 Mode</key>
+	<string>2/6 Mode</string>
+	<key>3</key>
+	<string>3</string>
+	<key>3D Control Pad</key>
+	<string>3D Control Pad</string>
+	<key>4</key>
+	<string>4</string>
+	<key>5</key>
+	<string>5</string>
+	<key>6</key>
+	<string>6</string>
+	<key>7</key>
+	<string>7</string>
+	<key>8</key>
+	<string>8</string>
+	<key>9</key>
+	<string>9</string>
+	<key>A</key>
+	<string>A</string>
+	<key>Action</key>
+	<string>Action</string>
+	<key>Analog</key>
+	<string>Analog</string>
+	<key>Analog Mode</key>
+	<string>Analog Mode</string>
+	<key>B</key>
+	<string>B</string>
+	<key>Bottom Left Action</key>
+	<string>Bottom Left Action</string>
+	<key>Bottom Right Action</key>
+	<string>Bottom Right Action</string>
+	<key>Button 1</key>
+	<string>Button 1</string>
+	<key>Button 1/Start</key>
+	<string>Button 1/Start</string>
+	<key>Button 2</key>
+	<string>Button 2</string>
+	<key>Button 3</key>
+	<string>Button 3</string>
+	<key>Button 4</key>
+	<string>Button 4</string>
+	<key>Button 5</key>
+	<string>Button 5</string>
+	<key>Button 6</key>
+	<string>Button 6</string>
+	<key>C</key>
+	<string>C</string>
+	<key>C-Pad</key>
+	<string>C-Pad</string>
+	<key>C-Stick</key>
+	<string>C-Stick</string>
+	<key>Change Disk Side</key>
+	<string>Change Disk Side</string>
+	<key>Clear</key>
+	<string>Clear</string>
+	<key>Configure</key>
+	<string>Configure</string>
+	<key>Console Pause</key>
+	<string>Console Pause</string>
+	<key>Console Reset</key>
+	<string>Console Reset</string>
+	<key>D-Pad</key>
+	<string>D-Pad</string>
+	<key>Display Mode</key>
+	<string>Display Mode</string>
+	<key>Down</key>
+	<string>Down</string>
+	<key>Enter</key>
+	<string>Enter</string>
+	<key>Fast Forward</key>
+	<string>Fast Forward</string>
+	<key>Fire</key>
+	<string>Fire</string>
+	<key>Fire 1</key>
+	<string>Fire 1</string>
+	<key>Fire 2</key>
+	<string>Fire 2</string>
+	<key>Fullscreen</key>
+	<string>Fullscreen</string>
+	<key>Gameplay Buttons</key>
+	<string>Gameplay Buttons</string>
+	<key>Insert Coin</key>
+	<string>Insert Coin</string>
+	<key>Jump</key>
+	<string>Jump</string>
+	<key>Keypad</key>
+	<string>Keypad</string>
+	<key>L</key>
+	<string>L</string>
+	<key>L Diff</key>
+	<string>L Diff</string>
+	<key>L Diff A</key>
+	<string>L Diff A</string>
+	<key>L Diff B</key>
+	<string>L Diff B</string>
+	<key>L1</key>
+	<string>L1</string>
+	<key>L2</key>
+	<string>L2</string>
+	<key>L3</key>
+	<string>L3</string>
+	<key>Last Display Mode</key>
+	<string>Last Display Mode</string>
+	<key>Left</key>
+	<string>Left</string>
+	<key>Left Action</key>
+	<string>Left Action</string>
+	<key>Left Analog</key>
+	<string>Left Analog</string>
+	<key>Left D-Pad</key>
+	<string>Left D-Pad</string>
+	<key>Left Trigger</key>
+	<string>Left Trigger</string>
+	<key>Lid</key>
+	<string>Lid</string>
+	<key>Load</key>
+	<string>Load</string>
+	<key>Menu</key>
+	<string>Menu</string>
+	<key>Mic</key>
+	<string>Mic</string>
+	<key>Mode</key>
+	<string>Mode</string>
+	<key>Mode Switch</key>
+	<string>Mode Switch</string>
+	<key>Mute</key>
+	<string>Mute</string>
+	<key>Next Display Mode</key>
+	<string>Next Display Mode</string>
+	<key>Option</key>
+	<string>Option</string>
+	<key>Option 1</key>
+	<string>Option 1</string>
+	<key>Option 2</key>
+	<string>Option 2</string>
+	<key>P</key>
+	<string>P</string>
+	<key>Pause/Resume</key>
+	<string>Pause/Resume</string>
+	<key>Player Start</key>
+	<string>Player Start</string>
+	<key>Power</key>
+	<string>Power</string>
+	<key>Quick Load</key>
+	<string>Quick Load</string>
+	<key>Quick Save</key>
+	<string>Quick Save</string>
+	<key>R</key>
+	<string>R</string>
+	<key>R Diff</key>
+	<string>R Diff</string>
+	<key>R Diff A</key>
+	<string>R Diff A</string>
+	<key>R Diff B</key>
+	<string>R Diff B</string>
+	<key>R1</key>
+	<string>R1</string>
+	<key>R2</key>
+	<string>R2</string>
+	<key>R3</key>
+	<string>R3</string>
+	<key>Rapid Fire Clear</key>
+	<string>Rapid Fire Clear</string>
+	<key>Rapid Fire Reset</key>
+	<string>Rapid Fire Reset</string>
+	<key>Rapid Fire Toggle</key>
+	<string>Rapid Fire Toggle</string>
+	<key>Reset</key>
+	<string>Reset</string>
+	<key>Rewind</key>
+	<string>Rewind</string>
+	<key>Right</key>
+	<string>Right</string>
+	<key>Right Action</key>
+	<string>Right Action</string>
+	<key>Right Analog</key>
+	<string>Right Analog</string>
+	<key>Right D-Pad</key>
+	<string>Right D-Pad</string>
+	<key>Right Trigger</key>
+	<string>Right Trigger</string>
+	<key>Run</key>
+	<string>Run</string>
+	<key>Save</key>
+	<string>Save</string>
+	<key>Screenshot</key>
+	<string>Screenshot</string>
+	<key>Select</key>
+	<string>Select</string>
+	<key>Service</key>
+	<string>Service</string>
+	<key>Shake</key>
+	<string>Shake</string>
+	<key>Sound</key>
+	<string>Sound</string>
+	<key>Special Keys</key>
+	<string>Special Keys</string>
+	<key>Start</key>
+	<string>Start</string>
+	<key>Step Backward</key>
+	<string>Step Backward</string>
+	<key>Step Forward</key>
+	<string>Step Forward</string>
+	<key>Swap Joysticks</key>
+	<string>Swap Joysticks</string>
+	<key>Switches</key>
+	<string>Switches</string>
+	<key>TV Black &amp; White</key>
+	<string>TV Black &amp; White</string>
+	<key>TV Color</key>
+	<string>TV Color</string>
+	<key>Top Action</key>
+	<string>Top Action</string>
+	<key>Trigger L</key>
+	<string>Trigger L</string>
+	<key>Trigger R</key>
+	<string>Trigger R</string>
+	<key>Up</key>
+	<string>Up</string>
+	<key>Volume Down</key>
+	<string>Volume Down</string>
+	<key>Volume Up</key>
+	<string>Volume Up</string>
+	<key>X</key>
+	<string>X</string>
+	<key>X1 Up</key>
+	<string>X1 Up</string>
+	<key>X2 Right</key>
+	<string>X2 Right</string>
+	<key>X3 Down</key>
+	<string>X3 Down</string>
+	<key>X4 Left</key>
+	<string>X4 Left</string>
+	<key>Y</key>
+	<string>Y</string>
+	<key>Y1 Up</key>
+	<string>Y1 Up</string>
+	<key>Y2 Right</key>
+	<string>Y2 Right</string>
+	<key>Y3 Down</key>
+	<string>Y3 Down</string>
+	<key>Y4 Left</key>
+	<string>Y4 Left</string>
+	<key>Z</key>
+	<string>Z</string>
+	<key>▢</key>
+	<string>▢</string>
+	<key>△</key>
+	<string>△</string>
+	<key>◯</key>
+	<string>◯</string>
+	<key>✕</key>
+	<string>✕</string>
+</dict>
+</plist>

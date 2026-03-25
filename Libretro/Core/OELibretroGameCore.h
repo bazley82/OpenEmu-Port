@@ -1,10 +1,20 @@
 #import <OpenEmuBase/OEGameCore.h>
 #import "libretro.h"
 
+#import <OpenGL/OpenGL.h>
+#import <OpenGL/gl3.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface OELibretroGameCore : OEGameCore
 {
+    @public
+    BOOL _isPSP;
+    BOOL _isN64;
+    BOOL _isPSX;
+    BOOL _isSNES;
+    BOOL _isGenesis;
+    BOOL _isNDS;
     void *_coreHandle;
     
     // Libretro function pointers
