@@ -2,13 +2,13 @@
 
 CC = xcrun -sdk macosx clang
 CXX = xcrun -sdk macosx clang++
-FRAMEWORKS = -framework Foundation -framework Metal -framework AppKit -framework OpenGL -F../build-dir/Build/Products/Debug -framework OpenEmuBase -framework OpenEmuSystem
-CXXFLAGS = -Ofast -arch arm64 -DNDEBUG -ffast-math -flto -fmodules -fobjc-arc -I./Core -I./libretro-common/include -I../OpenEmu-SDK
+FRAMEWORKS = -framework Foundation -framework Metal -framework AppKit -framework OpenGL -framework IOSurface -F/Users/devinhughes/AntiGravity/OpenEmuARM64/build-dir/Build/Products/Debug -framework OpenEmuBase -framework OpenEmuSystem
+CXXFLAGS = -std=gnu++2b -D__LIBRETRO__ -D_M_ARM_64=1 -D_ARCH_64=1 -Ofast -arch arm64 -DNDEBUG -ffast-math -flto -fmodules -fobjc-arc -I ./Core -I ./libretro-common/include -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK/OpenEmuBase -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK/OpenEmuSystem -I ./Cores/dolphin-libretro/Source/Core -I ./Cores/dolphin-libretro/Source/Core/VideoBackends/Metal -I ./Cores/dolphin-libretro/Externals/fmt/fmt/include
 LDFLAGS = -Ofast -flto -dynamiclib
 PLUGIN_DIR = ./Plugins
-SYSTEMS = Genesis PSX PSP DS N64 SNES SNES9x
+SYSTEMS = Genesis PSX PSP DS N64 SNES SNES9x GameCube Wii
 
-APP_BUNDLE = /Applications/OpenEmuARM64.app
+APP_BUNDLE = /Users/devinhughes/AntiGravity/OpenEmuARM64/build-dir/Build/Products/Debug/OpenEmuARM64.app
 
 all: bridge plugins deploy
 
@@ -29,11 +29,18 @@ plugins: bridge
 		if [ "$$sys" = "SNES9x" ]; then identifier="openemu.system.snes"; fi; \
 		if [ "$$sys" = "Genesis" ]; then identifier="openemu.system.sg"; fi; \
 		if [ "$$sys" = "DS" ]; then identifier="openemu.system.nds"; fi; \
+		if [ "$$sys" = "GameCube" ]; then identifier="openemu.system.gc"; fi; \
+		if [ "$$sys" = "Wii" ]; then identifier="openemu.system.wii"; fi; \
 		sed -e "s/\$$(PRODUCT_NAME)/$$sys/g" -e "s/\$$(SYSTEM_IDENTIFIER)/$$identifier/g" Info.plist.template > $(PLUGIN_DIR)/$$sys.oecoreplugin/Contents/Info.plist; \
 		if [ -f "Plugins/$$sys.oecoreplugin/Contents/Resources/libretro_core.dylib" ]; then \
 			echo "Using seeded dylib for $$sys"; \
 		elif [ -f "Cores/$$sys/libretro_core.dylib" ]; then \
 			cp Cores/$$sys/libretro_core.dylib $(PLUGIN_DIR)/$$sys.oecoreplugin/Contents/Resources/; \
+		fi; \
+		if [ -d "Cores/$$sys/Sys" ]; then \
+			echo "Bundling Sys folder for $$sys"; \
+			mkdir -p $(PLUGIN_DIR)/$$sys.oecoreplugin/Contents/Resources/dolphin-emu; \
+			cp -R Cores/$$sys/Sys $(PLUGIN_DIR)/$$sys.oecoreplugin/Contents/Resources/dolphin-emu/; \
 		fi; \
 		codesign -s - --force --deep $(PLUGIN_DIR)/$$sys.oecoreplugin/Contents/MacOS/$$sys; \
 		if [ -f "$(PLUGIN_DIR)/$$sys.oecoreplugin/Contents/Resources/libretro_core.dylib" ]; then \
@@ -47,11 +54,13 @@ deploy: plugins
 		echo "Deploying plugins to app bundle (Resources)..."; \
 		mkdir -p "$(APP_BUNDLE)/Contents/Resources"; \
 		for sys in $(SYSTEMS); do \
+			rm -rf "$(APP_BUNDLE)/Contents/Resources/$$sys.oecoreplugin"; \
 			cp -R $(PLUGIN_DIR)/$$sys.oecoreplugin "$(APP_BUNDLE)/Contents/Resources/"; \
 		done; \
 		echo "Deploying plugins to app bundle (PlugIns/Cores)..."; \
 		mkdir -p "$(APP_BUNDLE)/Contents/PlugIns/Cores"; \
 		for sys in $(SYSTEMS); do \
+			rm -rf "$(APP_BUNDLE)/Contents/PlugIns/Cores/$$sys.oecoreplugin"; \
 			cp -R $(PLUGIN_DIR)/$$sys.oecoreplugin "$(APP_BUNDLE)/Contents/PlugIns/Cores/"; \
 		done; \
 		echo "Deep signing app bundle..."; \
@@ -59,11 +68,6 @@ deploy: plugins
 	else \
 		echo "Warning: APP_BUNDLE not found at $(APP_BUNDLE). Skipping internal deployment."; \
 	fi
-	@echo "Deploying plugins to user Cores dir..."
-	@mkdir -p "$(HOME)/Library/Application Support/OpenEmu/Cores"
-	@for sys in $(SYSTEMS); do \
-		cp -R $(PLUGIN_DIR)/$$sys.oecoreplugin "$(HOME)/Library/Application Support/OpenEmu/Cores/"; \
-	done
 	@echo "Deploy done."
 
 clean:

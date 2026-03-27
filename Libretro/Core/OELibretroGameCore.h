@@ -1,4 +1,4 @@
-#import <OpenEmuBase/OEGameCore.h>
+#import "OEGameCore.h"
 #import "libretro.h"
 
 #import <OpenGL/OpenGL.h>
@@ -15,7 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
     BOOL _isSNES;
     BOOL _isGenesis;
     BOOL _isNDS;
+    BOOL _isGameCube;
+    BOOL _isWii;
     void *_coreHandle;
+    
+    // Dolphin specific
+    void* _Nullable (* _Nullable _GetMetalTexture)(void);
+    void (* _Nullable _SetSurfaceSize)(unsigned int, unsigned int);
+    id<MTLCommandQueue> _Nullable _metalCommandQueue;
+    id<MTLDevice> _Nullable _metalDevice;
     
     // Libretro function pointers
     void (*_retro_init)(void);

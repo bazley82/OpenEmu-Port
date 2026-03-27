@@ -33,19 +33,19 @@ static bool g_isPSX = false;
 #define RETRO_HW_CONTEXT_METAL 8
 
 // We only define these if they are missing from libretro.h (usually older versions)
-#ifndef RETRO_HW_RENDER_INTERFACE_METAL_VERSION
-#define RETRO_HW_RENDER_INTERFACE_METAL 2
-#define RETRO_HW_RENDER_INTERFACE_METAL_VERSION 1
-
-struct retro_hw_render_interface_metal
-{
-    unsigned interface_type;
-    unsigned interface_version;
-    void *device;
-    void *queue;
-    void *video_callback;
-};
-#endif
+// #ifndef RETRO_HW_RENDER_INTERFACE_METAL_VERSION
+// #define RETRO_HW_RENDER_INTERFACE_METAL 2
+// #define RETRO_HW_RENDER_INTERFACE_METAL_VERSION 1
+//
+// struct retro_hw_render_interface_metal
+// {
+//     unsigned interface_type;
+//     unsigned interface_version;
+//     void *device;
+//     void *queue;
+//     void *video_callback;
+// };
+// #endif
 
 #if 0
 #define NSLog(format, ...) fprintf(stderr, "%s\n", [[NSString stringWithFormat:format, ##__VA_ARGS__] UTF8String])
@@ -65,6 +65,9 @@ static __unsafe_unretained OELibretroGameCore *_current;
 - (int16_t)inputStateCallback:(unsigned)port device:(unsigned)device index:(unsigned)index id:(unsigned)id;
 - (void)pushLibretroButton:(NSUInteger)button forPlayer:(NSUInteger)player;
 - (void)releaseLibretroButton:(NSUInteger)button forPlayer:(NSUInteger)player;
+@property (readonly) OEIntSize aspectSize;
+@property (readonly) OEIntSize bufferSize;
+@property (readonly) OEIntRect screenRect;
 
 @end
 
@@ -91,6 +94,16 @@ static void (APIENTRYP real_glShaderSource)(GLuint shader, GLsizei count, const 
 static retro_proc_address_t retro_get_proc_address_cb(const char *sym)
 {
     retro_proc_address_t addr = (retro_proc_address_t)dlsym(RTLD_DEFAULT, sym);
+    if (!addr && _current && _current->_coreHandle) {
+        addr = (retro_proc_address_t)dlsym(_current->_coreHandle, sym);
+    }
+    
+    // Dolphin specific guards
+    if (!addr && _current && (_current->_isGameCube || _current->_isWii)) {
+        if (strcmp(sym, "GetMetalTexture") == 0) addr = (retro_proc_address_t)dlsym(_current->_coreHandle, "GetMetalTexture");
+        if (strcmp(sym, "SetSurfaceSize") == 0) addr = (retro_proc_address_t)dlsym(_current->_coreHandle, "SetSurfaceSize");
+    }
+
     if (!addr) {
         static void *gl_handle = NULL;
         if (!gl_handle) {
@@ -267,7 +280,7 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     NSLog(@"[Libretro] dlopen SUCCESS");
     
     #define LOAD_SYM(name) \
-        _##name = (typeof(_##name))dlsym(_coreHandle, #name); \
+        _##name = (decltype(_##name))dlsym(_coreHandle, #name); \
         if (!_##name) { NSLog(@"[Libretro] Missing symbol: %s", #name); return NO; }
 
     LOAD_SYM(retro_init);
@@ -289,11 +302,17 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     LOAD_SYM(retro_get_memory_data);
     LOAD_SYM(retro_get_memory_size);
     
+    // Dolphin specific symbol loading (GUARDS ADDED)
+    if (_isGameCube || _isWii) {
+        _GetMetalTexture = (void* (*)(void))dlsym(_coreHandle, "GetMetalTexture");
+        _SetSurfaceSize = (void (*)(unsigned int, unsigned int))dlsym(_coreHandle, "SetSurfaceSize");
+    }
+    
     // Hardware Rendering
     _isHWContextActive = NO;
     
     // Optional
-    _retro_load_game_special = (typeof(_retro_load_game_special))dlsym(_coreHandle, "retro_load_game_special");
+    _retro_load_game_special = (decltype(_retro_load_game_special))dlsym(_coreHandle, "retro_load_game_special");
 
     void (*set_env)(retro_environment_t) = (void (*)(retro_environment_t))dlsym(_coreHandle, "retro_set_environment");
     void (*set_video)(retro_video_refresh_t) = (void (*)(retro_video_refresh_t))dlsym(_coreHandle, "retro_set_video_refresh");
@@ -325,6 +344,8 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     _isSNES = NO;
     _isGenesis = NO;
     _isNDS = NO;
+    _isGameCube = NO;
+    _isWii = NO;
     
     NSString *systemID = [self systemIdentifier];
     if ([systemID isEqualToString:@"openemu.system.psp"]) {
@@ -339,6 +360,10 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         _isGenesis = YES;
     } else if ([systemID isEqualToString:@"openemu.system.nds"]) {
         _isNDS = YES;
+    } else if ([systemID isEqualToString:@"openemu.system.gc"]) {
+        _isGameCube = YES;
+    } else if ([systemID isEqualToString:@"openemu.system.wii"]) {
+        _isWii = YES;
     } else {
         // Fallback to extension check if systemID is unavailable or generic
         NSString *ext = [path.pathExtension lowercaseString];
@@ -348,6 +373,8 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         _isSNES = [ext isEqualToString:@"sfc"] || [ext isEqualToString:@"smc"] || [ext isEqualToString:@"snes"];
         _isGenesis = [ext isEqualToString:@"gen"] || [ext isEqualToString:@"md"] || [ext isEqualToString:@"smd"] || [ext isEqualToString:@"bin"];
         _isNDS = [ext isEqualToString:@"nds"];
+        _isGameCube = [ext isEqualToString:@"gcm"] || [ext isEqualToString:@"iso"] || [ext isEqualToString:@"gc"];
+        _isWii = [ext isEqualToString:@"wbfs"] || [ext isEqualToString:@"iso"] || [ext isEqualToString:@"rvz"];
     }
     
     // Sync globals for static callbacks if needed (legacy)
@@ -355,7 +382,8 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
     g_isN64 = _isN64;
     g_isPSX = _isPSX;
     
-    NSLog(@"[Libretro] Detected Core Type: PSP=%d, N64=%d, PSX=%d, SNES=%d, Genesis=%d, NDS=%d", _isPSP, _isN64, _isPSX, _isSNES, _isGenesis, _isNDS);
+    
+    NSLog(@"[Libretro] Detected Core Type: PSP=%d, N64=%d, PSX=%d, SNES=%d, Genesis=%d, NDS=%d, GC=%d, Wii=%d", _isPSP, _isN64, _isPSX, _isSNES, _isGenesis, _isNDS, _isGameCube, _isWii);
     if (_isPSP) {
         NSLog(@"[Libretro] PSP ROM detected (Safe Mode)");
     }
@@ -453,6 +481,12 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
         _coreHandle = NULL;
     }
     
+    // Dolphin specific cleanup
+    if (_isGameCube || _isWii) {
+        _metalCommandQueue = nil;
+        _metalDevice = nil;
+    }
+    
     [super stopEmulation];
 }
 
@@ -530,6 +564,9 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
             // Disable Metal interface for PSP to force it to use OpenGL and avoid confusion
             if (_isPSP) return false;
             
+            // Dolphin only
+            if (!_isGameCube && !_isWii) return false;
+            
             if (++_interfaceLoopCount > 10) {
                 return false;
             }
@@ -538,15 +575,15 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
             if (!device) return false;
             
             static struct retro_hw_render_interface_metal metal_iface;
-            metal_iface.interface_type = 2; // RETRO_HW_RENDER_INTERFACE_METAL
-            metal_iface.interface_version = 1; // RETRO_HW_RENDER_INTERFACE_METAL_VERSION
+            metal_iface.interface_type = RETRO_HW_RENDER_INTERFACE_METAL;
+            metal_iface.interface_version = 1;
             metal_iface.device = (__bridge void *)device;
             
             static id<MTLCommandQueue> _q = nil;
             if (!_q) _q = [device newCommandQueue];
             metal_iface.queue = (__bridge void *)_q;
             
-            metal_iface.video_callback = NULL;
+            // metal_iface.video_callback = NULL; // Not in this libretro.h
             *iface = (const struct retro_hw_render_interface *)&metal_iface;
             return true;
         }
@@ -1284,12 +1321,17 @@ static int16_t retro_input_state_cb(unsigned port, unsigned device, unsigned ind
 
 - (id<MTLTexture>)metalTexture
 {
+    if ((_isGameCube || _isWii) && _GetMetalTexture) {
+        void *texture = _GetMetalTexture();
+        if (texture) return (__bridge id<MTLTexture>)texture;
+    }
     return _metalTexture;
 }
 
 - (id<MTLDevice>)metalDevice
 {
-    return [super metalDevice];
+    if (_isGameCube || _isWii) return _metalDevice;
+    return nil;
 }
 
 @synthesize resolutionScale = _resolutionScale;
