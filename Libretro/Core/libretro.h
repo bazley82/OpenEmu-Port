@@ -1402,6 +1402,11 @@ enum retro_mod
                                             * fastforwarding state will occur in this case).
                                             */
 
+#define RETRO_ENVIRONMENT_GET_MICROPHONE_INTERFACE (75 | RETRO_ENVIRONMENT_EXPERIMENTAL)
+#define RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE   (81 | RETRO_ENVIRONMENT_EXPERIMENTAL)
+
+#define RETRO_MICROPHONE_INTERFACE_VERSION 1
+
 #define RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE 65
                                            /* const struct retro_system_content_info_override * --
                                             * Allows an implementation to override 'global' content
@@ -1943,9 +1948,20 @@ enum retro_hw_render_interface_type
 	RETRO_HW_RENDER_INTERFACE_D3D9   = 1,
 	RETRO_HW_RENDER_INTERFACE_D3D10  = 2,
 	RETRO_HW_RENDER_INTERFACE_D3D11  = 3,
-	RETRO_HW_RENDER_INTERFACE_D3D12  = 4,
+   RETRO_HW_RENDER_INTERFACE_D3D12  = 4,
    RETRO_HW_RENDER_INTERFACE_GSKIT_PS2  = 5,
+   RETRO_HW_RENDER_INTERFACE_METAL  = 6,
    RETRO_HW_RENDER_INTERFACE_DUMMY  = INT_MAX
+};
+
+struct retro_hw_render_interface_metal
+{
+   enum retro_hw_render_interface_type interface_type;
+   unsigned interface_version;
+
+   /* The Metal device and command queue. These are (id<MTLDevice>) and (id<MTLCommandQueue>). */
+   void *device;
+   void *queue;
 };
 
 /* Base struct. All retro_hw_render_interface_* types
@@ -2276,7 +2292,36 @@ struct retro_subsystem_info
    unsigned id;
 };
 
+/* Microphone interface. */
+typedef bool (RETRO_CALLCONV *retro_set_microphone_state_t)(unsigned port, bool enabled);
+typedef bool (RETRO_CALLCONV *retro_get_microphone_state_t)(unsigned port);
+
+/* Microphone interface. */
+typedef struct retro_microphone retro_microphone_t;
+
+typedef struct retro_microphone_params
+{
+   unsigned rate;
+} retro_microphone_params_t;
+
+typedef retro_microphone_t * (RETRO_CALLCONV *retro_microphone_open_t)(const retro_microphone_params_t *params);
+typedef void (RETRO_CALLCONV *retro_microphone_close_t)(retro_microphone_t *microphone);
+typedef bool (RETRO_CALLCONV *retro_microphone_set_state_t)(retro_microphone_t *microphone, bool state);
+typedef int (RETRO_CALLCONV *retro_microphone_read_t)(retro_microphone_t *microphone, int16_t *samples, size_t num_samples);
+
 typedef void (RETRO_CALLCONV *retro_proc_address_t)(void);
+
+struct retro_microphone_interface
+{
+   unsigned interface_version;
+   retro_proc_address_t (RETRO_CALLCONV *get_proc_address)(const char *sym);
+
+   /* Legacy fields used by some components */
+   retro_microphone_open_t open_mic;
+   retro_microphone_close_t close_mic;
+   retro_microphone_set_state_t set_mic_state;
+   retro_microphone_read_t read_mic;
+};
 
 /* libretro API extension functions:
  * (None here so far).
@@ -2617,6 +2662,8 @@ struct retro_rumble_interface
    retro_set_rumble_state_t set_rumble_state;
 };
 
+/* This struct is versioned and defined above near retro_proc_address_t */
+
 /* Notifies libretro that audio data should be written. */
 typedef void (RETRO_CALLCONV *retro_audio_callback_t)(void);
 
@@ -2724,9 +2771,12 @@ enum retro_hw_context_type
    /* Direct3D, set version_major to select the type of interface
     * returned by RETRO_ENVIRONMENT_GET_HW_RENDER_INTERFACE */
    RETRO_HW_CONTEXT_DIRECT3D         = 7,
-
+   /* Direct3D 11 */
+   RETRO_HW_CONTEXT_D3D11            = 9,
+   /* Direct3D 12 */
+   RETRO_HW_CONTEXT_D3D12            = 10,
    /* Metal, see RETRO_ENVIRONMENT_GET_HW_RENDER_INTERFACE. */
-   RETRO_HW_CONTEXT_METAL            = 8,
+   RETRO_HW_CONTEXT_METAL            = 11,
 
    RETRO_HW_CONTEXT_DUMMY = INT_MAX
 };

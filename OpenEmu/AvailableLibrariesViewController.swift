@@ -98,7 +98,9 @@ final class AvailableLibrariesViewController: NSViewController {
         
         for system in systems {
             let isMissingCore = !identifiers.contains(system.systemIdentifier)
-            data.append(Model(system: system, isMissingCore: isMissingCore))
+            if !isMissingCore && system.plugin != nil {
+                data.append(Model(system: system, isMissingCore: isMissingCore))
+            }
         }
         
         self.data = data
