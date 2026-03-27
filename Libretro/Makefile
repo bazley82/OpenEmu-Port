@@ -2,13 +2,13 @@
 
 CC = xcrun -sdk macosx clang
 CXX = xcrun -sdk macosx clang++
-FRAMEWORKS = -framework Foundation -framework Metal -framework AppKit -framework OpenGL -framework IOSurface -F/Users/devinhughes/AntiGravity/OpenEmuARM64/build-dir/Build/Products/Debug -framework OpenEmuBase -framework OpenEmuSystem
-CXXFLAGS = -std=gnu++2b -D__LIBRETRO__ -D_M_ARM_64=1 -D_ARCH_64=1 -Ofast -arch arm64 -DNDEBUG -ffast-math -flto -fmodules -fobjc-arc -I ./Core -I ./libretro-common/include -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK/OpenEmuBase -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK/OpenEmuSystem -I ./Cores/dolphin-libretro/Source/Core -I ./Cores/dolphin-libretro/Source/Core/VideoBackends/Metal -I ./Cores/dolphin-libretro/Externals/fmt/fmt/include
-LDFLAGS = -Ofast -flto -dynamiclib
+FRAMEWORKS = -framework Foundation -framework Metal -framework AppKit -framework OpenGL -framework IOSurface -F/Users/devinhughes/AntiGravity/OpenEmuARM64/build-release/Build/Products/Release -framework OpenEmuBase -framework OpenEmuSystem
+CXXFLAGS = -std=gnu++2b -D__LIBRETRO__ -D_M_ARM_64=1 -D_ARCH_64=1 -O3 -arch arm64 -DNDEBUG -ffast-math -flto -fmodules -fobjc-arc -I ./Core -I ./libretro-common/include -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK/OpenEmuBase -I /Users/devinhughes/AntiGravity/OpenEmuARM64/OpenEmu-SDK/OpenEmuSystem -I ./Cores/dolphin-libretro/Source/Core -I ./Cores/dolphin-libretro/Source/Core/VideoBackends/Metal -I ./Cores/dolphin-libretro/Externals/fmt/fmt/include
+LDFLAGS = -O3 -flto -dynamiclib
 PLUGIN_DIR = ./Plugins
 SYSTEMS = Genesis PSX PSP DS N64 SNES SNES9x GameCube Wii
 
-APP_BUNDLE = /Users/devinhughes/AntiGravity/OpenEmuARM64/build-dir/Build/Products/Debug/OpenEmuARM64.app
+APP_BUNDLE = /Users/devinhughes/AntiGravity/OpenEmuARM64/build-release/Build/Products/Release/OpenEmuARM64.app
 
 all: bridge plugins deploy
 
