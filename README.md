@@ -52,6 +52,8 @@ Currently, OpenEmu can load the following game engines as plugins:
 * WonderSwan ([Mednafen](https://mednafen.github.io)) - **[FIXED FOR ARM64]**
 * **Commodore 64 (VICE)** - **[FIXED FOR ARM64]**
 
+Check out my native Apple Silicon port of PCSX2 here: [PCSX2ARM64](https://github.com/bazley82/PCSX2ARM64)
+
 ## Development
 This port was developed collaboratively by **bazley82** and **Antigravity (AI Assistant)**.
 
