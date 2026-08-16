@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2009-2015 DeSmuME team
+	Copyright (C) 2009-2021 DeSmuME team
 
 	This file is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -29,6 +29,11 @@
 #define CHEAT_FILE_MIN_FGETS_BUFFER	32768
 #define CHEAT_DB_GAME_TITLE_SIZE	256
 
+#define CHEAT_TYPE_EMPTY 0xFF
+#define CHEAT_TYPE_INTERNAL 0
+#define CHEAT_TYPE_AR 1
+#define CHEAT_TYPE_CODEBREAKER 2
+
 struct CHEATS_LIST
 {
 	CHEATS_LIST()
@@ -36,9 +41,7 @@ struct CHEATS_LIST
 		memset(this,0,sizeof(*this));
 		type = 0xFF;
 	}
-	u8		type;				// 0 - internal cheat system
-								// 1 - Action Replay
-								// 2 - Codebreakers
+	u8 type;
 	BOOL	enabled;
 	// TODO
 	u8		freezeType;			// 0 - normal freeze
@@ -46,7 +49,7 @@ struct CHEATS_LIST
 								// 2 - can increase
 	u32		code[MAX_XX_CODE][2];
 	char	description[1024];
-	int		num;
+	u32		num;
 	u8		size;
 };
 
@@ -72,6 +75,7 @@ public:
 	void	init(char *path);
 	BOOL	add(u8 size, u32 address, u32 val, char *description, BOOL enabled);
 	BOOL	update(u8 size, u32 address, u32 val, char *description, BOOL enabled, u32 pos);
+	BOOL	move(u32 srcPos, u32 dstPos);
 	BOOL	add_AR(char *code, char *description, BOOL enabled);
 	BOOL	update_AR(char *code, char *description, BOOL enabled, u32 pos);
 	BOOL	add_AR_Direct(CHEATS_LIST cheat);
@@ -88,8 +92,8 @@ public:
 	void	setDescription(const char *description, u32 pos);
 	BOOL	save();
 	BOOL	load();
-	void	process();
-	void	getXXcodeString(CHEATS_LIST cheat, char *res_buf);
+	void	process(int targetType);
+	void	getXXcodeString(CHEATS_LIST theList, char *res_buf);
 	
 	static BOOL XXCodeFromString(CHEATS_LIST *cheatItem, const std::string codeString);
 	static BOOL XXCodeFromString(CHEATS_LIST *cheatItem, const char *codeString);

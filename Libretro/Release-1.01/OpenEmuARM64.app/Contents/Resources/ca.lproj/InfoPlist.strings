@@ -1,0 +1,66 @@
+
+"%@ Game" = "Joc %@";
+
+"Archived Game" = "Joc arxivat";
+
+"Atari 2600 Game" = "Joc Atari 2600";
+
+"Atari 5200 Game" = "Joc Atari 5200";
+
+"Atari 7800 Game" = "Joc Atari 7800";
+
+"Atari Lynx Game" = "Joc Atari Lynx";
+
+"ColecoVision Game" = "Joc ColecoVision";
+
+"Famicom Disk System Game" = "Joc Famicom Disk System";
+
+"Game Boy Advance Game" = "Joc Game Boy Advance";
+
+"Game Boy Game" = "Joc Game Boy";
+
+"Game Gear Game" = "Joc Game Gear";
+
+"GameCube Game" = "Joc GameCube";
+
+"Intellivision Game" = "Joc Intellivision";
+
+"NeoGeo Pocket Game" = "Joc NeoGeo Pocket";
+
+"Nintendo (NES) Game" = "Joc Nintendo (NES)";
+
+"Nintendo 64 Game" = "Joc Nintendo 64";
+
+"Nintendo DS Game" = "Joc Nintendo DS";
+
+"OpenEmu Core Plugin" = "OpenEmu Core Plugin";
+
+"OpenEmu Game" = "Joc OpenEmu";
+
+"OpenEmu Save State" = "Partida desada de l'OpenEmu";
+
+"OpenEmu Shader" = "OpenEmu Shader";
+
+"OpenEmu System Plugin" = "Connector del sistema";
+
+"SG-1000 Game" = "Joc SG-1000";
+
+"Sega 32X Game" = "Joc Sega Mega Drive 32X";
+
+"Sega Master System Game" = "Joc Sega Master System";
+
+"Sega Mega Drive Game" = "Joc Sega Mega Drive";
+
+"Sony PSP Game" = "Joc Sony PSP";
+
+"Sony PlayStation Game" = "Joc Sony PlayStation";
+
+"Super Nintendo (SNES) Game" = "Joc Super Nintendo (SNES)";
+
+"TurboGrafx-16 Game" = "Joc TurboGrafx-16";
+
+"Vectrex Game" = "Joc Vectrex";
+
+"Virtual Boy Game" = "Joc Virtual Boy";
+
+"WonderSwan Game" = "Joc WonderSwan";

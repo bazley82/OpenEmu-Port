@@ -158,12 +158,10 @@ final class PreferencesTabViewController: NSTabViewController {
         
         tabStyle = .toolbar
         
-        // The collection of preference panes to add.
         var preferencePanes: [PreferencePane] = [
             PrefLibraryController(),
             PrefGameplayController(),
             PrefControlsController(),
-            PrefCoresController(),
             PrefBiosController(),
             PrefCloudSyncController()
         ]

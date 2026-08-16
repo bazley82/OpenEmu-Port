@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>#</key>
+	<string>#</string>
+	<key>*</key>
+	<string>*</string>
+	<key>-</key>
+	<string>-</string>
+	<key>0</key>
+	<string>0</string>
+	<key>1</key>
+	<string>1</string>
+	<key>2</key>
+	<string>2</string>
+	<key>2/6 Mode</key>
+	<string>2/6 ボタン モード</string>
+	<key>3</key>
+	<string>3</string>
+	<key>3D Control Pad</key>
+	<string>3D Control Pad</string>
+	<key>4</key>
+	<string>4</string>
+	<key>5</key>
+	<string>5</string>
+	<key>6</key>
+	<string>6</string>
+	<key>7</key>
+	<string>7</string>
+	<key>8</key>
+	<string>8</string>
+	<key>9</key>
+	<string>9</string>
+	<key>A</key>
+	<string>A</string>
+	<key>Action</key>
+	<string>Action</string>
+	<key>Analog</key>
+	<string>アナログ</string>
+	<key>Analog Mode</key>
+	<string>アナログモード</string>
+	<key>B</key>
+	<string>B</string>
+	<key>Bottom Left Action</key>
+	<string>Bottom Left Action</string>
+	<key>Bottom Right Action</key>
+	<string>Bottom Right Action</string>
+	<key>Button 1</key>
+	<string>ボタン 1</string>
+	<key>Button 1/Start</key>
+	<string>ボタン 1/スタート</string>
+	<key>Button 2</key>
+	<string>ボタン 2</string>
+	<key>Button 3</key>
+	<string>ボタン 3</string>
+	<key>Button 4</key>
+	<string>ボタン 4</string>
+	<key>Button 5</key>
+	<string>ボタン 5</string>
+	<key>Button 6</key>
+	<string>ボタン 6</string>
+	<key>C</key>
+	<string>C</string>
+	<key>C-Pad</key>
+	<string>Cボタンユニット</string>
+	<key>C-Stick</key>
+	<string>C-Stick</string>
+	<key>Change Disk Side</key>
+	<string>ディスクを変更</string>
+	<key>Clear</key>
+	<string>Clear</string>
+	<key>Configure</key>
+	<string>Configure</string>
+	<key>Console Pause</key>
+	<string>コンソールを一時停止</string>
+	<key>Console Reset</key>
+	<string>コンソールをリセット</string>
+	<key>D-Pad</key>
+	<string>十字ボタン</string>
+	<key>Display Mode</key>
+	<string>ディスプレイモード</string>
+	<key>Down</key>
+	<string>下</string>
+	<key>Enter</key>
+	<string>Enter</string>
+	<key>Fast Forward</key>
+	<string>早送り</string>
+	<key>Fire</key>
+	<string>ファイア</string>
+	<key>Fire 1</key>
+	<string>ファイア 1</string>
+	<key>Fire 2</key>
+	<string>ファイア 2</string>
+	<key>Fullscreen</key>
+	<string>フルスクリーン</string>
+	<key>Gameplay Buttons</key>
+	<string>ゲームプレイボタン</string>
+	<key>Insert Coin</key>
+	<string>コイン投入</string>
+	<key>Jump</key>
+	<string>Jump</string>
+	<key>Keypad</key>
+	<string>キーパッド</string>
+	<key>L</key>
+	<string>L</string>
+	<key>L Diff</key>
+	<string>左の難易度</string>
+	<key>L Diff A</key>
+	<string>左の難易度 A</string>
+	<key>L Diff B</key>
+	<string>左の難易度 B</string>
+	<key>L1</key>
+	<string>L1</string>
+	<key>L2</key>
+	<string>L2</string>
+	<key>L3</key>
+	<string>L3</string>
+	<key>Last Display Mode</key>
+	<string>前のディスプレイモード</string>
+	<key>Left</key>
+	<string>左</string>
+	<key>Left Action</key>
+	<string>左アクション</string>
+	<key>Left Analog</key>
+	<string>左アナログ</string>
+	<key>Left D-Pad</key>
+	<string>左の十字ボタン</string>
+	<key>Left Trigger</key>
+	<string>左トリガー</string>
+	<key>Lid</key>
+	<string>本体の開閉</string>
+	<key>Load</key>
+	<string>ロード</string>
+	<key>Menu</key>
+	<string>Menu</string>
+	<key>Mic</key>
+	<string>マイク</string>
+	<key>Mode</key>
+	<string>モード</string>
+	<key>Mode Switch</key>
+	<string>Mode Switch</string>
+	<key>Mute</key>
+	<string>ミュート</string>
+	<key>Next Display Mode</key>
+	<string>次のディスプレイモード</string>
+	<key>Option</key>
+	<string>オプション</string>
+	<key>Option 1</key>
+	<string>オプション 1</string>
+	<key>Option 2</key>
+	<string>オプション 2</string>
+	<key>P</key>
+	<string>P</string>
+	<key>Pause/Resume</key>
+	<string>一時停止</string>
+	<key>Player Start</key>
+	<string>プレイヤー開始</string>
+	<key>Power</key>
+	<string>Power</string>
+	<key>Quick Load</key>
+	<string>クイックロード</string>
+	<key>Quick Save</key>
+	<string>クイックセーブ</string>
+	<key>R</key>
+	<string>R</string>
+	<key>R Diff</key>
+	<string>右の難易度</string>
+	<key>R Diff A</key>
+	<string>右の難易度 A</string>
+	<key>R Diff B</key>
+	<string>右の難易度 B</string>
+	<key>R1</key>
+	<string>R1</string>
+	<key>R2</key>
+	<string>R2</string>
+	<key>R3</key>
+	<string>R3</string>
+	<key>Rapid Fire Clear</key>
+	<string>連射をクリア</string>
+	<key>Rapid Fire Reset</key>
+	<string>連射をリセット</string>
+	<key>Rapid Fire Toggle</key>
+	<string>連射の切り替え</string>
+	<key>Reset</key>
+	<string>リセット</string>
+	<key>Rewind</key>
+	<string>巻き戻し</string>
+	<key>Right</key>
+	<string>右</string>
+	<key>Right Action</key>
+	<string>右アクション</string>
+	<key>Right Analog</key>
+	<string>右アナログ</string>
+	<key>Right D-Pad</key>
+	<string>右の十字ボタン</string>
+	<key>Right Trigger</key>
+	<string>右トリガー</string>
+	<key>Run</key>
+	<string>ラン</string>
+	<key>Save</key>
+	<string>セーブ</string>
+	<key>Screenshot</key>
+	<string>スクリーンショット</string>
+	<key>Select</key>
+	<string>セレクト</string>
+	<key>Service</key>
+	<string>サービス</string>
+	<key>Shake</key>
+	<string>Shake</string>
+	<key>Sound</key>
+	<string>サウンド</string>
+	<key>Special Keys</key>
+	<string>特殊キー</string>
+	<key>Start</key>
+	<string>スタート</string>
+	<key>Step Backward</key>
+	<string>前にステップ</string>
+	<key>Step Forward</key>
+	<string>後ろにステップ</string>
+	<key>Swap Joysticks</key>
+	<string>Swap Joysticks</string>
+	<key>Switches</key>
+	<string>スイッチ</string>
+	<key>TV Black &amp; White</key>
+	<string>テレビタイプ 白黒</string>
+	<key>TV Color</key>
+	<string>テレビタイプ カラー</string>
+	<key>Top Action</key>
+	<string>Top Action</string>
+	<key>Trigger L</key>
+	<string>Trigger L</string>
+	<key>Trigger R</key>
+	<string>Trigger R</string>
+	<key>Up</key>
+	<string>上</string>
+	<key>Volume Down</key>
+	<string>音量を下げる</string>
+	<key>Volume Up</key>
+	<string>音量を上げる</string>
+	<key>X</key>
+	<string>X</string>
+	<key>X1 Up</key>
+	<string>X1 上</string>
+	<key>X2 Right</key>
+	<string>X2 右</string>
+	<key>X3 Down</key>
+	<string>X3 下</string>
+	<key>X4 Left</key>
+	<string>X4 左</string>
+	<key>Y</key>
+	<string>Y</string>
+	<key>Y1 Up</key>
+	<string>Y1 上</string>
+	<key>Y2 Right</key>
+	<string>Y2 右</string>
+	<key>Y3 Down</key>
+	<string>Y3 下</string>
+	<key>Y4 Left</key>
+	<string>Y4 左</string>
+	<key>Z</key>
+	<string>Z</string>
+	<key>▢</key>
+	<string>▢</string>
+	<key>△</key>
+	<string>△</string>
+	<key>◯</key>
+	<string>◯</string>
+	<key>✕</key>
+	<string>✕</string>
+</dict>
+</plist>

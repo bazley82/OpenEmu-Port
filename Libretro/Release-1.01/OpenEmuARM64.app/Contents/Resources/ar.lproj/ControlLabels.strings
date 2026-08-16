@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>#</key>
+	<string>#</string>
+	<key>*</key>
+	<string>*</string>
+	<key>-</key>
+	<string>-</string>
+	<key>0</key>
+	<string>0</string>
+	<key>1</key>
+	<string>1</string>
+	<key>2</key>
+	<string>2</string>
+	<key>2/6 Mode</key>
+	<string>2/6 وضع</string>
+	<key>3</key>
+	<string>3</string>
+	<key>3D Control Pad</key>
+	<string>3D Control Pad</string>
+	<key>4</key>
+	<string>4</string>
+	<key>5</key>
+	<string>5</string>
+	<key>6</key>
+	<string>6</string>
+	<key>7</key>
+	<string>7</string>
+	<key>8</key>
+	<string>8</string>
+	<key>9</key>
+	<string>9</string>
+	<key>A</key>
+	<string>A</string>
+	<key>Action</key>
+	<string>زر الإجراء</string>
+	<key>Analog</key>
+	<string>عصا التحكم</string>
+	<key>Analog Mode</key>
+	<string>زر الـAnalog</string>
+	<key>B</key>
+	<string>B</string>
+	<key>Bottom Left Action</key>
+	<string>زر الإجراء الأيسر</string>
+	<key>Bottom Right Action</key>
+	<string>زر الإجراء الأيمن</string>
+	<key>Button 1</key>
+	<string>الزر ١</string>
+	<key>Button 1/Start</key>
+	<string>الزر ١/start</string>
+	<key>Button 2</key>
+	<string>الزر ٢</string>
+	<key>Button 3</key>
+	<string>الزر ٣</string>
+	<key>Button 4</key>
+	<string>الزر ٤</string>
+	<key>Button 5</key>
+	<string>الزر ٥</string>
+	<key>Button 6</key>
+	<string>الزر ٦</string>
+	<key>C</key>
+	<string>C</string>
+	<key>C-Pad</key>
+	<string>أسهم الـC</string>
+	<key>C-Stick</key>
+	<string>C-عصا</string>
+	<key>Change Disk Side</key>
+	<string>تغيير جهة القرص</string>
+	<key>Clear</key>
+	<string>مسح</string>
+	<key>Configure</key>
+	<string>تهيئة</string>
+	<key>Console Pause</key>
+	<string>ايقاف مؤقت لجهاز اللعب</string>
+	<key>Console Reset</key>
+	<string>إعادة تعيين لجهاز اللعب</string>
+	<key>D-Pad</key>
+	<string>الأسهم</string>
+	<key>Display Mode</key>
+	<string>وضع العرض</string>
+	<key>Down</key>
+	<string>أسفل</string>
+	<key>Enter</key>
+	<string>إدخال</string>
+	<key>Fast Forward</key>
+	<string>تقديم سريع</string>
+	<key>Fire</key>
+	<string>اطلاق</string>
+	<key>Fire 1</key>
+	<string>اطلاق ١</string>
+	<key>Fire 2</key>
+	<string>اطلاق ٢</string>
+	<key>Fullscreen</key>
+	<string>ملء الشاشة</string>
+	<key>Gameplay Buttons</key>
+	<string>أزرار اللعب</string>
+	<key>Insert Coin</key>
+	<string>ادخال عملة</string>
+	<key>Jump</key>
+	<string>قفز</string>
+	<key>Keypad</key>
+	<string>لوحة الأرقام</string>
+	<key>L</key>
+	<string>L</string>
+	<key>L Diff</key>
+	<string>L Diff</string>
+	<key>L Diff A</key>
+	<string>L Diff A</string>
+	<key>L Diff B</key>
+	<string>L Diff B</string>
+	<key>L1</key>
+	<string>L1</string>
+	<key>L2</key>
+	<string>L2</string>
+	<key>L3</key>
+	<string>L3</string>
+	<key>Last Display Mode</key>
+	<string>آخر وضع للعرض</string>
+	<key>Left</key>
+	<string>يسار</string>
+	<key>Left Action</key>
+	<string>الإجراء الأيسر</string>
+	<key>Left Analog</key>
+	<string>عصا التحكم اليسرى</string>
+	<key>Left D-Pad</key>
+	<string>الأسهم اليسرى</string>
+	<key>Left Trigger</key>
+	<string>الزناد الأيسر</string>
+	<key>Lid</key>
+	<string>Lid</string>
+	<key>Load</key>
+	<string>تحميل</string>
+	<key>Menu</key>
+	<string>قائمة</string>
+	<key>Mic</key>
+	<string>Mic</string>
+	<key>Mode</key>
+	<string>الوضع</string>
+	<key>Mode Switch</key>
+	<string>مفتاح تبديل الوضع</string>
+	<key>Mute</key>
+	<string>كتم</string>
+	<key>Next Display Mode</key>
+	<string>وضع العرض التالي</string>
+	<key>Option</key>
+	<string>الخيار</string>
+	<key>Option 1</key>
+	<string>الخيار ١</string>
+	<key>Option 2</key>
+	<string>الخيار ٢</string>
+	<key>P</key>
+	<string>P</string>
+	<key>Pause/Resume</key>
+	<string>ايقاف موقت/استئناف</string>
+	<key>Player Start</key>
+	<string>بدأ اللاهب</string>
+	<key>Power</key>
+	<string>زر التشغيل</string>
+	<key>Quick Load</key>
+	<string>تحميل سريع</string>
+	<key>Quick Save</key>
+	<string>حفظ سريع</string>
+	<key>R</key>
+	<string>R</string>
+	<key>R Diff</key>
+	<string>R Diff</string>
+	<key>R Diff A</key>
+	<string>R Diff A</string>
+	<key>R Diff B</key>
+	<string>R Diff B</string>
+	<key>R1</key>
+	<string>R1</string>
+	<key>R2</key>
+	<string>R2</string>
+	<key>R3</key>
+	<string>R3</string>
+	<key>Rapid Fire Clear</key>
+	<string>Rapid Fire Clear</string>
+	<key>Rapid Fire Reset</key>
+	<string>Rapid Fire Reset</string>
+	<key>Rapid Fire Toggle</key>
+	<string>Rapid Fire Toggle</string>
+	<key>Reset</key>
+	<string>إعادة تعيين</string>
+	<key>Rewind</key>
+	<string>ترجيع</string>
+	<key>Right</key>
+	<string>يمين</string>
+	<key>Right Action</key>
+	<string>الإجراء الأيمن</string>
+	<key>Right Analog</key>
+	<string>عصا التحكم اليمنى</string>
+	<key>Right D-Pad</key>
+	<string>الأسهم اليمنى</string>
+	<key>Right Trigger</key>
+	<string>الزناد الأيمن</string>
+	<key>Run</key>
+	<string>زر Run</string>
+	<key>Save</key>
+	<string>حفظ</string>
+	<key>Screenshot</key>
+	<string>لقطة شاشة</string>
+	<key>Select</key>
+	<string>زر Select</string>
+	<key>Service</key>
+	<string>Service</string>
+	<key>Shake</key>
+	<string>Shake</string>
+	<key>Sound</key>
+	<string>صوت</string>
+	<key>Special Keys</key>
+	<string>أزرار خاصة</string>
+	<key>Start</key>
+	<string>زر Start</string>
+	<key>Step Backward</key>
+	<string>ارجع خطوة للوراء</string>
+	<key>Step Forward</key>
+	<string>تقدم خطوة للأمام</string>
+	<key>Swap Joysticks</key>
+	<string>تبديل عصا التحم</string>
+	<key>Switches</key>
+	<string>المفاتيح</string>
+	<key>TV Black &amp; White</key>
+	<string>تلفاز ابيض و أسود</string>
+	<key>TV Color</key>
+	<string>تلفاز ملون</string>
+	<key>Top Action</key>
+	<string>زر الإجراء العلوي</string>
+	<key>Trigger L</key>
+	<string>الزناد L</string>
+	<key>Trigger R</key>
+	<string>الزناد R</string>
+	<key>Up</key>
+	<string>فوق</string>
+	<key>Volume Down</key>
+	<string>خفض الصوت</string>
+	<key>Volume Up</key>
+	<string>رفع الصوت</string>
+	<key>X</key>
+	<string>X</string>
+	<key>X1 Up</key>
+	<string>X1 فوق</string>
+	<key>X2 Right</key>
+	<string>X2 يمين</string>
+	<key>X3 Down</key>
+	<string>X3 أسفل</string>
+	<key>X4 Left</key>
+	<string>X4 يسار</string>
+	<key>Y</key>
+	<string>Y</string>
+	<key>Y1 Up</key>
+	<string>Y1 فوق</string>
+	<key>Y2 Right</key>
+	<string>Y2 يمين</string>
+	<key>Y3 Down</key>
+	<string>Y3 أسفل</string>
+	<key>Y4 Left</key>
+	<string>Y4 يسار</string>
+	<key>Z</key>
+	<string>Z</string>
+	<key>▢</key>
+	<string>▢</string>
+	<key>△</key>
+	<string>△</string>
+	<key>◯</key>
+	<string>◯</string>
+	<key>✕</key>
+	<string>✕</string>
+</dict>
+</plist>

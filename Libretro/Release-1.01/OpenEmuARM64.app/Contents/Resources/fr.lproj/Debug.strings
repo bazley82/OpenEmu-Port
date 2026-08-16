@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>Mode d’apparence :</string>
+	<key>Auto (region)</key>
+	<string>Auto</string>
+	<key>Background Thread</key>
+	<string>Thread d’arrière-plan</string>
+	<key>Cancel cover sync for all games</key>
+	<string>Annuler la synchronisation des jaquettes pour tous les jeux</string>
+	<key>Checked</key>
+	<string>Activé</string>
+	<key>Cleanup Save States</key>
+	<string>Nettoyer les parties sauvegardées</string>
+	<key>Cleanup autosave state</key>
+	<string>Nettoyer la partie sauvegardée automatiquement</string>
+	<key>Cleanup rom hashes</key>
+	<string>Nettoyer les hachages des ROM</string>
+	<key>Clear shader cache</key>
+	<string>Effacer le cache du shader</string>
+	<key>Controls Setup</key>
+	<string>Configuration des contrôles</string>
+	<key>Dark (default)</key>
+	<string>Sombre (par défaut)</string>
+	<key>Database Actions</key>
+	<string>Actions sur la base de données</string>
+	<key>Debug Mode</key>
+	<string>Mode débogage</string>
+	<key>Default Value: %@</key>
+	<string>Valeur par défaut : %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>Supprimer les jaquettes qui peuvent être téléchargées</string>
+	<key>Delete useless image objects</key>
+	<string>Supprimer les objets d’image inutiles</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>Désactiver la correction de résolution pour les captures d'écran</string>
+	<key>Download missing artwork…</key>
+	<string>Télécharger les jaquettes manquantes…</string>
+	<key>Draw button mask above image</key>
+	<string>Dessiner un masque de bouton au-dessus de l’image</string>
+	<key>Europe</key>
+	<string>Europe</string>
+	<key>Game View Background color:</key>
+	<string>Couleur de fond de l’affichage du jeu :</string>
+	<key>General</key>
+	<string>Général</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>Barre HUD / Jeu</string>
+	<key>Japan</key>
+	<string>Japon</string>
+	<key>Library Window</key>
+	<string>Fenêtre de la bibliothèque</string>
+	<key>Light</key>
+	<string>Clair</string>
+	<key>Log HID Events</key>
+	<string>Journaliser les événements HID</string>
+	<key>Log Keyboard Events</key>
+	<string>Journaliser les événements du clavier</string>
+	<key>Manually choose system on import</key>
+	<string>Choisir manuellement le système lors de l’importation</string>
+	<key>North America</key>
+	<string>Amérique du Nord</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>Autre</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>Vérifier l’intégrité de la base de données</string>
+	<key>Range: %@ to %@</key>
+	<string>Intervalle : %@ à %@</string>
+	<key>Region:</key>
+	<string>Région :</string>
+	<key>Remove duplicated roms</key>
+	<string>Supprimer les ROM dupliquées</string>
+	<key>Remove untracked artwork files</key>
+	<string>Supprimer les fichiers de jaquette externes</string>
+	<key>Reset main window size</key>
+	<string>Rétablir la taille de la fenêtre principale</string>
+	<key>Reveal user shader folder</key>
+	<string>Révéler le dossier shader utilisateur</string>
+	<key>Run games using:</key>
+	<string>Exécuter les jeux avec :</string>
+	<key>Select first field after setting the last</key>
+	<string>Sélectionner le premier champ après avoir configuré le dernier</string>
+	<key>Set default save states directory</key>
+	<string>Répertoire des parties sauvegardées par défaut</string>
+	<key>Setup Assistant has finished</key>
+	<string>L’assistant d’installation a terminé</string>
+	<key>Shaders</key>
+	<string>Shaders</string>
+	<key>Show all special keys</key>
+	<string>Afficher toutes les touches spéciales</string>
+	<key>Show audio output device in menu</key>
+	<string>Afficher le périphérique de sortie dans le menu</string>
+	<key>Show autosave in menu</key>
+	<string>Afficher la sauvegarde automatique dans le menu</string>
+	<key>Show autosave states in save state category</key>
+	<string>Afficher les sauvegardes auto dans la catégorie des sauvegardes</string>
+	<key>Show game titles instead of rom names</key>
+	<string>Afficher les titres des jeux à la place des noms des ROM</string>
+	<key>Show notifications during gameplay</key>
+	<string>Afficher les notifications pendant le jeu</string>
+	<key>Show quicksave in menu</key>
+	<string>Afficher la sauvegarde rapide dans le menu</string>
+	<key>Show quicksave states in save state category</key>
+	<string>Afficher les sauvegardes rapides dans la catégorie des sauvegardes</string>
+	<key>Sync games without artwork</key>
+	<string>Synchroniser les jeux sans jaquette</string>
+	<key>System</key>
+	<string>Système</string>
+	<key>Take screenshots in native size</key>
+	<string>Faire des captures d’écran en conservant la taille d’origine</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>Seuil pour les contrôles analogiques
+associés à des boutons :</string>
+	<key>Toggle game scanner view</key>
+	<string>Afficher/masquer la vue d’analyse des jeux</string>
+	<key>Unchecked</key>
+	<string>Désactivé</string>
+	<key>Update OpenVGDB</key>
+	<string>Mettre à jour OpenVGDB</string>
+	<key>Use quicksave slots</key>
+	<string>Utiliser les emplacements de sauvegarde rapide</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>OpenEmu ne répondra pas pendant l’exécution de cette opération.</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

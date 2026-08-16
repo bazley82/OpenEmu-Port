@@ -1,0 +1,66 @@
+
+"%@ Game" = "%@ Oyun";
+
+"Archived Game" = "Arşivlenmiş Oyunlar";
+
+"Atari 2600 Game" = "Atari 2600 Oyun";
+
+"Atari 5200 Game" = "Atari 5200 Oyun";
+
+"Atari 7800 Game" = "Atari 7800 Oyun";
+
+"Atari Lynx Game" = "Atari Lynx Oyun";
+
+"ColecoVision Game" = "ColecoVision Oyun";
+
+"Famicom Disk System Game" = "Famicom Disk System Oyun";
+
+"Game Boy Advance Game" = "Game Boy Advance Oyun";
+
+"Game Boy Game" = "Game Boy Oyun";
+
+"Game Gear Game" = "Game Gear Oyun";
+
+"GameCube Game" = "GameCube Oyun";
+
+"Intellivision Game" = "Intellivision Oyun";
+
+"NeoGeo Pocket Game" = "NeoGeo Pocket Oyun";
+
+"Nintendo (NES) Game" = "Nintendo (NES) Oyun";
+
+"Nintendo 64 Game" = "Nintendo 64 Oyun";
+
+"Nintendo DS Game" = "Nintendo DS Oyun";
+
+"OpenEmu Core Plugin" = "OpenEmu Çekirdek Plugin";
+
+"OpenEmu Game" = "OpenEmu Oyun";
+
+"OpenEmu Save State" = "OpenEmu Kayıt Durumu";
+
+"OpenEmu Shader" = "OpenEmu Grafik efekti";
+
+"OpenEmu System Plugin" = "OpenEmu Sistem Plugin";
+
+"SG-1000 Game" = "SG-1000 Oyun";
+
+"Sega 32X Game" = "Sega Mega Drive 32X Oyun";
+
+"Sega Master System Game" = "Sega Master System Oyun";
+
+"Sega Mega Drive Game" = "Sega Mega Drive Oyun";
+
+"Sony PSP Game" = "Sony PSP Oyun";
+
+"Sony PlayStation Game" = "Sony PlayStation Oyun";
+
+"Super Nintendo (SNES) Game" = "Super Nintendo (SNES) Oyun";
+
+"TurboGrafx-16 Game" = "TurboGrafx-16 Oyun";
+
+"Vectrex Game" = "Vectrex Oyun";
+
+"Virtual Boy Game" = "Virtual Boy Oyun";
+
+"WonderSwan Game" = "WonderSwan Oyun";

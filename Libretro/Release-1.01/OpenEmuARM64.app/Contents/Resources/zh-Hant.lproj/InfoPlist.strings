@@ -1,0 +1,66 @@
+
+"%@ Game" = "%@ Game";
+
+"Archived Game" = "已封存遊戲";
+
+"Atari 2600 Game" = "Atari 2800 Game";
+
+"Atari 5200 Game" = "Atari 5200 Game";
+
+"Atari 7800 Game" = "Atari 7800 Game";
+
+"Atari Lynx Game" = "Atari Lynx Game";
+
+"ColecoVision Game" = "ColecoVision Game";
+
+"Famicom Disk System Game" = "Famicom Disk System Game";
+
+"Game Boy Advance Game" = "Game Boy Advance Game";
+
+"Game Boy Game" = "Game Boy Game";
+
+"Game Gear Game" = "Game Gear Game";
+
+"GameCube Game" = "GameCube Game";
+
+"Intellivision Game" = "Intellivision Game";
+
+"NeoGeo Pocket Game" = "NeoGeo Pocket Game";
+
+"Nintendo (NES) Game" = "Famicom Game";
+
+"Nintendo 64 Game" = "Nintendo 64 Game";
+
+"Nintendo DS Game" = "Nintendo DS Game";
+
+"OpenEmu Core Plugin" = "OpenEmu 核心外掛";
+
+"OpenEmu Game" = "OpenEmu Game";
+
+"OpenEmu Save State" = "OpenEmu 儲存狀態";
+
+"OpenEmu Shader" = "OpenEmu 著色器";
+
+"OpenEmu System Plugin" = "OpenEmu 系統外掛";
+
+"SG-1000 Game" = "SG-1000 Game";
+
+"Sega 32X Game" = "Sega Super 32X Game";
+
+"Sega Master System Game" = "Sega Master System Game";
+
+"Sega Mega Drive Game" = "Sega Mega Drive Game";
+
+"Sony PSP Game" = "Sony PSP Game";
+
+"Sony PlayStation Game" = "Sony PlayStation Game";
+
+"Super Nintendo (SNES) Game" = "Super Famicom Game";
+
+"TurboGrafx-16 Game" = "PC Engine Game";
+
+"Vectrex Game" = "Vectrex Game";
+
+"Virtual Boy Game" = "Virtual Boy Game";
+
+"WonderSwan Game" = "WonderSwan Game";

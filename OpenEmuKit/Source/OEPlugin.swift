@@ -202,6 +202,15 @@ public class OEPlugin: NSObject {
         if plugins == nil {
             let fm = FileManager.default
             
+            // load plugins in application bundle
+            if let builtInPluginsURL = Bundle.main.builtInPlugInsURL {
+                let bundledPluginsDir = builtInPluginsURL.appendingPathComponent(Self.pluginFolder, isDirectory: true)
+                let bundledPluginURLs = try? fm.contentsOfDirectory(at: bundledPluginsDir, includingPropertiesForKeys: [])
+                for bundleURL in bundledPluginURLs ?? [] where bundleURL.pathExtension == Self.pluginExtension {
+                    _ = try? plugin(bundleAtURL: bundleURL)
+                }
+            }
+            
             // load plugins in Application Support
             let appSupportDir: URL
             #if swift(>=5.7)
@@ -218,14 +227,6 @@ public class OEPlugin: NSObject {
             let pluginURLs = try? fm.contentsOfDirectory(at: pluginsDir, includingPropertiesForKeys: [])
             for bundleURL in pluginURLs ?? [] where bundleURL.pathExtension == Self.pluginExtension {
                 _ = try? plugin(bundleAtURL: bundleURL, forceReload: true)
-            }
-            
-            // load plugins in application bundle
-            let builtInPluginsURL = Bundle.main.builtInPlugInsURL!
-            let bundledPluginsDir = builtInPluginsURL.appendingPathComponent(Self.pluginFolder, isDirectory: true)
-            let bundledPluginURLs = try? fm.contentsOfDirectory(at: bundledPluginsDir, includingPropertiesForKeys: [])
-            for bundleURL in bundledPluginURLs ?? [] where bundleURL.pathExtension == Self.pluginExtension {
-                _ = try? plugin(bundleAtURL: bundleURL)
             }
             
             plugins = allPluginsByType[Self.pluginType]

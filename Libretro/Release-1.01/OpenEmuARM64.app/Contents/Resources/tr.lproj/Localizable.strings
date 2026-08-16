@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>"%@" in %@</key>
+	<string>"%1$@" in %2$@</string>
+	<key>%@ copy</key>
+	<string>%@ Kopya</string>
+	<key>%@ could not be enabled because its plugin was not found.</key>
+	<string>Plugin bulunamadığı için %@ aktif edilemedi.</string>
+	<key>%@ games will appear here. Check out %@ on how to add disc-based games.</key>
+	<string>%@ Oyunlar Burada Gözükecek. Disk tabanlı oyunları eklemek için %@ kontrol ediniz.</string>
+	<key>%@ games you add to OpenEmu will appear in this Console Library</key>
+	<string>%@ Eklediğiniz oyunlar bu konsol kütüphanesinde gözükecektir</string>
+	<key>%ux</key>
+	<string>%ux</string>
+	<key>A name is required.</key>
+	<string>İsim gereklidir.</string>
+	<key>ALERT_CORE_GLITCHES_FEEDBACK_HTML</key>
+	<string>&lt;b&gt;If and only if this issue persists&lt;/b&gt;, please submit feedback including:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;The model of Mac you are using &lt;b&gt;and&lt;/b&gt; the version of macOS you have installed&lt;ul&gt;&lt;li&gt;This information is found in  &gt; About this Mac&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;The &lt;b&gt;exact name&lt;/b&gt; of the game you were playing&lt;/li&gt;&lt;li&gt;The crash report of OpenEmuHelperApp&lt;ul&gt;&lt;li&gt;Open Console.app, click on “Crash Reports” or “User Reports” in the sidebar, then look for the latest document with OpenEmuHelperApp in the name&lt;/ul&gt;&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Always search for similar feedback previously reported by other users!&lt;/b&gt;&lt;br&gt;If any of this information is omitted, or if similar feedback has already been issued, your issue report may be closed.</string>
+	<key>ALERT_INPUT_MONITORING_HEADLINE</key>
+	<string>OpenEmu ek izinler gerektirir</string>
+	<key>ALERT_INPUT_MONITORING_PART1</key>
+	<string>Klavyeyi bir giriş aygıtı olarak kullanmak için OpenEmu'ya Giriş İzleme izni verilmelidir.</string>
+	<key>ALERT_INPUT_MONITORING_PART2</key>
+	<string>İznin değiştirilmesi klavye girişi sorunlarını da çözebilir.</string>
+	<key>ALERT_INPUT_MONITORING_PART2_MONTEREY</key>
+	<string>İznin kaldırılması ve yeniden verilmesi de klavye girişi sorunlarını çözebilir.</string>
+	<key>ALERT_MOVE_LIBRARY_HTML</key>
+	<string>OpenEmu Oyun Kütüphanesi, kütüphane aşağıdaki konumlara taşınırsa bozulabilecek bir veritabanı dosyası içerir:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;bulut senkronizasyon sistemlerindeki dosyalar (tıpkı &lt;b&gt;iCloud Drive&lt;/b&gt;)&lt;/li&gt;&lt;li&gt;Network klasörleri&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;Ek olarak, &lt;b&gt;aynı kütüphaneyi birkaç bilgisayar ya da kullanıcının kullanması&lt;/b&gt; da bozabilir. Bu aynı zamanda kütüphanenin harici USB sürücülere taşınması için de geçerlidir.</string>
+	<key>Add</key>
+	<string>Ekle</string>
+	<key>Add Cheat</key>
+	<string>Hile ekle</string>
+	<key>Add Cheat…</key>
+	<string>Hile ekle</string>
+	<key>Add Cover Art from File…</key>
+	<string>Dosyaya sanat çalışması ekle…</string>
+	<key>Add a Wiimote…</key>
+	<string>Wiimote ekle…</string>
+	<key>Add to Collection</key>
+	<string>Koleksiyonlara Ekle</string>
+	<key>Add to Library…</key>
+	<string>Kütüphaneye Ekle…</string>
+	<key>All Games</key>
+	<string>Tüm Oyunlar</string>
+	<key>All Homebrew</key>
+	<string>Tüm Homebrew</string>
+	<key>Already in library, but manually deleted or unreachable:</key>
+	<string>Zaten kütüphanede ama elle silinmiş ve erişilebilir:</string>
+	<key>Already in library:</key>
+	<string>Zaten Kütüphanede:</string>
+	<key>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</key>
+	<string>Kurulum asistanı hazırlanırken bir hata meydana geldi. (%@) Lütfen internete bağlı olduğunuzdan emin olup tekrar deneyin.</string>
+	<key>An issue was detected with one of your controllers.</key>
+	<string>Kontrolcülerinizden birinde bir sorun çıktı.</string>
+	<key>Are you sure you want to delete %ld save states from your OpenEmu library?</key>
+	<string>%ld oyun kayıtlarını OpenEmu kütüphanesinden silmek istediğinize emin misiniz ?</string>
+	<key>Are you sure you want to delete %ld screenshots from your OpenEmu library?</key>
+	<string>%ld Ekran görüntülerini OpenEmu kütüphanenizden silmek istediğinize emin misiniz?</string>
+	<key>Are you sure you want to delete the save state called '%@' from your OpenEmu library?</key>
+	<string> “%@” Kayıt durumlarını OpenEmu kütüphanenizden silmek istediğinize emin misiniz??</string>
+	<key>Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?</key>
+	<string>“%@” Ekran görüntülerinizi OpenEmu kütüphanenizden silmek istediğinize emin misiniz?</string>
+	<key>Are you sure you want to delete the selected game from your OpenEmu library?</key>
+	<string>Seçili oyunu OpenEmu kütüphanenizden silmek istediğinize emin misiniz?</string>
+	<key>Are you sure you want to delete the selected games from your OpenEmu library?</key>
+	<string>Seçili oyunları OpenEmu kütüphanenizden silmek istediğinize emin misiniz?</string>
+	<key>Are you sure you want to delete the shader preset called '%@'?</key>
+	<string>“%@” isimli ön ayarı silmek istediğinize emin misiniz ?</string>
+	<key>Are you sure you want to quit the application?</key>
+	<string>Uygulamadan çıkmak istediğinize emin misiniz?</string>
+	<key>Are you sure you want to quit the game?</key>
+	<string>Oyundan çıkmak istediğinize emin misiniz ?</string>
+	<key>Are you sure you want to remove the collection '%@'?</key>
+	<string>Koleksiyonu silmek istediğinize emin misiniz “%@”?</string>
+	<key>Are you sure you want to remove the selected game from the collection?</key>
+	<string>Seçili oyunu koleksiyondan silmek istediğinize emin misiniz?</string>
+	<key>Are you sure you want to remove the selected games from the collection?</key>
+	<string>Seçili oyunları koleksiyondan silmek istediğinize emin misiniz?</string>
+	<key>Are you sure you want to restart the game?</key>
+	<string>Oyunu yeniden başlatmak istediğinize emin misiniz ?</string>
+	<key>At least one System must be enabled</key>
+	<string>En az bir sistem aktif olmalı</string>
+	<key>Auto Save State</key>
+	<string>Otomatik durum kaydı</string>
+	<key>Bluetooth Not Enabled</key>
+	<string>Bluetooth Aktif değil</string>
+	<key>Bluetooth must be enabled to pair a Wii controller.</key>
+	<string>Wii kontrolcüsü bağlamak için bluetooth aktif olmalı.</string>
+	<key>Cancel</key>
+	<string>İptal</string>
+	<key>Cancel Cover Art Download</key>
+	<string>Kapak resmi indirmesini iptal et</string>
+	<key>Category</key>
+	<string>Kategori</string>
+	<key>Change Core</key>
+	<string>Çekirdeği değiştir</string>
+	<key>Change Volume</key>
+	<string>Sesi değiştir</string>
+	<key>Changed button for %1$@ to %2$@.</key>
+	<string>Buton %1$@, %2$@ ile değiştirildi.</string>
+	<key>Cheat Description</key>
+	<string>Hile Açıklaması </string>
+	<key>Check out some excellent homebrew games.</key>
+	<string>Mükemmel homebrew oyunlarına göz at.</string>
+	<key>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</key>
+	<string>Apple Menüsünü Seçin  &gt; Sistem Tercihleri, Güvenlik &amp; Gizlilik'e tıklayığ gizlilik kısmını seçim. OpenEmu için varsa mevcut Dosyalar ve Klasörler iznini kaldırın ve bunun yerine Tam Disk Erişimi verin.</string>
+	<key>Choose Library…</key>
+	<string>Kütüphane Seç…</string>
+	<key>Choose Location…</key>
+	<string>Konum Seç…</string>
+	<key>Choose OpenEmu Library</key>
+	<string>OpenEmu kütüphanesi seç</string>
+	<key>Choose a valid file.</key>
+	<string>Onaylı dosya seç.</string>
+	<key>Code:</key>
+	<string>Kod:</string>
+	<key>Collections</key>
+	<string>Koleksiyonlar</string>
+	<key>Configure Shader…</key>
+	<string>Gölgeleri Ayarla…</string>
+	<key>Console</key>
+	<string>Konsol</string>
+	<key>Consoles</key>
+	<string>Konsollar</string>
+	<key>Consolidate</key>
+	<string>Birleştir</string>
+	<key>Consolidate Files…</key>
+	<string>Dosyaları birleştirin…</string>
+	<key>Consolidating files failed.</key>
+	<string>Dosya birleştirme başarısız.</string>
+	<key>Consolidating will copy all of the selected games into the OpenEmu Library folder.</key>
+	<string>Seçili oyunlar OpenEmu Kütüphane dosyasına yapıştırılacaktır.</string>
+	<key>Contains no data:</key>
+	<string>Veri içermiyor:</string>
+	<key>Continue</key>
+	<string>Devam Et</string>
+	<key>Controls</key>
+	<string>Kontroller</string>
+	<key>Copying Artwork Files…</key>
+	<string>Sanat Çalışması Kopyalanıyor…</string>
+	<key>Copying Game Files…</key>
+	<string>Oyun Dosyaları Kopyalanıyor…</string>
+	<key>Copying ROM Files…</key>
+	<string>ROM Dosyaları Kopyalanıyor…</string>
+	<key>Copying ROM files failed!</key>
+	<string>ROM Dosyalarının Kopyalanması Başarısız!</string>
+	<key>Copying artwork failed!</key>
+	<string>Sanat Çalışması Başarısız!</string>
+	<key>Core</key>
+	<string>Çekirdek</string>
+	<key>Core Provided By…</key>
+	<string>Çekirdek tarafından sağlanır…</string>
+	<key>Cores</key>
+	<string>Çekirdekler</string>
+	<key>Could not move library data!</key>
+	<string>Kütüphane verisi yer değiştiremiyor</string>
+	<key>Couldn't load %@ plugin</key>
+	<string>%@ plugini yüklenemiyor</string>
+	<key>Create Library…</key>
+	<string>Kütüphane Yarat…</string>
+	<key>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</key>
+	<string>Kişisel bir oyun seçimi yapın. Koleksiyone eklemek için konsol kütüphanenizden bir oyun seçin ve yan bardaki “%@” sürükleyin</string>
+	<key>Create or Load Save State</key>
+	<string>Kayıt durumu yükle ya da yarat</string>
+	<key>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</key>
+	<string>Kendi ekran görüntüsü koleksiyonunuzu yaratın. Oyun oynarken ekran görüntüsü almak için ⌘ + T kısayolunu kullanabilirsiniz.</string>
+	<key>Decrease Grid Size</key>
+	<string>Izgara boyutunu küçült</string>
+	<key>Default %@ preset for %@</key>
+	<string>Varsayılan %@ ön ayar %@ için</string>
+	<key>Default Core</key>
+	<string>Varsayılan Çekirdek</string>
+	<key>Delete</key>
+	<string>Sil</string>
+	<key>Delete Collection</key>
+	<string>Koleksiyonu Sil</string>
+	<key>Delete Game</key>
+	<string>Oyunu Sil</string>
+	<key>Delete Games</key>
+	<string>Oyunlarımı Sil</string>
+	<key>Delete Save</key>
+	<string>Kaydı Sil</string>
+	<key>Delete Save State</key>
+	<string>Kayıt durumunu sil</string>
+	<key>Delete Save States</key>
+	<string>Kayıt durumunu sil</string>
+	<key>Delete Saves</key>
+	<string>Kayıtları Sil</string>
+	<key>Delete Screenshot</key>
+	<string>Ekran Görüntüsünü Sil</string>
+	<key>Delete Screenshots</key>
+	<string>Ekran Görüntülerini sil</string>
+	<key>Delete Shader Preset</key>
+	<string>Gölge ön ayarını sil</string>
+	<key>Description</key>
+	<string>Açıklama</string>
+	<key>Deselect All</key>
+	<string>Bütün seçimi iptal et</string>
+	<key>Device Disconnected</key>
+	<string>Cihaz bağlantısı kesildi</string>
+	<key>Device number %lu, %@, has disconnected.</key>
+	<string>%1$lu, %2$@, numaralı cihazın bağlantısı kesildi.</string>
+	<key>Disc %u</key>
+	<string>Disk %u</string>
+	<key>Disc-based games have special requirements. Please read the disc importing guide.</key>
+	<string>Disk tabanlı oyunların bazı özel ihtiyaçları vardır lütfen, disk içe aktarma rehberini okuyun.</string>
+	<key>Dismiss</key>
+	<string>Gizle</string>
+	<key>Do not ask me again</key>
+	<string>Tekrar sorma</string>
+	<key>Do not show me again</key>
+	<string>Tekrar gösterme</string>
+	<key>Do you really want to cancel importation?</key>
+	<string>Dışarı aktarma işlemini iptal etmek istediğinize emin misiniz?</string>
+	<key>Do you want to continue playing where you left off?</key>
+	<string>Kaldığınız yerden devam etmek istiyor musunuz?</string>
+	<key>Don't Import Selected</key>
+	<string>Seçilenleri içeri aktarma</string>
+	<key>Done</key>
+	<string>Hazır</string>
+	<key>Download</key>
+	<string>İndir</string>
+	<key>Download Cover Art</key>
+	<string>Kapak resmini indir</string>
+	<key>Downloading %@…</key>
+	<string>İndiriliyor %@…</string>
+	<key>Downloading Game DB</key>
+	<string>Oyun DB indir</string>
+	<key>Downloading and Installing Core…</key>
+	<string>Çekirdek indirliyor ve yükleniyor…</string>
+	<key>Downloading core list...</key>
+	<string>Çekirdek listesi indiriliyor…</string>
+	<key>Drag &amp; Drop Games Here</key>
+	<string>Oyunları buraya sürükle ve bırak</string>
+	<key>Drag &amp; Drop Save States Here</key>
+	<string>Kayıt durumlarını buraya sürükle ve bırak</string>
+	<key>Duplicate Collection</key>
+	<string>Koleksiyonu kopyala</string>
+	<key>ECM compressed binaries cannot be imported. Please read the disc importing guide.</key>
+	<string>Sıkıştırılmış ECM ikilisi içeri aktarılamaz. Lütfen disk içeri aktarma rehberini okuyunuz.</string>
+	<key>ECM compressed binary detected.</key>
+	<string>Sıkıştırılmış ECM ikilisi tespit edildi.</string>
+	<key>ERROR_PLUGIN_IMPORT_ALREADYLOADED</key>
+	<string>Yüklediğiniz plugin zaten yüklü.</string>
+	<key>ERROR_PLUGIN_IMPORT_OUTOFSUPPORT</key>
+	<string>Bu plugin şu anda desteklenmiyor</string>
+	<key>Edit Game Controls…</key>
+	<string>Oyun kontrollerini düzenle…</string>
+	<key>Enable now</key>
+	<string>Şimdi aktifleştir</string>
+	<key>Error!</key>
+	<string>Hata!</string>
+	<key>Everything</key>
+	<string>Her şey</string>
+	<key>Featured Games</key>
+	<string>Öne Çıkan Oyunlar</string>
+	<key>Fetching Games…</key>
+	<string>Oyunlar çekiliyor…</string>
+	<key>Files failed to import.</key>
+	<string>Dosyaları içeri aktarırken hata oluştu.</string>
+	<key>Fill Screen</key>
+	<string>Ekranı Doldur</string>
+	<key>Filter by:</key>
+	<string>Göre filtrele:</string>
+	<key>Game %ld of %ld</key>
+	<string>Oyun %1$ld nun %2$ld</string>
+	<key>Game Name</key>
+	<string>Oyun İsmi</string>
+	<key>Game Scanner</key>
+	<string>Oyun Tarayıcı</string>
+	<key>Game requires download</key>
+	<string>Oyun indirmeye ihtiyacı var</string>
+	<key>Gameplay</key>
+	<string>Oynanış</string>
+	<key>Grid Size</key>
+	<string>Izgara Boyutu</string>
+	<key>Have you read the guide?</key>
+	<string>Kullanım kılavuzunu okudun mu?</string>
+	<key>Hide "%@"</key>
+	<string>Sakla “%@”</string>
+	<key>Homebrew Games</key>
+	<string>Homebrew Oyunları</string>
+	<key>I understand the risks</key>
+	<string>Riskleri anladım</string>
+	<key>If there is a red button on the back battery cover, press it.
+If not, hold down buttons ①+②.</key>
+	<string>Arka batarya kapağınızda kırmızı bir buton varsa ona basın.
+Eğer yoksa, ①+② butonlarını basılı tutun.</string>
+	<key>If you change the core you current progress will be lost and save states will not work anymore.</key>
+	<string>Eğer çekirdeği değiştirirseniz şu an ki işlemleriniz kaybolur ve kayıt durumlarınız artık çalışmaz.</string>
+	<key>Ignore</key>
+	<string>Yoksay</string>
+	<key>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</key>
+	<string>Birkaç gün içinde bu çekirdek eklenti otomatik olarak kaldırılacaktır. Kaldırıldığında, onunla oluşturulan tüm kayıt durumları çalışmayı durduracaktır.</string>
+	<key>In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information.</key>
+	<string>Bazı sistemleri taklit etmek için, modern oyun konsollarının donanım ve yazılımının artan karmaşıklığı nedeniyle BIOS dosyalarına ihtiyaç vardır. Daha fazla bilgi için lütfen %@ sayfamızı okuyun.</string>
+	<key>In order to play the game it must be downloaded.</key>
+	<string>Oyunun oynanması için indirilmesi gerek.</string>
+	<key>Increase Grid Size</key>
+	<string>Izgara boyutunu büyüt</string>
+	<key>Insert Cart/Disk/Tape…</key>
+	<string> Yerleştirin: Kart/Disk/Kaset…</string>
+	<key>Install</key>
+	<string>İndir</string>
+	<key>Install %@</key>
+	<string>İndir %@</string>
+	<key>Install %@ and Set as Default</key>
+	<string>%@ indir ve varsayılan olarak ayarla</string>
+	<key>Installing Core</key>
+	<string>Çekirdek indiriliyor</string>
+	<key>Invalid cue sheet format:</key>
+	<string>Geçersiz cue sheet formatı:</string>
+	<key>Invalid gdi format:</key>
+	<string>Geçersiz gdi formatı:</string>
+	<key>Join multi-line cheats with '+' e.g. 000-000+111-111</key>
+	<string>‘+’ ile çok satır hileleri kullan örn. 000-000+111-111</string>
+	<key>Keyboard</key>
+	<string>Klavye</string>
+	<key>Keycode 0x%lX</key>
+	<string>Keycode 0x%lX</string>
+	<key>Last Played</key>
+	<string>Son Oynanan</string>
+	<key>Learn More</key>
+	<string>Fazlasını Öğren</string>
+	<key>Library</key>
+	<string>Kütüphane</string>
+	<key>Load</key>
+	<string>Yükle</string>
+	<key>Locate '%@'</key>
+	<string>Konumla “%@”</string>
+	<key>Locate…</key>
+	<string>Konumla…</string>
+	<key>Low Controller Battery</key>
+	<string>Kontrolcü bataryası düşük</string>
+	<key>MOVE_ALERT_INFO_TEXT</key>
+	<string>OpenEmu'nun düzgün çalışması için uygulama klasörünün taşınması gerek.</string>
+	<key>MOVE_ALERT_MOVE_BUTTON</key>
+	<string>Uygulama klasörünü taşı</string>
+	<key>MOVE_ALERT_NEEDS_AUTH</key>
+	<string>Bu adımı tamamlamak için bir yönetici adı ve parolası ile kimlik doğrulaması yapmanız gerekir. Alternatif olarak, farklı bir konum seçebilir veya Uygulamadan çıkıp manuel olarak taşıyabilirsiniz.</string>
+	<key>MOVE_ALERT_TITLE</key>
+	<string>Uygulama klasörüne taşı</string>
+	<key>Make sure your internet connection is active and download a suitable core.</key>
+	<string>İnternet bağlantınızın aktif ve uygun çekirdekleri indirdiğinize emin olun.</string>
+	<key>Make your Wiimote discoverable</key>
+	<string>Wiimote'unuzu keşfedilebilir yapın </string>
+	<key>Missing Core</key>
+	<string>Kayıp Çekirdek</string>
+	<key>Missing referenced file:</key>
+	<string>Kayıp referans dosyası:</string>
+	<key>Move to Trash</key>
+	<string>Çöpe at</string>
+	<key>Moving Library…</key>
+	<string>Kütüphane Taşınıyor…</string>
+	<key>Moving the Game Library is not recommended</key>
+	<string>Oyun kütüphanesini taşımanız önerilmez</string>
+	<key>Must not be compressed:</key>
+	<string>Sıkıştırılmış olmamalı:</string>
+	<key>Mute Audio</key>
+	<string>Sesi Kapat</string>
+	<key>NOT FOUND: "%@"</key>
+	<string>BULUNAMADI: "%@"</string>
+	<key>Name</key>
+	<string>İsim</string>
+	<key>Name must not contain “%@.”</key>
+	<string>İsim “%@.” içermelidir</string>
+	<key>New Collection</key>
+	<string>Yeni koleksiyon</string>
+	<key>New Collection from Selection</key>
+	<string>Seçimlerden yeni koleksiyon</string>
+	<key>New Folder</key>
+	<string>Yeni Klasöt</string>
+	<key>New Shader Preset</key>
+	<string>Yeni Gölge Ön Ayarı</string>
+	<key>New Smart Collection</key>
+	<string>Yeni Akıllı Koleksiyon</string>
+	<key>No</key>
+	<string>Hayır</string>
+	<key>No Internet Connection</key>
+	<string>İnternet bağlantısı yok</string>
+	<key>No Save States available</key>
+	<string>Uygun durum yok</string>
+	<key>No Screenshots Found</key>
+	<string>Ekran görüntüsü bulunamadı</string>
+	<key>No available controllers</key>
+	<string>Uygun kontrolcü yok</string>
+	<key>No game played yet!</key>
+	<string>Henüz oyun oynanmadı!</string>
+	<key>No parameters available.</key>
+	<string>Uygun parametre yok.</string>
+	<key>No permission to open:</key>
+	<string>Açmak için izin yok:</string>
+	<key>No valid system detected:</key>
+	<string>Geçerli sistem bulunamadı:</string>
+	<key>None</key>
+	<string>Hiçbiri</string>
+	<key>Not assigned</key>
+	<string>Görevlendirilmedi</string>
+	<key>Not plain text:</key>
+	<string>Düz metin değil:</string>
+	<key>OK</key>
+	<string>TMM</string>
+	<key>Only files in the OpenEmu Library folder will be moved to the Trash.</key>
+	<string>Sadece OpenEmu kütüphanesindeki dosyalar çöp kutusuna taşınacaktır</string>
+	<key>Open Collection</key>
+	<string>Koleksiyonları Aç</string>
+	<key>Open Library</key>
+	<string>Kütüphaneyi Aç</string>
+	<key>Open System Preferences</key>
+	<string>Sistem tercihlerini aç</string>
+	<key>OpenEmu could not download required data from the internet</key>
+	<string>Gerekli datayı internetten indiremedi</string>
+	<key>OpenEmu could not find a Core to launch the game</key>
+	<string>OpenEmu oyunu başlatmak için çekirdek bulamadı</string>
+	<key>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</key>
+	<string>OpenEmu oyuna tam bıraktığınız yerden devam etmenizi sağlayan kayıt durumları özelliğine sahiptir.</string>
+	<key>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</key>
+	<string>OpenEmu devam etmek için kütüphaneye ihtiyaç duyuyor. Var olan bir OpenEmu kütüphanesini seçebilir ya da yeni bir tane yaratabilirsiniz</string>
+	<key>OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@</key>
+	<string>OpenEmu oyunları çalıştırmak için 'çekirdekler' kullanır. Oynamak için %1$@ çekirdeğine ihtiyacınız var %2$@</string>
+	<key>OpenEmu will save and quit all games that are currently running.</key>
+	<string>OpenEmu kayıt alıp şu anda çalışan bütün oyunları kapatacaktır.</string>
+	<key>Options</key>
+	<string>Ayarlar</string>
+	<key>Parameters</key>
+	<string>Parametreler</string>
+	<key>Paste parameters</key>
+	<string>Parametreleri Yapıştır</string>
+	<key>Pause Game</key>
+	<string>Oyunu Durdur</string>
+	<key>Pause/Restart</key>
+	<string>Durdur/Resetle</string>
+	<key>Play</key>
+	<string>Oyna</string>
+	<key>Play Count</key>
+	<string>Oynama Sayısı</string>
+	<key>Play Game</key>
+	<string>Oyunu Oyna</string>
+	<key>Play Games (Caution)</key>
+	<string>Oyunu Oyna (Dikkat)</string>
+	<key>Play Save Games</key>
+	<string>Kayıt Oyna</string>
+	<key>Play Save State</key>
+	<string>Kayıt Durumu Oyna</string>
+	<key>Play Time</key>
+	<string>Oynama Süresi</string>
+	<key>Player %ld</key>
+	<string>Oyuncu %ld</string>
+	<key>Please close all games and wait for the importer to finish.</key>
+	<string>Lütfen tüm oyunları kapatın ve dışarı çıkarma işleminin bitmesini bekleyin.</string>
+	<key>Quick Load</key>
+	<string>Hızlı Yükleme</string>
+	<key>Quick Save</key>
+	<string>Hızlı Kaydet</string>
+	<key>Quick Save State</key>
+	<string>Hızlı Kaydetme Durumu</string>
+	<key>Quick Save, Slot %@</key>
+	<string>Hızlı Kaydetme, Bölge %@</string>
+	<key>Quit</key>
+	<string>Çıkış</string>
+	<key>Quit Game</key>
+	<string>Oyundan Çık</string>
+	<key>Quit OpenEmu</key>
+	<string>OpenEmu'dan çık</string>
+	<key>Rating</key>
+	<string>Oylama</string>
+	<key>Recently Added</key>
+	<string>Son olarak eklenen</string>
+	<key>Recovered Auto Save</key>
+	<string>Kurtarılmış Oto Kayıtlar</string>
+	<key>Remove Collection</key>
+	<string>Koleksiyonu Kaldır</string>
+	<key>Remove Game</key>
+	<string>Oyunu Kaldır</string>
+	<key>Remove Games</key>
+	<string>Oyunları Kaldır</string>
+	<key>Rename</key>
+	<string>Yeniden İsimlendir</string>
+	<key>Rename "%@"</key>
+	<string>Yeniden isimlendir “%@”</string>
+	<key>Rename Game</key>
+	<string>Oyunu Yeniden İsimlendir</string>
+	<key>Rename Shader Preset</key>
+	<string>Gölge ön ayarını yeniden isimlendir</string>
+	<key>Rename Special Save State or something?</key>
+	<string>Özel bir kayıt durumunu ya da başka bir şeyi yeniden isimlendir?</string>
+	<key>Reopen without loading state</key>
+	<string>Yükleme durumu olmadan tekrar aç</string>
+	<key>Required files are missing.</key>
+	<string>İhtiyaç duyulan dosyalar kayıp.</string>
+	<key>Reset parameters</key>
+	<string>Parametreleri Sıfırla</string>
+	<key>Resolve %ld Issue</key>
+	<string> %ld sorununu çözümle </string>
+	<key>Resolve %ld Issues</key>
+	<string>%ld Sorunlarını Çözümle</string>
+	<key>Restart</key>
+	<string>Yeniden Başlat</string>
+	<key>Restart Game</key>
+	<string>Oyunu Yendiden Başlat</string>
+	<key>Resume</key>
+	<string>Devam Et</string>
+	<key>Resume Game</key>
+	<string>Oyuna Devam et</string>
+	<key>Retry</key>
+	<string>Tekrar dene</string>
+	<key>SHARE_STANDARD_MENU_ITEM_TITLE</key>
+	<string>Paylaş…</string>
+	<key>Save As:</key>
+	<string>Olarak Kaydet:</string>
+	<key>Save Current Game…</key>
+	<string>Şu anki oyunu kaydet…</string>
+	<key>Save Game</key>
+	<string>Oyunu Kaydet</string>
+	<key>Save Games</key>
+	<string>Oyunları Kaydet</string>
+	<key>Save States</key>
+	<string>Durumu Kaydet</string>
+	<key>Save-Game-%ld %@</key>
+	<string>Kaydet-Oyun-%ld %@</string>
+	<key>Scanner Paused</key>
+	<string>Tarayıcı Durduruldu</string>
+	<key>Scanning Directory</key>
+	<string>Dizin Taranıyor</string>
+	<key>Screenshots</key>
+	<string>Ekran Görüntüleri</string>
+	<key>Search</key>
+	<string>Ara</string>
+	<key>Secrets</key>
+	<string>Gizemler</string>
+	<key>Select All</key>
+	<string>Hepsini Seç</string>
+	<key>Select Audio Output Device</key>
+	<string>Ses çıkış cihazını seç</string>
+	<key>Select Cheat</key>
+	<string>Hileler</string>
+	<key>Select Core</key>
+	<string>Çekirdekler</string>
+	<key>Select Disc</key>
+	<string>Diskler</string>
+	<key>Select Display Mode</key>
+	<string>Ekran modları</string>
+	<key>Select Scale</key>
+	<string>Oranlar</string>
+	<key>Select Shader</key>
+	<string>Gölgeler</string>
+	<key>Shader Parameters</key>
+	<string>Gölge Parametreleri</string>
+	<key>Share</key>
+	<string>Paylaş</string>
+	<key>Show in Finder</key>
+	<string>Finder'da göster</string>
+	<key>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</key>
+	<string> 2.1 versiyonundan beri, OpenEmu metal destekleyen GPU'lara ihtiyaç duyar.Meral macOS 10.14 ve sonraki sürümlerde mevcuttur.
+
+OpenEmu güncel uygulama/yazılım yapılandırmanızla çalışmaz, şimdi kapanacak.</string>
+	<key>Slot %ld</key>
+	<string>Bölme %ld</string>
+	<key>Some migrations failed to complete properly</key>
+	<string>Bazı taşımalar tam olarak tamamlana</string>
+	<key>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</key>
+	<string>Bazen aynı çekirdeğin farklı sürümleri arasındaki uyumsuzluklar nedeniyle bir kayıt durumu yüklenirken çökme meydana gelebilir. Oyunu bir kayıt durumu yüklemeden açmak ister misiniz?</string>
+	<key>Special thanks to everyone that made
+OpenEmu possible. To find out more
+about our contributors, emulator cores,
+documentation, licenses and to issue
+bugs please visit us on our GitHub.</key>
+	<string>OpenEmuyu mümkün kılan
+Herkese teşekkürler. Katkıda bulunanlar için
+, emulator çekirdekleri,
+dökümantasyon, lisanslar ve sorunlar
+ ve hatalar için GitHub sayfamızı ziyaret.</string>
+	<key>Start Scanning</key>
+	<string>Taramaya başla</string>
+	<key>Stop</key>
+	<string>Durdur</string>
+	<key>Switch To Grid View</key>
+	<string>Izgara Görünümüne Geç</string>
+	<key>Switch To List View</key>
+	<string>Liste Görünümüne Geç</string>
+	<key>System</key>
+	<string>Sistem</string>
+	<key>System Default</key>
+	<string>Sistem Varsayılanı</string>
+	<key>System Files</key>
+	<string>Sistem Dosyaları</string>
+	<key>Takes you to the %@ project website</key>
+	<string>%@ Projesi websitesine git</string>
+	<key>The %@ core has compatibility issues and some games may contain glitches or not play at all.
+
+Please do not report problems as we are not responsible for the development of %@.</key>
+	<string>%1$@ çekirdeğinin uyumluluk sorunları var. Bazı oyunlarda bozulmalar meydana gelebilir veya hiç oynamaz.
+
+ Lütfen bu bozulmaları hata olarak bildirmeyin, biz %2$@. geliştirmesinden sorumlu değiliz</string>
+	<key>The %@ core has quit unexpectedly</key>
+	<string>%@ çekirdeği beklenmeyen şekilde kapatıldı</string>
+	<key>The %@ core has quit unexpectedly after loading a save state</key>
+	<string>%@ çekirdeği, kayıt durumu yüklenirlen beklenmeyen bir şekilde kapandı.</string>
+	<key>The %@ core plugin is deprecated</key>
+	<string>%@ çekirdek eklentisi kullanımdan kaldırılmış</string>
+	<key>The %@ core plugin is deprecated, and will be removed soon</key>
+	<string>%@ çekirdek eklentisi kullanımdan kaldırılmış,ve yakında silinecektir</string>
+	<key>The OpenEmu Library could not be found.</key>
+	<string>OpenEmu Kütüphanesi bulunamadı.</string>
+	<key>The System plugin could not be found!</key>
+	<string>Sistem plugini bulunamadı!</string>
+	<key>The battery in device number %lu, %@, is low. Please charge or replace the battery.</key>
+	<string> %1$lu, numaralı cihazın bataryası %2$@, düşük. Lütfen bataryayı değiştirin ya da şarj edin.</string>
+	<key>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</key>
+	<string>Kontrolcülerinizden birinin düğme profili, OpenEmu'ya en son bağlandığında algılanan profille eşleşmiyor. Etkilenen kontrolcüye ilişkili bazı kontroller sıfırlandı.
+
+Hangi ilişkilendirmelerin etkilendiğini kontrol etmek için Kontrolcü tercihlerine gidebilirsiniz.</string>
+	<key>The core could not be downloaded. Try installing it from the Cores preferences.</key>
+	<string>Çekirdek indirilemiyor. Çekirdek tercihlerinden indirmeyi deneyin.</string>
+	<key>The emulator could not load ROM.</key>
+	<string>Emülatör ROM yükleyemedi.</string>
+	<key>The file you selected doesn't exist</key>
+	<string>Seçtiğiniz dosya mevcut değil</string>
+	<key>The game '%@' could not be started because a rom file could not be found. Do you want to locate it?</key>
+	<string> “%@” oyunu ROM dosyası bulunamadığı için başlatılamadı. Konumlandırmak ister misiniz?</string>
+	<key>The game '%@' was imported.</key>
+	<string> “%@” oyunu içeri aktarılmış.</string>
+	<key>This System has no corresponding core installed.</key>
+	<string>Sistem indirilen çekirdeğe yanıt vermiyor.</string>
+	<key>This cannot be undone.</key>
+	<string>Bu yapılamaz.</string>
+	<key>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</key>
+	<string>Bu çekirdek eklenti gelecekte kullanılamayacaktır. Kaldırıldığında, onunla oluşturulan tüm kayıt durumları çalışmayı durduracaktır.</string>
+	<key>This save state was created with a different core. Do you want to switch to that core now?</key>
+	<string>Bu kayıt durumu başka bir çekirdek ile yaratıldı. Çekirdeği şimdi değiştirmek ister misiniz?</string>
+	<key>This will remove all items from the queue. Items that finished importing will be preserved in your library.</key>
+	<string>Bu sıradaki bütün öğreleri kaldıracaktır. İçe aktarımı tamamlanan öğeler kitaplığınızda korunacaktır.</string>
+	<key>Title:</key>
+	<string>Başlık:</string>
+	<key>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</key>
+	<string>Yeni bir tuş ya da buton atamak için %@, tuşuna basın, sonrasına atamak istediğiniz tuşa klavye ya da kontrolcü üzerinden basın.</string>
+	<key>To launch the save state %@ you will need to install the '%@' Core</key>
+	<string>Bu kayıt durumunu başlatmak için %1$@, “%2$@” Çekirdeğini indirmeniz gerek</string>
+	<key>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</key>
+	<string>Bu çekirdeği çalıştırmak için yapmanız gerek:
+
+%@ Gerekli dosya(ları) oyun kütüphanesine atın ve tekrar deneyin.</string>
+	<key>Toggle Fullscreen</key>
+	<string>Tam Ekran yap</string>
+	<key>Toolbar: Homebrew</key>
+	<string>Homebrew</string>
+	<key>Toolbar: Library</key>
+	<string>Kütüphane</string>
+	<key>Toolbar: Save States</key>
+	<string>Kayıt durumları</string>
+	<key>Toolbar: Screenshots</key>
+	<string>Ekran Görüntüleri</string>
+	<key>Trash downloaded Files</key>
+	<string>Yüklenmiş dosyaları sil</string>
+	<key>Unexpected error:</key>
+	<string>Beklenmeyen hata:</string>
+	<key>Unmute Audio</key>
+	<string>Sesi aç</string>
+	<key>Update</key>
+	<string>Güncelle</string>
+	<key>Updating Library</key>
+	<string>Kütüphane güncelleniyor</string>
+	<key>User guide on BIOS files</key>
+	<string>BIOS dosyalarından kullanıcı rehberi</string>
+	<key>Version</key>
+	<string>Versiyon</string>
+	<key>View Guide in Browser</key>
+	<string>İnternetten görüntü rehberi</string>
+	<key>View Mode</key>
+	<string>Görüntü Modu</string>
+	<key>Volume</key>
+	<string>Ses</string>
+	<key>Warning</key>
+	<string>Uyarı</string>
+	<key>We suggest you switch to the %@ core plugin as soon as possible.</key>
+	<string>Mümkün olan en kısa sürede %@ çekirdek eklentine geçmenizi öneriyoruz.</string>
+	<key>With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves.</key>
+	<string>OpenEmu ile kayıt durumlarını kullanarak istediğiniz zaman kayıt alabilirsiniz. Oyundan çıktığınızda biz de oto-kayıt alacağız. Bütün kayıtlarınıza bakmak için buraya geri gelin.</string>
+	<key>Won't be able to recognize it as special save state…</key>
+	<string>Özel kayıt durumu hatırlanamaz…</string>
+	<key>Would you like to continue your last game?</key>
+	<string>Son oyununuzdan devam etmek ister misiniz?</string>
+	<key>Would you like to save your game before you quit?</key>
+	<string>Çıkmadan önce oyununuzu kaydetmek ister misiniz?</string>
+	<key>Yes</key>
+	<string>Evet</string>
+	<key>You can't move your library into one of its subfolders.</key>
+	<string>Kütüphanenizi alk klasörlerinden birine taşıyamazsınız.</string>
+	<key>You need to restart the application to commit the change</key>
+	<string>Değişiklikleri uygulamak için yeniden başlatmalısınız.</string>
+	<key>Your Mac is too old for this version of OpenEmu</key>
+	<string>Mac'iniz, OpenEmu'nun bu versiyonu için çok eski.</string>
+	<key>Your game finished importing, do you want to play it now?</key>
+	<string>Oyununuz içeri aktarmayı bitirdi, şimdi oynamak ister misiniz?</string>
+	<key>Your library was moved sucessfully.</key>
+	<string>Kütüphaneniz başarı ile taşındı.</string>
+	<key>this guide</key>
+	<string>Bu rehber</string>
+</dict>
+</plist>

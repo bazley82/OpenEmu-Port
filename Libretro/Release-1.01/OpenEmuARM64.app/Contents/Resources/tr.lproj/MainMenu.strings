@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>OpenEmu Hakkında</string>
+	<key>Always Hide HUD</key>
+	<string>Herzaman HUD gizle</string>
+	<key>Back Up…</key>
+	<string>Yedekleme…</string>
+	<key>Bring All to Front</key>
+	<string>Hepsini öne çıkar</string>
+	<key>Check for Updates…</key>
+	<string>Güncellemeleri Kontol et…</string>
+	<key>Close Window</key>
+	<string>Pencereyi kapat</string>
+	<key>Controls</key>
+	<string>Kontroller</string>
+	<key>Copy</key>
+	<string>Kopyala</string>
+	<key>Cut</key>
+	<string>Kes</string>
+	<key>Delete</key>
+	<string>Sil</string>
+	<key>Display Duplicates</key>
+	<string>Kopyaları göster</string>
+	<key>Display Exact Duplicates</key>
+	<string>Birebir kopyaları göster</string>
+	<key>Edit</key>
+	<string>Düzenle</string>
+	<key>Edit Smart Collection</key>
+	<string>Akıllı Koleksiyonları Düzenle</string>
+	<key>Export Collection</key>
+	<string>Koleksiyonu Dışarı Aktar</string>
+	<key>Export Library…</key>
+	<string>Kütüphaneyi Dışarı Aktar</string>
+	<key>File</key>
+	<string>Dosya</string>
+	<key>Find</key>
+	<string>Bul</string>
+	<key>Find Next</key>
+	<string>Sonrakini Bul</string>
+	<key>Find Previous</key>
+	<string>Öncekini Bul</string>
+	<key>Find…</key>
+	<string>Bul…</string>
+	<key>Float on Top</key>
+	<string>Üstte Kalsın</string>
+	<key>Fullscreen</key>
+	<string>Tam Ekran</string>
+	<key>Get Info</key>
+	<string>Bilgi al</string>
+	<key>Help</key>
+	<string>Yardım</string>
+	<key>Hide OpenEmu</key>
+	<string>OpenEmu'yu gizle</string>
+	<key>Hide Others</key>
+	<string>Diğerlerini Gizle</string>
+	<key>Import Collection</key>
+	<string>Koleksiyonu İçeri Aktar</string>
+	<key>Jump to Selection</key>
+	<string>Seçimlere git</string>
+	<key>Last Display Mode</key>
+	<string>Son Ekran Modu</string>
+	<key>Last Played</key>
+	<string>Son Oynanan</string>
+	<key>Launch Game…</key>
+	<string>Oyunu Başlat…</string>
+	<key>Load State</key>
+	<string>Durumu Yükle</string>
+	<key>Log Responder Chain</key>
+	<string>Yanıtlayıcı Zincir Kayıtları</string>
+	<key>Minimize</key>
+	<string>Küçült</string>
+	<key>New Collection Folder</key>
+	<string>Yeni Koleksiyon Dosyasi</string>
+	<key>New Smart Collection…</key>
+	<string>Yeni Akıllı Koleksiyon…</string>
+	<key>Next Display Mode</key>
+	<string>Sonraki Ekran Modu</string>
+	<key>OpenEmu Web Site</key>
+	<string>OpenEmu İnternet Sitesi</string>
+	<key>Organize Library…</key>
+	<string>Kütüphaneyi Düzenle…</string>
+	<key>Page Setup…</key>
+	<string>Sayfa Kurulumu…</string>
+	<key>Paste</key>
+	<string>Yapıştır</string>
+	<key>Preferences…</key>
+	<string>Tercihler…</string>
+	<key>Print…</key>
+	<string>Yazdır…</string>
+	<key>Quit OpenEmu</key>
+	<string>OpenEmu'dan çık</string>
+	<key>Redo</key>
+	<string>Yinele</string>
+	<key>Release Notes</key>
+	<string>Yayınlama Notları</string>
+	<key>Save State</key>
+	<string>Durumu Kaydet</string>
+	<key>Select All</key>
+	<string>Hepsini Seç</string>
+	<key>Send a Donation…</key>
+	<string>Bağış Yap…</string>
+	<key>Services</key>
+	<string>Servisler</string>
+	<key>Show All</key>
+	<string>Hepsini Göster</string>
+	<key>Show Library</key>
+	<string>Kütüphaneleri Göster</string>
+	<key>Show ROM Names</key>
+	<string>ROM İsimlerini Göster</string>
+	<key>Start Game</key>
+	<string>Oyunu Başlat</string>
+	<key>Submit Feedback</key>
+	<string>Görüş Belirt</string>
+	<key>Take Native Screenshot</key>
+	<string>Yerel Ekran Görüntüsü Al</string>
+	<key>Take Screenshot</key>
+	<string>Ekran Görüntüsü Al</string>
+	<key>Undo</key>
+	<string>Geri Al</string>
+	<key>Undock Game Window</key>
+	<string>Oyun Penceresinin Kilidini Aç</string>
+	<key>Use Selection for Find</key>
+	<string>Bulmak için seçimleri kullan</string>
+	<key>User Guide</key>
+	<string>Kullanıcı Kılavuzu </string>
+	<key>View</key>
+	<string>Görünüm</string>
+	<key>Volume Down</key>
+	<string>Ses Kıs</string>
+	<key>Volume Up</key>
+	<string>Ses Arttır</string>
+	<key>Window</key>
+	<string>Pencere</string>
+	<key>Zoom</key>
+	<string>Yaklaştır</string>
+	<key>as Grid</key>
+	<string>Izgara Olarak</string>
+	<key>as List</key>
+	<string>Liste olarak</string>
+</dict>
+</plist>

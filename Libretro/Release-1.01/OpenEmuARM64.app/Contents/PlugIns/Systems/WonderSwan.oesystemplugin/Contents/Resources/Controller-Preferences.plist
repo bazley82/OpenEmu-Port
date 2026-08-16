@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OEControllerImageKey</key>
+	<string>controller_ws</string>
+	<key>OEControllerImageMaskKey</key>
+	<string>controller_ws_mask</string>
+	<key>OEControllerKeyPositionKey</key>
+	<dict>
+		<key>OEWSButtonX1</key>
+		<string>{72, 192}</string>
+		<key>OEWSButtonX3</key>
+		<string>{72, 144}</string>
+		<key>OEWSButtonX4</key>
+		<string>{48, 168}</string>
+		<key>OEWSButtonX2</key>
+		<string>{98, 168}</string>
+		<key>OEWSButtonY1</key>
+		<string>{72, 320}</string>
+		<key>OEWSButtonY3</key>
+		<string>{72, 270}</string>
+		<key>OEWSButtonY4</key>
+		<string>{48, 295}</string>
+		<key>OEWSButtonY2</key>
+		<string>{98, 295}</string>
+		<key>OEWSButtonA</key>
+		<string>{458, 170}</string>
+		<key>OEWSButtonB</key>
+		<string>{433, 144}</string>
+		<key>OEWSButtonStart</key>
+		<string>{218, 119}</string>
+		<key>OEWSButtonSound</key>
+		<string>{177, 119}</string>
+	</dict>
+</dict>
+</plist>

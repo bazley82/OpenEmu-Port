@@ -320,18 +320,20 @@ void _gyroReadPins(struct GBACartridgeHardware* hw) {
 		return;
 	}
 
+	// Write bit on falling edge
+	bool doOutput = hw->gyroEdge && !(hw->pinState & 2);
 	if (hw->pinState & 1) {
 		if (gyro->sample) {
 			gyro->sample(gyro);
 		}
 		int32_t sample = gyro->readGyroZ(gyro);
 
-		// Normalize to ~12 bits, focused on 0x6C0
-		hw->gyroSample = (sample >> 21) + 0x6C0; // Crop off an extra bit so that we can't go negative
+		// Normalize to ~12 bits, focused on 0x700
+		hw->gyroSample = (sample >> 21) + 0x700; // Crop off an extra bit so that we can't go negative
+		doOutput = true;
 	}
 
-	if (hw->gyroEdge && !(hw->pinState & 2)) {
-		// Write bit on falling edge
+	if (doOutput) {
 		unsigned bit = hw->gyroSample >> 15;
 		hw->gyroSample <<= 1;
 		_outputPins(hw, bit << 2);
@@ -421,8 +423,8 @@ void GBAHardwareTiltWrite(struct GBACartridgeHardware* hw, uint32_t address, uin
 			int32_t x = rotationSource->readTiltX(rotationSource);
 			int32_t y = rotationSource->readTiltY(rotationSource);
 			// Normalize to ~12 bits, focused on 0x3A0
-			hw->tiltX = (x >> 21) + 0x3A0; // Crop off an extra bit so that we can't go negative
-			hw->tiltY = (y >> 21) + 0x3A0;
+			hw->tiltX = 0x3A0 - (x >> 22);
+			hw->tiltY = 0x3A0 - (y >> 22);
 		} else {
 			mLOG(GBA_HW, GAME_ERROR, "Tilt sensor wrote wrong byte to %04x: %02x", address, value);
 		}
@@ -495,6 +497,18 @@ void GBAHardwareDeserialize(struct GBACartridgeHardware* hw, const struct GBASer
 	LOAD_16(hw->pinState, 0, &state->hw.pinState);
 	LOAD_16(hw->direction, 0, &state->hw.pinDirection);
 	hw->devices = state->hw.devices;
+
+	if ((hw->devices & (HW_RTC | HW_RUMBLE | HW_LIGHT_SENSOR | HW_GYRO | HW_TILT)) && hw->gpioBase) {
+		if (hw->readWrite) {
+			STORE_16(hw->pinState, 0, hw->gpioBase);
+			STORE_16(hw->direction, 2, hw->gpioBase);
+			STORE_16(hw->readWrite, 4, hw->gpioBase);
+		} else {
+			hw->gpioBase[0] = 0;
+			hw->gpioBase[1] = 0;
+			hw->gpioBase[2] = 0;
+		}
+	}
 
 	LOAD_32(hw->rtc.bytesRemaining, 0, &state->hw.rtcBytesRemaining);
 	LOAD_32(hw->rtc.transferStep, 0, &state->hw.rtcTransferStep);

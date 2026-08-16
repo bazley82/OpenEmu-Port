@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>"%@" in %@</key>
+	<string>"%1$@" in %2$@</string>
+	<key>%@ copy</key>
+	<string>%@ コピー</string>
+	<key>%@ could not be enabled because its plugin was not found.</key>
+	<string>%@を有効化できませんでした。プラグインが見つかりません。</string>
+	<key>%@ games will appear here. Check out %@ on how to add disc-based games.</key>
+	<string>%@のゲームがここに表示されます。 ディスクの入れ替えが必要なゲームは、こちらから%@を確認してください。</string>
+	<key>%@ games you add to OpenEmu will appear in this Console Library</key>
+	<string>%@ OpenEmuへ追加されたゲームは、このコンソールライブラリへ表示されます。</string>
+	<key>%ux</key>
+	<string>%ux</string>
+	<key>A name is required.</key>
+	<string>A name is required.</string>
+	<key>ALERT_CORE_GLITCHES_FEEDBACK_HTML</key>
+	<string>&lt;b&gt;If and only if this issue persists&lt;/b&gt;, please submit feedback including:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;The model of Mac you are using &lt;b&gt;and&lt;/b&gt; the version of macOS you have installed&lt;ul&gt;&lt;li&gt;This information is found in  &gt; About this Mac&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;The &lt;b&gt;exact name&lt;/b&gt; of the game you were playing&lt;/li&gt;&lt;li&gt;The crash report of OpenEmuHelperApp&lt;ul&gt;&lt;li&gt;Open Console.app, click on "Crash Reports" or "User Reports" in the sidebar, then look for the latest document with OpenEmuHelperApp in the name&lt;/ul&gt;&lt;/li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;b&gt;Always search for similar feedback previously reported by other users!&lt;/b&gt;&lt;br&gt;If any of this information is omitted, or if similar feedback has already been issued, your issue report may be closed.</string>
+	<key>ALERT_INPUT_MONITORING_HEADLINE</key>
+	<string>OpenEmu requires additional permissions</string>
+	<key>ALERT_INPUT_MONITORING_PART1</key>
+	<string>キーボードを入力デバイスとして使用するには、OpenEmu に入力監視の権限を許可する必要があります。</string>
+	<key>ALERT_INPUT_MONITORING_PART2</key>
+	<string>Toggling the permission may also resolve keyboard input issues.</string>
+	<key>ALERT_INPUT_MONITORING_PART2_MONTEREY</key>
+	<string>Removing and re-granting the permission may also resolve keyboard input issues.</string>
+	<key>ALERT_MOVE_LIBRARY_HTML</key>
+	<string>The OpenEmu Game Library contains a database file which could get corrupted if the library is moved to the following locations:&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Folders managed by cloud synchronization software (like &lt;b&gt;iCloud Drive&lt;/b&gt;)&lt;/li&gt;&lt;li&gt;Network drives&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;Additionally, &lt;b&gt;sharing the same library between multiple computers or users&lt;/b&gt; may also corrupt it. This also applies to moving the library to external USB drives.</string>
+	<key>Add Cheat</key>
+	<string>チートコードを追加</string>
+	<key>Add Cheat…</key>
+	<string>チートコードを追加…</string>
+	<key>Add Cover Art from File…</key>
+	<string>カバーアートをファイルから追加…</string>
+	<key>Add a Wiimote…</key>
+	<string>Wiimoteを追加…</string>
+	<key>Add to Collection</key>
+	<string>コレクションへ追加</string>
+	<key>Add to Library…</key>
+	<string>ライブラリへ追加…</string>
+	<key>All Games</key>
+	<string>全てのゲーム</string>
+	<key>All Homebrew</key>
+	<string>全てのHomebrew</string>
+	<key>Already in library, but manually deleted or unreachable:</key>
+	<string>Already in library, but manually deleted or unreachable:</string>
+	<key>Already in library:</key>
+	<string>Already in library:</string>
+	<key>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</key>
+	<string>An error occurred while preparing the setup assistant. (%@) Make sure you are connected to the internet and try again.</string>
+	<key>An issue was detected with one of your controllers.</key>
+	<string>お使いのコントローラーのひとつに問題が検出されました。</string>
+	<key>Are you sure you want to delete %ld save states from your OpenEmu library?</key>
+	<string>&amp;ld のセーブデータをOpenEmuライブラリから削除してもよろしいですか？</string>
+	<key>Are you sure you want to delete %ld screenshots from your OpenEmu library?</key>
+	<string>%ld のスクリーンショットデータをOpenEmuライブラリから削除してもよろしいですか？</string>
+	<key>Are you sure you want to delete the save state called '%@' from your OpenEmu library?</key>
+	<string>'%@'という名前のセーブデータをOpenEmuライブラリから削除してもよろしいですか？</string>
+	<key>Are you sure you want to delete the screenshot called '%@' from your OpenEmu library?</key>
+	<string>'%@'という名前のスクリーンショットデータをOpenEmuライブラリから削除してもよろしいですか？</string>
+	<key>Are you sure you want to delete the selected game from your OpenEmu library?</key>
+	<string>選択したゲームをOpenEmuライブラリから削除してもよろしいですか？</string>
+	<key>Are you sure you want to delete the selected games from your OpenEmu library?</key>
+	<string>選択したゲームをOpenEmuライブラリから削除してもよろしいですか？</string>
+	<key>Are you sure you want to delete the shader preset called '%@'?</key>
+	<string>Are you sure you want to delete the shader preset called '%@'?</string>
+	<key>Are you sure you want to quit the application?</key>
+	<string>アプリケーションを終了してもよろしいですか？</string>
+	<key>Are you sure you want to quit the game?</key>
+	<string>エミュレータを停止しますか？</string>
+	<key>Are you sure you want to remove the collection '%@'?</key>
+	<string>このコレクションを本当に削除してもよろしいですか？</string>
+	<key>Are you sure you want to remove the selected game from the collection?</key>
+	<string>選択したゲームをコレクションから削除してもよろしいですか？</string>
+	<key>Are you sure you want to remove the selected games from the collection?</key>
+	<string>選択したゲームをコレクションから削除してもよろしいですか？</string>
+	<key>Are you sure you want to restart the game?</key>
+	<string>コンソールをリセットしますか？</string>
+	<key>At least one System must be enabled</key>
+	<string>最低一つ以上のシステムを有効にしてください。</string>
+	<key>Auto Save State</key>
+	<string>オートセーブステート</string>
+	<key>Bluetooth Not Enabled</key>
+	<string>Bluetoothが無効になっています。</string>
+	<key>Bluetooth must be enabled to pair a Wii controller.</key>
+	<string>Wiiコントローラを接続するには、Bluetoothを有効にしてください。</string>
+	<key>Cancel</key>
+	<string>キャンセル</string>
+	<key>Cancel Cover Art Download</key>
+	<string>カバーアートのダウンロードをキャンセル</string>
+	<key>Category</key>
+	<string>カテゴリ</string>
+	<key>Change Core</key>
+	<string>コアを変更</string>
+	<key>Change Volume</key>
+	<string>音量を変更</string>
+	<key>Changed button for %1$@ to %2$@.</key>
+	<string>Changed button for %1$@ to %2$@.</string>
+	<key>Cheat Description</key>
+	<string>チートの説明</string>
+	<key>Check out some excellent homebrew games.</key>
+	<string>Homebrewゲームをチェックする</string>
+	<key>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</key>
+	<string>Choose Apple menu  &gt; System Preferences, click Security &amp; Privacy then select the Privacy tab. Remove the existing Files and Folders permission for OpenEmu, if exists, and instead grant Full Disk Access.</string>
+	<key>Choose Library…</key>
+	<string>ライブラリを選択…</string>
+	<key>Choose Location…</key>
+	<string>Choose Location…</string>
+	<key>Choose OpenEmu Library</key>
+	<string>OpenEmuライブラリを選択</string>
+	<key>Choose a valid file.</key>
+	<string>有効なファイルを選択してください。</string>
+	<key>Code:</key>
+	<string>コード:</string>
+	<key>Collections</key>
+	<string>コレクション</string>
+	<key>Configure Shader…</key>
+	<string>シェーダを設定する…</string>
+	<key>Console</key>
+	<string>コンソール</string>
+	<key>Consoles</key>
+	<string>コンソール</string>
+	<key>Consolidate</key>
+	<string>統合</string>
+	<key>Consolidate Files…</key>
+	<string>ファイルを統合する…</string>
+	<key>Consolidating files failed.</key>
+	<string>Consolidating files failed.</string>
+	<key>Consolidating will copy all of the selected games into the OpenEmu Library folder.</key>
+	<string>統合すると、選択された全てのゲームがOpenEmuライブラリのフォルダへコピーされます。</string>
+	<key>Contains no data:</key>
+	<string>Contains no data:</string>
+	<key>Continue</key>
+	<string>続ける</string>
+	<key>Controls</key>
+	<string>コントローラ</string>
+	<key>Copying Artwork Files…</key>
+	<string>カバー写真をコピーしています…</string>
+	<key>Copying Game Files…</key>
+	<string>ゲームをコピーしています…</string>
+	<key>Copying ROM Files…</key>
+	<string>ROMファイルをコピーしています…</string>
+	<key>Copying ROM files failed!</key>
+	<string>Copying ROM files failed!</string>
+	<key>Copying artwork failed!</key>
+	<string>カバー写真のコピーに失敗しました。</string>
+	<key>Core</key>
+	<string>コア</string>
+	<key>Core Provided By…</key>
+	<string>コア提供元…</string>
+	<key>Cores</key>
+	<string>コア</string>
+	<key>Could not move library data!</key>
+	<string>ライブラリデータを移動できません。</string>
+	<key>Couldn't load %@ plugin</key>
+	<string>%@という名称のプラグインをロードできませんでした。</string>
+	<key>Create Library…</key>
+	<string>ライブラリを作成…</string>
+	<key>Create a personal game selection. To add to a collection, select a game from your console library and drag it to ’%@’ in the sidebar.</key>
+	<string>自分好みのゲームセレクションを作成しましょう。コレクションを追加するには、コンソールライブラリからゲームを選択し、左側の’%@’へドラッグしてください。</string>
+	<key>Create or Load Save State</key>
+	<string>セーブステートを作成/ロードする</string>
+	<key>Create your personal collection of screenshots. To take a screenshot, you can use the keyboard shortcut ⌘ + T while playing a game.</key>
+	<string>自分好みのスクリーンショットセレクションを作成しましょう。スクリーンショットを撮るには、ゲームをプレイ中に ⌘ + T を押してください。</string>
+	<key>Decrease Grid Size</key>
+	<string>Decrease Grid Size</string>
+	<key>Default %@ preset for %@</key>
+	<string>Default %@ preset for %@</string>
+	<key>Default Core</key>
+	<string>デフォルトのコア</string>
+	<key>Delete</key>
+	<string>削除</string>
+	<key>Delete Collection</key>
+	<string>コレクションを削除</string>
+	<key>Delete Game</key>
+	<string>ゲームを削除</string>
+	<key>Delete Games</key>
+	<string>ゲームを削除</string>
+	<key>Delete Save</key>
+	<string>セーブを削除</string>
+	<key>Delete Save State</key>
+	<string>セーブステートを削除</string>
+	<key>Delete Save States</key>
+	<string>セーブステートを削除</string>
+	<key>Delete Saves</key>
+	<string>セーブを削除</string>
+	<key>Delete Screenshot</key>
+	<string>スクリーンショットを削除</string>
+	<key>Delete Screenshots</key>
+	<string>スクリーンショットを削除</string>
+	<key>Delete Shader Preset</key>
+	<string>Delete Shader Preset</string>
+	<key>Description</key>
+	<string>説明</string>
+	<key>Deselect All</key>
+	<string>全ての選択を解除</string>
+	<key>Device Disconnected</key>
+	<string>デバイスの接続を解除</string>
+	<key>Device number %lu, %@, has disconnected.</key>
+	<string>%1$lu, %2$@, 個のデバイスの接続が解除されました。</string>
+	<key>Disc %u</key>
+	<string>ディスク %u</string>
+	<key>Disc-based games have special requirements. Please read the disc importing guide.</key>
+	<string>ディスクゲームは特別な操作が必要です。ディスクのインポートガイドを確認してください。</string>
+	<key>Dismiss</key>
+	<string>無視する</string>
+	<key>Do not ask me again</key>
+	<string>再表示しない</string>
+	<key>Do not show me again</key>
+	<string>再表示しない</string>
+	<key>Do you really want to cancel importation?</key>
+	<string>インポートをキャンセルしますか？</string>
+	<key>Do you want to continue playing where you left off?</key>
+	<string>最後に中断したところから再開しますか？</string>
+	<key>Don't Import Selected</key>
+	<string>インポートしない</string>
+	<key>Done</key>
+	<string>完了</string>
+	<key>Download</key>
+	<string>ダウンロード</string>
+	<key>Download Cover Art</key>
+	<string>カバー写真をダウンロード</string>
+	<key>Downloading %@…</key>
+	<string>%@をダウンロード中…</string>
+	<key>Downloading Game DB</key>
+	<string>ゲームDBをダウンロード中</string>
+	<key>Downloading and Installing Core…</key>
+	<string>コアをダウンロード/インストールしています…</string>
+	<key>Downloading core list...</key>
+	<string>Downloading core list...</string>
+	<key>Drag &amp; Drop Games Here</key>
+	<string>ここにゲームをドラッグ&amp;ドロップしてください</string>
+	<key>Drag &amp; Drop Save States Here</key>
+	<string>ここにセーブステートをドラッグ&amp;ドロップしてください</string>
+	<key>Duplicate Collection</key>
+	<string>コレクションを複製</string>
+	<key>ECM compressed binaries cannot be imported. Please read the disc importing guide.</key>
+	<string>ECM圧縮バイナリをインポートできませんでした。ディスクインポートガイドをご確認ください。</string>
+	<key>ECM compressed binary detected.</key>
+	<string>ECM圧縮バイナリを検知しました</string>
+	<key>ERROR_PLUGIN_IMPORT_ALREADYLOADED</key>
+	<string>このプラグインは既にロードされています。</string>
+	<key>ERROR_PLUGIN_IMPORT_OUTOFSUPPORT</key>
+	<string>このプラグインは現在ほサポートされていません</string>
+	<key>Edit Game Controls…</key>
+	<string>コントローラを編集…</string>
+	<key>Enable now</key>
+	<string>すぐ有効にする</string>
+	<key>Error!</key>
+	<string>エラー!</string>
+	<key>Everything</key>
+	<string>全て</string>
+	<key>Featured Games</key>
+	<string>フィーチャー</string>
+	<key>Fetching Games…</key>
+	<string>ゲームを取得中…</string>
+	<key>Files failed to import.</key>
+	<string>Files failed to import.</string>
+	<key>Fill Screen</key>
+	<string>Fill Screen</string>
+	<key>Filter by:</key>
+	<string>フィルター作者:</string>
+	<key>Game %ld of %ld</key>
+	<string>ゲーム %1$ld 個中 %2$ld</string>
+	<key>Game Name</key>
+	<string>ゲーム名</string>
+	<key>Game Scanner</key>
+	<string>ゲームスキャナー</string>
+	<key>Game requires download</key>
+	<string>ダウンロードが要求されています</string>
+	<key>Gameplay</key>
+	<string>ゲームプレイ</string>
+	<key>Grid Size</key>
+	<string>グリッドサイズ</string>
+	<key>Have you read the guide?</key>
+	<string>ガイドはご確認済みですか？</string>
+	<key>Hide "%@"</key>
+	<string>"%@"を隠す</string>
+	<key>Homebrew Games</key>
+	<string>Homebrewゲーム</string>
+	<key>I understand the risks</key>
+	<string>I understand the risks</string>
+	<key>If there is a red button on the back battery cover, press it.
+If not, hold down buttons ①+②.</key>
+	<string>背面のバッテリーカバーに赤いボタンがある場合は押してください。
+そうでない場合は①+②ボタンを押し続けてください。</string>
+	<key>If you change the core you current progress will be lost and save states will not work anymore.</key>
+	<string>コアを変更すると、現在までの進行が失われ、セーブステートも無効になります。</string>
+	<key>Ignore</key>
+	<string>無視</string>
+	<key>In a few days, this core plugin is going to be automatically removed. Once it is removed, any save states created with it will stop working.</key>
+	<string>数日後、このコアプラグインは自動的に削除されます。このコアプラグインが削除されると、これで作成されたセーブステートはすべて動作しなくなります。</string>
+	<key>In order to emulate some systems, BIOS files are needed due to increasing complexity of the hardware and software of modern gaming consoles. Please read our %@ for more information.</key>
+	<string>いくつかのコンソールでは、ハードウェアやゲームソフトの複雑な要件をエミュレートするため、BIOSファイルが必要です。詳しくは%@をお読みください。</string>
+	<key>In order to play the game it must be downloaded.</key>
+	<string>ゲームで遊ぶためにダウンロードが必要です。</string>
+	<key>Increase Grid Size</key>
+	<string>Increase Grid Size</string>
+	<key>Insert Cart/Disk/Tape…</key>
+	<string>Insert Cart/Disk/Tape…</string>
+	<key>Install</key>
+	<string>インストール</string>
+	<key>Install %@</key>
+	<string>%@ をインストール</string>
+	<key>Install %@ and Set as Default</key>
+	<string>%@ をインストールして標準に設定</string>
+	<key>Installing Core</key>
+	<string>コアをインストール</string>
+	<key>Invalid cue sheet format:</key>
+	<string>Invalid cue sheet format:</string>
+	<key>Invalid gdi format:</key>
+	<string>Invalid gdi format:</string>
+	<key>Join multi-line cheats with '+' e.g. 000-000+111-111</key>
+	<string>チートコードを複数追加する場合は'+'で追加します。例 000-000+111-111</string>
+	<key>Keyboard</key>
+	<string>キーボード</string>
+	<key>Keycode 0x%lX</key>
+	<string>キーコード 0x%lX</string>
+	<key>Last Played</key>
+	<string>最終起動日</string>
+	<key>Learn More</key>
+	<string>詳細を確認</string>
+	<key>Library</key>
+	<string>ライブラリ</string>
+	<key>Load</key>
+	<string>ロード</string>
+	<key>Locate '%@'</key>
+	<string>場所'%@'</string>
+	<key>Locate…</key>
+	<string>場所…</string>
+	<key>Low Controller Battery</key>
+	<string>コントローラのバッテリが少なくなっています</string>
+	<key>MOVE_ALERT_INFO_TEXT</key>
+	<string>OpenEmu must move to your Applications folder in order to work properly.</string>
+	<key>MOVE_ALERT_MOVE_BUTTON</key>
+	<string>Move to Applications folder</string>
+	<key>MOVE_ALERT_NEEDS_AUTH</key>
+	<string>You need to authenticate with an administrator name and password to complete this step. Alternatively, you can choose a different location or quit the App and move it manually.</string>
+	<key>MOVE_ALERT_TITLE</key>
+	<string>Move to Applications folder</string>
+	<key>Make sure your internet connection is active and download a suitable core.</key>
+	<string>インターネットが接続され、コアがダウンロードされていることを確認してください。</string>
+	<key>Make your Wiimote discoverable</key>
+	<string>Wiimoteを発見可能な状態にしてください。</string>
+	<key>Missing Core</key>
+	<string>コアがありません</string>
+	<key>Missing referenced file:</key>
+	<string>Missing referenced file:</string>
+	<key>Move to Trash</key>
+	<string>ゴミ箱へ移動</string>
+	<key>Moving Library…</key>
+	<string>Moving Library…</string>
+	<key>Moving the Game Library is not recommended</key>
+	<string>Moving the Game Library is not recommended</string>
+	<key>Must not be compressed:</key>
+	<string>Must not be compressed:</string>
+	<key>Mute Audio</key>
+	<string>音声をミュート</string>
+	<key>NOT FOUND: "%@"</key>
+	<string>NOT FOUND: "%@"</string>
+	<key>Name</key>
+	<string>名前</string>
+	<key>Name must not contain “%@.”</key>
+	<string>Name must not contain “%@.”</string>
+	<key>New Collection</key>
+	<string>新しいコレクション</string>
+	<key>New Collection from Selection</key>
+	<string>選択から新しいコレクションを作成</string>
+	<key>New Folder</key>
+	<string>新しいフォルダ</string>
+	<key>New Shader Preset</key>
+	<string>New Shader Preset</string>
+	<key>New Smart Collection</key>
+	<string>新しいスマートコレクション</string>
+	<key>No</key>
+	<string>いいえ</string>
+	<key>No Internet Connection</key>
+	<string>インターネットに接続されていません</string>
+	<key>No Save States available</key>
+	<string>利用可能なセーブステートがありません</string>
+	<key>No Screenshots Found</key>
+	<string>スクリーンショットがありません</string>
+	<key>No available controllers</key>
+	<string>利用可能なコントローラがありません</string>
+	<key>No game played yet!</key>
+	<string>まだ何のゲームもプレイされていません！</string>
+	<key>No parameters available.</key>
+	<string>No parameters available.</string>
+	<key>No permission to open:</key>
+	<string>No permission to open:</string>
+	<key>No valid system detected:</key>
+	<string>No valid system detected:</string>
+	<key>None</key>
+	<string>なし</string>
+	<key>Not assigned</key>
+	<string>Not assigned</string>
+	<key>Not plain text:</key>
+	<string>Not plain text:</string>
+	<key>OK</key>
+	<string>はい</string>
+	<key>Only files in the OpenEmu Library folder will be moved to the Trash.</key>
+	<string>OpenEmuライブラリにあるファイルのみ、ゴミ箱に移動します。</string>
+	<key>Open Collection</key>
+	<string>コレクションを開く</string>
+	<key>Open Library</key>
+	<string>ライブラリを開く</string>
+	<key>Open System Preferences</key>
+	<string>Open System Preferences</string>
+	<key>OpenEmu could not download required data from the internet</key>
+	<string>OpenEmu could not download required data from the internet</string>
+	<key>OpenEmu could not find a Core to launch the game</key>
+	<string>このゲームを開くためのコアが見つかりませんでした。</string>
+	<key>OpenEmu includes a save state feature that allows you to continue playing exactly where you left off.</key>
+	<string>OpenEmuは、ゲームを中断したときの状態をセーブする機能があります。</string>
+	<key>OpenEmu needs a library to continue. You may choose an existing OpenEmu library or create a new one</key>
+	<string>OpenEmuを続けるためにはライブラリが必要です。既存のOpenEmuライブラリを選択するか、新規ライブラリを作成してください。</string>
+	<key>OpenEmu uses 'Cores' to emulate games. You need the %@ Core to play %@</key>
+	<string>OpenEmuでゲームをエミュレートするには、'コア'が必要です。%2$@ をプレイするには %1$@ が必要です。</string>
+	<key>OpenEmu will save and quit all games that are currently running.</key>
+	<string>OpenEmuは、終了する時に現在のゲームを保存します。</string>
+	<key>Options</key>
+	<string>オプション</string>
+	<key>Parameters</key>
+	<string>Parameters</string>
+	<key>Paste parameters</key>
+	<string>Paste parameters</string>
+	<key>Pause Game</key>
+	<string>ゲームを一時停止</string>
+	<key>Pause/Restart</key>
+	<string>Pause/Restart</string>
+	<key>Play</key>
+	<string>Play</string>
+	<key>Play Count</key>
+	<string>起動回数</string>
+	<key>Play Game</key>
+	<string>ゲームをする</string>
+	<key>Play Games (Caution)</key>
+	<string>ゲームをする (警告)</string>
+	<key>Play Save Games</key>
+	<string>セーブしたゲームをプレイする</string>
+	<key>Play Save State</key>
+	<string>セーブステートをプレイする</string>
+	<key>Play Time</key>
+	<string>プレイ時間</string>
+	<key>Player %ld</key>
+	<string>プレーヤー %ld</string>
+	<key>Please close all games and wait for the importer to finish.</key>
+	<string>全てのゲームを閉じ、インポートが終了するのをお待ちください。</string>
+	<key>Quick Load</key>
+	<string>クイックロード</string>
+	<key>Quick Save</key>
+	<string>クイックセーブ</string>
+	<key>Quick Save State</key>
+	<string>クイックセーブステート</string>
+	<key>Quick Save, Slot %@</key>
+	<string>スロット%@へクイックセーブ</string>
+	<key>Quit</key>
+	<string>終了</string>
+	<key>Quit Game</key>
+	<string>エミュレーションを停止</string>
+	<key>Quit OpenEmu</key>
+	<string>OpenEmuを終了する</string>
+	<key>Rating</key>
+	<string>評価</string>
+	<key>Recently Added</key>
+	<string>最近追加されたもの</string>
+	<key>Recovered Auto Save</key>
+	<string>復旧されたオートセーブ</string>
+	<key>Remove Collection</key>
+	<string>削除</string>
+	<key>Remove Game</key>
+	<string>Remove Game</string>
+	<key>Remove Games</key>
+	<string>Remove Games</string>
+	<key>Rename</key>
+	<string>名称を変更</string>
+	<key>Rename "%@"</key>
+	<string>"%@"の名称を変更</string>
+	<key>Rename Game</key>
+	<string>ゲームの名称を変更</string>
+	<key>Rename Shader Preset</key>
+	<string>Rename Shader Preset</string>
+	<key>Rename Special Save State or something?</key>
+	<string>セーブステートの名称を変更しますか？</string>
+	<key>Reopen without loading state</key>
+	<string>Reopen without loading state</string>
+	<key>Required files are missing.</key>
+	<string>要求されたファイルが見つかりません。</string>
+	<key>Reset parameters</key>
+	<string>Reset parameters</string>
+	<key>Resolve %ld Issue</key>
+	<string>%ld 個の問題を解決する</string>
+	<key>Resolve %ld Issues</key>
+	<string>%ld 個の問題を解決する</string>
+	<key>Restart</key>
+	<string>再起動</string>
+	<key>Restart Game</key>
+	<string>システムを再起動する</string>
+	<key>Resume</key>
+	<string>レジューム</string>
+	<key>Resume Game</key>
+	<string>ゲームプレイを復帰</string>
+	<key>Retry</key>
+	<string>Retry</string>
+	<key>SHARE_STANDARD_MENU_ITEM_TITLE</key>
+	<string>共有…</string>
+	<key>Save As:</key>
+	<string>別名で保存:</string>
+	<key>Save Current Game…</key>
+	<string>現在のゲームを保存…</string>
+	<key>Save Game</key>
+	<string>ゲームを保存</string>
+	<key>Save Games</key>
+	<string>セーブ数</string>
+	<key>Save States</key>
+	<string>セーブステート</string>
+	<key>Save-Game-%ld %@</key>
+	<string>セーブ-ゲーム-%ld %@</string>
+	<key>Scanner Paused</key>
+	<string>スキャナ停止中</string>
+	<key>Scanning Directory</key>
+	<string>ディレクトリをスキャン中</string>
+	<key>Screenshots</key>
+	<string>スクリーンショット</string>
+	<key>Search</key>
+	<string>検索</string>
+	<key>Secrets</key>
+	<string>シークレット</string>
+	<key>Select All</key>
+	<string>全て選択</string>
+	<key>Select Audio Output Device</key>
+	<string>オーディオ出力先を選択</string>
+	<key>Select Cheat</key>
+	<string>チートを選択</string>
+	<key>Select Core</key>
+	<string>コアを選択</string>
+	<key>Select Disc</key>
+	<string>ディスクを選択</string>
+	<key>Select Display Mode</key>
+	<string>ディスプレイモード</string>
+	<key>Select Scale</key>
+	<string>スケールを選択</string>
+	<key>Select Shader</key>
+	<string>シェーダを選択</string>
+	<key>Shader Parameters</key>
+	<string>Shader Parameters</string>
+	<key>Share</key>
+	<string>共有</string>
+	<key>Show</key>
+	<string>見る</string>
+	<key>Show in Finder</key>
+	<string>Finderで表示</string>
+	<key>Since version 2.1, OpenEmu requires a GPU which supports Metal. Metal is available on all Macs that support macOS 10.14 or later.
+
+As OpenEmu does not work with your current hardware/software configuration, it will now close.</key>
+	<string>OpenEmuはバージョン2.1から、MetalをサポートするGPUが必要になりました。現在お使いのハードウェアやソフトウェアの設定ではOpenEmuが動作しないため、終了します。</string>
+	<key>Slot %ld</key>
+	<string>スロット %ld</string>
+	<key>Some migrations failed to complete properly</key>
+	<string>マイグレーションが正常に完了しませんでした。</string>
+	<key>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</key>
+	<string>Sometimes a crash may occur while loading a save state because of incompatibilities between different versions of the same core. Do you want to open the game without loading a save state?</string>
+	<key>Special thanks to everyone that made
+OpenEmu possible. To find out more
+about our contributors, emulator cores,
+documentation, licenses and to issue
+bugs please visit us on our GitHub.</key>
+	<string>OpenEmuの発展に寄与した全ての方へ感謝申し上げます。
+全てのコントリビュータ、エミュレータコア作者、
+ドキュメント、ライセンス、イシュー、
+バグレポートなどの確認は、GitHubにてご確認ください。</string>
+	<key>Start Scanning</key>
+	<string>スキャンを開始</string>
+	<key>Stop</key>
+	<string>停止</string>
+	<key>Switch To Grid View</key>
+	<string>グリッド表示にする</string>
+	<key>Switch To List View</key>
+	<string>リスト表示にする</string>
+	<key>System</key>
+	<string>システム</string>
+	<key>System Default</key>
+	<string>System Default</string>
+	<key>System Files</key>
+	<string>システムファイル</string>
+	<key>Takes you to the %@ project website</key>
+	<string>%@ プロジェクトのウェブサイトを表示</string>
+	<key>The %@ core has compatibility issues and some games may contain glitches or not play at all.
+
+Please do not report problems as we are not responsible for the development of %@.</key>
+	<string>%1$@ コアは互換性の問題を抱えているため、グリッチが発生するか、全くプレイができません。
+
+%2$@の問題についての報告は必要ありません。</string>
+	<key>The %@ core has quit unexpectedly</key>
+	<string>The %@ core has quit unexpectedly</string>
+	<key>The %@ core has quit unexpectedly after loading a save state</key>
+	<string>The %@ core has quit unexpectedly after loading a save state</string>
+	<key>The %@ core plugin is deprecated</key>
+	<string>コアプラグイン %@ は非推奨です。</string>
+	<key>The %@ core plugin is deprecated, and will be removed soon</key>
+	<string>コアプラグイン %@ は非推奨のため削除されます。</string>
+	<key>The OpenEmu Library could not be found.</key>
+	<string>OpenEmuライブラリが見つかりませんでした。</string>
+	<key>The System plugin could not be found!</key>
+	<string>システムプラグインが見つかりませんでした。</string>
+	<key>The battery in device number %lu, %@, is low. Please charge or replace the battery.</key>
+	<string>デバイス番号 %1$lu、及び %2$@, のバッテリが弱くなっています。電池を交換してください。</string>
+	<key>The button profile for one of your controllers does not match the profile detected the last time it was connected to OpenEmu. Some of the controls associated to the affected controller were reset.
+
+You can go to the Controls preferences to check which associations were affected.</key>
+	<string>コントローラのボタンプロファイルが、前回OpenEmuに接続したときに検出されたプロファイルと一致しません。影響を受けたコントローラに関連付けられた操作の一部がリセットされました。</string>
+	<key>The core could not be downloaded. Try installing it from the Cores preferences.</key>
+	<string>コアがダウンロードできませんでした。コア設定からダウンロードし直してください。</string>
+	<key>The emulator could not load ROM.</key>
+	<string>The emulator could not load the ROM.</string>
+	<key>The file you selected doesn't exist</key>
+	<string>選択されたファイルは存在しません。</string>
+	<key>The game '%@' could not be started because a rom file could not be found. Do you want to locate it?</key>
+	<string>ROMファイルが見つからなかったため、'%@'を開始することができませんでした。ファイルを再度指定しますか？</string>
+	<key>The game '%@' was imported.</key>
+	<string>'%@' がインポートされました。</string>
+	<key>This System has no corresponding core installed.</key>
+	<string>関連するコアが見つかりません。</string>
+	<key>This cannot be undone.</key>
+	<string>この操作は取り消せません。</string>
+	<key>This core plugin will not be available in the future. Once it is removed, any save states created with it will stop working.</key>
+	<string>このコアプラグインは将来的に利用できなくなります。このコアプラグインが削除されると、これで作成されたセーブステートはすべて動作しなくなります。</string>
+	<key>This save state was created with a different core. Do you want to switch to that core now?</key>
+	<string>このセーブステートは、別のコアで作成されています。作成されたコアへ変更しますか？</string>
+	<key>This will remove all items from the queue. Items that finished importing will be preserved in your library.</key>
+	<string>「はい」を選択すると、全てのアイテムをキューから削除します。インポートが完了したアイテムはライブラリに表示されます。</string>
+	<key>Title:</key>
+	<string>タイトル:</string>
+	<key>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</key>
+	<string>To assign a new key or button to %@, press this button, then press the desired key or button on your keyboard or gamepad.</string>
+	<key>To launch the save state %@ you will need to install the '%@' Core</key>
+	<string>%1$@ のセーブステートを起動するには、'%2$@' のコアが必要です。</string>
+	<key>To run this core you need the following:
+
+%@Drag and drop the required file(s) onto the game library window and try again.</key>
+	<string>このコアを起動するには、以下のコアが必要です:
+
+%@要求されたファイルをゲームライブラリのウィンドウへドラッグ&amp;ドロップしてください。</string>
+	<key>Toggle Fullscreen</key>
+	<string>フルスクリーンモード</string>
+	<key>Toolbar: Homebrew</key>
+	<string>Homebrew</string>
+	<key>Toolbar: Library</key>
+	<string>ライブラリ</string>
+	<key>Toolbar: Save States</key>
+	<string>セーブステート</string>
+	<key>Toolbar: Screenshots</key>
+	<string>スクリーンショット</string>
+	<key>Trash downloaded Files</key>
+	<string>ダウンロードされたファイルを捨てる</string>
+	<key>Unexpected error:</key>
+	<string>Unexpected error:</string>
+	<key>Unmute Audio</key>
+	<string>音声のミュートを解除</string>
+	<key>Update</key>
+	<string>アップデート</string>
+	<key>Updating Library</key>
+	<string>ライブラリをアップデートしています</string>
+	<key>User guide on BIOS files</key>
+	<string>BIOSファイルのユーザガイド</string>
+	<key>Version</key>
+	<string>バージョン</string>
+	<key>View Guide in Browser</key>
+	<string>ガイドをブラウザで見る</string>
+	<key>View Mode</key>
+	<string>表示モード</string>
+	<key>Volume</key>
+	<string>Volume</string>
+	<key>Warning</key>
+	<string>警告</string>
+	<key>We suggest you switch to the %@ core plugin as soon as possible.</key>
+	<string>なるべく早く、コアプラグイン %@ への切り替えをおすすめします。</string>
+	<key>With OpenEmu you can save your progress at any time using save states. We will even make auto saves for you, when you leave a game. Come back here to get an overview of all your saves.</key>
+	<string>OpenEmuでは、セーブステートを利用することで、いつでもゲームの状態を保存できます。また、ゲーム終了時は進行状況をオートセーブします。ここでは、全てのセーブデータの概要を確認出来ます。</string>
+	<key>Won't be able to recognize it as special save state…</key>
+	<string>特別なセーブステートを認識できません…</string>
+	<key>Would you like to continue your last game?</key>
+	<string>最後のゲームの続きをプレイしますか？</string>
+	<key>Would you like to save your game before you quit?</key>
+	<string>ゲーム終了前にセーブしますか？</string>
+	<key>Yes</key>
+	<string>はい</string>
+	<key>You can't move your library into one of its subfolders.</key>
+	<string>ここへはライブラリを移動できません。</string>
+	<key>You need to restart the application to commit the change</key>
+	<string>変更を適用するには、OpenEmuを再起動してください。</string>
+	<key>Your Mac is too old for this version of OpenEmu</key>
+	<string>このMacは古いため、このバージョンのOpenEmuを使用できません。</string>
+	<key>Your game finished importing, do you want to play it now?</key>
+	<string>ゲームのインポートが完了しました。ゲームを起動しますか？</string>
+	<key>Your library was moved sucessfully.</key>
+	<string>ライブラリの移動が正常に完了しました。</string>
+	<key>this guide</key>
+	<string>ガイド</string>
+</dict>
+</plist>

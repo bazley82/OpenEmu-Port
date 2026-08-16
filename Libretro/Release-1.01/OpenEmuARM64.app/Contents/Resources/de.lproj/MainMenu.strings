@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>Über OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Steuerungsleiste ausblenden</string>
+	<key>Back Up…</key>
+	<string>Backup …</string>
+	<key>Bring All to Front</key>
+	<string>Alle nach vorne bringen</string>
+	<key>Check for Updates…</key>
+	<string>Nach Updates suchen …</string>
+	<key>Close Window</key>
+	<string>Fenster schließen</string>
+	<key>Controls</key>
+	<string>Steuerung</string>
+	<key>Copy</key>
+	<string>Kopieren</string>
+	<key>Cut</key>
+	<string>Ausschneiden</string>
+	<key>Delete</key>
+	<string>Entfernen</string>
+	<key>Display Duplicates</key>
+	<string>Doppelte Objekte anzeigen</string>
+	<key>Display Exact Duplicates</key>
+	<string>Identische Objekte anzeigen</string>
+	<key>Edit</key>
+	<string>Bearbeiten</string>
+	<key>Edit Smart Collection</key>
+	<string>Intelligente Sammlung bearbeiten</string>
+	<key>Export Collection</key>
+	<string>Sammlung exportieren</string>
+	<key>Export Library…</key>
+	<string>Mediathek exportieren …</string>
+	<key>File</key>
+	<string>Ablage</string>
+	<key>Find</key>
+	<string>Suchen</string>
+	<key>Find Next</key>
+	<string>Weitersuchen (vorwärts)</string>
+	<key>Find Previous</key>
+	<string>Weitersuchen (rückwärts)</string>
+	<key>Find…</key>
+	<string>Suchen …</string>
+	<key>Float on Top</key>
+	<string>Oben schweben</string>
+	<key>Fullscreen</key>
+	<string>Vollbild</string>
+	<key>Get Info</key>
+	<string>Informationen</string>
+	<key>Help</key>
+	<string>Hilfe</string>
+	<key>Hide OpenEmu</key>
+	<string>OpenEmu ausblenden</string>
+	<key>Hide Others</key>
+	<string>Andere ausblenden</string>
+	<key>Import Collection</key>
+	<string>Sammlung importieren</string>
+	<key>Jump to Selection</key>
+	<string>Zur Auswahl</string>
+	<key>Last Display Mode</key>
+	<string>Vorheriger Anzeigemodus</string>
+	<key>Last Played</key>
+	<string>Zuletzt gespielt</string>
+	<key>Launch Game…</key>
+	<string>Spiel öffnen …</string>
+	<key>Load State</key>
+	<string>Spielstand laden</string>
+	<key>Log Responder Chain</key>
+	<string>Responder-Chain loggen</string>
+	<key>Minimize</key>
+	<string>Im Dock ablegen</string>
+	<key>New Collection Folder</key>
+	<string>Neuer Sammlungs-Ordner</string>
+	<key>New Smart Collection…</key>
+	<string>Neue intelligente Sammlung …</string>
+	<key>Next Display Mode</key>
+	<string>Nächster Anzeigemodus</string>
+	<key>OpenEmu Web Site</key>
+	<string>OpenEmu-Website</string>
+	<key>Organize Library…</key>
+	<string>Mediathek verwalten …</string>
+	<key>Page Setup…</key>
+	<string>Papierformat …</string>
+	<key>Paste</key>
+	<string>Einsetzen</string>
+	<key>Preferences…</key>
+	<string>Einstellungen …</string>
+	<key>Print…</key>
+	<string>Drucken …</string>
+	<key>Quit OpenEmu</key>
+	<string>OpenEmu beenden</string>
+	<key>Redo</key>
+	<string>Wiederholen</string>
+	<key>Release Notes</key>
+	<string>Versionshinweise</string>
+	<key>Save State</key>
+	<string>Spielstand sichern</string>
+	<key>Select All</key>
+	<string>Alles auswählen</string>
+	<key>Send a Donation…</key>
+	<string>Spenden …</string>
+	<key>Services</key>
+	<string>Dienste</string>
+	<key>Show All</key>
+	<string>Alle einblenden</string>
+	<key>Show Library</key>
+	<string>Mediathek anzeigen</string>
+	<key>Show ROM Names</key>
+	<string>Dateinamen anzeigen</string>
+	<key>Start Game</key>
+	<string>Spiel starten</string>
+	<key>Submit Feedback</key>
+	<string>Fehler melden</string>
+	<key>Take Screenshot</key>
+	<string>Bildschirmfoto aufnehmen</string>
+	<key>Undo</key>
+	<string>Widerrufen</string>
+	<key>Undock Game Window</key>
+	<string>Seperates Spielefenster</string>
+	<key>Use Selection for Find</key>
+	<string>Auswahl suchen</string>
+	<key>User Guide</key>
+	<string>Onlinehilfe</string>
+	<key>View</key>
+	<string>Darstellung</string>
+	<key>Volume Down</key>
+	<string>Lautstärke verringern</string>
+	<key>Volume Up</key>
+	<string>Lautstärke erhöhen</string>
+	<key>Window</key>
+	<string>Fenster</string>
+	<key>Zoom</key>
+	<string>Zoomen</string>
+	<key>as Grid</key>
+	<string>Als Symbole</string>
+	<key>as List</key>
+	<string>Als Liste</string>
+</dict>
+</plist>

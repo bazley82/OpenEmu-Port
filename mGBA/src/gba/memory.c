@@ -128,6 +128,21 @@ void GBAMemoryReset(struct GBA* gba) {
 	GBAAdjustWaitstates(gba, 0);
 	GBAAdjustEWRAMWaitstates(gba, 0x0D00);
 
+	GBAMemoryClearAGBPrint(gba);
+
+	gba->memory.prefetch = false;
+	gba->memory.lastPrefetchedPc = 0;
+
+	if (!gba->memory.wram || !gba->memory.iwram) {
+		GBAMemoryDeinit(gba);
+		mLOG(GBA_MEM, FATAL, "Could not map memory");
+	}
+
+	GBADMAReset(gba);
+	memset(&gba->memory.matrix, 0, sizeof(gba->memory.matrix));
+}
+
+void GBAMemoryClearAGBPrint(struct GBA* gba) {
 	gba->memory.activeRegion = -1;
 	gba->memory.agbPrintProtect = 0;
 	gba->memory.agbPrintBase = 0;
@@ -140,17 +155,6 @@ void GBAMemoryReset(struct GBA* gba) {
 		mappedMemoryFree(gba->memory.agbPrintBufferBackup, SIZE_AGB_PRINT);
 		gba->memory.agbPrintBufferBackup = NULL;
 	}
-
-	gba->memory.prefetch = false;
-	gba->memory.lastPrefetchedPc = 0;
-
-	if (!gba->memory.wram || !gba->memory.iwram) {
-		GBAMemoryDeinit(gba);
-		mLOG(GBA_MEM, FATAL, "Could not map memory");
-	}
-
-	GBADMAReset(gba);
-	memset(&gba->memory.matrix, 0, sizeof(gba->memory.matrix));
 }
 
 static void _analyzeForIdleLoop(struct GBA* gba, struct ARMCore* cpu, uint32_t address) {
@@ -1114,10 +1118,8 @@ uint32_t GBAView32(struct ARMCore* cpu, uint32_t address) {
 		value = GBALoad32(cpu, address, 0);
 		break;
 	case REGION_IO:
-		if ((address & OFFSET_MASK) < REG_MAX) {
-			value = gba->memory.io[(address & OFFSET_MASK) >> 1];
-			value |= gba->memory.io[((address & OFFSET_MASK) >> 1) + 1] << 16;
-		}
+		value = GBAView16(cpu, address);
+		value |= GBAView16(cpu, address + 2) << 16;
 		break;
 	case REGION_CART_SRAM:
 		value = GBALoad8(cpu, address, 0);
@@ -1155,7 +1157,10 @@ uint16_t GBAView16(struct ARMCore* cpu, uint32_t address) {
 		value = GBALoad16(cpu, address, 0);
 		break;
 	case REGION_IO:
-		if ((address & OFFSET_MASK) < REG_MAX) {
+		if ((address & OFFSET_MASK) < REG_MAX || (address & OFFSET_MASK) == REG_POSTFLG) {
+			value = gba->memory.io[(address & OFFSET_MASK) >> 1];
+		} else if ((address & OFFSET_MASK) == REG_EXWAITCNT_LO || (address & OFFSET_MASK) == REG_EXWAITCNT_HI) {
+			address += REG_INTERNAL_EXWAITCNT_LO - REG_EXWAITCNT_LO;
 			value = gba->memory.io[(address & OFFSET_MASK) >> 1];
 		}
 		break;

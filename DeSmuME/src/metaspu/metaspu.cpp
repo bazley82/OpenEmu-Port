@@ -1,4 +1,4 @@
-/*  Copyright 2009-2015 DeSmuME team
+/*  Copyright 2009-2021 DeSmuME team
 
     This file is part of DeSmuME
 
@@ -24,7 +24,7 @@
 #include <assert.h>
 
 //for pcsx2 method
-#if defined(_MSC_VER) || defined(HAVE_LIBSOUNDTOUCH) || defined(DESMUME_COCOA) || defined(DESMUME_QT)
+#if defined(_MSC_VER) || defined(HAVE_LIBSOUNDTOUCH) || defined(DESMUME_COCOA)
 #include "SndOut.h"
 #endif
 
@@ -465,7 +465,7 @@ private:
 }; //NitsujaSynchronizer
 
 
-#if defined(_MSC_VER) || defined(HAVE_LIBSOUNDTOUCH) || defined(DESMUME_COCOA) || defined(DESMUME_QT)
+#if defined(_MSC_VER) || defined(HAVE_LIBSOUNDTOUCH) || defined(DESMUME_COCOA)
 class PCSX2Synchronizer : public ISynchronizingAudioBuffer
 {
 public:
@@ -492,9 +492,9 @@ public:
 				//SndOutPacketSize
 				StereoOut16 temp[SndOutPacketSize*2];
 				SndBuffer::ReadSamples( temp );
-				for(int i=0;i<SndOutPacketSize;i++) {
-					readySamples.push(temp[i].Left);
-					readySamples.push(temp[i].Right);
+				for(int j=0;j<SndOutPacketSize;j++) {
+					readySamples.push(temp[j].Left);
+					readySamples.push(temp[j].Right);
 				}
 			}
 			*buf++ = readySamples.front(); readySamples.pop();
@@ -512,7 +512,7 @@ ISynchronizingAudioBuffer* metaspu_construct(ESynchMethod method)
 	{
 	case ESynchMethod_N: return new NitsujaSynchronizer();
 	case ESynchMethod_Z: return new ZeromusSynchronizer();
-#if defined(_MSC_VER) || defined(HAVE_LIBSOUNDTOUCH) || defined(DESMUME_COCOA) || defined(DESMUME_QT)
+#if defined(_MSC_VER) || defined(HAVE_LIBSOUNDTOUCH) || defined(DESMUME_COCOA)
 	case ESynchMethod_P: return new PCSX2Synchronizer();
 #endif
 	default: return NULL;

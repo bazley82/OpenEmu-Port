@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Allow playing with controllers when in background</key>
+	<string>السماح بالعب بوحدة التحكم عندما تكون النافذة في الخلفية</string>
+	<key>Always float popout gameplay window on top</key>
+	<string>ضع دائما نافذة اللعب المنبثقة في الأعلى</string>
+	<key>Always launch games fullscreen</key>
+	<string>تشغيل اللعبة في وضع ملء الشاشة دائمًا</string>
+	<key>Always pause gameplay when in background</key>
+	<string>أوقف موقتًا نافذة اللعب عندما تكون النافذة الخلفية</string>
+	<key>Always snap popout gameplay window to integer scale</key>
+	<string>تحجيم نافذة اللعب المنبثقة بمقياس عدد صحيح)</string>
+	<key>Always use popout gameplay window</key>
+	<string>استخدم دائمًا نوافذ لعب منبثقة</string>
+	<key>An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</key>
+	<string>إنه عالم ألعابٍ مثير بين يديك.
+ لمساعدتك على البدأ، نود أن نسألك بعض الأسئلة السريعة التي ستقودك خلال ما يلي…
+
+• تأكد من أنك تقوم بتشغيل إضافات النظام الصحيحة (الأنوية)</string>
+	<key>Apply</key>
+	<string>تطبيق</string>
+	<key>Automatically lookup game information &amp; artwork</key>
+	<string>ابحث عن معلومات اللعبة و غلافها  تلقائياً</string>
+	<key>Available Libraries:</key>
+	<string>المكتبات المتاحة:</string>
+	<key>Back</key>
+	<string>الرجوع</string>
+	<key>Click on the ‘Next’ button to begin!</key>
+	<string>اضغط على زر ’التالي’ للبدأ!</string>
+	<key>Click the ‘Go’ button to begin your adventure.</key>
+	<string>اضغط على زر ’الذهاب’ لتبدأ مغامرتك.</string>
+	<key>Copy files to Game Library folder when adding to library</key>
+	<string>نسخ الملفات إلى مجلد مكتبة الألعاب عند عند الإضافة للمكتبة</string>
+	<key>Downloading Data…</key>
+	<string>جاري تحميل البيانات…</string>
+	<key>Edit</key>
+	<string>تعديل</string>
+	<key>Game Library Folder Location:</key>
+	<string>موقع مجلد مكتبة الألعاب:</string>
+	<key>Go</key>
+	<string>الذهاب</string>
+	<key>Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</key>
+	<string>عظيم ! أنت الآن مجهز تمامًا وجاهز لبدء اللعب ! 
+ 
+ تذكر أنه يمكنك تغيير تحكم كل من لوحة المفاتيح و وحدات التحكم لنفسك ولللاعبين الآخرين عبر التفضيلات في أي وقت.</string>
+	<key>Import Into:</key>
+	<string>استيراد إلى:</string>
+	<key>Input:</key>
+	<string>جهاز الإدخال:</string>
+	<key>Let’s Go!</key>
+	<string>لنبدأ !</string>
+	<key>Move to Default Location</key>
+	<string>نقل إلى الموقع الإفتراضي</string>
+	<key>Move...</key>
+	<string>نقل...</string>
+	<key>Next</key>
+	<string>التالي</string>
+	<key>OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</key>
+	<string>برنامج OpenEmu هو نظام قابل للتعديل، وبفضل المجهوداد الرائعة لمشاريع أخرى مفتوحة المصدر، يمكنه محاكاة مجموعة متنوعة من أنظمة ألعاب الفيديو (’الأنوية’).تتطلب قلة مختارة تحديد وتأكيد رغبتك في تثبيتها واستخدامها. قد لا تعمل أنظمة الألعاب والألعاب المفضلة لديك بدون هذه الأنوية.</string>
+	<key>Organization Methods:</key>
+	<string>طرق التنظيم:</string>
+	<key>Reset All</key>
+	<string>إعادة تعيين الكل</string>
+	<key>Reset Warnings</key>
+	<string>إعادة تعيين التحذيرات</string>
+	<key>Reset all dialog warnings:</key>
+	<string>إعادة تعيين جميع نوافذ الحوار التحذيرية:</string>
+	<key>Resolve Issues:</key>
+	<string>حل مشاكل:</string>
+	<key>Shader:</key>
+	<string>مرشح الفيديو:</string>
+	<key>System Cores Installation</key>
+	<string>تثبيت أنظمة ألعاب الفيديو</string>
+	<key>Welcome to OpenEmu!</key>
+	<string>مرحبا بك في OpenEmu !</string>
+	<key>Window Management:</key>
+	<string>مدير النافذة:</string>
+</dict>
+</plist>

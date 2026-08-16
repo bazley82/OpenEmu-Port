@@ -644,8 +644,10 @@ static void _GBCoreReset(struct mCore* core) {
 	size_t i;
 	for (i = 0; i < sizeof(gbcore->memoryBlocks) / sizeof(*gbcore->memoryBlocks); ++i) {
 		if (gbcore->memoryBlocks[i].id == GB_REGION_CART_BANK0) {
+			gbcore->memoryBlocks[i].size = gb->memory.romSize;
 			gbcore->memoryBlocks[i].maxSegment = gb->memory.romSize / GB_SIZE_CART_BANK0;
 		} else if (gbcore->memoryBlocks[i].id == GB_REGION_EXTERNAL_RAM) {
+			gbcore->memoryBlocks[i].size = gb->sramSize;
 			gbcore->memoryBlocks[i].maxSegment = gb->sramSize / GB_SIZE_EXTERNAL_RAM;
 		} else {
 			continue;
@@ -1048,9 +1050,11 @@ static void _GBCoreDetachDebugger(struct mCore* core) {
 }
 
 static void _GBCoreLoadSymbols(struct mCore* core, struct VFile* vf) {
-	core->symbolTable = mDebuggerSymbolTableCreate();
+	if (!core->symbolTable) {
+		core->symbolTable = mDebuggerSymbolTableCreate();
+	}
 #if !defined(MINIMAL_CORE) || MINIMAL_CORE < 2
-	if (!vf) {
+	if (!vf && core->dirs.base) {
 		vf = mDirectorySetOpenSuffix(&core->dirs, core->dirs.base, ".sym", O_RDONLY);
 	}
 #endif
@@ -1088,19 +1092,32 @@ static struct mCheatDevice* _GBCoreCheatDevice(struct mCore* core) {
 
 static size_t _GBCoreSavedataClone(struct mCore* core, void** sram) {
 	struct GB* gb = core->board;
-	struct VFile* vf = gb->sramVf;
-	if (vf) {
-		*sram = malloc(vf->size(vf));
-		vf->seek(vf, 0, SEEK_SET);
-		return vf->read(vf, *sram, vf->size(vf));
+	size_t sramSize = gb->sramSize;
+	size_t vfSize = 0;
+	size_t size = sramSize;
+	uint8_t* view = NULL;
+
+	if (gb->sramVf) {
+		vfSize = gb->sramVf->size(gb->sramVf);
+		if (vfSize > size) {
+			size = vfSize;
+		}
 	}
-	if (gb->sramSize) {
-		*sram = malloc(gb->sramSize);
-		memcpy(*sram, gb->memory.sram, gb->sramSize);
-		return gb->sramSize;
+	if (!size) {
+		*sram = NULL;
+		return 0;
 	}
-	*sram = NULL;
-	return 0;
+
+	view = malloc(size);
+	if (sramSize) {
+		memcpy(view, gb->memory.sram, gb->sramSize);
+	}
+	if (vfSize > sramSize) {
+		gb->sramVf->seek(gb->sramVf, sramSize, SEEK_SET);
+		gb->sramVf->read(gb->sramVf, &view[sramSize], vfSize - sramSize);
+	}
+	*sram = view;
+	return size;
 }
 
 static bool _GBCoreSavedataRestore(struct mCore* core, const void* sram, size_t size, bool writeback) {

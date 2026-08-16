@@ -1,7 +1,7 @@
 /*
 	Copyright (C) 2006 yopyop
 	Copyright (C) 2008 shash
-	Copyright (C) 2008-2015 DeSmuME team
+	Copyright (C) 2008-2021 DeSmuME team
 
 	This file is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@
 #include "MMU.h"
 #include "NDSSystem.h"
 #include "MMU_timing.h"
+#include "utils/bits.h"
 
 #define cpu (&ARMPROC)
 #define TEMPLATE template<int PROCNUM> 
@@ -38,7 +39,7 @@
 //-----------------------------------------------------------------------------
 TEMPLATE static  u32 FASTCALL OP_UND_THUMB(const u32 i)
 {
-	INFO("THUMB%c: Undefined instruction: 0x%08X (%s) PC=0x%08X\n", cpu->proc_ID?'7':'9', cpu->instruction, decodeIntruction(true, cpu->instruction), cpu->instruct_adr);
+	INFO("THUMB%c: Undefined instruction: 0x%08X PC=0x%08X\n", cpu->proc_ID?'7':'9', cpu->instruction, cpu->instruct_adr);
 	TRAPUNDEF(cpu);
 	return 1;
 }
@@ -1000,7 +1001,7 @@ TEMPLATE static  u32 FASTCALL OP_BKPT_THUMB(const u32 i)
 	cpu->SPSR = tmp;							// save old CPSR as new SPSR
 	cpu->CPSR.bits.T = 0;						// handle as ARM32 code
 	cpu->CPSR.bits.I = 1;
-	cpu->changeCPSR();
+	armcpu_changeCPSR();
 	cpu->R[15] = cpu->intVector + 0x0C;
 	cpu->next_instruction = cpu->R[15];
 	return 1;
@@ -1046,7 +1047,7 @@ TEMPLATE static  u32 FASTCALL OP_SWI_THUMB(const u32 i)
 		cpu->SPSR = tmp;					/* save old CPSR as new SPSR */
 		cpu->CPSR.bits.T = 0;				/* handle as ARM32 code */
 		cpu->CPSR.bits.I = 1;
-		cpu->changeCPSR();
+		armcpu_changeCPSR();
 		cpu->R[15] = cpu->intVector + 0x08;
 		cpu->next_instruction = cpu->R[15];
 		return 3;

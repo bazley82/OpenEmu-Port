@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>Quant a l'OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Amaga sempre el HUD</string>
+	<key>Back Up…</key>
+	<string>Còpia de seguretat…</string>
+	<key>Bring All to Front</key>
+	<string>Porta-ho tot al davant</string>
+	<key>Check for Updates…</key>
+	<string>Comprova si hi ha actualitzacions…</string>
+	<key>Close Window</key>
+	<string>Tanca la finestra</string>
+	<key>Controls</key>
+	<string>Controla</string>
+	<key>Copy</key>
+	<string>Copia</string>
+	<key>Cut</key>
+	<string>Retalla</string>
+	<key>Delete</key>
+	<string>Suprimeix</string>
+	<key>Display Duplicates</key>
+	<string>Mostra els duplicats</string>
+	<key>Display Exact Duplicates</key>
+	<string>Mostra els duplicats exactes</string>
+	<key>Edit</key>
+	<string>Edita</string>
+	<key>Edit Smart Collection</key>
+	<string>Edita la col·lecció intel·ligent</string>
+	<key>Export Collection</key>
+	<string>Exporta la col·lecció</string>
+	<key>Export Library…</key>
+	<string>Exporta la biblioteca…</string>
+	<key>File</key>
+	<string>Fitxer</string>
+	<key>Find</key>
+	<string>Cerca</string>
+	<key>Find Next</key>
+	<string>Cerca el següent</string>
+	<key>Find Previous</key>
+	<string>Cerca l'anterior</string>
+	<key>Find…</key>
+	<string>Cerca…</string>
+	<key>Float on Top</key>
+	<string>Posa-ho en primer pla</string>
+	<key>Fullscreen</key>
+	<string>Pantalla completa</string>
+	<key>Get Info</key>
+	<string>Obteniu informació</string>
+	<key>Help</key>
+	<string>Ajuda</string>
+	<key>Hide OpenEmu</key>
+	<string>Amaga l'OpenEmu</string>
+	<key>Hide Others</key>
+	<string>Amaga els altres</string>
+	<key>Import Collection</key>
+	<string>Importa la biblioteca</string>
+	<key>Jump to Selection</key>
+	<string>Ves a la selecció</string>
+	<key>Last Display Mode</key>
+	<string>Mode de visualització anterior</string>
+	<key>Last Played</key>
+	<string>Jugats últimament</string>
+	<key>Launch Game…</key>
+	<string>Executa un joc…</string>
+	<key>Load State</key>
+	<string>Carrega la partida</string>
+	<key>Log Responder Chain</key>
+	<string>Registre de la cadena de resposta</string>
+	<key>Minimize</key>
+	<string>Minimitza</string>
+	<key>New Collection Folder</key>
+	<string>Nou directori de col·lecció</string>
+	<key>New Smart Collection…</key>
+	<string>Crea una nova col·lecció intel·ligent…</string>
+	<key>Next Display Mode</key>
+	<string>Mode de visualització següent</string>
+	<key>OpenEmu Web Site</key>
+	<string>Lloc web de l'OpenEmu</string>
+	<key>Organize Library…</key>
+	<string>Organitzeu la biblioteca…</string>
+	<key>Page Setup…</key>
+	<string>Configuració de la pàgina…</string>
+	<key>Paste</key>
+	<string>Enganxa</string>
+	<key>Preferences…</key>
+	<string>Preferències…</string>
+	<key>Print…</key>
+	<string>Imprimeix…</string>
+	<key>Quit OpenEmu</key>
+	<string>Surt de l'OpenEmu</string>
+	<key>Redo</key>
+	<string>Refés</string>
+	<key>Release Notes</key>
+	<string>Notes de llançament</string>
+	<key>Save State</key>
+	<string>Desa la partida</string>
+	<key>Select All</key>
+	<string>Selecciona-ho tot</string>
+	<key>Send a Donation…</key>
+	<string>Feu una donació…</string>
+	<key>Services</key>
+	<string>Serveis</string>
+	<key>Show All</key>
+	<string>Mostra-ho tot</string>
+	<key>Show Library</key>
+	<string>Mostra la biblioteca</string>
+	<key>Show ROM Names</key>
+	<string>Mostra els noms dels ROMs</string>
+	<key>Start Game</key>
+	<string>Inicia el joc</string>
+	<key>Submit Feedback</key>
+	<string>Envieu-nos comentaris</string>
+	<key>Take Screenshot</key>
+	<string>Fes una captura de pantalla</string>
+	<key>Undo</key>
+	<string>Desfés</string>
+	<key>Undock Game Window</key>
+	<string>Separa la finestra del joc</string>
+	<key>Use Selection for Find</key>
+	<string>Utilitza la selecció per cercar</string>
+	<key>User Guide</key>
+	<string>Guia d'usuari</string>
+	<key>View</key>
+	<string>Visualitza</string>
+	<key>Volume Down</key>
+	<string>Abaixa el volum</string>
+	<key>Volume Up</key>
+	<string>Apuja el volum</string>
+	<key>Window</key>
+	<string>Finestra</string>
+	<key>Zoom</key>
+	<string>Zoom</string>
+	<key>as Grid</key>
+	<string>com una graella</string>
+	<key>as List</key>
+	<string>com una llista</string>
+</dict>
+</plist>

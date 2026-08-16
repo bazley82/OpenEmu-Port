@@ -390,8 +390,13 @@ extension MTLLanguageVersion {
         case .version3_0:
             return makeVersion(major: 3, minor: 0)
 #endif
+#if swift(>=5.9)
+        case .version3_1:
+            return makeVersion(major: 3, minor: 1)
+#endif
         @unknown default:
-            fatalError()
+            // Metal 4.0+ or future versions: use highest known SPIRV-Cross compatible version
+            return makeVersion(major: 3, minor: 1)
         }
     }
 }

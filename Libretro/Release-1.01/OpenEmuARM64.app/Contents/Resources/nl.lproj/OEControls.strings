@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Allow playing with controllers when in background</key>
+	<string>Allow playing with controllers when in background</string>
+	<key>Always float popout gameplay window on top</key>
+	<string>Always float popout gameplay window on top</string>
+	<key>Always launch games fullscreen</key>
+	<string>Start spellen altijd in schermvullende weergave</string>
+	<key>Always pause gameplay when in background</key>
+	<string>Pauzeer altijd gameplay wanneer op de achtergrond</string>
+	<key>Always snap popout gameplay window to integer scale</key>
+	<string>Always snap popout gameplay window to integer scale</string>
+	<key>Always use popout gameplay window</key>
+	<string>Gebruik altijd pop-out gameplay-venster</string>
+	<key>An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</key>
+	<string>Een opwindende wereld van videospellen ligt binnen handbereik. Om u te helpen beginnen zouden we u graag enkele snelle vragen stellen die u door het volgende heen zullen leiden…
+
+• Verzekeren dat u de juiste systeemplug-ins (kernen) gebruikt.</string>
+	<key>Apply</key>
+	<string>Pas toe</string>
+	<key>Automatically lookup game information &amp; artwork</key>
+	<string>Zoek automatisch spelinformatie en omslagafbeeldingen op</string>
+	<key>Available Libraries:</key>
+	<string>Beschikbare bibliotheken:</string>
+	<key>Back</key>
+	<string>Terug</string>
+	<key>Cancel</key>
+	<string>Annuleer</string>
+	<key>Click on the ‘Next’ button to begin!</key>
+	<string>Klik op de knop ‘Volgende’ om te beginnen!</string>
+	<key>Click the ‘Go’ button to begin your adventure.</key>
+	<string>Klik op de ‘Begin’ knop om uw avontuur te beginnen.</string>
+	<key>Copy files to Game Library folder when adding to library</key>
+	<string>Kopiëer bestanden naar spellenbibliotheekmap bij toevoegen
+aan bibliotheek</string>
+	<key>Downloading Data…</key>
+	<string>Downloading Data…</string>
+	<key>Edit</key>
+	<string>Wijzig</string>
+	<key>Game Library Folder Location:</key>
+	<string>Locatie van spellenbibliotheekmap:</string>
+	<key>Go</key>
+	<string>Begin</string>
+	<key>Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</key>
+	<string>Goed zo! Alles is klaar voor u om te beginnen spelen!
+
+Onthoud dat u op elk moment via Voorkeuren de bediening via toetsenbord en gamepad kunt wijzigen voor uzelf en andere spelers.</string>
+	<key>Import Into:</key>
+	<string>Import Into:</string>
+	<key>Input:</key>
+	<string>Invoer:</string>
+	<key>Let’s Go!</key>
+	<string>Kom op!</string>
+	<key>Move to Default Location</key>
+	<string>Move to Default Location</string>
+	<key>Move...</key>
+	<string>Move...</string>
+	<key>New Preset</key>
+	<string>New Preset</string>
+	<key>Next</key>
+	<string>Volgende</string>
+	<key>OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</key>
+	<string>OpenEmu is modulair, en dankzij het werk van andere grote open-source projecten kan het een brede waaier aan consoles (‘kernen’) emuleren. Een beperkt aantal van deze vragen dat u ze aanvinkt en bevestigt dat u ze wilt installeren en gebruiken. Uw favoriete consoles en spellen werken mogelijk niet zonder deze kernen.</string>
+	<key>Organization Methods:</key>
+	<string>Organisatiemethodes:</string>
+	<key>Reset All</key>
+	<string>Reset All</string>
+	<key>Reset Warnings</key>
+	<string>Stel waarschuwingen opnieuw in</string>
+	<key>Reset all dialog warnings:</key>
+	<string>Stel alle dialoogvensterwaarschuwingen opnieuw in:</string>
+	<key>Resolve Issues:</key>
+	<string>Herstel problemen met import:</string>
+	<key>Save Preset</key>
+	<string>Opslaan</string>
+	<key>Shader:</key>
+	<string>Shader:</string>
+	<key>System Cores Installation</key>
+	<string>Systeemkerninstallatie</string>
+	<key>Welcome to OpenEmu!</key>
+	<string>Welkom bij OpenEmu!</string>
+	<key>Window Management:</key>
+	<string>Vensterbeheer:</string>
+</dict>
+</plist>

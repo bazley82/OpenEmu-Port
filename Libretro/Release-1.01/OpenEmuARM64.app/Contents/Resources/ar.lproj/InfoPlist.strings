@@ -1,0 +1,66 @@
+
+"%@ Game" = "%@ لعبة";
+
+"Archived Game" = "لعبة مؤرشفة";
+
+"Atari 2600 Game" = "Atari 2600 لعبة";
+
+"Atari 5200 Game" = "Atari 5200 لعبة";
+
+"Atari 7800 Game" = "Atari 7800 لعبة";
+
+"Atari Lynx Game" = "Atari Lynx لعبة";
+
+"ColecoVision Game" = "ColecoVision لعبة";
+
+"Famicom Disk System Game" = "Famicom Disk System لعبة";
+
+"Game Boy Advance Game" = "Game Boy Advance لعبة";
+
+"Game Boy Game" = "Game Boy لعبة";
+
+"Game Gear Game" = "Game Gear لعبة";
+
+"GameCube Game" = "GameCube لعبة";
+
+"Intellivision Game" = "Intellivision لعبة";
+
+"NeoGeo Pocket Game" = "NeoGeo Pocket لعبة";
+
+"Nintendo (NES) Game" = "Nintendo (NES) لعبة";
+
+"Nintendo 64 Game" = "Nintendo 64 لعبة";
+
+"Nintendo DS Game" = "Nintendo DS لعبة";
+
+"OpenEmu Core Plugin" = "إضافة نواة OpenEmu";
+
+"OpenEmu Game" = "OpenEmu لعبة";
+
+"OpenEmu Save State" = "حالة حفظ OpenEmu";
+
+"OpenEmu Shader" = "مرشِح فيديو OpenEmu";
+
+"OpenEmu System Plugin" = " إضافة نظام OpenEmu";
+
+"SG-1000 Game" = "SG-1000 لعبة";
+
+"Sega 32X Game" = "Sega 32X لعبة";
+
+"Sega Master System Game" = "Sega Master System لعبة";
+
+"Sega Mega Drive Game" = "Sega Mega Drive لعبة";
+
+"Sony PSP Game" = "Sony PSP لعبة";
+
+"Sony PlayStation Game" = "Sony PlayStation لعبة";
+
+"Super Nintendo (SNES) Game" = "Super Nintendo (SNES) لعبة";
+
+"TurboGrafx-16 Game" = "TurboGrafx-16 لعبة";
+
+"Vectrex Game" = "Vectrex لعبة";
+
+"Virtual Boy Game" = "Virtual Boy لعبة";
+
+"WonderSwan Game" = "WonderSwan لعبة";

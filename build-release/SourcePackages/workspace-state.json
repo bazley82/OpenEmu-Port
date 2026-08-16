@@ -1,0 +1,185 @@
+{
+  "object" : {
+    "artifacts" : [
+      {
+        "kind" : {
+          "xcframework" : {
+
+          }
+        },
+        "packageRef" : {
+          "identity" : "sparkle",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/sparkle-project/Sparkle",
+          "name" : "Sparkle"
+        },
+        "path" : "/Users/devinhughes/AntiGravity/OpenEmuARM64/build-release/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework",
+        "source" : {
+          "checksum" : "48ffac5d4477bf8be814c369b5c1b5a6b35e05f5e4fa473bd5b5c41d90846a99",
+          "type" : "remote",
+          "url" : "https://github.com/sparkle-project/Sparkle/releases/download/2.5.2/Sparkle-for-Swift-Package-Manager.zip"
+        },
+        "targetName" : "Sparkle"
+      }
+    ],
+    "dependencies" : [
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "cwlcatchexception",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/mattgallagher/CwlCatchException.git",
+          "name" : "CwlCatchException"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "07b2ba21d361c223e25e3c1e924288742923f08c",
+            "version" : "2.2.1"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "CwlCatchException"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "cwlpreconditiontesting",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+          "name" : "CwlPreconditionTesting"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "0139c665ebb45e6a9fbdb68aabfd7c39f3fe0071",
+            "version" : "2.2.2"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "CwlPreconditionTesting"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "finite",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/vknabel/Finite.git",
+          "name" : "Finite"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "f5376dd4fe161d7d9f006247754db64982a5b87b",
+            "version" : "4.0.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "Finite"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "nimble",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/Quick/Nimble",
+          "name" : "Nimble"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "1f3bde57bde12f5e7b07909848c071e9b73d6edc",
+            "version" : "10.0.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "Nimble"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "sparkle",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/sparkle-project/Sparkle",
+          "name" : "Sparkle"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "47d3d90aee3c52b6f61d04ceae426e607df62347",
+            "version" : "2.5.2"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "Sparkle"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "swift-argument-parser",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/apple/swift-argument-parser.git",
+          "name" : "swift-argument-parser"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "c5d11a805e765f52ba34ec7284bd4fcd6ba68615",
+            "version" : "1.7.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "swift-argument-parser"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "swift-atomics",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/apple/swift-atomics.git",
+          "name" : "swift-atomics"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "b601256eab081c0f92f059e12818ac1d4f178ff7",
+            "version" : "1.3.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "swift-atomics"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "swift-collections",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/apple/swift-collections.git",
+          "name" : "swift-collections"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "7b847a3b7008b2dc2f47ca3110d8c782fb2e5c7e",
+            "version" : "1.3.0"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "swift-collections"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "zipfoundation",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/weichsel/ZIPFoundation",
+          "name" : "ZIPFoundation"
+        },
+        "state" : {
+          "checkoutState" : {
+            "branch" : "development",
+            "revision" : "d6e0da4509c22274b2775b0e8c741518194acba1"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "ZIPFoundation"
+      }
+    ],
+    "prebuilts" : [
+
+    ]
+  },
+  "version" : 7
+}

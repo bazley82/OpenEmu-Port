@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>À propos d’OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Toujours masquer les contrôles</string>
+	<key>Back Up…</key>
+	<string>Sauvegarder…</string>
+	<key>Bring All to Front</key>
+	<string>Tout ramener au premier plan</string>
+	<key>Check for Updates…</key>
+	<string>Rechercher les mises à jour…</string>
+	<key>Close Window</key>
+	<string>Fermer la fenêtre</string>
+	<key>Controls</key>
+	<string>Contrôles</string>
+	<key>Copy</key>
+	<string>Copier</string>
+	<key>Cut</key>
+	<string>Couper</string>
+	<key>Delete</key>
+	<string>Supprimer</string>
+	<key>Display Duplicates</key>
+	<string>Afficher les doublons</string>
+	<key>Display Exact Duplicates</key>
+	<string>Afficher les doublons exacts</string>
+	<key>Edit</key>
+	<string>Édition</string>
+	<key>Edit Smart Collection</key>
+	<string>Modifier la collection intelligente</string>
+	<key>Export Collection</key>
+	<string>Exporter la collection</string>
+	<key>Export Library…</key>
+	<string>Exporter la biblitohèque…</string>
+	<key>File</key>
+	<string>Fichier</string>
+	<key>Find</key>
+	<string>Rechercher</string>
+	<key>Find Next</key>
+	<string>Rechercher le suivant</string>
+	<key>Find Previous</key>
+	<string>Rechercher le précédent</string>
+	<key>Find…</key>
+	<string>Rechercher…</string>
+	<key>Float on Top</key>
+	<string>Garder au premier plan</string>
+	<key>Fullscreen</key>
+	<string>Activer le mode plein écran</string>
+	<key>Get Info</key>
+	<string>Lire les informations</string>
+	<key>Help</key>
+	<string>Aide</string>
+	<key>Hide OpenEmu</key>
+	<string>Masquer OpenEmu</string>
+	<key>Hide Others</key>
+	<string>Masquer les autres</string>
+	<key>Import Collection</key>
+	<string>Importer une collection</string>
+	<key>Jump to Selection</key>
+	<string>Aller à la sélection</string>
+	<key>Last Display Mode</key>
+	<string>Mode d’affichage précédent</string>
+	<key>Last Played</key>
+	<string>Derniers jeux lancés</string>
+	<key>Launch Game…</key>
+	<string>Lancer le jeu…</string>
+	<key>Load State</key>
+	<string>Charger partie</string>
+	<key>Log Responder Chain</key>
+	<string>Journaliser la chaîne de répondeurs</string>
+	<key>Minimize</key>
+	<string>Placer dans le Dock</string>
+	<key>New Collection Folder</key>
+	<string>Nouveau dossier de collections</string>
+	<key>New Smart Collection…</key>
+	<string>Nouvelle collection intelligente…</string>
+	<key>Next Display Mode</key>
+	<string>Mode d’affichage suivant</string>
+	<key>OpenEmu Web Site</key>
+	<string>Site web OpenEmu</string>
+	<key>Organize Library…</key>
+	<string>Organiser la bibliothèque…</string>
+	<key>Page Setup…</key>
+	<string>Format d’impression…</string>
+	<key>Paste</key>
+	<string>Coller</string>
+	<key>Preferences…</key>
+	<string>Préférences…</string>
+	<key>Print…</key>
+	<string>Imprimer…</string>
+	<key>Quit OpenEmu</key>
+	<string>Quitter OpenEmu</string>
+	<key>Redo</key>
+	<string>Rétablir</string>
+	<key>Release Notes</key>
+	<string>Notes de publication</string>
+	<key>Save State</key>
+	<string>Sauvegarder partie</string>
+	<key>Select All</key>
+	<string>Tout sélectionner</string>
+	<key>Send a Donation…</key>
+	<string>Faire un don…</string>
+	<key>Services</key>
+	<string>Services</string>
+	<key>Show All</key>
+	<string>Tout afficher</string>
+	<key>Show Library</key>
+	<string>Afficher la bibliothèque</string>
+	<key>Show ROM Names</key>
+	<string>Afficher les noms des ROM</string>
+	<key>Start Game</key>
+	<string>Démarrer le jeu</string>
+	<key>Submit Feedback</key>
+	<string>Émettre un commentaire</string>
+	<key>Take Screenshot</key>
+	<string>Prendre une capture d’écran</string>
+	<key>Undo</key>
+	<string>Annuler</string>
+	<key>Undock Game Window</key>
+	<string>Détacher la fenêtre de jeu</string>
+	<key>Use Selection for Find</key>
+	<string>Rechercher la sélection</string>
+	<key>User Guide</key>
+	<string>Guide de l’utilisateur</string>
+	<key>View</key>
+	<string>Présentation</string>
+	<key>Volume Down</key>
+	<string>Diminuer le son</string>
+	<key>Volume Up</key>
+	<string>Augmenter le son</string>
+	<key>Window</key>
+	<string>Fenêtre</string>
+	<key>Zoom</key>
+	<string>Réduire/agrandir</string>
+	<key>as Grid</key>
+	<string>Par grille</string>
+	<key>as List</key>
+	<string>Par liste</string>
+</dict>
+</plist>

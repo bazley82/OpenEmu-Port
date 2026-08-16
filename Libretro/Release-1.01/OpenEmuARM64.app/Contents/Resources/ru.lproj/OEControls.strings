@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Allow playing with controllers when in background</key>
+	<string>Разрешить играть с помощью контроллеров в фоновом режиме</string>
+	<key>Always float popout gameplay window on top</key>
+	<string>Всегда отображать всплывающее окно игр сверху</string>
+	<key>Always launch games fullscreen</key>
+	<string>Запускать игры в полноэкранном режиме</string>
+	<key>Always pause gameplay when in background</key>
+	<string>Приостанавливать игры при переключении окна</string>
+	<key>Always snap popout gameplay window to integer scale</key>
+	<string>Всегда привязывать всплывающее окно игры к целочисленному масштабу</string>
+	<key>Always use popout gameplay window</key>
+	<string>Использовать всплывающее окно для игр</string>
+	<key>An exciting world of video games is within your grasp. To help you get started, we’d like to ask you a few quick questions which will guide you through the following…
+
+• Ensure you are running the correct system plugins (cores).</key>
+	<string>Захватывающий мир видеоигр находится у вас под рукой. Чтобы помочь вам начать работу, мы хотели бы задать несколько быстрых вопросов касаемо…
+
+• Убедиться что у вас актуальные системные плагины (ядра).</string>
+	<key>Apply</key>
+	<string>Применить</string>
+	<key>Automatically lookup game information &amp; artwork</key>
+	<string>Автоматически подгружать информацию и обложки</string>
+	<key>Available Libraries:</key>
+	<string>Доступные библиотеки:</string>
+	<key>Back</key>
+	<string>Назад</string>
+	<key>Cancel</key>
+	<string>Отменить</string>
+	<key>Click on the ‘Next’ button to begin!</key>
+	<string>Нажмите на кнопку ‘Далее’ чтобы начать!</string>
+	<key>Click the ‘Go’ button to begin your adventure.</key>
+	<string>Нажмите на кнопку ‘Поехали!’ чтобы отправиться в приключение!</string>
+	<key>Copy files to Game Library folder when adding to library</key>
+	<string>Копировать файлы в библиотеку при добавлении</string>
+	<key>Downloading Data…</key>
+	<string>Скачиваю данные…</string>
+	<key>Edit</key>
+	<string>Изменить</string>
+	<key>Game Library Folder Location:</key>
+	<string>Расположение папки библиотеки игр:</string>
+	<key>Go</key>
+	<string>Поехали!</string>
+	<key>Great! You are all setup now and ready to get gaming!
+
+Remember you can change both your keyboard and gamepad controls for yourself and other players via the Preferences at any time.</key>
+	<string>Отлично! Все настройки на данный момент завершены и готовы к началу игры!
+Помните, что вы можете изменить элементы управления клавиатуры и геймпада для себя и других игроков в любое время.</string>
+	<key>Import Into:</key>
+	<string>Импортировать в:</string>
+	<key>Input:</key>
+	<string>Ввод:</string>
+	<key>Let’s Go!</key>
+	<string>В добрый путь!</string>
+	<key>Move to Default Location</key>
+	<string>Move to Default Location</string>
+	<key>Move...</key>
+	<string>Move...</string>
+	<key>New Preset</key>
+	<string>New Preset</string>
+	<key>Next</key>
+	<string>Далее</string>
+	<key>OpenEmu is modular, and thanks to the work of other great open source projects, it can emulate a wide variety of video game systems (‘cores’). A select few require you tick and confirm that you want to install and use them. Your favorite game systems and games may not run without these cores.</key>
+	<string>OpenEmu является модульным, и благодаря работе других крупных проектов с открытым исходным кодом, он может эмулировать широкий спектр игровых систем (ядер). Выберите некоторые из них галочками и подтвердите, что вы хотите установить и использовать их. Ваши любимые игровые системы и игры не могут работать без этих ядер.</string>
+	<key>Organization Methods:</key>
+	<string>Способы организации:</string>
+	<key>Reset All</key>
+	<string>Сбросить все</string>
+	<key>Reset Warnings</key>
+	<string>Сбросить предупреждения</string>
+	<key>Reset all dialog warnings:</key>
+	<string>Сбросить все окна предупреждений:</string>
+	<key>Resolve Issues:</key>
+	<string>Исправить проблемы импорта:</string>
+	<key>Save Preset</key>
+	<string>Сохранение</string>
+	<key>Shader:</key>
+	<string>Ше́йдер:</string>
+	<key>System Cores Installation</key>
+	<string>Установка системных ядер</string>
+	<key>Welcome to OpenEmu!</key>
+	<string>Добро пожаловать в OpenEmu!</string>
+	<key>Window Management:</key>
+	<string>Управление окном:</string>
+</dict>
+</plist>

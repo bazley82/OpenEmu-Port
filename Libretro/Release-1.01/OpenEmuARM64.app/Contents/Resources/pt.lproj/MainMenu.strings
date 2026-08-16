@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>Sobre OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Sempre Esconder Controles</string>
+	<key>Back Up…</key>
+	<string>Back Up…</string>
+	<key>Bring All to Front</key>
+	<string>Trazer para Frente</string>
+	<key>Check for Updates…</key>
+	<string>Verificar Atualizações…</string>
+	<key>Close Window</key>
+	<string>Fechar Janela</string>
+	<key>Controls</key>
+	<string>Controles</string>
+	<key>Copy</key>
+	<string>Copiar</string>
+	<key>Cut</key>
+	<string>Cortar</string>
+	<key>Delete</key>
+	<string>Deletar</string>
+	<key>Display Duplicates</key>
+	<string>Mostrar Duplicados</string>
+	<key>Display Exact Duplicates</key>
+	<string>Mostrar Duplicados Idênticos</string>
+	<key>Edit</key>
+	<string>Editar</string>
+	<key>Edit Smart Collection</key>
+	<string>Editar Coleção Inteligente</string>
+	<key>Export Collection</key>
+	<string>Export Collection</string>
+	<key>Export Library…</key>
+	<string>Exportar Biblioteca…</string>
+	<key>File</key>
+	<string>Arquivo</string>
+	<key>Find</key>
+	<string>Buscar</string>
+	<key>Find Next</key>
+	<string>Buscar Próximo</string>
+	<key>Find Previous</key>
+	<string>Buscar Anterior</string>
+	<key>Find…</key>
+	<string>Buscar…</string>
+	<key>Float on Top</key>
+	<string>Em primeiro plano</string>
+	<key>Fullscreen</key>
+	<string>Tela Cheia</string>
+	<key>Get Info</key>
+	<string>Informações</string>
+	<key>Help</key>
+	<string>Ajuda</string>
+	<key>Hide OpenEmu</key>
+	<string>Ocultar OpenEmu</string>
+	<key>Hide Others</key>
+	<string>Ocultar Outros</string>
+	<key>Import Collection</key>
+	<string>Import Collection</string>
+	<key>Jump to Selection</key>
+	<string>Pular para Seleção</string>
+	<key>Last Display Mode</key>
+	<string>Last Display Mode</string>
+	<key>Last Played</key>
+	<string>Últimos Jogados</string>
+	<key>Launch Game…</key>
+	<string>Iniciar Jogo…</string>
+	<key>Load State</key>
+	<string>Carregar Estado</string>
+	<key>Log Responder Chain</key>
+	<string>Log Responder Chain</string>
+	<key>Minimize</key>
+	<string>Minimizar</string>
+	<key>New Collection Folder</key>
+	<string>Nova Pasta de Coleção</string>
+	<key>New Smart Collection…</key>
+	<string>Nova Coleção Inteligente</string>
+	<key>Next Display Mode</key>
+	<string>Next Display Mode</string>
+	<key>OpenEmu Web Site</key>
+	<string>Web Site OpenEmu</string>
+	<key>Organize Library…</key>
+	<string>Organizar Biblioteca…</string>
+	<key>Page Setup…</key>
+	<string>Configuração da Página</string>
+	<key>Paste</key>
+	<string>Colar</string>
+	<key>Preferences…</key>
+	<string>Preferências..</string>
+	<key>Print…</key>
+	<string>Imprimir…</string>
+	<key>Quit OpenEmu</key>
+	<string>Quit OpenEmu</string>
+	<key>Redo</key>
+	<string>Refazer</string>
+	<key>Release Notes</key>
+	<string>Notas da Versão</string>
+	<key>Save State</key>
+	<string>Salvar Estado</string>
+	<key>Select All</key>
+	<string>Selecionar Tudo</string>
+	<key>Send a Donation…</key>
+	<string>Send a Donation…</string>
+	<key>Services</key>
+	<string>Serviços</string>
+	<key>Show All</key>
+	<string>Mostrar Tudo</string>
+	<key>Show Library</key>
+	<string>Exibir Biblioteca</string>
+	<key>Show ROM Names</key>
+	<string>Mostrar nomes das ROMs</string>
+	<key>Start Game</key>
+	<string>Iniciar Jogo</string>
+	<key>Submit Feedback</key>
+	<string>Enviar Feedback</string>
+	<key>Take Screenshot</key>
+	<string>Capturar Tela</string>
+	<key>Undo</key>
+	<string>Desfazer</string>
+	<key>Undock Game Window</key>
+	<string>Desafixar Janela do Jogo</string>
+	<key>Use Selection for Find</key>
+	<string>Usar Seleção para Busca</string>
+	<key>User Guide</key>
+	<string>Guia de Uso</string>
+	<key>View</key>
+	<string>Visualizar</string>
+	<key>Volume Down</key>
+	<string>Abaixar Volume</string>
+	<key>Volume Up</key>
+	<string>Aumentar Volume</string>
+	<key>Window</key>
+	<string>Janelas</string>
+	<key>Zoom</key>
+	<string>Zoom</string>
+	<key>as Grid</key>
+	<string>Grid</string>
+	<key>as List</key>
+	<string>Lista</string>
+</dict>
+</plist>

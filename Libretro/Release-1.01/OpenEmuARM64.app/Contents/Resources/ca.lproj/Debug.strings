@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>Aparença:</string>
+	<key>Auto (region)</key>
+	<string>Auto (regió)</string>
+	<key>Background Thread</key>
+	<string>Fil d'execució en segon pla</string>
+	<key>Cancel cover sync for all games</key>
+	<string>Cancel·la la sincronització de caràtules de tots els jocs</string>
+	<key>Checked</key>
+	<string>Marcat</string>
+	<key>Cleanup Save States</key>
+	<string>Neteja les partides desades</string>
+	<key>Cleanup autosave state</key>
+	<string>Neteja les partides desades automàticament</string>
+	<key>Cleanup rom hashes</key>
+	<string>Neteja les sumes de verificació dels ROMs</string>
+	<key>Clear shader cache</key>
+	<string>Esborra la memòria cau dels shaders</string>
+	<key>Controls Setup</key>
+	<string>Configuració dels controls</string>
+	<key>Dark (default)</key>
+	<string>Fosc (per defecte)</string>
+	<key>Database Actions</key>
+	<string>Accions de la base de dades</string>
+	<key>Debug Mode</key>
+	<string>Mode de depuració</string>
+	<key>Default Value: %@</key>
+	<string>Valor per defecte: %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>Esborra les imatges que es poden baixar</string>
+	<key>Delete useless image objects</key>
+	<string>Esborra els objectes d'imatge inútils</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>Desactiva la correcció de la relació d'aspecte en les captures de pantalla</string>
+	<key>Download missing artwork…</key>
+	<string>Baixa les imatges que falten…</string>
+	<key>Draw button mask above image</key>
+	<string>Dibuixa la màscara del botó a sobre de la imatge</string>
+	<key>Europe</key>
+	<string>Europa</string>
+	<key>Game View Background color:</key>
+	<string>Color de fons de la vista del joc:</string>
+	<key>General</key>
+	<string>General</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>Barra HUD / Joc</string>
+	<key>Japan</key>
+	<string>Japó</string>
+	<key>Library Window</key>
+	<string>Finestra de la biblioteca</string>
+	<key>Light</key>
+	<string>Clar</string>
+	<key>Log HID Events</key>
+	<string>Registra els esdeveniments del dispositiu d'interfície humana</string>
+	<key>Log Keyboard Events</key>
+	<string>Registra els esdeveniments del teclat</string>
+	<key>Manually choose system on import</key>
+	<string>Selecciona el sistema manualment durant la importació</string>
+	<key>North America</key>
+	<string>Amèrica del Nord</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>Altres</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>Realitza les comprovacions de validesa a la base de dades</string>
+	<key>Range: %@ to %@</key>
+	<string>Interval: %@ a %@</string>
+	<key>Region:</key>
+	<string>Regió:</string>
+	<key>Remove duplicated roms</key>
+	<string>Esborra els ROMs duplicats</string>
+	<key>Remove untracked artwork files</key>
+	<string>Esborra les imatges sense seguiment</string>
+	<key>Reset main window size</key>
+	<string>Restableix la mida de la finestra principal</string>
+	<key>Reveal user shader folder</key>
+	<string>Mostra la carpeta d'usuari dels shaders</string>
+	<key>Run games using:</key>
+	<string>Executeu els jocs utilitzant:</string>
+	<key>Select first field after setting the last</key>
+	<string>Seleccioneu el primer camp després de selecionar l'últim</string>
+	<key>Set default save states directory</key>
+	<string>Defineix el directori de les partides desades</string>
+	<key>Setup Assistant has finished</key>
+	<string>L'assistent de configuració ha acabat</string>
+	<key>Shaders</key>
+	<string>Shaders</string>
+	<key>Show all special keys</key>
+	<string>Mostra totes les tecles especials</string>
+	<key>Show audio output device in menu</key>
+	<string>Mostra el dispositiu de sortida del so al menú</string>
+	<key>Show autosave in menu</key>
+	<string>Mostra el desat automàtic al menú</string>
+	<key>Show autosave states in save state category</key>
+	<string>Mostra les partides desades automàticament a la categoria de les partides desades</string>
+	<key>Show game titles instead of rom names</key>
+	<string>Mostra el nom dels jocs en comptes del nom dels ROMs</string>
+	<key>Show notifications during gameplay</key>
+	<string>Mostra notificacions mentre jugueu</string>
+	<key>Show quicksave in menu</key>
+	<string>Mostra el desat ràpid al menú</string>
+	<key>Show quicksave states in save state category</key>
+	<string>Mostra les partides desades ràpidament a la categoria de les partides desades</string>
+	<key>Sync games without artwork</key>
+	<string>Sincronitza els jocs sense imatges</string>
+	<key>System</key>
+	<string>Sistema</string>
+	<key>Take screenshots in native size</key>
+	<string>Fes les captures de pantalla en la mida nativa</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>Llindar de la vinculació dels controls
+analògics amb els botons:</string>
+	<key>Toggle game scanner view</key>
+	<string>Mostra/Amaga la visualització de l'escàner de jocs</string>
+	<key>Unchecked</key>
+	<string>Desmarcat</string>
+	<key>Update OpenVGDB</key>
+	<string>Actualitza l'OpenVGDB</string>
+	<key>Use quicksave slots</key>
+	<string>Utilitza els espais del desat ràpid</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>L'OpenEmu no respondrà durant aquesta operació.</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

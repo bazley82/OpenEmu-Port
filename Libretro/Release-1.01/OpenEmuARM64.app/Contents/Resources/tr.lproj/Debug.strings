@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Appearance:</key>
+	<string>Görünüm:</string>
+	<key>Auto (region)</key>
+	<string>Otomatik</string>
+	<key>Background Thread</key>
+	<string>Arka Plan Konusu</string>
+	<key>Cancel cover sync for all games</key>
+	<string>Tüm oyunlar için kapak senkronizasyonunu iptal et</string>
+	<key>Checked</key>
+	<string>Seçili</string>
+	<key>Cleanup Save States</key>
+	<string>Kayıt Durumlarını Temizle</string>
+	<key>Cleanup autosave state</key>
+	<string>Otomatik kaydetme durumunu temizle</string>
+	<key>Cleanup rom hashes</key>
+	<string>Rom Hashe'lerini temizle</string>
+	<key>Clear shader cache</key>
+	<string>Grafik Efektleri önbelleğini sil</string>
+	<key>Controls Setup</key>
+	<string>Kontrol Ayarları</string>
+	<key>Dark (default)</key>
+	<string>Karanlık (Varsayılan)</string>
+	<key>Database Actions</key>
+	<string>Veri Tabanı Eylemleri</string>
+	<key>Debug Mode</key>
+	<string>Hata Ayıklama Modu</string>
+	<key>Default Value: %@</key>
+	<string>Varsayılan Değer: %@</string>
+	<key>Delete artwork that can be downloaded</key>
+	<string>İndirilebilir resim çalışmalarını sil</string>
+	<key>Delete useless image objects</key>
+	<string>Gereksiz resim objelerini sil</string>
+	<key>Disable aspect ratio correction in screenshots</key>
+	<string>Ekran görüntülerinde en/boy oranı düzeltmesini devre dışı bırak</string>
+	<key>Download missing artwork…</key>
+	<string>Kayıp resimleri indir</string>
+	<key>Draw button mask above image</key>
+	<string>Resmin üzerine buton maskesi çiz</string>
+	<key>Europe</key>
+	<string>Avrupa</string>
+	<key>Game View Background color:</key>
+	<string>Oyun arka plan rengi:</string>
+	<key>General</key>
+	<string>Genel</string>
+	<key>HUD Bar / Gameplay</key>
+	<string>HUD Bar / Oynanış</string>
+	<key>Japan</key>
+	<string>Japonya</string>
+	<key>Library Window</key>
+	<string>Kütüphane Penceresi</string>
+	<key>Light</key>
+	<string>Aydınlık</string>
+	<key>Log HID Events</key>
+	<string>HID olaylarını göster</string>
+	<key>Log Keyboard Events</key>
+	<string>Klavye olaylarını kaydet</string>
+	<key>Manually choose system on import</key>
+	<string>İmport edilecek sistemi elle seç</string>
+	<key>North America</key>
+	<string>Kuzey Amerika</string>
+	<key>OpenVGDB</key>
+	<string>OpenVGDB</string>
+	<key>Other</key>
+	<string>Diğer</string>
+	<key>Perform Sanity Check on Database</key>
+	<string>Veritabanı sağlık kontrolü gerçekleştir</string>
+	<key>Range: %@ to %@</key>
+	<string>Sınır: %@ to %@</string>
+	<key>Region:</key>
+	<string>Bölge:</string>
+	<key>Remove duplicated roms</key>
+	<string>Tekrar eden romları kaldır</string>
+	<key>Remove untracked artwork files</key>
+	<string>Takip edilmeyen resim dosyalarını kaldır</string>
+	<key>Reset main window size</key>
+	<string>Ana Pencere Boyutunu Sıfırla</string>
+	<key>Reveal user shader folder</key>
+	<string>Kullanıcı grafik efektleri dosyalarını göster</string>
+	<key>Run games using:</key>
+	<string>Oyunları Kullanarak Çalıştır:</string>
+	<key>Select first field after setting the last</key>
+	<string>Son ayarı yaptıktan sonra ilk alanı seç</string>
+	<key>Set default save states directory</key>
+	<string>Varsayılan kayıt durumu dizinini ayarla</string>
+	<key>Setup Assistant has finished</key>
+	<string>Kurulum Asistanı Sonlandırıldı</string>
+	<key>Shaders</key>
+	<string>Grafik Efektleri</string>
+	<key>Show all special keys</key>
+	<string>Tüm özel tuşları göster</string>
+	<key>Show audio output device in menu</key>
+	<string>Menüde ses çıkış cihazını göster</string>
+	<key>Show autosave in menu</key>
+	<string>Menüde oto-kayıt göster</string>
+	<key>Show autosave states in save state category</key>
+	<string>Kayıt durumu kategorisinde oto-kayıt durumlarını göster</string>
+	<key>Show game titles instead of rom names</key>
+	<string>Rom isimleri yerine oyın başlıklarını göster</string>
+	<key>Show notifications during gameplay</key>
+	<string>Oyun sırasında bildirimleri göster</string>
+	<key>Show quicksave in menu</key>
+	<string>Menüde hızlı kayıt göster</string>
+	<key>Show quicksave states in save state category</key>
+	<string>Kayıt durumu kategorisinde hızlı kayıt durumlarını göster</string>
+	<key>Sync games without artwork</key>
+	<string>Oyunları resim çalışmaları olmadan senkronize et</string>
+	<key>System</key>
+	<string>Sistem</string>
+	<key>Take screenshots in native size</key>
+	<string>Ekran resmini orjinal boyutta al</string>
+	<key>Threshold for analog controls bound to buttons:</key>
+	<string>Düğmelere bağlı analog kontroller için eşik değeri:</string>
+	<key>Toggle game scanner view</key>
+	<string>Oyun tarayıcı görünümünü değiştir</string>
+	<key>Unchecked</key>
+	<string>Seçili Değil</string>
+	<key>Update OpenVGDB</key>
+	<string>OpenVGDB güncelle</string>
+	<key>Use quicksave slots</key>
+	<string>Hızlı kayıt slotlarını kullan</string>
+	<key>While performing this operation OpenEmu will be unresponsive.</key>
+	<string>Bu işlem gerçekleştirilirken OpenEmu işlevsiz kalacaktır.</string>
+	<key>XPC</key>
+	<string>XPC</string>
+</dict>
+</plist>

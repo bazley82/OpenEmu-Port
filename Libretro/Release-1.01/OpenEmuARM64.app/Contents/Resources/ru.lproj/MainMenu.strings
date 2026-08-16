@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>About OpenEmu</key>
+	<string>О программе OpenEmu</string>
+	<key>Always Hide HUD</key>
+	<string>Прятать управление</string>
+	<key>Back Up…</key>
+	<string>Резервная копия…</string>
+	<key>Bring All to Front</key>
+	<string>Все окна на передний план</string>
+	<key>Check for Updates…</key>
+	<string>Проверить обновления…</string>
+	<key>Close Window</key>
+	<string>Закрыть окно</string>
+	<key>Controls</key>
+	<string>Управление</string>
+	<key>Copy</key>
+	<string>Копировать</string>
+	<key>Cut</key>
+	<string>Вырезать</string>
+	<key>Delete</key>
+	<string>Удалить</string>
+	<key>Display Duplicates</key>
+	<string>Показать дубликаты</string>
+	<key>Display Exact Duplicates</key>
+	<string>Показать существующие дубликаты</string>
+	<key>Edit</key>
+	<string>Правка</string>
+	<key>Edit Smart Collection</key>
+	<string>Редактировать смарт-коллекцию</string>
+	<key>Export Collection</key>
+	<string>Экспорт коллекции</string>
+	<key>Export Library…</key>
+	<string>Экспортировать библиотеку…</string>
+	<key>File</key>
+	<string>Файл</string>
+	<key>Find</key>
+	<string>Найти</string>
+	<key>Find Next</key>
+	<string>Найти далее</string>
+	<key>Find Previous</key>
+	<string>Найти ранее</string>
+	<key>Find…</key>
+	<string>Найти…</string>
+	<key>Float on Top</key>
+	<string>Поверх всех окон</string>
+	<key>Fullscreen</key>
+	<string>Полный экран</string>
+	<key>Get Info</key>
+	<string>Получить информацию</string>
+	<key>Help</key>
+	<string>Справка</string>
+	<key>Hide OpenEmu</key>
+	<string>Скрыть OpenEmu</string>
+	<key>Hide Others</key>
+	<string>Скрыть остальные</string>
+	<key>Import Collection</key>
+	<string>Импорт коллекции</string>
+	<key>Jump to Selection</key>
+	<string>Перейти к выбранному</string>
+	<key>Last Display Mode</key>
+	<string>Последний режим отображения</string>
+	<key>Last Played</key>
+	<string>Недавние игры</string>
+	<key>Launch Game…</key>
+	<string>Запустить игру…</string>
+	<key>Load State</key>
+	<string>Загрузить состояние</string>
+	<key>Log Responder Chain</key>
+	<string>Log Responder Chain</string>
+	<key>Minimize</key>
+	<string>Скрыть</string>
+	<key>New Collection Folder</key>
+	<string>Новая папка коллекции</string>
+	<key>New Smart Collection…</key>
+	<string>Новая смарт-коллекция…</string>
+	<key>Next Display Mode</key>
+	<string>Следующий режим отображения</string>
+	<key>OpenEmu Web Site</key>
+	<string>Сайт OpenEmu</string>
+	<key>Organize Library…</key>
+	<string>Организовать библиотеку…</string>
+	<key>Page Setup…</key>
+	<string>Настройка страницы…</string>
+	<key>Paste</key>
+	<string>Вставить</string>
+	<key>Preferences…</key>
+	<string>Настройки…</string>
+	<key>Print…</key>
+	<string>Печать…</string>
+	<key>Quit OpenEmu</key>
+	<string>Завершить OpenEmu</string>
+	<key>Redo</key>
+	<string>Вернуть</string>
+	<key>Release Notes</key>
+	<string>Примечания к выпуску</string>
+	<key>Save State</key>
+	<string>Сохранить состояние</string>
+	<key>Select All</key>
+	<string>Выделить все</string>
+	<key>Send a Donation…</key>
+	<string>Отправить пожертвование…</string>
+	<key>Services</key>
+	<string>Службы</string>
+	<key>Show All</key>
+	<string>Показать все</string>
+	<key>Show Library</key>
+	<string>Показать библиотеку</string>
+	<key>Show ROM Names</key>
+	<string>Показать имена ромов</string>
+	<key>Start Game</key>
+	<string>Начать игру</string>
+	<key>Submit Feedback</key>
+	<string>Submit Feedback</string>
+	<key>Take Screenshot</key>
+	<string>Сделать снимок экрана</string>
+	<key>Undo</key>
+	<string>Отменить</string>
+	<key>Undock Game Window</key>
+	<string>Открепить игровое окно</string>
+	<key>Use Selection for Find</key>
+	<string>Использовать выбранное для поиска</string>
+	<key>User Guide</key>
+	<string>Руководство пользователя</string>
+	<key>View</key>
+	<string>Вид</string>
+	<key>Volume Down</key>
+	<string>Тише</string>
+	<key>Volume Up</key>
+	<string>Громче</string>
+	<key>Window</key>
+	<string>Окно</string>
+	<key>Zoom</key>
+	<string>Увеличить</string>
+	<key>as Grid</key>
+	<string>В виде сетки</string>
+	<key>as List</key>
+	<string>В виде списка</string>
+</dict>
+</plist>

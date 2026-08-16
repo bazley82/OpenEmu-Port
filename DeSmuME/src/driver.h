@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 2009-2015 DeSmuME team
+	Copyright (C) 2009-2018 DeSmuME team
 
 	This file is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -20,6 +20,8 @@
 
 #include <stdio.h>
 #include "types.h"
+#include "debug.h"
+
 
 class VIEW3D_Driver
 {
@@ -34,20 +36,20 @@ class BaseDriver {
 public:
 	BaseDriver();
 	~BaseDriver();
-
+	
 	virtual void AVI_SoundUpdate(void* soundData, int soundLen) {}
 	virtual bool AVI_IsRecording() { return FALSE; }
 	virtual bool WAV_IsRecording() { return FALSE; }
 
-	virtual void USR_InfoMessage(const char *message);
+	virtual void USR_InfoMessage(const char *message) { LOG("%s\n", message); }
 	virtual void USR_RefreshScreen() {}
 	virtual void USR_SetDisplayPostpone(int milliseconds, bool drawNextFrame) {} // -1 == indefinitely, 0 == don't pospone, 500 == don't draw for 0.5 seconds
 
 	enum eStepMainLoopResult
 	{
 		ESTEP_NOT_IMPLEMENTED = -1,
-		ESTEP_CALL_AGAIN = 0,
-		ESTEP_DONE = 1,
+		ESTEP_CALL_AGAIN      = 0,
+		ESTEP_DONE            = 1
 	};
 	virtual eStepMainLoopResult EMU_StepMainLoop(bool allowSleep, bool allowPause, int frameSkip, bool disableUser, bool disableCore) { return ESTEP_NOT_IMPLEMENTED; } // -1 frameSkip == useCurrentDefault
 	virtual void EMU_PauseEmulation(bool pause) {}
@@ -70,6 +72,10 @@ public:
 	VIEW3D_Driver* view3d;
 	void VIEW3D_Shutdown();
 	void VIEW3D_Init();
+
+	virtual void AddLine(const char *fmt, ...);
+	virtual void SetLineColor(u8 r, u8 b, u8 g);
 };
+extern BaseDriver* driver;
 
 #endif //_DRIVER_H_

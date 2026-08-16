@@ -361,7 +361,6 @@
 		870320A91F5CCB3200470B55 /* Controller-Preferences-JAP.plist in Resources */ = {isa = PBXBuildFile; fileRef = 870320A81F5CCB3200470B55 /* Controller-Preferences-JAP.plist */; };
 		870634801C27D267007FAA2F /* OEVectrexSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8706347F1C27D267007FAA2F /* OEVectrexSystemController.swift */; };
 		87191CC61F6F5524006D2EE3 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 87191CC51F6F5524006D2EE3 /* dsa_pub.pem */; };
-		873A36421FE233E00004D81D /* Saturn.oesystemplugin in Copy System Plugins to App Plugins */ = {isa = PBXBuildFile; fileRef = 94A224D31707556D00098DA0 /* Saturn.oesystemplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8745D75F1BF9A72B005E8699 /* OE5200SystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745D75E1BF9A72B005E8699 /* OE5200SystemController.swift */; };
 		8763A38F1D5694E90089C30B /* OEArcadeSystemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8763A38E1D5694E90089C30B /* OEArcadeSystemController.swift */; };
 		877EDD191E24BC63004D68E7 /* Controller-Preferences-JAP.plist in Resources */ = {isa = PBXBuildFile; fileRef = 877EDD141E24BC63004D68E7 /* Controller-Preferences-JAP.plist */; };
@@ -387,7 +386,6 @@
 		87DF05271BCE302F0060E2C2 /* Keyboard-Mappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87DF05131BCE302F0060E2C2 /* Keyboard-Mappings.plist */; };
 		87DF05281BCE302F0060E2C2 /* OEDCSystemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DF05151BCE302F0060E2C2 /* OEDCSystemController.m */; };
 		87DF05291BCE302F0060E2C2 /* OEDCSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DF05171BCE302F0060E2C2 /* OEDCSystemResponder.m */; };
-		87DF05411BCE3CEA0060E2C2 /* Dreamcast.oesystemplugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 87DF04FE1BCE2D100060E2C2 /* Dreamcast.oesystemplugin */; };
 		87F077B423B68D02001FFC9B /* GameCube.oesystemplugin in Copy System Plugins to App Plugins */ = {isa = PBXBuildFile; fileRef = 94CEB26D17A84809005A2107 /* GameCube.oesystemplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		87FB253B1BBC572E00E739CE /* Controller-Preferences-JAP.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87FB25391BBC572E00E739CE /* Controller-Preferences-JAP.plist */; };
 		87FB253C1BBC572E00E739CE /* Controller-Preferences-NA.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87FB253A1BBC572E00E739CE /* Controller-Preferences-NA.plist */; };
@@ -1189,7 +1187,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				87F077B423B68D02001FFC9B /* GameCube.oesystemplugin in Copy System Plugins to App Plugins */,
-				873A36421FE233E00004D81D /* Saturn.oesystemplugin in Copy System Plugins to App Plugins */,
 				87BD9E331C2A679B006722DF /* WonderSwan.oesystemplugin in Copy System Plugins to App Plugins */,
 				87BD9E321C2A6788006722DF /* Vectrex.oesystemplugin in Copy System Plugins to App Plugins */,
 				87BD9E311C2A6774006722DF /* PC Engine CD.oesystemplugin in Copy System Plugins to App Plugins */,
@@ -1232,7 +1229,6 @@
 				87FBC0A81C07A22700AECF5A /* Atari 8bit.oesystemplugin in CopyFiles */,
 				87FBC0861BFC77AF00AECF5A /* Commodore 64.oesystemplugin in CopyFiles */,
 				3DB744CE1BD8BB0B00C23E74 /* PlayStation 2.oesystemplugin in CopyFiles */,
-				87DF05411BCE3CEA0060E2C2 /* Dreamcast.oesystemplugin in CopyFiles */,
 				081A462F1B9574CE00565444 /* Pokemon mini.oesystemplugin in CopyFiles */,
 				837964FA1A614C6A00A8DE5C /* Supervision.oesystemplugin in CopyFiles */,
 				94A5321918DF8A3700AE11B3 /* Jaguar.oesystemplugin in CopyFiles */,
@@ -1594,7 +1590,6 @@
 		87ACB6E11D250A6400138B7E /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87ACB6E21D250A6800138B7E /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		87ACB6E31D250A6C00138B7E /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ControlLabels.strings; sourceTree = "<group>"; };
-		87DF04FE1BCE2D100060E2C2 /* Dreamcast.oesystemplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Dreamcast.oesystemplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DF05041BCE2DA30060E2C2 /* Dreamcast-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Dreamcast-Info.plist"; sourceTree = "<group>"; };
 		87DF050A1BCE302E0060E2C2 /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
 		87DF050B1BCE302E0060E2C2 /* Controller-Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Preferences.plist"; sourceTree = "<group>"; };
@@ -1853,7 +1848,6 @@
 		94A224B71707544100098DA0 /* Atari 5200-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Atari 5200-Info.plist"; sourceTree = "<group>"; };
 		94A224C31707544B00098DA0 /* Nintendo FDS.oesystemplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nintendo FDS.oesystemplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A224C71707544C00098DA0 /* Nintendo FDS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Nintendo FDS-Info.plist"; sourceTree = "<group>"; };
-		94A224D31707556D00098DA0 /* Saturn.oesystemplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Saturn.oesystemplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A224D71707556D00098DA0 /* Saturn-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Saturn-Info.plist"; sourceTree = "<group>"; };
 		94A224F61707596100098DA0 /* PlayStation.oesystemplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayStation.oesystemplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A224FA1707596200098DA0 /* PlayStation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlayStation-Info.plist"; sourceTree = "<group>"; };
@@ -2731,7 +2725,6 @@
 				94A224A31707543600098DA0 /* Atari 2600.oesystemplugin */,
 				94A224B31707544100098DA0 /* Atari 5200.oesystemplugin */,
 				94A224C31707544B00098DA0 /* Nintendo FDS.oesystemplugin */,
-				94A224D31707556D00098DA0 /* Saturn.oesystemplugin */,
 				94A224F61707596100098DA0 /* PlayStation.oesystemplugin */,
 				943F998B1707D51100270E89 /* Vectrex.oesystemplugin */,
 				943F99B31707DF3700270E89 /* 3DO.oesystemplugin */,
@@ -2748,7 +2741,6 @@
 				277CBA4519DE54200059A2C1 /* Intellivision.oesystemplugin */,
 				837964E11A6149C000A8DE5C /* Supervision.oesystemplugin */,
 				081A46261B95744A00565444 /* Pokemon mini.oesystemplugin */,
-				87DF04FE1BCE2D100060E2C2 /* Dreamcast.oesystemplugin */,
 				3DB744BA1BD8BA9E00C23E74 /* PlayStation 2.oesystemplugin */,
 				87FBC06D1BFC70FE00AECF5A /* Commodore 64.oesystemplugin */,
 				87FBC08E1C0790B400AECF5A /* Atari 8bit.oesystemplugin */,
